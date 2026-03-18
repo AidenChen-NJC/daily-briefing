@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-03-17</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:             #f5f3ee;
+      --surface:        #fdfcf9;
+      --surface-alt:    #f9f7f2;
+      --border:         #dedad2;
+      --border-light:   #e8e5de;
+      --ink:            #18160f;
+      --ink-body:       #38342a;
+      --ink-muted:      #7c7868;
+      --ink-faint:      #b0ac9e;
+      --rule:           #c8c3b4;
+      --thought-bg:     #edeae0;
+      --thought-border: #7a6a48;
+      --thought-text:   #3a3220;
+      --accent:         #7a6a48;
+      --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+      --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+      --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:             #111008;
+        --surface:        #171510;
+        --surface-alt:    #131210;
+        --border:         #2a2820;
+        --border-light:   #222018;
+        --ink:            #ede8dc;
+        --ink-body:       #b8b2a0;
+        --ink-muted:      #706a58;
+        --ink-faint:      #403c30;
+        --rule:           #2a2820;
+        --thought-bg:     #1a1810;
+        --thought-border: #6a5e3e;
+        --thought-text:   #c0b898;
+        --accent:         #b09060;
+        --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+        --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+        --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+      }
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+
+    #progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+
+    #back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+    #back-top.visible{opacity:1;pointer-events:auto}
+    #back-top:hover{background:var(--surface-alt);color:var(--ink)}
+
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+    .toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .toc-list li{display:flex;align-items:baseline;gap:10px}
+    .toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+    .toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+    .toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+    .header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+    .header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+    .header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+    .header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+    .header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+    .header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+
+    .section-block{margin-bottom:80px}
+    .section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+    .section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+    .section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+    .article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+    .article-card:hover{border-color:var(--rule)}
+    .article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+    .article-card:hover::before{opacity:.9}
+
+    .card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+    .card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+    .card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+    .card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+
+    .block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+    .factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+
+    details.analysis-details{margin-top:0}
+    details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+    details.analysis-details > summary::-webkit-details-marker{display:none}
+    .analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+    .analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+    details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+    .analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+    .analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+    details[open] .analysis-preview{display:none}
+    .analysis-body{padding-top:12px}
+    .research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+    .analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+
+    .key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+    .key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+    .key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+
+    .food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+    .food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+    .food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+    .food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+    .food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+
+    .footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+
+    .tracking-table{width:100%;border-collapse:collapse;margin-top:40px;font-size:12.5px}
+    .tracking-table th{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);text-align:left;padding:8px 12px;border-bottom:1px solid var(--rule)}
+    .tracking-table td{padding:10px 12px;border-bottom:1px solid var(--border-light);color:var(--ink-body);vertical-align:top;line-height:1.6}
+    .tracking-table tr:last-child td{border-bottom:none}
+    .tracking-table td:first-child{color:var(--ink);font-weight:500}
+    .tracking-table td:nth-child(4){color:var(--ink-muted);font-style:italic}
+
+    .section-sub-header{margin:40px 0 20px;padding-bottom:10px;border-bottom:1px solid var(--border-light)}
+    .section-sub-title{font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-muted)}
+
+    .footer-note{margin-top:32px;font-size:11.5px;color:var(--ink-faint);line-height:1.8;text-align:center;font-style:italic}
+
+    @media(max-width:600px){
+      body{padding:0 18px 80px}
+      .header{padding:40px 0 30px}
+      .header h1{font-size:24px}
+      .article-card{padding:22px 18px 22px 24px}
+      .article-card h3{font-size:17px}
+      .section-title{font-size:18px}
+      #back-top{bottom:20px;right:20px}
+      .toc{padding:16px 18px}
+      .analysis-preview{max-width:200px}
+      .tracking-table{font-size:11px}
+      .tracking-table th,.tracking-table td{padding:7px 8px}
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 3 月 17 日　星期二</span>
+    <span class="header-issue">今日 12 篇</span>
+  </div>
+  <h1>誰在悄悄收割別人的混亂</h1>
+  <p class="header-summary">今天有幾個看起來很強的人，正在用別人看不清楚的方式輸掉——而另一些沒人注意的位置，正在悄悄變成新的基礎設施。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-xai">xAI 挖來的工程師，解決不了 xAI 的問題</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-meta">Meta 裁員讓股價漲了，這才是真正的壞消息</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-bytedance">Seedance 在中國已病毒傳播，好萊塢的停止函來晚了</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic">Anthropic 的 $50 億 ARR 跳升，背後可能是少數幾張大合約</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-terafab">Tesla Terafab 的 2nm 目標，需要一台他還沒辦法買到的機器</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-atoms">Kalanick 的廚房數據，到了礦場等於歸零</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-sunday">Sunday Robotics 感恩節出貨，先要過一個 6 到 12 個月的認證</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-mind">Mind Robotics 的 $5 億賭的是 Scaringe，不是技術</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-latent">LATENT 開源後，Sunday 和 Mind 的數據護城河變窄了</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-defi">DeFi 的風險警告是免責聲明，不是保護機制</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-hyperliquid">伊朗打仗，Hyperliquid 成了周末的全球價格發現場所</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-layerzero">LayerZero 同時讓 Tether、Citadel、ARK 下注，這個投資人結構很罕見</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-a16z">a16z 說 AI 最大的對手是 Accenture，不是 OpenAI</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-mirendil">Mirendil 的 $10 億估值，是為一個標籤付費，不是為產品</a></li>
+  </ol>
+</nav>
+
+<!-- AI · 科技 -->
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">9 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-xai">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI · TechCrunch · Bloomberg · CNBC</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>xAI 挖來的工程師，解決不了 xAI 的問題</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">這是 2026 年第一個大型 AI 實驗室在 IPO 窗口期同時承認技術根基重建的案例，其他估值對標將面臨壓力。</span>
+    </div>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">xAI 由 Elon Musk 創辦、專注開發 Grok 系列語言模型（Large Language Model，大型語言模型）。目前原始 11 位共同創辦人中已有 9 人離開，最新出走的兩位是 Zihang Dai 和直接向 Musk 匯報的 Guodong Zhang，後者主導 Grok Code、據報因落後競爭對手而被歸咎責任。Musk 在 X 上公開承認「第一次就沒做對，正從基礎重建」，並挖角了 Cursor（AI 程式碼編輯工具，估值曾達 $20 億）的核心產品工程師 Andrew Milich 和 Jason Ginsberg。此時 xAI 正以 $1.25 兆估值（含 SpaceX 合併計算）規劃大規模 IPO。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">從 Cursor 挖來的 Milich 和 Ginsberg 是產品工程師，不是預訓練或 RLHF 研究員。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">從 Cursor 挖來的 Milich 和 Ginsberg 是產品工程師，不是預訓練或 RLHF（Reinforcement Learning from Human Feedback，人類反饋強化學習，決定模型行為品質的核心訓練方法）研究員。若 Grok 落後的根因在基礎模型架構或合成數據品質，這兩人的能力根本無法觸及核心瓶頸。更嚴重的問題是 9 位共同創辦人帶走了訓練基礎設施的隱性決策脈絡，新團隊等同於在沒有驗屍報告的情況下重建，而 Anthropic 和 OpenAI 的企業 API 合約就在這段內耗期持續鎖定。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Grok 的核心問題是模型架構，而不是產品介面，Musk 怎麼確認這次挖角方向是對的？</li>
+            <li>xAI 獨立 ARR 從未公開，IPO 投資人實際上在為什麼定價？</li>
+            <li>9 人出走後，還有人知道 Grok 過去具體在哪裡失敗嗎？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-meta">
+    <div class="card-meta">
+      <span class="card-source">Reuters · TechCrunch · Fortune</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Meta 裁員讓股價漲了，這才是真正的壞消息</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Meta（Facebook 母公司，全球最大社群平台之一）傳出計畫裁員約 20%，以 79,000 名員工計算，波及人數約 15,800 人，將超越 2022 年的 11,000 人裁員規模。背景是 Meta 承諾到 2028 年投入 $6,000 億於 AI 基礎設施，同時其最新 AI 模型代號「Avocado」因未達 OpenAI、Google、Anthropic 競品水準而推遲發布。裁員消息傳出後，Meta 股價上漲約 3%。Meta 發言人回應稱此為「針對理論方案的推測性報導」。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">股價漲 3% 說明市場早就認定 Meta 的 AI 人力支出是低效的，但問題比「效率」更深。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">股價漲 3% 說明市場早就認定 Meta 的 AI 人力支出是低效的，但問題比「效率」更深。Avocado 推遲暗示 Meta 的 Llama 開源路線在 RLHF（人類反饋強化學習）品質上有結構性限制，因為開源意味著無法針對專有反饋數據做閉環微調，OpenAI 和 Anthropic 是直接受益者。Meta 的 30 億用戶分發優勢，在模型能力落後時不是護城河，而是把次等 AI 產品推給更多人的放大器。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Meta 的根本問題是開源路線的 RLHF 限制，裁員和省錢怎麼解決這個問題？</li>
+            <li>$6,000 億的 GPU 集群，如果模型持續落後，最有效率的用途是什麼？</li>
+            <li>Meta 用 30 億用戶推一個落後的 AI，長期對品牌的傷害有多大？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-bytedance">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI · The Information · TechCrunch</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Seedance 在中國已經病毒傳播，好萊塢的停止函來晚了</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">ByteDance（字節跳動，TikTok 母公司）的影像生成 AI 模型 Seedance 2.0 原定 3 月中旬全球上市，但 Disney、Paramount、Netflix 以未授權使用其 IP（Intellectual Property，智慧財產權）訓練模型為由，向 ByteDance 發出 cease-and-desist（停止函，要求立即停止特定行為的法律信函）。一段 Seedance 2.0 生成的 Tom Cruise 對打 Brad Pitt 影片已在中國社交平台病毒式傳播。ByteDance 回應稱將引入更強的 IP 保護措施，法務團隊正在處理。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">在擴散模型的推理階段事後過濾特定 IP，技術可信度極低。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">在擴散模型（diffusion model，影像生成 AI 的核心架構）的推理階段事後過濾特定 IP，技術可信度極低。已有大量公開研究證明這類過濾存在可重複的對抗性繞過，Disney 法務團隊對此有充分認知，ByteDance 的聲明更可能是爭取談判時間。更關鍵的是：Seedance 2.0 已在中國上線並取得海量真實互動數據，Runway 和 Pika 在此期間沒有同等規模的部署反饋，好萊塢的停止函實際上是在替 ByteDance 清除法律不確定性，換取和解談判的籌碼。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果技術過濾在架構上無法可靠執行，和解的代價會是授權費還是 ByteDance 讓出股份？</li>
+            <li>中國市場的真實互動數據，在多大程度上能直接遷移改善全球版的模型？</li>
+            <li>好萊塢如果接受和解，等於承認訓練數據的版權訴求無法成立，這對 Sora 和 Runway 有什麼影響？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-anthropic">
+    <div class="card-meta">
+      <span class="card-source">Epoch AI · Quasa · All-In Podcast</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 的 $50 億 ARR 跳升，背後可能是少數幾張大合約</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Anthropic（成立於 2021 年的 AI 安全導向語言模型公司）的年化經常性收入（ARR，Annual Recurring Revenue，以訂閱或合約模式推算的年化收入）從 2025 年底的 $90 億，在不到三個月內攀升至約 $190 億，年增率約 10 倍。對比之下，OpenAI 的 ARR 達 $250 億，年增速約 3.4 倍。Epoch AI（專注 AI 能力演進研究的非營利智庫）估計，若成長趨勢維持，Anthropic 最快可在 2026 年 8 月以約 $430 億 ARR 超越 OpenAI。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">數週內新增 $50 億 ARR，在自然消費者增長的速度下不可能發生，幾乎確定來自少數大型合約的集中簽約。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">數週內新增 $50 億 ARR，在自然消費者增長的速度下不可能發生，幾乎確定來自少數大型 enterprise 或政府合約的集中簽約。若前三大客戶佔 ARR 超過 40%，Epoch AI 的成長曲線預測在合約到期時面臨懸崖風險。相比之下，OpenAI 的 ChatGPT Plus/Pro 訂閱收入結構，在收入穩定性這個維度上反而更佔優勢。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Anthropic 的 $50 億是幾張大合約，而不是有機增長，2026 年 8 月的「超越 OpenAI」有多脆弱？</li>
+            <li>Anthropic 對 Amazon AWS 的算力依賴意味著什麼樣的毛利率結構，ARR 交叉和利潤交叉是同一件事嗎？</li>
+            <li>若真正的大客戶是政府合約，監管風險如何定價？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-terafab">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI · Tom's Hardware · Electrek</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Tesla Terafab 的 2nm 目標，需要一台他還沒辦法買到的機器</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Elon Musk 宣布 Tesla 的「Terafab Project」晶圓廠（fab，semiconductor fab，製造芯片的工廠）將於 3 月 21 日「啟動」，計畫投資約 $250 億，製程目標為 2nm（奈米，目前商業量產的最先進製程節點），年產能目標 1,000 億至 2,000 億顆 AI 及記憶體晶片，初期月產 10 萬片晶圓。Tesla 第五代 AI 晶片 AI5 為首批目標之一，小量生產預計 2026 年、量產 2027 年。Tom's Hardware 指出 3/21 最可能只是奠基典禮。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">2nm 製程需要 High-NA EUV 光刻機，而 ASML 的交付排程已被台積電和三星鎖定至 2028 年以後。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">2nm 製程需要 High-NA EUV 光刻機（極紫外光刻設備，目前全球唯一供應商 ASML 的最頂端設備），而 ASML 的交付排程已被台積電和三星鎖定至 2028 年以後。這是物理性的設備取得障礙，不是錢能解決的問題，直接讓 Musk 的 2027 年量產時程在硬體層面無法成立。台積電是這個公告最直接的受益者，Tesla 短期內仍將是它的客戶。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 High-NA EUV 的排隊時間是 2028 年後，Terafab 的 3/21「啟動」在技術層面究竟在啟動什麼？</li>
+            <li>對一家從未運營晶圓廠的公司，良率爬坡的前兩年成本和直接向台積電代工相比，哪個更貴？</li>
+            <li>這個公告的主要受眾是 IPO 投資人還是 Nvidia，Musk 在試圖影響誰的行為？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="section-sub-header">
+    <span class="section-sub-title">機器人</span>
+  </div>
+
+  <div class="article-card" id="ai-atoms">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Robotics · Forbes</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Kalanick 的廚房數據，到了礦場等於歸零</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Uber 共同創辦人 Travis Kalanick 正式推出機器人公司 Atoms，從其幽靈廚房（ghost kitchen，無實體餐廳、僅供外送平台運作的外包廚房）企業 CloudKitchens 孵化。Atoms 定位為「通用輪式機器人底盤」供應商，明確否定人形機器人路線，主張輪子在現實世界比雙腿更有競爭力。目前正洽購自駕卡車新創 Pronto，以進入礦業和工業運輸領域。Kalanick 在 1,600 字宣言中表示整個計畫醞釀了 8 年。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">CloudKitchens 的物理環境與礦場、工業運輸的非結構化環境之間存在根本性的感知泛化落差。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">CloudKitchens 的物理環境（固定站點、可控溫度、標準化流程）與礦場、工業運輸的非結構化環境之間存在根本性的感知泛化落差（sim-to-real gap）。8 年的廚房作業數據在遷移至礦場時，直接可復用的比例接近零，感知堆疊需要從頭重建。「8 年研發沙盒」的敘事是行銷包裝，若 Atoms 存在護城河，只可能是組織執行能力，而不是技術資產。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果廚房數據無法遷移，Atoms 相比 Boston Dynamics 的差異化究竟在哪裡？</li>
+            <li>「輪子比腿更有競爭力」這個主張，在礦業和物流的哪些具體場景下是真的，哪些場景下腿反而更必要？</li>
+            <li>Kalanick 在 Uber 建立了一個平台網絡效應公司，Atoms 的核心賭注是同樣的邏輯還是完全不同的東西？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-sunday">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Robotics · GlobeNewswire · TechCrunch</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Sunday Robotics 感恩節出貨，先要過一個 6 到 12 個月的認證</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">加州機器人新創 Sunday Robotics 完成 $1.65 億 B 輪融資（超額認購），估值達 $11.5 億，由 Coatue 領投，Bain Capital Ventures、Fidelity、Tiger Global、Benchmark 等跟投。公司目標是讓腰部高度家用人形機器人（humanoid robot，具人類外形特徵的機器人）Memo 在 2026 年感恩節（11 月）前完成 Beta 出貨。Memo 的訓練數據來自超過 500 個真實家庭的近 1,000 萬次家務演示，透過「Skill Capture Glove」感應手套蒐集。現有等待名單約 1,000 人，CEO Tony Zhao 強調「我們籌這筆錢是為了停止做演示」。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">UL 安全認證的標準流程需要 6 到 12 個月，本身就可能讓 8 個月內感恩節出貨的時程無法成立。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">UL 安全認證（美國消費性電子設備進入家庭的強制安全認證）的標準流程需要 6 到 12 個月，本身就可能讓 8 個月內感恩節出貨的時程無法成立。最可能的結果是「Beta 出貨」的定義被重新詮釋為向少量付費早期測試者出貨，而不是 Zhao 所宣稱的「停止做演示」。Tesla Optimus 和 Amazon 在家庭訪問數據規模上是結構性優勢方，Sunday 的護城河是先動，而非不可複製。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>「停止做演示」和「Beta 出貨給 1,000 人等待名單」，在 UL 認證完成前是同一件事嗎？</li>
+            <li>500 個家庭的訓練數據，在 Memo 進入佈局完全不同的第 501 個家庭時，泛化能力會怎樣降級？</li>
+            <li>如果感恩節出貨延遲，對 Coatue 的後續支持和等待名單的信心有什麼影響？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-mind">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Robotics · TechCrunch · BusinessWire</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Mind Robotics 的 $5 億賭的是 Scaringe，不是技術</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Rivian（電動車製造商）分拆的機器人新創 Mind Robotics 完成 $5 億 Series A 融資，由 Accel 和 a16z 聯合領投，估值 $20 億。加上 Eclipse 於 2025 年 11 月領投的 $1.15 億種子輪，公司累計融資已達 $6.15 億，自成立至今不足四個月。Rivian CEO 兼 Mind 主席 RJ Scaringe 公開質疑人形機器人在工廠中的價值，認為其「增加複雜性和功耗卻未帶來生產線價值」，將 Mind 定位在傳統工業機械臂與人形機器人之間的「靈巧操控（dexterous manipulation，在非結構化環境中精細操作物體）」空白地帶。Rivian 工廠同時扮演資源提供者和啟動客戶的角色，目標 2026 年底前部署至生產線。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Accel 和 a16z 的 $5 億本質上是在對 RJ Scaringe 個人判斷力和 Rivian 的工廠背書下注，而非對已驗證技術的投資。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Accel 和 a16z 的 $5 億本質上是在對 RJ Scaringe 個人判斷力和 Rivian 的工廠背書下注，而非對已驗證技術的投資，因為 Mind 的產品形態（固定基座多指手還是移動平台？）至今未公開確認，不同形態對應完全不同的控制架構。更關鍵的結構性問題是：RJ Scaringe 同時擔任 Rivian 公開股東公司的 CEO 和一家他們未直接持股的私人公司主席，Rivian 公開股東若未批准關聯交易的轉移定價，實質上是在無償補貼 Mind。若 Rivian 財務持續承壓，Mind 的核心測試場是第一個被犧牲的非核心支出。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>RJ Scaringe 同時對 Rivian 公開股東和 Mind 私人投資人負有受託責任，這個利益衝突怎麼解決？</li>
+            <li>如果 Rivian 財務繼續惡化，Accel 和 a16z 能在沒有 Rivian 工廠背書的情況下繼續支持 Mind 嗎？</li>
+            <li>「靈巧操控空白地帶」這個定位，Boston Dynamics 在這個賽道上的積累如何評估？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-latent">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Robotics · GitHub</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>LATENT 開源後，Sunday 和 Mind 的數據護城河變窄了</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">中國研究人員在 Unitree G1 人形機器人（零售價約 $16,000，在人形機器人中屬低價區間）上開發 LATENT 系統，僅使用 5 小時的動作捕捉數據（motion capture，用感應器記錄人類動作後轉成 3D 數據），訓練出能在真實球場對打的機器人，球速超過 15 m/s 時仍維持約 90% 回球精確率。研究團隊已在 GitHub 開源（open-source，將代碼公開供任何人使用），將 LATENT 定位為從雜亂真實世界數據中教授運動技能的可復用模板。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">90% 的回球精確率測試條件未公開說明對手水平和旋球變化，若使用固定發球機，面對真實對抗性擊球時的衰減幅度可能極大。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">90% 的回球精確率測試條件未公開說明對手水平和旋球變化，若使用固定發球機或無旋球配合型陪打，面對真實對抗性擊球時的衰減幅度可能極大，這是機器人學論文常見的測試條件效度問題。若 LATENT 的「5 小時數據」管線可遷移至工業任務，直接受衝擊的是 Sunday Robotics（依賴 1,000 萬次示範數據作為護城河）和 Mind Robotics（依賴靈巧操控的專有訓練管線），因為開源讓任何有 G1 硬體的人都能複製類似的數據效率，Unitree 則是硬體銷量的受益者。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果「5 小時」成為業界對機器人學習效率的新參考標準，Sunday 的 1,000 萬次示範數據還值多少錢？</li>
+            <li>LATENT 在網球這個高速但相對結構化的任務上成立，在廚房的非結構化場景中遷移需要什麼條件？</li>
+            <li>開源讓任何人都能複製這個管線，中國和美國機器人新創之間的能力差距，是在縮小還是擴大？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<!-- Web3 · Crypto -->
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-defi">
+    <div class="card-meta">
+      <span class="card-source">Messari Unqualified Opinions · Protos</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>DeFi 的風險警告是免責聲明，不是保護機制</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">一名用戶在 CoW Swap（去中心化交易所，使用意圖批次結算機制尋找最佳交易路徑）上，將 $5,000 萬 Wrapped USDT 換成 Wrapped AAVE（去中心化借貸協議 Aave 的治理代幣），系統多次發出價格衝擊（price impact，大額交易因流動性不足造成的實際成交價格偏離）警告，均被用戶忽略確認執行。最終該用戶僅收到約 $35,000 的 Wrapped AAVE，虧損 $49,965,000，占原始金額的 99.93%。Wrapped AAVE 的流動性遠低於 USDT，CoW Swap 的批次結算機制在此代幣對中造成極端滑點。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">這個事件的核心問題不是代碼漏洞，而是「用戶主動確認了一個平台反覆警告不應執行的操作」，而平台繼續執行了它。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">這個事件的核心問題不是代碼漏洞，而是「用戶主動確認了一個平台反覆警告不應執行的操作」，而平台繼續執行了它。這對 DeFi 產品設計提出了一個根本性問題：當所有警告都可以被一個確認按鈕繞過時，這些警告在功能上是風險保護機制，還是協議在法律責任上的免責設計。沒有贏家，CoW Swap 的批次結算機制在這個案例中的設計邏輯需要正面回應。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果協議在用戶確認後執行了「合法但幾乎確定毀滅性」的交易，誰應該承擔責任？</li>
+            <li>DeFi 的「用戶自主性」原則在這個案例中保護了誰？</li>
+            <li>若要真正防止這類事件，需要改變的是介面設計還是協議底層邏輯，還是兩者都得動？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-hyperliquid">
+    <div class="card-meta">
+      <span class="card-source">Messari Unqualified Opinions · DL News · Fortune · Bloomberg</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>伊朗打仗，Hyperliquid 成了周末的全球價格發現場所</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">去中心化衍生品交易所 Hyperliquid 在以色列/美國對伊朗核設施的軍事行動期間，單日總成交量達 $136 億，是前一周末的 6.9 倍。石油合約單日成交量約 $17 億，為上線前水準的 250 倍。Hyperliquid 的黃金永續合約（perpetual futures，無到期日的衍生品合約，是加密市場最主流的槓桿工具）定價偏差，距 2026 年 3 月 2 日 COMEX（芝加哥商品交易所）開盤僅 22 到 31 個基點，35 個商品合約在前 9 個周末的方向性準確率達 90%。CME（芝加哥商品交易所，全球最大衍生品交易所）已宣布 5 月 29 日推出 24/7 加密期貨，被視為 Hyperliquid 的第一個機構級競爭對手。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Hyperliquid 石油合約對 COMEX 的定價偏差僅 22 到 31 個基點，若這個數字在壓力測試條件下成立，意味著去中心化市場的價格發現質量已接近機構級別。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Hyperliquid 石油合約對 COMEX 的定價偏差僅 22 到 31 個基點，若這個數字在壓力測試條件下成立，意味著去中心化鏈上市場在「傳統市場關閉時」的價格發現質量已接近機構級別。這對傳統金融監管的邏輯構成根本性挑戰：若一個不在任何監管框架內的去中心化平台，在地緣政治危機的最關鍵時刻提供了比傳統市場更即時的流動性，監管機構介入的理由和方式都需要重新定義。CME 5/29 上線後，流向 Hyperliquid 的機構資金是否遷移，將成為這個判斷的第一個壓力測試。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 CME 的 24/7 期貨吸走了機構資金，Hyperliquid 下一個地緣政治危機周末的成交量會是什麼水平？</li>
+            <li>去中心化市場在危機時提供機構級流動性，監管機構下一步的應對方式是把它納入體系，還是試圖限制？</li>
+            <li>Polymarket（預測市場）和 Hyperliquid 同時受益於伊朗事件，這兩種「替代市場」的受眾是同一批人嗎？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-layerzero">
+    <div class="card-meta">
+      <span class="card-source">Messari Unqualified Opinions · CoinDesk · The Block</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>LayerZero 同時讓 Tether、Citadel、ARK 下注，這個投資人結構很罕見</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">LayerZero 是跨鏈互通協議（允許不同區塊鏈之間互相傳遞消息和資產），目前控制約 57% 的跨鏈消息量和約 80% 的跨鏈 USD 流動。其代幣 ZRO 現價約 $2.27，近 30 天上漲 56%，市值約 $11.16 億。機構支持陣容包括 Tether（最大穩定幣發行商的投資部門）、Citadel Securities（傳統做市商，同時是 ZRO 戰略投資方）以及 Cathie Wood 的 ARK Invest（加入顧問委員會）。技術合作方包括 DTCC（美國存券信託公司，處理美國股票等傳統金融市場結算的核心機構）、ICE 和 Google Cloud。Messari 分析師將 LayerZero 拆解為三條產品線分別估值，認為 fee switch（費用開關，啟動協議費用分配給代幣持有人的機制）一旦啟動，將在協議使用量和代幣價值之間建立直接連結。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Tether、Citadel Securities、ARK Invest 三個截然不同的機構同時對同一個底層跨鏈協議下注，這個投資人結構在加密史上極為罕見。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Tether、Citadel Securities、ARK Invest 三個代表加密原生、傳統金融和科技投資的截然不同機構，同時對同一個底層跨鏈協議下注，這個投資人結構在加密史上極為罕見。這暗示 LayerZero 正試圖同時扮演「加密 SWIFT」（全球銀行間清算網絡）和「機構鏈接管道」兩個角色，但這兩個目標在監管合規要求上存在根本性張力，Citadel 和 DTCC 的合規框架與 Tether 的監管立場不在同一個宇宙。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>「加密 SWIFT」和「機構鏈接管道」這兩個角色在監管上需要的合規框架是衝突的，LayerZero 怎麼同時服務這兩個客群？</li>
+            <li>fee switch 一旦啟動，哪些現有 DeFi 協議的流動性會受到影響？</li>
+            <li>如果 Zero L1 的目標 TPS 和費用結構成立，什麼類型的金融交易最可能率先遷移到這條鏈上？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<!-- VC · 投資動態 -->
+<div class="section-block">
+  <div class="section-header" id="section-vc">
+    <span class="section-title">VC · 投資動態</span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <div class="article-card" id="vc-a16z">
+    <div class="card-meta">
+      <span class="card-source">a16z Substack</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>a16z 說 AI 最大的對手是 Accenture，不是 OpenAI</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">a16z 發布長文分析，主題是 AI 如何征服全球企業的遺留軟體問題。SAP（全球最大企業資源規劃軟體供應商，ERP，Enterprise Resource Planning）是核心案例：SAP ECC 升級至 S/4HANA 的典型成本高達 $7 億、耗時 3 年、需要 50 名 Accenture 顧問，德國超市 Lidl 在花了 $5 億後放棄遷移。數位工作者每天切換約 1,200 次應用程式（每週損失約 4 小時），47% 無法找到所需資訊，約 70% 的大型轉型專案未達目標。全球軟體實施/系統整合（SI，System Integrator，如 Accenture、IBM、EY 等收取顧問費協助企業部署大型軟體的公司）市場規模約 $3,800 億。a16z 表示投資了文中提及的部分新創（Axiamatic、Conduct、Auctor、Supersonik、Tessera）。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">a16z 這篇文章的實際論點是「AI 新創的主要競爭對手不是彼此，而是 Accenture、EY、IBM 等系統整合商」。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">a16z 這篇文章的實際論點是「AI 新創的主要競爭對手不是彼此，而是 Accenture、EY、IBM 等系統整合商」。$3,800 億的市場中，大部分目前以顧問費而非軟體費的形式存在，AI 若能取代顧問費，比取代 SaaS 訂閱費有更高的利潤空間。a16z 自己投資了文中點名的新創，這篇分析同時是市場教育和投資組合的公開背書。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>企業願意用一個尚未有 $5 億失敗案例先例的 AI 工具，來取代有 50 個 Accenture 顧問背書的流程嗎？</li>
+            <li>如果 AI 吃掉的是顧問費而不是軟體訂閱費，SAP 和 Salesforce 本身會是受益者還是被繞過的中間層？</li>
+            <li>a16z 同時是分析師和投資人，讀這篇文章的時候怎麼分辨哪個判斷是給讀者的，哪個是給自己投資組合的？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="vc-mirendil">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI · The Information · The Decoder</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>Mirendil 的 $10 億估值，是為一個標籤付費，不是為產品</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">前 Anthropic 科學 AI 推理團隊負責人 Behnam Neyshabur（CEO）和前 Anthropic 高級研究科學家 Harsh Mehta（CTO）於 2025 年 12 月離職，目前正以 $10 億估值洽談籌募 $1.75 億，a16z 和 Kleiner Perkins 預計聯合領投（條款尚未最終確定）。公司 Mirendil 旨在打造能進行長期科學推理（long-term scientific reasoning，讓 AI 設計多步驟實驗並自我修正）的 AI，協助研究員在生物學和材料科學探索複雜假設並執行計算實驗。成員還包括前 xAI 的 Shayan Salehian 和前 OpenAI 實習生 Tara Rezaei。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">a16z 和 Kleiner Perkins 對 $10 億估值的可驗證依據幾乎不存在，公司成立不到四個月、無產品、無客戶、無公開 benchmark。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">a16z 和 Kleiner Perkins 對 $10 億估值的可驗證依據幾乎不存在，公司成立不到四個月、無產品、無客戶、無公開 benchmark，這筆錢本質上是為「前 Anthropic 科學 AI 推理負責人」這個標籤支付的期權費。比標籤更深的問題是：Mirendil 作為純軟體公司，若要在生物學和材料科學中閉環驗證多步驟推理，必須取得大規模、品質可控的濕實驗室（wet lab，需要進行實體化學或生物實驗的實驗室環境）實驗數據，而 Recursion 和 Insilico Medicine 等已有實驗室數據積累的公司，其護城河是數據而非模型，$1.75 億有相當比例可能燒在數據合作談判上。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>「前 Anthropic 負責人」這個標籤在沒有產品的情況下能撐多久，下一輪融資之前需要展示什麼？</li>
+            <li>如果 Recursion 的護城河是數據而非模型，Mirendil 用更好的模型但沒有自己的數據，怎麼贏？</li>
+            <li>生物學和材料科學的 AI 推理，商業化路徑是自己的 SaaS 產品，還是和大型藥廠的研發合作，這兩個路徑需要的融資結構完全不同，Mirendil 現在是哪個？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<!-- 本月追蹤 -->
+<div class="section-block">
+  <div class="section-header">
+    <span class="section-title">本月追蹤</span>
+  </div>
+  <table class="tracking-table">
+    <thead>
+      <tr>
+        <th>追蹤項目</th>
+        <th>基準值</th>
+        <th>本週</th>
+        <th>變化</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Anthropic ARR</td>
+        <td>$90 億（2025 年底）</td>
+        <td>$190 億</td>
+        <td>+111%</td>
+      </tr>
+      <tr>
+        <td>OpenAI ARR</td>
+        <td>$180 億（2025 年底）</td>
+        <td>$250 億</td>
+        <td>+39%</td>
+      </tr>
+      <tr>
+        <td>BTC 現價</td>
+        <td>$65,000（月初）</td>
+        <td>$73,948</td>
+        <td>+13.8%</td>
+      </tr>
+      <tr>
+        <td>ETH 現價</td>
+        <td>$2,050（月初）</td>
+        <td>$2,250</td>
+        <td>+9.8%</td>
+      </tr>
+      <tr>
+        <td>ZRO 月漲幅</td>
+        <td>基準 0%</td>
+        <td>+56%（30 天）</td>
+        <td>持續監測</td>
+      </tr>
+      <tr>
+        <td>Hyperliquid 單日峰值成交量</td>
+        <td>$20 億（平均周末）</td>
+        <td>$136 億</td>
+        <td>地緣政治觸發</td>
+      </tr>
+      <tr>
+        <td>CME 24/7 加密期貨上線</td>
+        <td>未上線</td>
+        <td>倒數 73 天</td>
+        <td>5/29 預計上線</td>
+      </tr>
+      <tr>
+        <td>xAI 共同創辦人留存數</td>
+        <td>11 人（創立時）</td>
+        <td>2 人</td>
+        <td>-82%</td>
+      </tr>
+      <tr>
+        <td>Sunday Robotics 感恩節出貨</td>
+        <td>倒數 8 個月</td>
+        <td>UL 認證進度未公開</td>
+        <td>持續監測</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer-note">
+  本簡報由 Claude Cowork 自動抓取並結構化，資訊來源含 Gmail 電子報與 X 帳號公開貼文及 Web 補充搜尋。所有分析判斷代表當下最佳推論，不構成投資建議。最終判斷請讀者自行查證原始來源。<br><br>
+  生成時間：2026-03-17
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-03-17</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+</body>
+</html>
