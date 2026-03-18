@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-03-14</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:             #f5f3ee;
+      --surface:        #fdfcf9;
+      --surface-alt:    #f9f7f2;
+      --border:         #dedad2;
+      --border-light:   #e8e5de;
+      --ink:            #18160f;
+      --ink-body:       #38342a;
+      --ink-muted:      #7c7868;
+      --ink-faint:      #b0ac9e;
+      --rule:           #c8c3b4;
+      --thought-bg:     #edeae0;
+      --thought-border: #7a6a48;
+      --thought-text:   #3a3220;
+      --accent:         #7a6a48;
+      --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+      --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+      --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:             #111008;
+        --surface:        #171510;
+        --surface-alt:    #131210;
+        --border:         #2a2820;
+        --border-light:   #222018;
+        --ink:            #ede8dc;
+        --ink-body:       #b8b2a0;
+        --ink-muted:      #706a58;
+        --ink-faint:      #403c30;
+        --rule:           #2a2820;
+        --thought-bg:     #1a1810;
+        --thought-border: #6a5e3e;
+        --thought-text:   #c0b898;
+        --accent:         #b09060;
+        --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+        --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+        --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+    #progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+    #back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+    #back-top.visible{opacity:1;pointer-events:auto}
+    #back-top:hover{background:var(--surface-alt);color:var(--ink)}
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+    .toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .toc-list li{display:flex;align-items:baseline;gap:10px}
+    .toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+    .toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+    .toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+    .header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+    .header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+    .header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+    .header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+    .header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+    .header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+    .section-block{margin-bottom:80px}
+    .section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+    .section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+    .section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+    .article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+    .article-card:hover{border-color:var(--rule)}
+    .article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+    .article-card:hover::before{opacity:.9}
+    .card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+    .card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+    .card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+    .card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+    .block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+    .factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+    details.analysis-details{margin-top:0}
+    details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+    details.analysis-details > summary::-webkit-details-marker{display:none}
+    .analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+    .analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+    details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+    .analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+    .analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+    details[open] .analysis-preview{display:none}
+    .analysis-body{padding-top:12px}
+    .research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+    .analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+    .key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+    .key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+    .key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+    .food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+    .food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+    .food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+    .food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+    .food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+    .footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+    @media(max-width:600px){
+      body{padding:0 18px 80px}
+      .header{padding:40px 0 30px}
+      .header h1{font-size:24px}
+      .article-card{padding:22px 18px 22px 24px}
+      .article-card h3{font-size:17px}
+      .section-title{font-size:18px}
+      #back-top{bottom:20px;right:20px}
+      .toc{padding:16px 18px}
+      .analysis-preview{max-width:200px}
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 3 月 14 日　星期六</span>
+    <span class="header-issue">今日 14 篇</span>
+  </div>
+  <h1>有幾個假設，今天同時被打破了</h1>
+  <p class="header-summary">McKinsey 的 AI 工具在兩小時內被入侵，Rivian 的平價電動車再次跳票，Uber 的費率數據揭露了誰在付單。今天的故事有一個共同線索：「我們以為安全的東西，其實沒有。」</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-gemini-maps">Google Gemini 進駐 Maps</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-copilot-health">Microsoft Copilot Health</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-mckinsey-lilli">AI 代理兩小時入侵 McKinsey Lilli</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-apple-foldable">Apple 摺疊 iPhone 規格曝光</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-rivian-r2">Rivian R2 延至 2027</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-zoom-avatar">Zoom AI 數位分身</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anduril-exo">Anduril 收購 ExoAnalytic</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-quickbites">AI 快訊精選</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-btc-clarity">BTC 突破 $72K · Clarity Act 受阻</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-x402">x402：Messari 開放 AI 代理付費存取</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-zodl">ZODL 完成 $2,500 萬種子輪</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-protocol-reports">Messari 協議深度報告精選</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-a16z-hormuz">a16z：霍爾木茲危機 · 資本輪轉</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-uber-rates">a16z 解析 Uber/Lyft 費率結構</a></li>
+  </ol>
+</nav>
+
+<!-- AI · 科技 -->
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">8 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-gemini-maps">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Google 推出 Gemini 驅動的全新 Maps 功能：Ask Maps 與 Immersive Navigation</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Google Maps 是全球最大地圖服務，月活躍用戶超過 10 億。此次升級推出兩大功能：Ask Maps 讓使用者用自然語言對話詢問行程相關問題，Gemini 從 3 億筆以上地點與評論中即時作答；Immersive Navigation 則以 3D 方式渲染整條路線，分析 Street View 與空拍影像後顯示建物輪廓、天橋、斑馬線等細節，並升級為對話式語音導航。Maps 是繼 Gmail、Docs、Sheets、Drive、Meet、Photos、Android 之後，最新被 Gemini 整合的 Google 產品。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">這不主要是使用者體驗升級，而是一步法律預防棋。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Google 加速 Gemini 整合的真正驅動力是 DOJ 反壟斷訴訟的時間壓力，不是使用者需求。當 Gemini 成為 Maps 體驗本身，法院要求「將 AI 與分發渠道拆開」的結構性救濟就變得技術上不可行。這是 Microsoft 當年用 IE 綁定 Windows 的同一邏輯，現在在 AI 基礎設施層重演。真正的輸家是 Mapbox 和 HERE Technologies：開發者市佔將在 1-2 年內加速流失，汽車 OEM 合約提供的緩衝期只剩 5-7 年。Immersive Navigation 幾乎確定是伺服器端渲染再串流，中階 Android 手機根本跑不動。這是給已開發市場有良好網路連線用戶的功能，不是給全球 20 億 Android 用戶的。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>DOJ 的反壟斷救濟真的來了，Google 能用「拆開 Gemini 會讓 Maps 降級」作技術抗辯嗎？這個邏輯在法庭上站得住腳？</li>
+            <li>Mapbox 的企業 API 客戶，遊戲、物流、金融這些行業，對 Google 資料主權的顧慮比消費者更高還是更低？</li>
+            <li>Ask Maps 在「這條路有沒有收費站」這類安全相關查詢上的幻覺（hallucination）率如果可以測量，Google 的法律責任框架是什麼？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-copilot-health">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Microsoft 發布 Copilot Health，整合 50,000+ 醫院電子病歷與 50+ 款穿戴裝置</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Microsoft 推出 Copilot Health，嵌入現有 Copilot 介面，作為獨立的個人化 AI 健康洞察平台。功能包括整合 50+ 款穿戴裝置（如 Fitbit、Apple Watch）、連結全美 50,000 家以上醫院的 EHR（電子病歷系統）、接入 Function 實驗室檢驗結果，並提供個人化健康洞察。Microsoft 強調健康資料不用於模型訓練，用戶可隨時刪除所有連結資料，AI 建議引用哈佛健康、梅奧診所等來源。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">「50,000 家醫院」是網絡觸達，不是 50,000 份資料共享協議。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">關鍵在於：這是唯讀的病人入口網站資料（FHIR R4 標準 API），不是雙向的臨床資料。真正獲得的資料和 MyChart 病人入口網站差不多，藥物、過敏、檢驗結果、就診摘要。「50,000 家醫院」反映的是 Microsoft Azure 醫療資料服務所接入的健康資訊交換網絡覆蓋範圍，不是 50,000 份個別協議。Microsoft 的真實劇本是 Teams 的翻版：用消費者端的吸引力倒逼醫院連接 Azure，最終讓 Azure 成為不可替代的醫療雲基礎設施。最直接的輸家是沒有臨床服務的純數據聚合型數位健康新創。Hims、Ro、Forward Health 的護城河在今天被部分抹除。Epic 的 MyChart 是下一個被侵蝕的消費者介面，但 Epic 會反擊，很可能透過限制 API 存取。一場公開的標準之爭在 12 個月內可期。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Microsoft 成為患者和醫療資料之間的預設 AI 詮釋層之後，醫院手上有什麼籌碼談判 API 存取條款？</li>
+            <li>「資料不用於模型訓練」這句話沒有獨立審計機構背書。在沒有 HHS OCR 介入的情況下，這個承諾有多少法律約束力？</li>
+            <li>如果這個策略成功，Microsoft 會把 Copilot Health 包進 M365 企業授權嗎？醫療 IT 採購就這樣變成微軟生態的延伸？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-mckinsey-lilli">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>AI 代理兩小時內入侵 McKinsey 內部 AI「Lilli」，46,500 萬則訊息曝光</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">這是「AI 工具安全性」從理論風險變成頭條事件的定義性案例。受影響的是麥肯錫，不是一家四人新創。</span>
+    </div>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">資安新創 CodeWall 揭露，其 AI 代理在不到兩小時內，透過 22 個未設認證保護的 API 端點（API endpoint，應用程式對外開放的介面），成功入侵 McKinsey 內部 AI 平台「Lilli」，取得資料庫完整讀寫存取權。Lilli 由 McKinsey 旗下分析機構 QuantumBlack 開發，覆蓋約 45,000 名員工（佔全體 70%），含 10 萬份以上內部文件。據 CodeWall 稱，洩露資料包含 4,650 萬則明文聊天訊息（含 M&A 交易討論）、72.8 萬個客戶相關檔案、5.7 萬個用戶帳號及 95 條系統控制 Prompt。McKinsey 被通報後聯合第三方確認漏洞已修補，並稱無其他人員曾取得存取權。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">McKinsey 聲稱「無其他人入侵」的信心度應該是中等，而非確定。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">核心矛盾在這裡：如果 API 端點沒有身份驗證，就幾乎不存在可辨識身份的存取日誌。McKinsey 的「第三方確認無其他存取」，大概率是「找不到其他 IP 地址的存取記錄」，不是「可以排除其他人也入侵過」。這是兩件截然不同的事。22 個未加驗證的端點是原型（prototype）直接上生產環境的特徵，QuantumBlack 是分析機構而非安全優先的工程組織，部署管道明顯跳過了滲透測試（pentest）和 SOC 2 審計。更大的結論：如果麥肯錫這個等級都出現最基礎的安全漏洞，Fortune 500 企業中有相同問題的內部 AI 工具數量可能以百計。Bain 和 BCG 接下來 18-24 個月的客戶簡報裡，「我們的 AI 平台有 SOC 2 Type II 認證」將成為具體的差異化武器。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Lilli 的 M&A 討論記錄如果真的被外部讀取，哪些 McKinsey 客戶有法律依據要求損害賠償或終止合約？</li>
+            <li>「AI 紅隊測試即服務」會不會成為一個獨立的企業資安子類別？買方是 CISO 還是內部 AI 部署團隊？</li>
+            <li>企業開始強制要求諮詢顧問的 AI 工具通過安全審計，這對麥肯錫、BCG 的 AI 工具部署速度會造成多大阻力？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-apple-foldable">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Tech</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Apple 首款摺疊 iPhone 規格全面曝光：7.8 吋、$2,000+，以鉸鏈對決 Samsung</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">根據 Bloomberg Mark Gurman 報導，Apple 首款摺疊 iPhone 展開後內螢幕約 7.8 吋，接近 iPad mini 尺寸；外螢幕接近一般緊湊型 iPhone。Apple 特別強調鉸鏈耐用度與「業界最低摺痕」。軟體方面，搭載改版 iOS，加入 iPad 風格多工處理、側邊並排 App，Apple 旗下主要 App 均重新設計版面。預計售價超過 $2,000 美元，定位為 Pro 系列之上的超高端產品。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">這 80% 是商業必要性，20% 是技術準備就緒。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Apple 不是因為解決了摺疊技術才推出，而是因為 iPhone ASP（平均銷售單價）成長停滯在 $900-950，Pro Max 接近價格天花板，需要一個新的收入層級。「業界最低摺痕」是可達成的，關鍵在鉸鏈機構的彎曲半徑，不在 Samsung Display 提供的面板。但「最低」是行銷聲稱，需要獨立測量驗證。真正的結構性贏家是 Samsung Display：不管消費者最終買 Apple 還是 Samsung 手機，三星顯示都賺面板費。iPad mini 面臨的是慢速但方向明確的存在危機。如果摺疊 iPhone 銷售良好，第二代降價到 $1,500 時，iPad mini 的砍掉計畫就會正式啟動。開發者在初期（前 5-10M 裝置普及前）幾乎沒有誘因投入為這個形態因素特製 UI。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Apple 接受 iPad mini 的部分自我蠶食，是不是意味著他們已經放棄讓平板和手機保持獨立生態的長期策略？</li>
+            <li>$2,000+ 的定價能讓 Apple 把「產量不足」包裝成「需求大於供應」嗎？還是製造困難根本藏不住？</li>
+            <li>摺疊 iPhone 搭載 iPad 級多工處理，企業 MDM（行動裝置管理）軟體需要全面更新，這對 Jamf、VMware Workspace ONE 是機會還是負擔？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-rivian-r2">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Tech</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Rivian 將 $46K 入門款 R2 延至 2027 年底，優先推出 $58K Performance 版本</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">EV 新創 Rivian 宣布將入門款 R2 Standard（後輪驅動，預計續航 275 英里，起價 $46,495）延至 2027 年底，轉而今年優先推出 R2 Performance（起價 $57,990）。目標 2026 年底前讓最多 25,000 輛 R2 上路。公司正重新設計技術架構、將更多硬體內製化，以應對 EV 稅收抵免取消與新進口關稅的雙重壓力。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">「先推高利潤版本」是策略敘事，但財務才是真正驅動力。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">結論很直接：在沒有 $7,500 聯邦稅收抵免、加上關稅壓力的情況下，$46,495 的 R2 Standard 在低量生產時很可能是負毛利。$57,990 的 Performance 版提供了約 $11,500 的額外邊際，剛好夠覆蓋每輛車的成本。「戰略排序」的說法是真的，但它是財務約束的衍生品，不是獨立的策略選擇。Fisker 的相似性令人不安：同樣是向上轉型為高利潤版本，同樣是說「之後再推便宜款」。Rivian 的不同之處在於資本（$9B+ 流動性），但這不改變市場動態：Tesla Model Y 和 Chevy Equinox EV 有 18+ 個月的窗口鎖定 $35-50K SUV 買家。25,000 輛的目標對 Rivian 的歷史生產記錄來說是樂觀數字，實際達成率估計在 10,000-15,000 輛之間。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Rivian 連續三次以上未達生產目標，供應商會不會開始要求預付款或風險溢價？這種成本增加怎麼影響 R2 Standard 的最終定價？</li>
+            <li>VW 的大額投資給了 Rivian 緩衝，但 VW 有沒有在觀察一個「放棄節點」？R2 量產再次跳票，他們會主導資產重組嗎？</li>
+            <li>消費者在 2027 年等到 R2 Standard 時如果已被 Tesla 或 GM 的忠誠度計畫鎖定，Rivian 的品牌溢價能撐住比競品貴 $3,000-5,000 的定價嗎？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-zoom-avatar">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Tech</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Zoom 推出 AI 數位分身替你出席會議，可模仿臉部特徵與動作</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Zoom 發布 AI 生產力套件，核心功能包括：自動摘要通話、撰寫後續跟進郵件，以及可在會議中替代用戶出席的可客製化 AI Avatar。Avatar 可模仿用戶的臉部特徵、表情與動作，能進行對話並在會後產出摘要，適用於正式會議或非同步視訊訊息。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">「即時 Q&A 全功能 Avatar」是展示品，不是出貨品——至少還需要 12-18 個月。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">有一個根本矛盾值得說清楚：如果 Zoom Avatar 真的能替你開所有會議，它就證明了那些會議不需要你參加。這直接摧毀了視訊會議的每席授權（per-seat）商業模式。目前真正出貨的是非同步視訊訊息的 Avatar 客製化，以及 AI 摘要和郵件撰寫。能在多方即時會議中處理突發問題的 Avatar，在技術上需要同步語音合成、臉部動畫、情境推理同時運作，這不是 2026 年能穩定上線的東西。金融服務、醫療、政府採購部門的合規團隊幾乎肯定會禁止 Avatar 出席正式會議，這把功能的市場限縮到低風險的內部站立會議（standups），而那剛好是最不需要 Avatar 的場景。這主要是給投資人的股價重新定位敘事，不是產品突破。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Avatar 在一場會議中做出承諾或同意了某個條款，法律責任由誰承擔？Zoom 的 ToS 免責條款在企業採購合約面前有效嗎？</li>
+            <li>「AI-first 工作場所套件」這個定位，夠讓 Zoom 重新定價訂閱費率嗎？還是用戶只會趁機降低座席數量？</li>
+            <li>Microsoft Teams 以每席無成本捆綁 M365，Google Meet 以 Workspace 捆綁。Zoom 的差異化窗口在功能追平之前還剩多長？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-anduril-exo">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Tech</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Anduril 收購太空監視公司 ExoAnalytic，同步以 $60.5 億估值募資 $40 億</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Palmer Luckey 創立的國防新創 Anduril 宣布收購精品太空監視公司 ExoAnalytic Solutions，後者擁有全球數百台地面望遠鏡、逾 100 位太空領域專家，建立了完整的「太空感知層」（Space Domain Awareness）。整合計畫是將即時軌道追蹤資料直接饋入 Anduril 的 AI 戰場管理平台 Lattice，形成從「發現太空威脅」到「引導攔截器」的完整指揮鏈。Anduril 同步以 $60.5 億估值向 Thrive Capital 與 Andreessen Horowitz 籌資 $40 億。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Anduril 最直接的競爭威脅對象是 L3Harris 的太空域感知業務，不是 Northrop 或 Lockheed。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">競爭地圖是清楚的：L3Harris 的地面太空監視業務是 ExoAnalytic 最直接的可比競爭者，收購後受衝擊最大。Northrop 的 GSSAP 在軌衛星和 Lockheed 的大型衛星平台則與 Anduril 的能力互補多於競爭。Anduril 目前是「感測器資料到 Lattice 軟體的整合者」，不是垂直整合的太空指揮鏈。它不建造攔截器，也不運營太空基礎設施。「發現威脅到引導攔截器」的完整 kill chain 敘事是 3-5 年後的目標，需要 DoD 的完整授權認證（ATO）流程，不是軟體部署。ExoAnalytic 的真實收購邏輯更簡單：帶著 DoD 現有合約和持有安全許可的 100+ 名專家進來，這為 Anduril 節省了 2-3 年的有機生長時間，同時為 IPO 前的多領域能力敘事增加具體內容。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Anduril 的成長主要靠收購帶合約和人才，而不是有機研發，這對它 $60.5 億估值所代表的「軟體溢價」還成立嗎？</li>
+            <li>Thrive Capital 和 a16z 在 Anduril 這筆投資的退出路徑，是 IPO 還是被 Lockheed/Northrop 收購？兩條路的時間線差距有多大？</li>
+            <li>國防 AI 採購的政治忠誠度測試持續下去，Anduril 的 Luckey 形象能維持多久的「正確陣營」保護傘？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-quickbites">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI / Tech</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>快訊精選：Pentagon 拒絕 Anthropic · Atlassian 裁員 10% · Axiom $2 億 A 輪 · YouTube 廣告超越三大傳統媒體</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">本週 AI 快訊中有四則值得並讀：（1）五角大廈 CTO Emil Michael 稱「不可能」重啟與 Anthropic 合作，稱 Claude 會以「不同的政策偏好」污染供應鏈；（2）澳洲軟體集團 Atlassian 宣布裁減約 10% 員工並重組，理由是 AI 競爭壓力；（3）形式數學與驗證 AI 新創 Axiom 完成 $2 億 A 輪，估值逾 $16 億，由 Menlo Ventures 領投，同期 Amazon 宣布所有 AI 生成程式碼上線前須由資深工程師簽核；（4）YouTube 2025 年在美國產生的廣告收入，據報已超越 Disney、Paramount 與 Warner Bros. Discovery 旗下電視網的總和。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Pentagon 拒絕 Anthropic 是政治忠誠度測試，不是技術評估——Dario Amodei 的安全立場正在變成商業負債。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">這四則快訊指向同一個結構性分叉：AI 公司正在被迫選擇「商業/安全品牌」（Anthropic、部分 Google DeepMind）或「國防相容/許可品牌」（OpenAI、Palantir、Scale AI）。Emil Michael 的聲明是明確的政治測試，不是技術評估。Claude 在 DoD 相關任務上的表現與競品相當。Dario Amodei 的 AI 安全倡導正在成為進入最大政府 AI 採購市場（2027 年預估超 $20 億/年）的障礙。同樣的結構性壓力解釋了 Atlassian 裁員：不是現有客戶在大量流失，而是 Linear、Notion AI、GitHub Copilot Workspace 侵蝕了新業務管道的轉化率，Mike Cannon-Brookes 在問題變成財報可見的數字之前先動刀。Axiom 的 $16 億估值直接由 Amazon 的 AI 程式碼審核公告催化，形式驗證（formal verification，數學證明程式碼正確性的方法）的市場從學術工具變成企業緊急需求，至少在高風險程式碼的細分市場是如此。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>AI 安全立場成為進入國防市場的障礙，Anthropic 面臨一個真實的選擇：妥協安全品牌換取政府合約，還是乾脆接受自己是「商業 AI 公司」並放棄國防市場？</li>
+            <li>Atlassian 的周邊產品（Trello、Bitbucket）在裁員後獲得更少資源，對競爭這些細分市場的新創來說，這個窗口能開多久？</li>
+            <li>形式驗證在實務上需要先寫「形式規格」，但大多數企業沒有這個能力。這個雞蛋問題怎麼解？誰來教企業寫規格？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<!-- Web3 · Crypto -->
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-btc-clarity">
+    <div class="card-meta">
+      <span class="card-source">Messari</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>BTC 突破 $72,000、XRP 漲 3%，Clarity Act 在 4 月前通過參院委員會的可能性不高</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">3 月 13 日，BTC 突破 $72,000，24 小時漲幅 2%，即使美元指數（DXY，衡量美元相對強弱的指標）升破 100，BTC 仍跑贏美國主要股票指數。XRP 大漲 3% 至約 $1.41，技術面突破下降阻力趨勢線轉多。立法面，美國參議院多數黨領袖 John Thune 表示，Clarity Act（數位資產市場結構法案，劃分加密資產由 CFTC 還是 SEC 監管的框架法案）在 4 月前通過參議院銀行委員會的可能性不高。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">BTC 的「去相關」敘事在 24 小時視窗裡是真的，在 90 天視窗裡幾乎肯定是假的。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">兩個明確結論。第一，「BTC 與股票去相關」是單日的數據點，不是結構性變化。BTC 和 Nasdaq 的 90 天滾動相關係數仍維持 0.3-0.7，真正的去相關需要 3 個月以上的持續表現，不是一個低流動性交易時段的 24 小時窗口。第二，Clarity Act 的卡關不是程序問題，是實質分歧：眾院版本（CFTC 主導的商品分類框架）和參院版本（SEC 主導的證券框架）的核心架構差異未解決，加上 Elizabeth Warren 的參院銀行委員會阻力，2026 年全面通過的概率約 25-30%。真正受益於監管曖昧期的是 Coinbase，它的合規護城河在監管不確定中最有價值。真正受害的是 Uniswap、Aave、Compound 等 DeFi 協議，它們需要「不是證券」的確認才能引入機構資本、避免執法風險。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Clarity Act 在 2026 年中期選舉前沒過，DeFi 協議的主要成長資本是不是只能來自非美國機構？這對協議治理有什麼影響？</li>
+            <li>BTC 的 ETF 持續流入，在下一輪宏觀風險出售時真的能「解耦」嗎？還是機構持有 BTC ETF 反而讓它和股票的相關性更高？</li>
+            <li>監管曖昧是 Coinbase 的護城河，那他們有誘因積極推動 Clarity Act 通過嗎？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-x402">
+    <div class="card-meta">
+      <span class="card-source">Messari</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>x402 協議：Messari 讓 AI 代理直接用 USDC 支付取得 40,000+ 種資產數據，無需帳號</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Messari 整合 x402 協議至其 API，基於 HTTP 402 Payment Required 狀態碼，讓應用程式發送請求後，收到含定價資訊的 402 回應，立即以穩定幣（如 USDC）支付，即可取得資料。涵蓋 40,000+ 種數位資產的資料均可按需存取，無需帳號、合約或計費儀表板。定位是讓建構者、研究人員與自主 AI 代理（autonomous AI agents，能自主決策並執行任務的 AI 系統）直接使用。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">x402 是技術上優雅但在生態系統中幾乎沒有用戶的概念驗證，目前更接近融資敘事。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">結論是 70% 敘事、30% 真實押注。HTTP 402 狀態碼自 1997 年存在，從未被廣泛採用，原因不是技術問題，而是 API 金鑰就已夠用於人類發起的交易。x402 的成立前提是：有大量自主 AI 代理帶著自己的 USDC 錢包在做決策。這個場景今天在 demo 裡存在，在生產規模上不存在。Base L2 的 gas 費用 &lt; $0.001，延遲問題可透過支付通道預授權解決，所以技術上沒有問題。真正的問題是採用。如果 x402 成為標準，最大的結構性受益者是 Coinbase，作為 Base L2 的運營者和 USDC 的發行方，它成為機器對機器資料支付的默認結算軌道。Dune 和 DeFi Llama 不會被立即取代，因為它們的價值在社區建立的 dashboard 和免費資料，不在 API 計費架構。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>x402 要成為行業標準，誰有動機推動 Bloomberg Terminal、Kaiko、CoinGecko 採用它？還是這注定只是 Messari 的獨家功能？</li>
+            <li>企業採購需要審計追蹤和支出控制，x402 去掉了帳號和儀表板。對個人開發者和 AI 代理是優化，對企業採購是減分，怎麼在兩者之間取得平衡？</li>
+            <li>自主 AI 代理在 2-3 年內真的成熟了，第一批「機器對機器付費訂閱」的資料類型會是什麼？即時市場資料、法律資料庫，還是科學論文？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-zodl">
+    <div class="card-meta">
+      <span class="card-source">Messari</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>前 ECC 團隊成立 ZODL 完成 $2,500 萬種子輪，a16z、Paradigm、Coinbase Ventures 領銜</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">2026 年 3 月 9 日，前 Electric Coin Company（ECC，Zcash 核心開發組織）全體員工正式成立 ZODL（Zcash Open Development Lab）並完成 $2,500 萬種子輪，投資方包括 a16z crypto、Paradigm、Coinbase Ventures、Maelstrom、Winklevoss Capital 及天使投資人 Balaji Srinivasan 等。起因是 2026 年 1 月，ECC 全體員工與監管 ECC 的非營利組織 Bootstrap 董事會爆發治理衝突後集體辭職。公告後 24 小時內，ZEC 下跌約 14%，從 $497 跌至 $410。ZODL 自 2025 年 10 月以來已促成超過 $6 億 ZEC 兌換，推動屏蔽池（Shielded Pool，隱私交易池）成長超過 400%。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">a16z 和 Paradigm 在下一個監管賭注，不是在下一個使用者增長故事。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">ZODL 的形成速度（辭職後數週內就完成融資）強烈暗示這是預謀的管理層收購（MBO），而非對治理危機的自發回應。投資人對話在辭職前就已進行。對 VC 而言，這是一筆不對稱押注：$25M 對 a16z 和 Paradigm 是可以全額虧損的倉位，賭注是「政府監控強化 → 隱私需求增長 → 鏈上隱私技術溢價」的宏觀敘事，而非 ZEC 有清晰的使用者增長路徑。400% 屏蔽池成長是真實數據，但基數微小。$6 億兌換量估計有 30-50% 是套利和循環交易，不是有機採用。真正的結構性張力在這裡：VC 需要回報，回報需要主流採用，主流採用需要交易所重新上架屏蔽交易，而交易所上架需要某種程度的 KYC 妥協。這與隱私最大主義者的核心立場直接衝突。ZODL 並沒有解決這個矛盾，只是把它轉移到了一個有更好融資的新實體。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>ZODL 要讓 VC 獲得回報，最終必須讓 ZEC 在主要交易所重新上架隱私交易。這個目標和 FATF 旅行規則（Travel Rule，要求記錄發送方和接收方資訊的監管要求）之間，存在不可調和的衝突嗎？</li>
+            <li>從非營利結構轉為 VC 支持的營利公司，Zcash 核心協議升級的決策邏輯會跟著變嗎？商業利益和協議中立性衝突的時候，誰說了算？</li>
+            <li>監管環境惡化，比如 Tornado Cash 判決被確立為先例，$25M 的種子輪能讓 ZODL 撐多久？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-protocol-reports">
+    <div class="card-meta">
+      <span class="card-source">Messari</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Messari 協議報告精選：LayerZero 的 57% 市佔可能被高估、Sui 的 160 萬日活有多少是真人？</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Messari 本期發布四份協議深度報告。LayerZero：估計佔全鏈跨鏈交易量 57%，Q2 2025 峰值達 76%，累計跨鏈轉移超過 $1,000 億，FDV（完全稀釋估值）基本情境 $30 億，但 ZRO 代幣到 2030 年前有約 100% 的通膨壓力（解鎖稀釋）。Sui：Q4 日均活躍地址季增 37.5% 至 160 萬，日均交易量季增 12.6% 至 560 萬筆，但 SUI 幣價 Q4 下跌 57%。Algorand：穩定幣市值季增 27.4% 至 $6,050 萬，但流通市值季減 46.7%，季度總手續費僅 $31,300。Gradient Echo-2：以去中心化消費級設備訓練 AI，宣稱訓練成本降低 10.6 倍（從 $4,490 降至 $425），速度提升 13 倍，基準測試在 Qwen3-8B 模型上與 ByteDance verl 框架持平。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">這四份報告的共同主題是：指標看起來在成長，但代幣持有者的價值捕獲機制都壞掉了。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">四份報告有一個共同的結構性問題：網路使用率和代幣價值的連結斷了。LayerZero 的 57% 市佔被誇大，如果扣除 Stargate 自有橋接量和 ZRO 空投農耕（airdrop farming，透過虛假交易刷出互動量以獲取空投代幣的行為），真實競爭性市佔約 30-40%。沒有費用開關啟動，ZRO 估值完全建立在「未來會收費」的假設上，但 2030 年前 100% 的代幣通膨壓力是確定的。Sui 的 160 萬日活地址，真實人類用戶可能只有 40-60 萬，其餘是機器人和遊戲化創建的地址。幣價跌 57% 但「使用率成長」的組合，是市場已把這些指標折現了的信號。Algorand 的季度手續費 $31,300 根本不夠支撐去中心化驗證者網路，依賴基金會補貼是長期存在的風險。Gradient Echo-2 的 10.6 倍成本優勢在 8B 參數模型上是真實的，但這不能延伸到 30B+ 參數。梯度同步帶寬會成為瓶頸，而 Gradient 選擇在小模型上跑基準測試是刻意為之的優化。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>LayerZero 的費用開關如果在 ZRO 大規模解鎖前才啟動，代幣持有者的稀釋損失是否已經超過費用收益的現值？</li>
+            <li>Sui 的真實日活用戶只有 40-60 萬，那它的 DeFi TVL 中有多大比例是機器人驅動的流動性，而不是人類的資本配置？</li>
+            <li>Gradient 的 Echo-2 在 8B 模型上有意義的成本優勢，「在受限參數規模上高效訓練」這件事，對 AI 新創是可行的商業定位，還是只是通往更大模型之前的過渡？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<!-- VC · 投資動態 -->
+<div class="section-block">
+  <div class="section-header" id="section-vc">
+    <span class="section-title">VC · 投資動態</span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <div class="article-card" id="vc-a16z-hormuz">
+    <div class="card-meta">
+      <span class="card-source">a16z</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>a16z Charts：油價 48 小時漲跌 45%、軟體對製造業的 15 年優勢在 2025 年終止</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">a16z 本期圖表涵蓋兩大主題。霍爾木茲海峽（全球最重要原油運輸通道，約佔全球 34% 石油流量）：3 月 1 日起油輪大規模停止通行，3 月 9 日觸頂時 48 小時內漲幅接近 45%；美國石油基金 $USO 當日交易量達近 $160 億，約為以色列-伊朗衝突時的 4 倍；最終油價回落至約 $80/桶，35 美元漲跌幅在 48 小時內完全回吐。資本輪轉：a16z 記錄了 SaaS 對工業/能源的 15 年估值優勢在 2025 年終止，核心論點是 AI 資本支出將科技巨頭的自由現金流重新導向工業領域，使製造商和基礎設施供應商的每單位資本利潤相對改善。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">USO $160 億交易量背後是誰，a16z 坦承不知道——這句誠實比任何分析都有價值。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">對霍爾木茲事件有一個關鍵校正：a16z 明確說「我們不知道」是誰在頂部買入，這是正確的誠實。USO 的申購/贖回機制意味著 $160 億交易量的大部分可能是機構套利（authorized participants 利用 ETF NAV 溢價做市），不是散戶瘋狂追漲。48 小時完全回吐說明價格超調了 2-3 倍。外交後台訊號（而不是實際解圍）就夠把倉位打爆。資本輪轉論點的核心校正：「軟體 10 倍 FCF 回本劣勢」幾乎完全是 Magnificent 7 的現象，剔除微軟、Google、Meta、Amazon、Apple 的 AI 資本支出後，中位數 SaaS 公司仍有 20%+ FCF 利潤率。a16z 發布的是指數層面的數學，不是軟體商業模式的結構性敗亡。更值得問的問題是：如果 AI 資本支出在 2027-2028 年增速降到 30% 以下，Vertiv、Eaton、Quanta 這些「原子受益者」的跌幅是否會比 2001 年光纖泡沫更深。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>AI 資本支出增速在 2027 年放緩，「原子 vs 比特」的輪動會反轉嗎？還是 AI 基礎設施的需求端拉力夠強，能支撐持續投資？</li>
+            <li>a16z 的基金組合仍然以軟體、crypto、bio 為主，他們發布「原子崛起」的圖表分析，但沒有對應的基金配置調整。這是智識娛樂還是早期的倉位建立信號？</li>
+            <li>霍爾木茲式的地緣政治衝擊，極短暫但極劇烈，對供應鏈監控工具的 B2B 銷售有沒有持久的需求效應？還是買家記憶在 3 個月後歸零？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="vc-uber-rates">
+    <div class="card-meta">
+      <span class="card-source">a16z</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>a16z 數據：Uber 平台費率年增 33%，司機時薪只漲 4.1%——NPS 仍維持在平庸的 18 分</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">a16z 解析 Uber/Lyft 最新費率數據：2025 年 12 月，平台每趟費率年增約 33%，司機時薪年增僅 4.1%（目前接近歷史高點 $23/小時，注意為稅前毛收入未扣支出），乘客客單價年增幅度介於兩者之間。Uber/Lyft 的 NPS（淨推薦分數，衡量用戶願意向他人推薦的指標）在 2025 年先升後降，最終約維持在 18 分，業界評估屬「普通」。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Uber 的費率提升在加速它最終的自我毀滅——每漲一塊，Waymo 的單車經濟性就更好看。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">33% vs 4.1% 的比較不完全是蘋果對蘋果。行程長度縮短、地理組合偏移、浮動加價常態化都可能誇大費率差距約 30-50%。方向性結論幾乎確定正確：Uber 在有效獨占地位（Lyft US 市佔約 25-28%）下正在提取壟斷租金，NPS 18 分說明乘客雖不開心但沒有去處。關鍵的反諷是：Uber 的費率漲價行為正在替 Waymo 建立更強的商業案例。司機時薪 $23/小時意味著無人車跑同等利用率每小時節省 $15-18 純利潤。Uber 的每一次提費，都在縮短 Waymo 達到盈利的時間線。對 Lyft 而言，它已基本放棄與 Uber 的補貼戰，在乘客議價能力幾乎消失的市場裡做個小跟隨者，而不是競爭引擎。監管干預（類似 NYC TLC 限費令）比需求彈性更可能成為 Uber 的近期天花板。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Waymo 在舊金山和洛杉磯的滲透率讓 Uber 在這兩個城市的取費率下降，Uber 會用其他市場的收益補貼，還是直接接受 Waymo 有效占領高密度市場？</li>
+            <li>Uber 正在投資自動駕駛合作夥伴關係，如果它成為自動駕駛車隊的分發平台，33% 的取費率模式能維持甚至提升嗎？</li>
+            <li>司機時薪 $23（稅前毛收入）和真實時薪（扣除油費、折舊後可能 $12-15）的落差，在 AB5 類勞工法規擴展的情況下，會不會成為 Uber 的下一個監管地雷？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-03-14</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+</body>
+</html>
