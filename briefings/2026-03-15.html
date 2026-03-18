@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-03-15</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:             #f5f3ee;
+      --surface:        #fdfcf9;
+      --surface-alt:    #f9f7f2;
+      --border:         #dedad2;
+      --border-light:   #e8e5de;
+      --ink:            #18160f;
+      --ink-body:       #38342a;
+      --ink-muted:      #7c7868;
+      --ink-faint:      #b0ac9e;
+      --rule:           #c8c3b4;
+      --thought-bg:     #edeae0;
+      --thought-border: #7a6a48;
+      --thought-text:   #3a3220;
+      --accent:         #7a6a48;
+      --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+      --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+      --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:             #111008;
+        --surface:        #171510;
+        --surface-alt:    #131210;
+        --border:         #2a2820;
+        --border-light:   #222018;
+        --ink:            #ede8dc;
+        --ink-body:       #b8b2a0;
+        --ink-muted:      #706a58;
+        --ink-faint:      #403c30;
+        --rule:           #2a2820;
+        --thought-bg:     #1a1810;
+        --thought-border: #6a5e3e;
+        --thought-text:   #c0b898;
+        --accent:         #b09060;
+        --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+        --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+        --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+    #progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+    #back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+    #back-top.visible{opacity:1;pointer-events:auto}
+    #back-top:hover{background:var(--surface-alt);color:var(--ink)}
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+    .toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .toc-list li{display:flex;align-items:baseline;gap:10px}
+    .toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+    .toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+    .toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+    .header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+    .header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+    .header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+    .header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+    .header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+    .header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+    .section-block{margin-bottom:80px}
+    .section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+    .section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+    .section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+    .article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+    .article-card:hover{border-color:var(--rule)}
+    .article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+    .article-card:hover::before{opacity:.9}
+    .card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+    .card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+    .card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+    .card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+    .block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+    .factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+    details.analysis-details{margin-top:0}
+    details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+    details.analysis-details > summary::-webkit-details-marker{display:none}
+    .analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+    .analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+    details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+    .analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+    .analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+    details[open] .analysis-preview{display:none}
+    .analysis-body{padding-top:12px}
+    .research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+    .analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+    .key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+    .key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+    .key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+    .food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+    .food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+    .food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+    .food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+    .food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+    .footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+    @media(max-width:600px){
+      body{padding:0 18px 80px}
+      .header{padding:40px 0 30px}
+      .header h1{font-size:24px}
+      .article-card{padding:22px 18px 22px 24px}
+      .article-card h3{font-size:17px}
+      .section-title{font-size:18px}
+      #back-top{bottom:20px;right:20px}
+      .toc{padding:16px 18px}
+      .analysis-preview{max-width:200px}
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 3 月 15 日　星期日</span>
+    <span class="header-issue">今日 9 篇</span>
+  </div>
+  <h1>有人在說一件事，卻在做另一件事</h1>
+  <p class="header-summary">a16z 出了一本企業銷售手冊，但找不到一個成功案例。Paradigm 說在轉型，但技術積累根本不在 AI。Solana 說自己是支付鏈，但數字裡全是機器人。今天的主題是：敘事和現實之間的距離。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-claude-prompt">Claude 提示工程指南背後的真實意圖</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-web3-dev-decline">Web3 開發者減少 50%，AI 生產力是藉口</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-solana-stablecoin">Solana 穩定幣成交量稱霸，但不是支付</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-tether-freeze">Tether 凍結 $42 億，中心化比銀行更徹底</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-blackrock-eth-etf">BlackRock 推出質押以太坊 ETF</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-a16z-sales-playbook">a16z crypto 企業銷售手冊：處方箋，不是成功故事</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-a16z-fund5">a16z crypto Fund V：$20 億背後的收縮訊號</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-paradigm-ai">Paradigm 轉向 AI 與機器人，募集 $15 億</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-samani-multicoin">Kyle Samani 離開 Multicoin，夢想家時代終結？</a></li>
+  </ol>
+</nav>
+
+<!-- AI · 科技 -->
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-claude-prompt">
+    <div class="card-meta">
+      <span class="card-source">Anthropic</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Claude 提示工程指南：「給清晰指令」在 2026 年還需要教？</h3>
+
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Anthropic 透過官方電子報發布 Claude 提示工程最佳實踐，核心建議包含三點：給清晰具體的指令、提供背景脈絡、在 prompt 中附上 2-3 個範例。同時推廣 Console 的 Prompt Generator 自動生成工具、Anthropic Academy 互動課程、以及 GitHub 上的 Claude Quickstarts 範本庫。電子報連結至 claude-4-best-practices 文件頁面，暗示 Claude 4 已上線或即將發布。</p>
+
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">這份指南是留客工具，不是技術突破。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">這份指南是留客工具，不是技術突破。研究指向一個結論：Anthropic 發布「請給清晰指令」這種 2015 年等級的建議，與其說是在教用戶，不如說是在對抗 OpenAI o3 和 Gemini 2 帶來的流失壓力。Console Prompt Generator 的真正目的是創造 Claude 專屬工作流，讓用戶在切換時有摩擦成本。更重要的訊號是 URL 路徑裡的 "claude-4"：如果模型真的有突破性提升，Anthropic 應該在炫耀 benchmark，而不是發補救性的提示教學。這個 Claude 4 軟上線的動作，同時驗證了 Cognition（Devin）、Factory AI 這類把 prompt 抽象掉的公司的賭注，但這些公司自己也面臨一個矛盾：他們建在 foundation model 之上，而 Anthropic 和 OpenAI 正在垂直整合 agent 層，把 prompt 工程這個護城河從下方挖空。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Anthropic 自己的 Prompt Generator 比人寫的 prompt 效果更好，這是在告訴你這個工具很強，還是在告訴你這個模型需要特別照顧？</li>
+            <li>假設 Claude 4 的改進是漸進式而非跨代式，Anthropic 靠「安全」和「企業友好」的定位還能撐多久，才會被迫在能力上跟上？</li>
+            <li>如果把 prompt 工程抽象掉的公司（Cognition、Factory）是下一個界面層，model provider 垂直整合 agent 這件事，會讓他們變成下一個被消滅的中間層嗎？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-web3-dev-decline">
+    <div class="card-meta">
+      <span class="card-source">The Coin Republic</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Web3 開發者活躍度腰斬，「AI 工具提升效率」是掩蓋人才流失的說法</h3>
+
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">2026 年主要區塊鏈的每週 Git commits（程式碼提交次數）減少 75%，活躍開發者數量減少 50%。官方解釋是 AI 工具提升個人生產力，減少了公開提交的需求，加上開發重心轉向應用層和閉源專案。多位 a16z crypto 合夥人同時宣稱 2026 年是 AI agents（自主執行任務的 AI 程式）進入落地試點的關鍵年。</p>
+
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">「AI 提升效率」的說法經不起一個簡單的反問。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">「AI 提升效率」的說法經不起一個簡單的反問：如果開發者人均產出真的提高了，鏈上部署的合約數量和新功能應該也要等比增加，但它們沒有。研究估計 commit 下滑的真實結構是：40-50% 是真實人才流失，20-30% 是轉向私有 repo，AI 生產力提升頂多貢獻 10-20%。驅動力很清楚：一位資深 Solidity 工程師在 AI 新創的股票價值 $50-200 萬人民幣，在 crypto 新創拿到的是不確定的代幣。這直接戳穿了 a16z crypto 合夥人說「2026 是 AI agents 落地年」的敘事。因為 AI x crypto 中間層，包括 agent 與錢包的簽名介面、自主交易授權框架，需要的正是那批已經離開的人。目前 Eliza 框架幾乎以單一玩家的姿態主導了這個中間層，但它幾乎沒有經過安全審計，而有能力審計它的開發者，正是跑去做 AI 新創的那些人。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 AI x crypto 的落地需要一批既懂 LLM 又懂 Solidity 的工程師，但這批人的機會成本是去 AI 新創拿股票，這個人才缺口有沒有辦法用薪資或代幣設計來填補？</li>
+            <li>Eliza 框架成為 AI agent 鏈上操作的事實標準，但沒有充分審計，這讓你想到哪個歷史上因為單點依賴而出現的安全事件？</li>
+            <li>如果開發者回流 crypto 的前提是「持續的代幣價格上漲」，這個循環是不是本質上不穩定的？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<!-- Web3 · Crypto -->
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-solana-stablecoin">
+    <div class="card-meta">
+      <span class="card-source">The Coin Republic</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Solana 穩定幣成交量 36% 稱霸，但這個數字講的是機器人，不是用戶</h3>
+
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">2026 年 2 月，Solana 在調整後穩定幣成交量（排除已知洗盤地址的鏈上穩定幣轉移量）中以 36% 市占排名第一，遠超以太坊（30%）、Tron（15%）、Base（11%），2 月總成交量達 $6,500 億。同期，Tether Gold（XAUT，黃金支撐的穩定幣）在 Solana 上的週成交量首次突破 $2.8 億。</p>
+
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Solana 贏的是「機器最適鏈」，不是「支付鏈」。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Solana 贏的是「機器最適鏈」，不是「支付鏈」。研究指出，即使排除已知洗盤地址後，$0.00025 的手續費對比以太坊的 $2-10，讓套利機器人、做市商、MEV 策略的經濟門檻下降到 Ethereum 根本不可能出現的程度。如果把門檻拉高到真實 P2P 轉帳和商業支付，Tron 可能才是第一名，因為它主導了東南亞和非洲的 USDT 匯款流。XAUT 週成交量 $2.8 億聽起來很亮眼，但研究顯示背後幾乎確定是 2-3 家做市商在刷流動性以吸引 Tether 注意，不是有機需求。Solana 最誠實的定位應該是「DeFi 交易鏈」，而「支付鏈」的故事主要是給外部敘事用的。Base 透過 Coinbase 的分發渠道和 Circle 的 USDC 原生整合，在機構和消費者支付這條賽道上的護城河遠比 Solana 深。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Solana 的成交量優勢是架構性的（低費用吸引機器人），那麼當 Base 也實現接近的吞吐量和費率時，這個優勢能維持嗎？</li>
+            <li>「調整後成交量」這個指標的設計者可以決定什麼算「洗盤」，這是否給了生態系統相關方操弄排名的空間？</li>
+            <li>Tron 在真實匯款上的主導地位幾乎沒有出現在主流敘事裡，這反映了什麼關於 crypto 媒體圈的地理偏見？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-tether-freeze">
+    <div class="card-meta">
+      <span class="card-source">CoinMarketCap</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Tether 凍結 $42 億：一家薩爾瓦多私人公司的凍結能力超過大多數政府制裁</h3>
+
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Tether 於 2026 年 2 月 28 日凍結 $42 億違規 USDT（違反反洗錢或制裁規定的代幣），是三年來規模最大的單次凍結行動。整體穩定幣市場市值約 $3,060 億，USDC 市值連續第二年增速超越 USDT：USDC 成長 73% 至 $751 億，USDT 成長 36% 至 $1,866 億。</p>
+
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">這次凍結的技術機制是 Tether 管理員密鑰控制的黑名單函數，沒有法院授權，沒有透明流程，沒有申訴機制。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">這次凍結的技術機制是 Tether 管理員密鑰控制的黑名單函數，沒有法院授權，沒有透明流程，沒有申訴機制。這在結構上比傳統銀行凍結更中心化，因為銀行凍結至少需要監管或司法授權。$42 億的規模幾乎確定是配合至少一個主要執法行動，而不是主動合規掃描，但 Tether 選擇把它包裝成主動配合，是美國穩定幣立法推進前的刻意品牌定位，直接狙擊 Circle「我們才是合規穩定幣」的敘事。然而這個動作的弔詭之處在於：它同時讓機構覺得「Tether 可以配合執法」而安心，也讓機構擔心「Tether 可以不透明地凍結任何帳戶」而恐慌。USDC 在機構市場的真正優勢不是「Circle 不凍結人」，而是凍結過程有記錄、有司法依據、可以被挑戰，這才是機構評估的關鍵差異。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果你正在建一個使用 USDT 流動性的 DeFi 協議，你需要多大的凍結事件才會真的去實作多穩定幣架構，而不是繼續拖著？</li>
+            <li>Tether 的「我們配合執法」和「我們不透明」同時成立，這對 US 穩定幣立法的設計者是個更難處理的問題，還是更容易處理的問題？</li>
+            <li>如果持有 USDT 的人本來就知道它可以被凍結，那麼「去中心化貨幣」這個敘事對 USDT 的持有者從來都不是真正的訴求點嗎？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-blackrock-eth-etf">
+    <div class="card-meta">
+      <span class="card-source">BitcoinEthereumNews</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>BlackRock 推出質押以太坊 ETF，Lido 和 Rocket Pool 的護城河縮水了</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">美國史上首個質押型以太坊 ETF 上市，確立監管先例，可能在 12-18 個月內催生 Solana、Cosmos 等 PoS 代幣的質押 ETF。</span>
+    </div>
+
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">BlackRock 於 2026 年 3 月初在 Nasdaq 推出 iShares Staked Ethereum Trust ETF，是美國市場首個帶有質押收益（staking yield，透過鎖定 ETH 參與網路驗證獲得的利息收益）的以太坊 ETF 產品。根據估算，扣除管理費、托管費、罰沒保險準備金和現金緩衝後，持有人預期淨收益約為 2.0-2.8%。</p>
+
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">SEC 批准這個產品用的很可能是「不反對」的行政姿態，而不是正式的規則裁定，也就是說質押收益是否構成證券收入這個問題被刻意懸置了。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">SEC 批准這個產品用的很可能是「不反對」的行政姿態，而不是正式的規則裁定，也就是說質押收益是否構成證券收入這個問題被刻意懸置了。這個模糊性讓 Fidelity、Bitwise、VanEck 可以立刻跟進申請，並在未來 12-18 個月創造 Solana、Polkadot 質押 ETF 的監管先例。Lido 和 Rocket Pool 失去的是機構客戶：之前透過 OTC 使用 stETH 的機構，現在可以在券商帳戶直接買到 2.5% 淨收益，不需要接觸 DeFi。如果 BlackRock ETF 達到 $100 億 AUM（IBIT 的成長軌跡顯示這是可能的），它透過 Coinbase 驗證節點持有的 ETH 加上 Coinbase 本身已有的質押份額，可能控制以太坊 15-20% 的質押量。以太坊的去中心化論述不是在一個時間點被打破，而是在每一筆機構資金流入時慢慢稀釋的。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 BlackRock 成為以太坊前三大質押方，而 Coinbase 是它的驗證節點運營商，美國監管機構對以太坊的影響力實際上已經有多大？</li>
+            <li>Lido 的 stETH 的核心價值是 DeFi 可組合性（拿去 Aave 當抵押品、做槓桿），這個使用場景如果只剩 DeFi 原生用戶，市場規模還夠支撐 Lido 的估值嗎？</li>
+            <li>如果質押 ETF 把 ETH 鎖進 TradFi 的托管架構，「同一個 ETH 在 DeFi 裡流轉」的可組合性優勢是否正在慢慢消失？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<!-- VC · 投資動態 -->
+<div class="section-block">
+  <div class="section-header" id="section-vc">
+    <span class="section-title">VC · 投資動態</span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <div class="article-card" id="vc-a16z-sales-playbook">
+    <div class="card-meta">
+      <span class="card-source">a16z crypto</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>a16z crypto 發布企業銷售手冊：找不到一個成功案例，這本身就是答案</h3>
+
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">a16z crypto 發布針對找到 PMF（Product-Market Fit，產品市場適配）後的 crypto 公司的企業銷售組建指南，分四步驟：建立正確銷售團隊（Sales Leader 先於一切）、建立可重複銷售流程（包含 playbook 和每週 forecast call）、避免常見錯誤（包含「相信好產品自己賣」的誤區）、以及持續進行贏輸分析文化。全文無一個具名投資組合公司的成功案例或營收數字。</p>
+
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">研究指向一個結論：如果 EigenLayer、Alchemy、Lightspark 任何一家有可以公開的七位數企業合約，a16z 一定會放進去。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">研究指向一個結論：如果 EigenLayer、Alchemy、Lightspark 任何一家有可以公開的七位數企業合約，a16z 一定會放進去。這本手冊是處方箋，不是成功故事，它的存在本身承認了一件事：developer-led growth 在 crypto 企業市場沒有轉化成採購合約，而且這個問題在整個 Fund IV 投資周期內都沒有被解決。時間點也很關鍵，在 Fund V 預期完成募資前兩個月發布，這是給 LP 看的企業成熟度敘事，不是給投資組合公司看的內部操作手冊，後者早就應該私下分享了。更結構性的問題是：Fireblocks 和 Chainalysis 之所以贏，是因為它們先建企業銷售、後建 crypto 產品，而 a16z 的投資組合幾乎全部相反，這個鴻溝不是一份 playbook 可以填補的。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 crypto 企業採購的最大障礙是法務和合規團隊沒有評估框架，而不是產品功能不夠好，那麼「先建 Sales Leader」的建議解決了正確的問題嗎？</li>
+            <li>Fireblocks 和 Chainalysis 的成功模式是「先建企業信任，後建 crypto 功能」，這個順序在 2026 年的 crypto 新創還有沒有可能被複製？</li>
+            <li>如果 crypto 企業採購週期真的需要 3-5 年才能成熟，Fund V 的存續期夠等到這個時間點嗎？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="vc-a16z-fund5">
+    <div class="card-meta">
+      <span class="card-source">Fortune · CoinTelegraph</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>a16z crypto Fund V 目標 $20 億：縮水 56%，「靈活性」是 LP 關係部門的說法</h3>
+
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">a16z crypto 正募集第五支基金，目標規模約 $20 億，預計 2026 年上半年完成，相較 2022 年的 Fund IV $45 億大幅縮水。同期，a16z 整體宣布完成逾 $150 億的新基金，其中約 $17 億專項投入 AI 基礎設施。a16z crypto 同時發布 2026 年 17 大投資方向，多項涉及 AI 與 crypto 的交叉地帶。</p>
+
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">沒有基金經理會自願砍掉 56% 的管理費，2% 乘以 $45 億是 $9,000 萬，乘以 $20 億是 $4,000 萬，這個差距不可能是主動選擇。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">沒有基金經理會自願砍掉 56% 的管理費：2% 乘以 $45 億是 $9,000 萬，乘以 $20 億是 $4,000 萬，這個差距不可能是主動選擇。Fund IV 在 2022-23 年的熊市高點部署，按市值推算 TVPI 可能低於 0.7x，DPI（實際返還給 LP 的現金比例）幾乎是零。部分機構 LP（大學捐贈基金、退休基金）可能因內部對 crypto 分配的質疑而沒有跟投。a16z 的 crypto fund 能繼續存在，是因為：Chris Dixon 的合夥人地位足夠強保住他的職責範圍，加上 AI x crypto 的交集提供了敘事掩護，以及 LP 可能把 crypto 配置當作維持 AI 基金關係的附加條件。$17 億 AI 對比 $20 億 crypto 這個比例揭示了 a16z 的真實押注順序，但 crypto 基金的邊際美元已經輸給 AI 很長時間了。這個訊號，加上 Paradigm 的轉型，意味著 crypto Series A/B 的估值壓縮是結構性的，不是週期性的。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 LP 把 crypto 配置當作進入 a16z AI 基金的「入場票」，那麼 crypto Fund V 的真實定價權其實在 AI 基金那邊嗎？</li>
+            <li>17 個投資方向平均每個只有 $1.2 億資本，這個厚度對於需要多年協議層創新的賭注（比如「AI 模型成為 App Store」）夠嗎？</li>
+            <li>如果 Fund V 的真實邊際賭注是 AI x crypto 的交集，純 crypto 創辦人拿到 a16z term sheet 的概率在未來兩年內會怎麼變化？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="vc-paradigm-ai">
+    <div class="card-meta">
+      <span class="card-source">Fortune</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>Paradigm 轉向 AI 與機器人：「擴大投資範疇」是「crypto 只能募到 $5 億」的 LP 語</h3>
+
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Paradigm（由前 Sequoia 和 Coinbase 系校友 Matt Huang、Fred Ehrsam 共同創立）正募集多達 $15 億新基金，投資範疇從純 crypto 擴展至 AI 與機器人領域。同期，由 a16z 支持的去中心化社交網路 Farcaster 於 2026 年 1 月將基礎設施出售並退還 $1.8 億給投資人。</p>
+
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">研究揭示的真實邏輯是：「AI + Robotics」可以募到 $15 億，「only crypto」可能只能募到 $5 億。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">研究揭示的真實邏輯是：「AI + Robotics」可以募到 $15 億，「only crypto」可能只能募到 $5 億。Paradigm 在 crypto 的優勢是機制設計（AMM 數學、拍賣理論）和密碼學協議的深度，這些在 AI 裡有部分遷移，但在機器人領域幾乎是從零開始。沒有招到具備控制理論或機器人製造背景的合夥人，Paradigm 的 AI/Robotics 轉型就是帶著 crypto 估值邏輯去搶 Lux Capital 和 Khosla 已經在打的交易。Farcaster 這個案例不只是一個失敗，它是整個 crypto 社交類別的失效：Lens Protocol 停滯、Friend.tech 崩潰、BitClout 消失。這些失敗加速了 Paradigm 的重新定位。這個轉型真正的代價，是 Paradigm 研究團隊（Dan Robinson、Georgios Konstantopoulos）可能轉向 AI，而他們原本是業界最高品質的加密機制設計研究來源，這個公共財消失之後，沒有其他基金可以替代。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Paradigm 在 crypto 的優勢來自「比其他 VC 更懂技術」，但在機器人領域，控制理論和供應鏈製造知識是不同維度的技術壁壘，這個跨越值得冒嗎？</li>
+            <li>如果 Polychain 繼續堅守純 crypto 但 Paradigm 和 a16z 都撤退了，純 crypto fund 的品牌護城河是加深了還是縮小了？</li>
+            <li>Paradigm 研究公共財消失，受影響最大的是哪些類型的協議開發者？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="vc-samani-multicoin">
+    <div class="card-meta">
+      <span class="card-source">CoinDesk · The Defiant</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>Kyle Samani 離開 Multicoin：Solana 最大的佈道者，在 Solana 成為共識後離場</h3>
+
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Multicoin Capital 聯合創辦人 Kyle Samani 於 2026 年 2 月 4 日宣布離開，結束近十年 Managing Director 任期。Samani 個人仍持有大量 crypto 部位，並繼續擔任 Solana 財庫公司 Forward Industries 的 Chairman。Dragonfly 合夥人 Haseeb Qureshi 公開評論稱：Samani 的離開標誌著「夢想家時代結束、實幹者時代到來」。Multicoin 最著名的成績是早期重壓 Solana。</p>
+
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Haseeb 說「實幹者時代到來」是在替自己的基金打廣告，但他碰到了一個真實的結構問題。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Haseeb 說「實幹者時代到來」是在替自己的基金打廣告，但他碰到了一個真實的結構問題。集中賭注策略在 Solana 市值 $100 億以下時能產生自我強化的敘事循環：Samani 的公開倡議吸引開發者，開發者帶來用戶，用戶驗證論題，這個循環在 Solana 市值突破 $500 億後就失效了。Samani 轉到 Forward Industries 是一個訊號，他對 SOL 的下一階段評估是：代幣增值由費用收入和穩定幣採用驅動，這是財庫管理或永久資本工具的邏輯，不是 10-50 倍風險投資的邏輯。他不是看空 SOL，他是認為用基金結構押 SOL 已經沒有邊際優勢了。對 Multicoin LP 更直接的問題是：Samani 的離開幾乎確定觸發了 key-person（關鍵人物）條款，LP 可能有權暫停新投資或要求修改合約條款，而 Farcaster 退還 $1.8 億的先例讓「要求返還資本」這個選項在 2026 年比以前更被正常化了。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Forward Industries 的 MicroStrategy 式玩法（永久資本持有 SOL）和 Multicoin 的基金結構之間的根本分歧是什麼，這告訴你 Samani 對 SOL 未來五年的預測是什麼？</li>
+            <li>如果 Multicoin 的品牌是 Samani 的公開確信，而 Tushar Jain 是內部運營型合夥人，那麼接下來的 Multicoin 在本質上是不是已經變成了另一家基金？</li>
+            <li>crypto VC 裡有多少基金的品牌核心其實是某一個人，而不是一套可複製的投資流程，這個人一旦離開，基金應該怎麼告訴 LP？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-03-15</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+</body>
+</html>
