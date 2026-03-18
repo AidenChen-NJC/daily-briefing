@@ -1,0 +1,454 @@
+```html
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-03-18</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:             #f5f3ee;
+      --surface:        #fdfcf9;
+      --surface-alt:    #f9f7f2;
+      --border:         #dedad2;
+      --border-light:   #e8e5de;
+      --ink:            #18160f;
+      --ink-body:       #38342a;
+      --ink-muted:      #7c7868;
+      --ink-faint:      #b0ac9e;
+      --rule:           #c8c3b4;
+      --thought-bg:     #edeae0;
+      --thought-border: #7a6a48;
+      --thought-text:   #3a3220;
+      --accent:         #7a6a48;
+      --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+      --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+      --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:             #111008;
+        --surface:        #171510;
+        --surface-alt:    #131210;
+        --border:         #2a2820;
+        --border-light:   #222018;
+        --ink:            #ede8dc;
+        --ink-body:       #b8b2a0;
+        --ink-muted:      #706a58;
+        --ink-faint:      #403c30;
+        --rule:           #2a2820;
+        --thought-bg:     #1a1810;
+        --thought-border: #6a5e3e;
+        --thought-text:   #c0b898;
+        --accent:         #b09060;
+        --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+        --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+        --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+
+    #progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+
+    #back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+    #back-top.visible{opacity:1;pointer-events:auto}
+    #back-top:hover{background:var(--surface-alt);color:var(--ink)}
+
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+    .toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .toc-list li{display:flex;align-items:baseline;gap:10px}
+    .toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+    .toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+    .toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+    .header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+    .header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+    .header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+    .header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+    .header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+    .header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+
+    .section-block{margin-bottom:80px}
+    .section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+    .section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+    .section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+    .article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+    .article-card:hover{border-color:var(--rule)}
+    .article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+    .article-card:hover::before{opacity:.9}
+
+    .card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+    .card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+    .card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+    .card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+
+    .block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+    .factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+
+    details.analysis-details{margin-top:0}
+    details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+    details.analysis-details > summary::-webkit-details-marker{display:none}
+    .analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+    .analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+    details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+    .analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+    .analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+    details[open] .analysis-preview{display:none}
+    .analysis-body{padding-top:12px}
+    .research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+    .analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+
+    .key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+    .key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+    .key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+
+    .food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+    .food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+    .food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+    .food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+    .food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+
+    .footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+
+    @media(max-width:600px){
+      body{padding:0 18px 80px}
+      .header{padding:40px 0 30px}
+      .header h1{font-size:24px}
+      .article-card{padding:22px 18px 22px 24px}
+      .article-card h3{font-size:17px}
+      .section-title{font-size:18px}
+      #back-top{bottom:20px;right:20px}
+      .toc{padding:16px 18px}
+      .analysis-preview{max-width:200px}
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 3 月 18 日　星期三</span>
+    <span class="header-issue">今日 13 篇</span>
+  </div>
+  <h1>誰在為誰承擔風險？</h1>
+  <p class="header-summary">晶片、數據中心、衛星、玻璃都在用同一個邏輯解決問題：把建設成本轉給供應方，自己買剩下的容量。這不是聰明的談判，是風險轉嫁鏈的開始。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-nvidia">Nvidia 的軟體護城河裡，NemoClaw 是最先裂開的那條線</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-manus">Meta 的「Llama 是大腦、Manus 是手」戰略</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-neuracle">Neuracle 拿到全球第一，但這個「第一」在中國邊界外</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai">OpenAI 放棄自建數據中心的真正贏家</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-samsung">Samsung 三折機退場的真實理由</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-starcloud">Starcloud 的 88,000 顆衛星計畫</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-paradigm">Paradigm 的擴張與交叉地帶投資</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-nebius">Meta 與 Nebius 的 $270 億算力協議</a></li>
+  </ol>
+</nav>
+
+<!-- AI · 科技 -->
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">6 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-nvidia">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI · CNBC · DataCenterKnowledge</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Nvidia 的軟體護城河裡，NemoClaw 是最先裂開的那條線</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Nvidia CEO Jensen Huang 在 GTC 2026 主題演講公布，Blackwell 加 Vera Rubin 平台的訂單展望達 $1 兆（到 2027），較去年預測翻倍。Vera Rubin（Nvidia 下一代 AI 晶片平台，H2 2026 出貨）推理效能是現有 Blackwell Ultra 的 5 倍，token 成本降 10 倍，大模型訓練所需 GPU 減少 4 倍。Nvidia 同步推出 NemoClaw（為 OpenClaw agent 打造的企業安全 reference stack），以及 DLSS 5 遊戲渲染、Isaac 機器人平台、Space-1 太空 AI 數據中心，全線並跑。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">NemoClaw 是 Nvidia 四條垂直線中最脆弱的一條，因為它是純軟體標準，沒有硬體綁定機制…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">NemoClaw 是 Nvidia 四條垂直線中最脆弱的一條，因為它是純軟體標準，沒有硬體綁定機制，LangChain 或 Microsoft AutoGen 明天就能推出等效開源替代。Nvidia 真正的防禦是「NemoClaw 在 Nvidia GPU 上的推理延遲比同等開源方案低 30–40%」，也就是說護城河在硬體性能差距，而非安全規格本身。真正的競爭對手不是 LangChain，是 Microsoft，因為 Microsoft 同時握有 Azure 分發、AutoGen 軟體棧與 OpenAI 模型的垂直整合能力。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 NemoClaw 的護城河本質上是硬體性能差距，那麼 AMD 或 Intel 只要縮小推理延遲差距，NemoClaw 的生態就會瓦解——Nvidia 是否已經意識到這個邏輯？</li>
+            <li>Nvidia 歷史上最多同時深度維護兩條垂直線，現在同時跑四條，哪條線最先退化成 demo 而非產品？</li>
+            <li>如果 Microsoft 的垂直整合（Azure + AutoGen + OpenAI）才是真正的對手，Nvidia 要靠什麼讓企業客戶選 NemoClaw 而不是 Microsoft 全家桶？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-manus">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI · VentureBeat · 9to5Mac</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Meta 的「Llama 是大腦、Manus 是手」戰略，更可能是企業端守不住的後退</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Meta 旗下 Manus（2025 年 12 月以 $20 億完成收購的新加坡 AI agent 公司）推出 My Computer 桌面應用，目前支援 Apple Silicon（M 系列晶片）Mac，讓 AI agent 直接在本機讀取、排序、編輯文件，並可在背景執行任務。Manus 在雲端版上線後 8 個月達到 $1 億 ARR，CEO Xiao Hong 以 VP 身分加入 Meta。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">研究指向一個結論：My Computer 的發布時序，更像是企業端失守後被迫的消費端轉向…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">研究指向一個結論：My Computer 的發布時序，更像是企業端失守後被迫的消費端轉向，而非主動戰略。若 Manus 雲端版企業合約佔比超過 60%（典型 B2B agent 工具的結構），收購後客戶流失意味著 NRR（淨收入留存率，反映客戶擴充或流失的健康指標）很可能已跌破 100%。企業流出的客戶，最直接的受益者是 OpenAI Operator 和 Anthropic 的 Claude 企業 agent 方案。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>My Computer 要在 Apple Silicon Mac 上運作，就必須通過 Apple 的 Notarization，若 Manus 任何遙測回傳 Meta 伺服器，Apple 可以直接撤銷簽名——Meta 在分發層根本沒有主動權，這個風險被低估了嗎？</li>
+            <li>如果 My Computer 的核心場景是「幫你整理照片、重命名發票」，這和 Apple Intelligence 的定位直接重疊，Meta 憑什麼讓用戶裝一個額外的 app？</li>
+            <li>企業客戶跑掉之後，Manus 的 $20 億收購價是否還能找到足夠的回報路徑？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-neuracle">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Tech · Bloomberg · Nature</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Neuracle 拿到全球第一，但這個「第一」在中國邊界外沒有護城河</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">中國 NMPA（國家藥監局）批准 Neuracle Medical Technology 的腦機介面系統 NEO 商業上市，成為全球首個獲准商業銷售的侵入式 BCI（Brain-Computer Interface 腦機介面）。NEO 由硬幣大小的無線植入物（置於大腦外膜表面，不穿透腦組織，搭載 8 個 ECoG 電極）與氣動機器手套組成，36 名臨床試驗患者顯示可顯著改善頸椎脊髓損傷患者的抓握能力。相關港股當日漲超 10%。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">外膜型 ECoG 和穿透型 Utah array 記錄的是完全不同的神經信號…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">外膜型 ECoG 和穿透型 Utah array 記錄的是完全不同的神經信號（場電位 vs. 單神經元 spike），兩種數據在特徵空間上不可互通，Neuracle 積累的臨床數據對 Neuralink 的研發毫無遷移價值，反之亦然。8 個電極的物理上限，決定了 NEO 可解碼的自由度最多 3–5 個維度，足夠「開合手掌」但永遠無法做到五指獨立精細運動，不增加電極數量或改用穿透型就無法突破這個天花板。Neuracle 的護城河只存在於中國的監管先行優勢和醫院關係，在美國 FDA 和歐洲 CE 框架下，Neuralink 的 1024 通道數據才是臨床說服力的來源。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>NEO 的功能上限是「抓握」，Neuralink 在追求的是「讓截癱患者用意念打字」，這兩條路線的目標患者群根本不同——Neuracle 和 Neuralink 真的在競爭同一個市場嗎？</li>
+            <li>中國把 BCI 列為關鍵未來產業並加速監管審查，如果 Neuracle 快速積累中國患者數據，這份數據在美國 FDA 申請時會被承認嗎？</li>
+            <li>如果穿透型 BCI 功能更強但風險更高，監管機構在長期會偏向哪個方向——安全性還是功能性？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-openai">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI · The Information · TheDeepdive</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 放棄自建數據中心，真正的贏家是 Nvidia，不是 AWS 或 Google</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">OpenAI 因無法為自建數據中心獲得銀行融資，宣布放棄 Stargate（OpenAI 宣布的 $5,000 億 AI 基礎設施計畫）自建路線，轉向租用 AWS、Google Cloud、AMD、Cerebras 等外部雲計算資源。Stargate 的計算投資目標從 $1.4 兆削減至 $6,000 億（到 2030），首個 1GW（10 億瓦特）容量目標定在 H2 2026，算力重點轉向 Nvidia Vera Rubin 平台，前 Intel AI 主管 Sachin Katti 領導基礎設施重組。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">OpenAI 的 CUDA kernel 優化和自訂通訊協定，在 Google TPU 和 Amazon Trainium 上需要完整重寫…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">OpenAI 的 CUDA kernel 優化和自訂通訊協定，在 Google TPU（XLA 編譯器）和 Amazon Trainium（Neuron SDK）上需要完整重寫，不是移植，歷史上 Google 自己從 TensorFlow 移植到 JAX/XLA 都花了 12–18 個月工程時間。多後端異構適配的邊際工程成本，很可能超過自建同構叢集的資本支出，這反而強化了 OpenAI 對 CUDA 和 Nvidia 硬體的依賴。真正的贏家是 Nvidia，Stargate 的崩解讓 OpenAI 更難擺脫 Vera Rubin，而 AWS 和 Google 得到的只是 committed spend 合約，以及對 OpenAI 訓練規模的結構性議價槓桿。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>OpenAI 一旦在 Google Cloud 簽下多年承諾消費，Google 在定價談判上的優勢會如何影響 OpenAI 的長期成本結構？</li>
+            <li>如果多後端適配成本真的高於自建，OpenAI 的工程資源會優先放在模型研發還是基礎設施適配，這個取捨對 OpenAI 的技術競爭力有什麼影響？</li>
+            <li>Stargate 計畫宣布超過一年卻沒有積極推進，這代表 OpenAI 的基礎設施能力一直被高估嗎？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-samsung">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Tech · Bloomberg · 9to5Google</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Samsung 說成本太高退場，但真正卡住折疊手機的是玻璃良率，這對 Apple 更是壞消息</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Samsung 在 Galaxy Z TriFold 上市不到三個月後宣布停售。該機於 2026 年 1 月底在美上市，售價 $2,899，展開尺寸 10 吋，是 Samsung 首款雙鉸鏈手機，小批量限量發售幾乎每次秒罄。Samsung 稱定位為「概念展示」，DRAM 和 NAND（動態隨機存取記憶體及快閃記憶體）成本過高是停產主因。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Samsung 是全球最大 DRAM/NAND 自有生產商，把退場歸因記憶體成本說服力低…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Samsung 是全球最大 DRAM/NAND 自有生產商，把退場歸因記憶體成本說服力低。真正的瓶頸在於雙鉸鏈架構下 UTG（超薄玻璃）的良率，雙折彎對玻璃應力的要求比單折嚴苛兩倍以上，Samsung Display 的 UTG 在雙鉸鏈架構的良率業界估算不足 60%。Apple 在這個問題上更為被動，因為它既無自有面板廠，又只能在 Samsung Display 或 BOE 之間選一家，折疊 iPhone 的成本結構比 Samsung 更受制於供應商。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 UTG 雙鉸鏈良率是物理限制，Apple 的供應商議價能力根本解決不了問題，Apple 折疊 iPhone 是否本來就不該是三折設計？</li>
+            <li>Huawei 用 BOE 繞開 Samsung Display，在垂直整合上比 Apple 有優勢，但 BOE 的量產成熟度還不夠——這個窗口期能持續多久？</li>
+            <li>Samsung 主動退場是否反而讓 Huawei 在折疊手機市場的技術形象得到提升，哪怕 Mate XT 的出貨量也很有限？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-starcloud">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Tech · SpaceNews</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Starcloud 的 88,000 顆衛星計畫：在當前發射成本下，僅發射費用就讓商業模式不成立</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">這是本週最能說明「監管卡位」與「工程可行性」之間落差的案例，也是理解 Nvidia 太空布局動機的關鍵。</span>
+    </div>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Nvidia 支持的 Redmond 新創 Starcloud 向監管機構提交申請，計畫建立 88,000 顆衛星組成的星座，定位為「軌道數據中心」，在太空部署 AI 加速器和雲服務器。88,000 顆的規模是目前最大的 SpaceX Starlink（約 10,000 顆）的 8 倍以上，與 Nvidia GTC 2026 上公布的 Space-1 Vera Rubin 太空 AI 數據中心計畫高度吻合。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">物理計算使商業可行性直接崩潰：Vera Rubin 單 GPU 估計功耗 600–900W…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">物理計算使商業可行性直接崩潰：Vera Rubin 單 GPU 估計功耗 600–900W，每顆衛星搭載 4 顆 GPU 所需的散熱輻射面板面積超過 10 平方公尺，衛星總質量超過 500 公斤，以 SpaceX Falcon 9 現行每公斤約 $2,700 的 LEO（低地球軌道）發射成本計算，88,000 顆衛星僅發射費用就超過 $1,000 億，遠超地面液冷散熱的總成本。衛星間光通訊頻寬目前約 100 Gbps，大規模分散式訓練所需的梯度同步在此頻寬下每步需數百秒，完全不可行，唯一技術可行的 workload 是單衛星邊緣推理。Starcloud 這份申請是監管卡位動作，不是工程計畫，真正受損的是被搶占軌道資源的 SpaceX Starlink 和 Amazon Kuiper。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果軌道 GPU 在物理上無法做分散式訓練，只能做邊緣推理，那 Starcloud 的商業模式到底是什麼，Nvidia 為什麼要背書這個計畫？</li>
+            <li>88,000 顆衛星申報之後，ITU（國際電信聯盟）的頻譜和軌道分配規則是否足以阻止這種「先申報、再說」的卡位策略？</li>
+            <li>如果 Nvidia 的真實目的是「議題設置權」而非實際部署，這個動作對 SpaceX 和 Amazon 的軌道資源談判有什麼具體影響？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<!-- Web3 · Crypto -->
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-paradigm">
+    <div class="card-meta">
+      <span class="card-source">X @paradigm · CoinTelegraph · The Information</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Paradigm 的擴張不是跨界，而是 Crypto VC 正式承認下個主要主題在交叉地帶</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Crypto VC 巨頭 Paradigm（Matt Huang、Fred Ehrsam 創立）正在籌募 $15 億新基金，擴展投資領域至 AI、機器人及其他前沿科技，現有 AUM 達 $127 億。對比：2021 年旗艦基金 $25 億（當時 Crypto 史上最大），2024 年第三期基金 $8.5 億（專注早期 Crypto）。背景：2025 年 AI 公司獲得全球 VC 投資 $2,587 億，占全年總量 61%，較 2022 年佔比翻倍。Paradigm 此前與 OpenAI 合作發布 EVMbench（評估 AI 模型識別智能合約漏洞能力的基準測試）。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Paradigm 此次擴張最重要的信號不是金額，而是它代表 Crypto 最精英的技術 VC…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Paradigm 此次擴張最重要的信號不是金額，而是它代表 Crypto 最精英的技術 VC 正式承認「Crypto × AI 交叉地帶」，包括自主支付、智能合約安全、鏈上 AI agent，是下個主要投資主題，而非炒作。EVMbench 與 OpenAI 的合作是具體的，不是姿態，這說明 Paradigm 在押注的不只是「AI 概念」，而是鏈上安全基礎設施需要 AI 能力的這個具體命題。若 Paradigm 的技術合夥人開始同時評估 AI 和 Crypto 交叉項目，對缺乏此類雙軌評估能力的傳統 Crypto 基金（Multicoin、Polychain 等）構成直接的人才和交易流競爭壓力。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Paradigm 的技術團隊同時評估 AI 和 Crypto，但這兩個領域的盡職調查邏輯完全不同——他們真的能做到，還是只是拉高基金估值敘事？</li>
+            <li>如果鏈上 AI agent 是真正的交叉主題，Paradigm 投的項目最終是要在鏈上跑還是用區塊鏈做結算層——這個問題的答案會決定它到底是 Crypto 基金還是 AI 基金？</li>
+            <li>Kyle Samani 從 Multicoin 退任的時序和 Paradigm 宣布擴張幾乎同期，Crypto VC 的領導層重組是否代表一個世代的投資邏輯正在被替換？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<!-- VC · 投資動態 -->
+<div class="section-block">
+  <div class="section-header" id="section-vc">
+    <span class="section-title">VC · 投資動態</span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <div class="article-card" id="vc-nebius">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI · CNBC · Bloomberg</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>Meta 用 $150 億彈性條款讓 Nebius 先建設、先承擔風險，自己買剩下的容量</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Nebius Group（荷蘭，NASDAQ: NBIS，前 Yandex 歐洲業務重組，2024 年在美上市）宣布與 Meta 簽訂 AI 基礎設施協議，合約總值最高 $270 億（五年）。拆分為兩部分：$120 億固定容量（2027 年初開始交付，採用 Nvidia Vera Rubin NVL144，3nm，HBM4 288GB 顯存）；以及最高 $150 億彈性算力（Meta 優先購買 Nebius 各集群的剩餘計算容量）。Nebius 股價當日上漲 14%，2025 年全年漲逾 200%，2026 年至今漲 35%。Meta 2026 年 AI CapEx（資本支出）預算達 $1,350 億，2025 年 10 月以來外部雲承諾超 $400 億。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">$150 億彈性條款的結構揭示了真實的風險分配…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">$150 億彈性條款的結構揭示了真實的風險分配：Nebius 需要先把多餘容量賣給第三方，Meta 才買剩下的，也就是說 Meta 實際上是在讓 Nebius 承擔建設資本和初期融資壓力，自己以「優先購買剩餘容量」的方式鎖定算力，同時迴避數據中心建設的資產負債表風險。這個結構對 Nebius 的條件是：若第三方市場需求疲軟，Nebius 的填充率風險完全自負，Meta 的承諾並不保證 Nebius 的收益上限。Nvidia 在數天前投資 Nebius $20 億，實際上是在替這個結構的可行性背書。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Nebius 若第三方算力市場在 2027 年走軟，Meta 的彈性條款讓 Nebius 填充率下降，$150 億的彈性承諾對 Nebius 來說實質上值多少錢？</li>
+            <li>Nvidia 投資 Nebius $20 億，又讓 Nebius 成為 Vera Rubin 的主要採購方，這是 Nvidia 在確保自己硬體的需求方，還是說 Nebius 在整個鏈條裡只是 Nvidia 的分銷節點？</li>
+            <li>Meta 同時向 AWS、Google Cloud 和 Nebius 做算力承諾，若這幾條合約中有任何一條出現爭議，Meta 的多雲策略會讓它在談判中更有優勢，還是把自己變成一個對所有供應商都有承諾的被動方？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-03-18</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
+```
