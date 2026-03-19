@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-03-19</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:             #f5f3ee;
+      --surface:        #fdfcf9;
+      --surface-alt:    #f9f7f2;
+      --border:         #dedad2;
+      --border-light:   #e8e5de;
+      --ink:            #18160f;
+      --ink-body:       #38342a;
+      --ink-muted:      #7c7868;
+      --ink-faint:      #b0ac9e;
+      --rule:           #c8c3b4;
+      --thought-bg:     #edeae0;
+      --thought-border: #7a6a48;
+      --thought-text:   #3a3220;
+      --accent:         #7a6a48;
+      --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+      --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+      --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:             #111008;
+        --surface:        #171510;
+        --surface-alt:    #131210;
+        --border:         #2a2820;
+        --border-light:   #222018;
+        --ink:            #ede8dc;
+        --ink-body:       #b8b2a0;
+        --ink-muted:      #706a58;
+        --ink-faint:      #403c30;
+        --rule:           #2a2820;
+        --thought-bg:     #1a1810;
+        --thought-border: #6a5e3e;
+        --thought-text:   #c0b898;
+        --accent:         #b09060;
+        --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+        --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+        --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+
+    #progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+
+    #back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+    #back-top.visible{opacity:1;pointer-events:auto}
+    #back-top:hover{background:var(--surface-alt);color:var(--ink)}
+
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+    .toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .toc-list li{display:flex;align-items:baseline;gap:10px}
+    .toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+    .toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+    .toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+    .header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+    .header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+    .header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+    .header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+    .header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+    .header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+
+    .section-block{margin-bottom:80px}
+    .section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+    .section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+    .section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+    .article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+    .article-card:hover{border-color:var(--rule)}
+    .article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+    .article-card:hover::before{opacity:.9}
+
+    .card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+    .card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+    .card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+    .card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+
+    .block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+    .factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+
+    details.analysis-details{margin-top:0}
+    details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+    details.analysis-details > summary::-webkit-details-marker{display:none}
+    .analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+    .analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+    details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+    .analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+    .analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+    details[open] .analysis-preview{display:none}
+    .analysis-body{padding-top:12px}
+    .research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+    .analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+
+    .key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+    .key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+    .key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+
+    .food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+    .food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+    .food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+    .food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+    .food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+
+    .footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+
+    @media(max-width:600px){
+      body{padding:0 18px 80px}
+      .header{padding:40px 0 30px}
+      .header h1{font-size:24px}
+      .article-card{padding:22px 18px 22px 24px}
+      .article-card h3{font-size:17px}
+      .section-title{font-size:18px}
+      #back-top{bottom:20px;right:20px}
+      .toc{padding:16px 18px}
+      .analysis-preview{max-width:200px}
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 3 月 19 日　星期四</span>
+    <span class="header-issue">今日 10 篇</span>
+  </div>
+  <h1>監管翻案的那天，有人正在數錢</h1>
+  <p class="header-summary">SEC/CFTC 聯合指引轉向加密商品監管，OpenAI 與 Anthropic 的企業通路之爭浮出水面，而加密世界的真實繁榮正在從生態融資悄悄轉向傳統金融的 M&A 併購。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-sales">OpenAI 的企業通路問題</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-mistral-forge">Mistral Forge 的訓練流程</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-microsoft-copilot">微軟的 Copilot 組織重組</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-sec-cftc">SEC/CFTC 的歷史性指引</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-crypto-ma">加密 M&A 的牛市結構</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-xrp-ripple">XRP 翻案與 Ripple 持有量</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-stellar-rwa">Stellar 的 RWA 突破</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-redotpay-ipo">RedotPay 的 IPO 困局</a></li>
+  </ol>
+</nav>
+
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-openai-sales">
+    <div class="card-meta">
+      <span class="card-source">WSJ / The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 的企業通路問題，不是模型追不上，而是根本沒有直銷能力</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">OpenAI 是一家估值超過 $1,570 億的 AI 公司，企業銷售主要靠 Microsoft Azure 分銷。2026 年 3 月，Applications CEO Fidji Simo 在全員會議上宣布終止「side quests」策略，她列出的副業包含 Sora 影片生成、Atlas 瀏覽器、電商購物功能、成人模式等，稱其分散了 compute 資源。新策略聚焦兩條線：一是 Codex（OpenAI 的 coding agent 產品，週活超過 200 萬，較 1 月成長 4 倍）；二是企業業務，包含與私募股權巨頭洽談 joint venture（合資公司）以分銷 AI 工具。外部數據方面，Ramp 3 月 AI Index 顯示在首次購買 AI 工具的企業中，Anthropic 在直接比較中勝率約 70%。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Anthropic 的 70% 勝率不只是模型品質問題。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Anthropic 的 70% 勝率不只是模型品質問題。Anthropic 已直接整合進 Amazon Bedrock，並與 Accenture、Deloitte 簽署企業部署合約，完成了 SSO（單一登入）、RBAC（角色型存取控制）、audit trail（合規審計紀錄）的全棧整合，這些 workflow 嵌入才是真實的 switching cost（轉換成本）。OpenAI 現在找私募股權 JV 來分銷，本質上是承認自己沒有獨立的企業直銷肌肉，而 Microsoft 已解除 AGI 自建禁令、開始走自己的路，OpenAI 最重要的通路夥伴正在變成競爭對手。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Anthropic 的優勢卡在 integration depth 而非模型本身，OpenAI 集中資源做 Codex 是在追一個不會改變企業端決策的指標嗎？</li>
+            <li>Fidji Simo 否定了 Sam Altman 廣撒網路線，a16z 式的「多點佈局換取選擇權」策略在 AI 公司是否從一開始就不適用？</li>
+            <li>Microsoft 既是 OpenAI 最大通路又在建自己的前沿模型，這兩件事可以同時為真多久？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-mistral-forge">
+    <div class="card-meta">
+      <span class="card-source">TechCrunch / Mistral 官方</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Mistral Forge 的「完整訓練流程」，其實只有大多數客戶能用到最後一哩</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Mistral 在 Nvidia GTC 大會上發布 Forge 平台，定位讓企業使用 Mistral 的完整模型訓練流程，包含 pre-training（大規模預訓練）、post-training（任務微調）以及 RL pipeline（強化學習訓練流程），所有訓練可在企業自有伺服器上執行，數據不離開企業。Mistral 估值 €117 億，Series C 由 ASML 領投。早期合作夥伴包含 ASML（晶片製造設備龍頭）、Ericsson（電信設備商）、歐洲太空總署（ESA）、新加坡政府機構 DSO 與 HTX。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">「完整訓練流程」這個說法刻意模糊了一個工程事實：frontier-level pre-training 需要千張以上 GPU 叢集。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">「完整訓練流程」這個說法刻意模糊了一個工程事實：frontier-level pre-training 需要千張以上 GPU 叢集與 FSDP/Megatron 級別的分散式訓練框架，而 ASML、ESA 的機房規模根本不支持全流程訓練。Forge 更精確的描述是「企業級 post-training 平台」，即讓客戶在 Mistral 既有基礎模型上做後段微調與強化學習，而非從零建立 frontier 模型。這讓 Forge 直接進入 Databricks（收購 MosaicML 後）和 Together AI 已在耕耘的同一個市場，Mistral 的差異化若主要依賴「歐洲身份」與政治主權敘事，在新加坡 DSO/HTX 這類非歐洲客戶面前，這個護城河的說服力有結構性限制。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>若 Forge 的核心客戶實際上只能跑 post-training，Mistral 的定價是否能支撐與 Databricks 的正面競爭？</li>
+            <li>「數據主權」建立在 Nvidia CUDA 上，而 Nvidia GPU 受美國出口管制，國防客戶的主權承諾從硬體層就有漏洞，Mistral 的備援方案在哪裡？</li>
+            <li>如果技術框架本身不比 MosaicML 更難複製，Mistral 的護城河最後是否只剩法語政府採購關係？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-microsoft-copilot">
+    <div class="card-meta">
+      <span class="card-source">CNBC / GeekWire</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>微軟用一個消費端 SVP 來解企業 middleware 整合問題，方向本身可能就是錯的</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Microsoft 於 2026 年 3 月 17 日宣布 Copilot 組織重組：前 Snap SVP（副總裁）Jacob Andreou 以 EVP（執行副總裁）身份統一領導消費端與商業端 Copilot，直接向 CEO Satya Nadella 彙報。Mustafa Suleyman（DeepMind 共同創辦人，2024 年以 Inflection AI 整隊加入微軟）則轉向超智能與前沿模型研究。現狀數據：Copilot 日活 600 萬，對比 ChatGPT 日活 4.4 億；企業版附加元件滲透率僅為 Office 訂閱用戶的 3%。重要背景：原限制微軟「自行開發 AGI（泛用人工智能）」至 2030 年的 OpenAI 合作協議已重新談判修訂，禁令解除。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Copilot 企業滲透率 3% 的根本問題不是 UX 設計，而是架構問題。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Copilot 企業滲透率 3% 的根本問題不是 UX 設計，而是架構問題：每次 Copilot 調用需跨 Graph API、SharePoint、Teams 多個微服務串接，延遲高到用戶自然放棄。Andreou 在 Snap 做了 8 年消費端產品，缺乏 enterprise SaaS 或 middleware 整合經驗，派他來解這個問題，方向本身就值得懷疑。暫時的贏家是 Anthropic 和 OpenAI 的企業直銷部門，因為微軟的重組訊號等同公開承認現有 Copilot 產品失敗，但沒有提出一個解決架構問題的技術路徑。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>若 Copilot 的問題是 middleware 架構而非品牌定位，換一個消費端背景的領導者能改變什麼？</li>
+            <li>微軟同時跑 Phi 系列模型、Azure OpenAI serving infra、Suleyman 前沿研究三條線，GPU 資源該怎麼分配，誰來做這個決定？</li>
+            <li>日活 600 萬中有多少是 Windows 預裝被動觸發，微軟不揭露這個數字，本身說明什麼？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-sec-cftc">
+    <div class="card-meta">
+      <span class="card-source">CoinDesk / SEC 官方</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>SEC/CFTC 的歷史性指引，下一任主席可以直接撤銷</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">2026 年 3 月 17 日，美國 SEC 與 CFTC 聯合發布指引，正式將比特幣、以太坊、Solana、XRP 等 16 種加密資產認定為「digital commodity（數位商品）」，受 CFTC 監管而非 SEC。指引同時建立 token taxonomy（代幣分類框架），涵蓋 digital commodity、digital collectible、digital tool、stablecoin、digital security 五大類，並對 staking（質押）、airdrops（空投分發）等活動給予法律定性。兩機構於 3 月 11 日簽署 MOU（諒解備忘錄），成立 Joint Harmonization Initiative 共同主持後續監管協作。SEC 須在 3 月 27 日前對 91 件、涵蓋 24 種代幣的 crypto ETF 申請作出裁決。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">這份指引是 staff-level guidance（幕僚層級指引），不是正式 rulemaking（法規制定程序），沒有立法層級的約束力。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">這份指引是 staff-level guidance（幕僚層級指引），不是正式 rulemaking（法規制定程序），沒有立法層級的約束力，下一任 SEC 主席可以直接推翻。另外，91 件 ETF 申請涵蓋 24 種代幣，但只有 16 種被認定為 digital commodity，這 8 種被隱性排除的代幣被認定為「更接近證券」的機率顯著上升，這次指引的實際效果可能是加速資金從未被認定的代幣流出、集中到官方背書的 16 種，製造一個監管驅動的流動性分化，而非加密生態整體利好。過早重倉押注「監管確定性」敘事的散戶是最明確的輸家。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果真正的確定性需要等國會層級立法，市場現在的估值是在定價哪個情境？</li>
+            <li>那 8 種被隱性排除的代幣，投資人怎麼判斷自己持有的是哪一類？</li>
+            <li>Solana 前 19 個節點控制 33% 質押量，「去中心化」的認定門檻從來沒有公開說明，這個框架要怎麼套用到下一批申請的 L1？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-crypto-ma">
+    <div class="card-meta">
+      <span class="card-source">Messari UO Newsletter</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>加密「牛市」的 80% 資金，是傳統公司在用 M&A 買進場券</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Messari 研究分析師 Jake Koch-Gallup 發布《2025 年加密募資年度報告》。2025 年加密融資總額 $285.8 億，YoY 成長 60%，為 2022 年以來最高。但結構分化顯著：交易筆數 YoY 下滑 38% 至 2,545 筆。M&A（企業併購）成交 330 筆（YoY +49%），金額達 $227.6 億（YoY +73%），雙雙創歷史新高。Accelerator（加速器，為早期新創提供小額資金與資源的計畫）融資額跌 51% 至 $3,490 萬。獨立投資人數 YoY 下滑 28% 至 3,510 人，2022 年高峰為 6,648 人。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">M&A 金額 $227.6 億佔融資總額近 80%，而 Robinhood 收購 Bitstamp、Stripe 收購 Bridge 這類「傳統公司買 crypto 資產」可能佔其主要比例。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">M&A 金額 $227.6 億佔融資總額近 80%，而 Robinhood 收購 Bitstamp、Stripe 收購 Bridge 這類「傳統公司買 crypto 資產」可能佔其主要比例，這輪「牛市」的真實敘事是傳統金融和科技公司用 M&A 買 crypto 入場券，不是加密生態自身的內生繁榮。加密 M&A 還有一個獨特的結構性問題：收購實體公司不等於取得鏈上協議控制權，代幣持有者可以 fork（分叉複製協議）或投票否決，330 筆交易中若多數只是「收購團隊加品牌」而非「收購協議加流動性」，$227.6 億的帳面數字大幅高估了真實的生態整合價值。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果這輪 M&A 的主力買方是傳統公司，那加密原生生態是在被整合，還是在被收購？</li>
+            <li>Accelerator 資金跌 51%，兩年後的早期創業生態會長什麼樣子？</li>
+            <li>鏈上治理讓收購方無法完全控制協議，那這些 M&A 的真實戰略意圖是什麼，買的是什麼？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-xrp-ripple">
+    <div class="card-meta">
+      <span class="card-source">Decrypt / Messari</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>XRP 翻案慶祝聲中，沒有人在說 Ripple 持有 40% 供應量這件事</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">XRP 翻案是本週最大的監管事件，但市場定價的是利好，沒有定價 CFTC 市場操縱新戰場的風險。</span>
+    </div>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">XRP（Ripple 發行的跨境支付代幣）於 2026 年 3 月 16 日觸及月內最高價 $1.60，市值超越 BNB（Binance 原生代幣），成為全球市值第四大加密資產。此波上漲與 SEC/CFTC 聯合指引高度相關，XRP 被明確認定為 digital commodity，終結 Ripple 自 2020 年起遭 SEC 起訴的法律糾紛，消除了 XRP 被認定為未登記證券的最大風險。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">XRP 的「commodity（商品）」認定解決了一個問題，但可能開啟一個新的。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">XRP 的「commodity（商品）」認定解決了一個問題，但可能開啟一個新的：Ripple 持有約 400 億枚 XRP，佔總供應量 40%，透過 escrow（托管帳戶）定期釋放，在 CFTC 商品監管框架下，這個集中持有結構可能觸發「dominant position（市場主導地位）」的市場操縱審查。BNB 有交易所手續費銷毀機制作為價值捕獲，XRP 的跨境結算場景中銀行只是瞬時橋接而非持有代幣，這個排名在監管利好消化後缺乏鏈上基本面支撐，散戶是主要輸家。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 CFTC 開始審查 Ripple 的 escrow 釋放機制，XRP 的 commodity 身份是資產還是新的法律風險？</li>
+            <li>銀行跨境結算只需瞬時橋接不持有 XRP，那 XRP 的長期持有需求從哪裡來？</li>
+            <li>XRP ETF 若獲批，機構實際申購量是唯一能驗證這個市值排名的指標，你會怎麼追蹤這件事？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-stellar-rwa">
+    <div class="card-meta">
+      <span class="card-source">Messari UO Newsletter</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Stellar 的 RWA 破十億美元，但 Franklin Templeton 明天可以把錢搬到 Ethereum</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Stellar（由 Stellar Development Foundation 維護的公鏈）的 RWA（Real World Assets，真實世界資產代幣化，如國債、房地產在區塊鏈上發行的代幣）市值於 2026 年 1 月 21 日突破 $10 億，2025 年全年成長 184%（從 $3.01 億增至 $8.55 億）。主要驅動力為 Franklin Templeton 的 BENJI 美國政府貨幣市場基金、Spiko 的國債代幣化、RedSwan 的房地產代幣化。Stellar 穩定幣市值 YoY 成長 53% 至 $2.44 億，USDC 佔 $2.23 億。U.S. Bank（美國第五大銀行）正在 Stellar 上測試自有穩定幣。網絡提供 $0.01 以下的結算成本與 99.99% 以上的運行時間。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Franklin Templeton BENJI 同時部署在 Ethereum、Avalanche、Polygon，對 Stellar 無排他承諾，若 Stellar RWA 市值的主要比例來自 BENJI，所謂「生態突破」本質上是單一客戶依賴。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Franklin Templeton BENJI 同時部署在 Ethereum、Avalanche、Polygon，對 Stellar 無排他承諾，若 Stellar RWA 市值的主要比例來自 BENJI，所謂「生態突破」本質上是單一客戶依賴。U.S. Bank 測試穩定幣的場景則面臨立法風險：聯邦穩定幣立法若要求銀行穩定幣只能在許可鏈或聯準會監管網絡上運行，U.S. Bank 將被迫撤出，屆時 JPMorgan Onyx 和 Provenance Blockchain 等許可鏈架構才是真正的贏家。Stellar 的技術指標（低成本、高穩定性）Solana 和 Avalanche 同樣能達到，這意味替代成本極低。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Franklin Templeton 某天決定把 BENJI 集中到 Ethereum Layer 2，Stellar 的 RWA 敘事還剩下什麼？</li>
+            <li>聯邦穩定幣立法的最終版本會不會要求許可鏈，Stellar 有沒有在這個場景做備案？</li>
+            <li>低成本高穩定性這件事 Solana 也能做，Stellar 的真實護城河是什麼，SDF 的機構關係網絡算嗎？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-vc">
+    <span class="section-title">VC · 投資動態</span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <div class="article-card" id="vc-redotpay-ipo">
+    <div class="card-meta">
+      <span class="card-source">CoinDesk / Bloomberg</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>RedotPay 的 IPO，最大的風險不是高管出走，而是沒有 CFO 能簽 S-1</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">RedotPay 是一家總部位於香港的穩定幣支付公司，主力產品為穩定幣帳戶綁定 Visa 卡（用戶以 USDC/USDT 等穩定幣消費，透過 Visa 卡組織結算），用戶超過 600 萬，遍及 100 個以上國家。2025 年 12 月年化支付量（annualized payment volume，將某一期間交易量換算成全年數字）突破 $100 億，收入 $1.58 億（過去一年翻倍）。公司正洽談 $1.5 億新輪融資，若完成估值超過 $40 億，同時計畫最快今年在紐約交所 IPO，正與 JPMorgan Chase、Goldman Sachs 及 Jefferies Financial Group 合作籌備。問題：IPO 衝刺期間公司無 CFO，過去 12 個月內至少 5 名高管相繼離職。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">$100 億年化支付量除以 $1.58 億收入，隱含 take rate（抽傭比率）約 1.6%，若這個利潤主要來自換匯價差。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">$100 億年化支付量除以 $1.58 億收入，隱含 take rate（抽傭比率）約 1.6%，若這個利潤主要來自換匯價差，Circle 直接推出穩定幣對法幣即時結算 API、Stripe 收購 Bridge 後的基礎設施整合，將系統性壓縮 RedotPay 的中間層價值，護城河在 12 到 18 個月內面臨直接侵蝕。美國 IPO 的 S-1（上市申請書）需要 CFO 簽名認證經審計 GAAP 財報，無 CFO 本身就是 IPO 時程的硬障礙，而 $100 億支付量中 emerging market P2P 匯款場景的比例若偏高，這類交易是 AML/KYC（反洗錢與客戶身份驗證）審計的最高風險類別，IPO 被拖延的概率遠大於創辦人趁估值高峰掛牌的計畫。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Circle 和 Stripe/Bridge 在 12 個月內壓縮換匯價差，RedotPay 的收入結構能轉到哪裡去？</li>
+            <li>無 CFO 的 IPO 籌備還有多少實質進展，Goldman 和 JPMorgan 的承銷意向是不是被過度解讀了？</li>
+            <li>創辦人急著在高估值時點掛牌，和 AML 審查尚未完成，這兩件事同時為真的話，誰會先讓步？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-03-19</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+</body>
+</html>
