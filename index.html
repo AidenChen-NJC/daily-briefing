@@ -419,21 +419,11 @@
       btn.textContent = '送出中…';
 
       try {
-        const res = await fetch(
-          'https://api.beehiiv.com/v2/publications/pub_880757b1-57ac-4677-bfc2-c8091e00aba6/subscriptions',
-          {
-            method:  'POST',
-            headers: {
-              'Content-Type':  'application/json',
-              'Authorization': 'Bearer huYJkNuOj20eGClvZY2YsYDqdLiFXrchghwZYzD6B3yptH0GXMT0rhGdfXqxUgGI',
-            },
-            body: JSON.stringify({
-              email:                val,
-              reactivate_existing:  false,
-              send_welcome_email:   true,
-            }),
-          }
-        );
+        const res = await fetch('https://bitter-lab-5214.nairuichen0720.workers.dev', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({ email: val }),
+        });
 
         if (res.ok) {
           wrap.style.display = 'none';
