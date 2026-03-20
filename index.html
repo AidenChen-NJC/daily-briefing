@@ -3,15 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daily Briefing</title>
+  <title>每日市場情報 · Daily Briefing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg:           #f5f3ee;
       --surface:      #fdfcf9;
-      --surface-alt:  #f9f7f2;
       --border:       #dedad2;
       --border-light: #e8e5de;
       --ink:          #18160f;
@@ -20,12 +19,12 @@
       --ink-faint:    #b0ac9e;
       --rule:         #c8c3b4;
       --accent:       #7a6a48;
+      --accent-dark:  #5a4c32;
     }
     @media (prefers-color-scheme: dark) {
       :root {
         --bg:           #111008;
         --surface:      #171510;
-        --surface-alt:  #131210;
         --border:       #2a2820;
         --border-light: #222018;
         --ink:          #ede8dc;
@@ -34,134 +33,295 @@
         --ink-faint:    #403c30;
         --rule:         #2a2820;
         --accent:       #b09060;
+        --accent-dark:  #c8a870;
       }
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
+
     body {
       background: var(--bg);
-      max-width: 760px;
-      margin: 0 auto;
-      padding: 0 28px 100px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       font-family: 'Noto Sans TC', 'Helvetica Neue', sans-serif;
-      font-size: 15px;
-      line-height: 1.75;
       color: var(--ink-body);
       -webkit-font-smoothing: antialiased;
+      padding: 60px 28px 80px;
     }
 
-    /* ── HEADER ── */
-    .site-header {
-      padding: 64px 0 48px;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 40px;
+    /* ── DECORATIVE RULE ABOVE ── */
+    .top-rule {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, transparent, var(--rule));
+      margin: 0 auto 40px;
     }
-    .site-label {
+
+    /* ── LABEL ── */
+    .label {
       font-size: 11px;
-      letter-spacing: .15em;
+      letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--ink-faint);
-      margin-bottom: 16px;
+      text-align: center;
+      margin-bottom: 28px;
     }
-    .site-header h1 {
-      font-family: 'Noto Serif TC', 'Playfair Display', serif;
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      font-weight: 700;
-      color: var(--ink);
-      line-height: 1.25;
-      margin-bottom: 12px;
+
+    /* ── MAIN CONTAINER ── */
+    .container {
+      max-width: 580px;
+      width: 100%;
+      text-align: center;
     }
-    .site-tagline {
-      font-size: 13.5px;
-      color: var(--ink-muted);
+
+    /* ── MASTHEAD ── */
+    .masthead {
       margin-bottom: 20px;
     }
-    .site-meta {
-      font-size: 12px;
-      color: var(--ink-faint);
-      letter-spacing: .04em;
-    }
-    .site-meta span + span::before { content: " · "; }
-
-    /* ── ENTRY LIST ── */
-    .entry-list { display: flex; flex-direction: column; gap: 0; }
-    .entry {
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
-      padding: 20px 0;
-      border-bottom: 1px solid var(--border-light);
-      text-decoration: none;
-      color: inherit;
-      transition: background .15s;
-    }
-    .entry:hover { background: var(--surface-alt); margin: 0 -12px; padding-left: 12px; padding-right: 12px; border-radius: 6px; }
-
-    .entry-date {
-      flex-shrink: 0;
-      width: 108px;
-      font-size: 12.5px;
-      color: var(--ink-muted);
-      font-variant-numeric: tabular-nums;
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      padding-top: 2px;
-    }
-    .entry-weekday {
-      font-size: 11px;
-      color: var(--ink-faint);
-    }
-
-    .entry-body {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      min-width: 0;
-    }
-    .entry-headline {
+    .masthead h1 {
       font-family: 'Noto Serif TC', serif;
-      font-size: 15.5px;
-      font-weight: 600;
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 700;
       color: var(--ink);
-      line-height: 1.45;
+      line-height: 1.2;
+      letter-spacing: -.01em;
+      margin-bottom: 6px;
     }
-    .entry-summary {
-      font-size: 12.5px;
-      color: var(--ink-muted);
-      line-height: 1.65;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
+    .masthead .en {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(.85rem, 2vw, 1rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
     }
 
-    .entry-right {
-      flex-shrink: 0;
+    /* ── DIVIDER ── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 28px 0;
+      justify-content: center;
+    }
+    .ornament::before, .ornament::after {
+      content: '';
+      width: 60px;
+      height: 1px;
+      background: var(--border);
+    }
+    .ornament-dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--rule);
+    }
+
+    /* ── DESCRIPTION ── */
+    .description {
+      font-size: 14.5px;
+      line-height: 1.85;
+      color: var(--ink-muted);
+      margin-bottom: 36px;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .description strong {
+      color: var(--ink-body);
+      font-weight: 500;
+    }
+
+    /* ── STATS ROW ── */
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 40px;
+    }
+    .stat {
       display: flex;
       flex-direction: column;
-      align-items: flex-end;
-      gap: 6px;
-      padding-top: 2px;
+      align-items: center;
+      gap: 3px;
     }
-    .entry-count {
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .stat-label {
       font-size: 11px;
       color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+    .stat-sep {
+      width: 1px;
+      height: 36px;
+      background: var(--border);
+      align-self: center;
+    }
+
+    /* ── EMAIL FORM ── */
+    .form-wrap {
+      display: flex;
+      gap: 0;
+      max-width: 420px;
+      margin: 0 auto 16px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--surface);
+      overflow: hidden;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .form-wrap:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(122,106,72,.1);
+    }
+    .form-wrap input[type="email"] {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 13px 16px;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 13.5px;
+      color: var(--ink);
+      background: transparent;
+    }
+    .form-wrap input::placeholder {
+      color: var(--ink-faint);
+    }
+    .form-wrap button {
+      flex-shrink: 0;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 13px 20px;
+      background: var(--accent);
+      color: #fdfcf9;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12.5px;
+      font-weight: 500;
       letter-spacing: .04em;
+      transition: background .15s;
       white-space: nowrap;
     }
-    .entry-arrow {
-      font-size: 14px;
+    .form-wrap button:hover { background: var(--accent-dark); }
+
+    /* ── SUCCESS STATE ── */
+    .success-msg {
+      display: none;
+      font-size: 13px;
+      color: var(--accent);
+      letter-spacing: .03em;
+      margin-bottom: 16px;
+    }
+
+    /* ── PRIVACY NOTE ── */
+    .privacy {
+      font-size: 11.5px;
+      color: var(--ink-faint);
+      margin-bottom: 32px;
+    }
+
+    /* ── DIVIDER LINE ── */
+    .or-divider {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      max-width: 300px;
+      margin: 0 auto 28px;
+    }
+    .or-divider::before, .or-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-light);
+    }
+    .or-divider span {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .08em;
+    }
+
+    /* ── BROWSE BUTTON ── */
+    .browse-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 24px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      text-decoration: none;
+      color: var(--ink-muted);
+      font-size: 13px;
+      letter-spacing: .04em;
+      transition: border-color .15s, color .15s, background .15s;
+      background: transparent;
+    }
+    .browse-btn:hover {
+      border-color: var(--rule);
+      color: var(--ink-body);
+      background: var(--surface);
+    }
+    .browse-arrow {
+      font-size: 13px;
       color: var(--accent);
       transition: transform .15s;
     }
-    .entry:hover .entry-arrow { transform: translateX(3px); }
+    .browse-btn:hover .browse-arrow { transform: translateX(3px); }
 
-    @media (max-width: 520px) {
-      .entry { gap: 12px; }
-      .entry-date { width: 80px; font-size: 11.5px; }
-      .entry-summary { display: none; }
+    /* ── BOTTOM RULE ── */
+    .bottom-rule {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, var(--rule), transparent);
+      margin: 48px auto 0;
+    }
+
+    /* ── LATEST TEASER ── */
+    .latest-teaser {
+      margin-top: 64px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border-light);
+      max-width: 480px;
+      text-align: left;
+    }
+    .teaser-label {
+      font-size: 10.5px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 12px;
+    }
+    .teaser-headline {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.5;
+      margin-bottom: 6px;
+    }
+    .teaser-summary {
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+    .teaser-meta {
+      margin-top: 10px;
+      font-size: 11.5px;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 480px) {
+      .stats { gap: 20px; }
+      .form-wrap { flex-direction: column; border-radius: 6px; }
+      .form-wrap input[type="email"] { border-bottom: 1px solid var(--border); }
+      .form-wrap button { text-align: center; border-radius: 0; }
     }
   </style>
   <!-- Google tag (gtag.js) -->
@@ -174,95 +334,87 @@
   </script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="site-label">Daily Briefing</div>
-    <h1>每日市場情報</h1>
-    <p class="site-tagline">VC · Web3 · AI · 科技趨勢精讀</p>
-    <div class="site-meta">
-      <span>7 期</span>
-      <span>最新：2026-03-20</span>
+
+  <div class="top-rule"></div>
+
+  <div class="label">Daily Briefing</div>
+
+  <div class="container">
+
+    <div class="masthead">
+      <h1>每日市場情報</h1>
+      <div class="en">AI · Web3 · VC · 科技趨勢</div>
     </div>
-  </header>
 
-  <main class="entry-list">
+    <div class="ornament">
+      <div class="ornament-dot"></div>
+      <div class="ornament-dot"></div>
+      <div class="ornament-dot"></div>
+    </div>
 
-  <a class="entry" href="briefings/2026-03-20.html">
-    <span class="entry-date">2026-03-20<span class="entry-weekday">週五</span></span>
-    <span class="entry-body">
-      <span class="entry-headline">今天有誰在贏，有誰在輸？</span>
-      <span class="entry-summary">從 Google Stitch 的格式標準化、Nvidia 的模擬器護城河，到 Anthropic 在訴訟中獲利，結構性的贏家正在浮現。</span>
-    </span>
-    <span class="entry-right">
-      <span class="entry-count">今日 11 篇</span>
-      <span class="entry-arrow">→</span>
-    </span>
-  </a>
-  <a class="entry" href="briefings/2026-03-19.html">
-    <span class="entry-date">2026-03-19<span class="entry-weekday">週四</span></span>
-    <span class="entry-body">
-      <span class="entry-headline">監管翻案的那天，有人正在數錢</span>
-      <span class="entry-summary">SEC/CFTC 聯合指引轉向加密商品監管，OpenAI 與 Anthropic 的企業通路之爭浮出水面，而加密世界的真實繁榮正在從生態融資悄悄轉向傳統金融的 M&A 併購。</span>
-    </span>
-    <span class="entry-right">
-      <span class="entry-count">今日 10 篇</span>
-      <span class="entry-arrow">→</span>
-    </span>
-  </a>
-  <a class="entry" href="briefings/2026-03-18.html">
-    <span class="entry-date">2026-03-18<span class="entry-weekday">週三</span></span>
-    <span class="entry-body">
-      <span class="entry-headline">誰在為誰承擔風險？</span>
-      <span class="entry-summary">晶片、數據中心、衛星、玻璃都在用同一個邏輯解決問題：把建設成本轉給供應方，自己買剩下的容量。這不是聰明的談判，是風險轉嫁鏈的開始。</span>
-    </span>
-    <span class="entry-right">
-      <span class="entry-count">今日 13 篇</span>
-      <span class="entry-arrow">→</span>
-    </span>
-  </a>
-  <a class="entry" href="briefings/2026-03-17.html">
-    <span class="entry-date">2026-03-17<span class="entry-weekday">週二</span></span>
-    <span class="entry-body">
-      <span class="entry-headline">誰在悄悄收割別人的混亂</span>
-      <span class="entry-summary">今天有幾個看起來很強的人，正在用別人看不清楚的方式輸掉——而另一些沒人注意的位置，正在悄悄變成新的基礎設施。</span>
-    </span>
-    <span class="entry-right">
-      <span class="entry-count">今日 12 篇</span>
-      <span class="entry-arrow">→</span>
-    </span>
-  </a>
-  <a class="entry" href="briefings/2026-03-16.html">
-    <span class="entry-date">2026-03-16<span class="entry-weekday">週一</span></span>
-    <span class="entry-body">
-      <span class="entry-headline">聰明錢正在用腳投票</span>
-      <span class="entry-summary">Paradigm 擴張邊界、Samani 離開管理崗、ZODL 拿到頂級 VC 背書——有幾個人同時在告訴你一件事，但沒有人明說。</span>
-    </span>
-    <span class="entry-right">
-      <span class="entry-count">今日 13 篇</span>
-      <span class="entry-arrow">→</span>
-    </span>
-  </a>
-  <a class="entry" href="briefings/2026-03-15.html">
-    <span class="entry-date">2026-03-15<span class="entry-weekday">週日</span></span>
-    <span class="entry-body">
-      <span class="entry-headline">有人在說一件事，卻在做另一件事</span>
-      <span class="entry-summary">a16z 出了一本企業銷售手冊，但找不到一個成功案例。Paradigm 說在轉型，但技術積累根本不在 AI。Solana 說自己是支付鏈，但數字裡全是機器人。今天的主題是：敘事和現實之間的距離。</span>
-    </span>
-    <span class="entry-right">
-      <span class="entry-count">今日 9 篇</span>
-      <span class="entry-arrow">→</span>
-    </span>
-  </a>
-  <a class="entry" href="briefings/2026-03-14.html">
-    <span class="entry-date">2026-03-14<span class="entry-weekday">週六</span></span>
-    <span class="entry-body">
-      <span class="entry-headline">有幾個假設，今天同時被打破了</span>
-      <span class="entry-summary">McKinsey 的 AI 工具在兩小時內被入侵，Rivian 的平價電動車再次跳票，Uber 的費率數據揭露了誰在付單。今天的故事有一個共同線索：「我們以為安全的東西，其實沒有。」</span>
-    </span>
-    <span class="entry-right">
-      <span class="entry-count">今日 14 篇</span>
-      <span class="entry-arrow">→</span>
-    </span>
-  </a>
-  </main>
+    <p class="description">
+      每個工作日，一份看得完、看得懂、有意義的情報。<br>
+      <strong>不是新聞摘要</strong>，而是結構性的觀點，告訴你 <strong style="font-family: serif;">"So-What?"</strong>
+    </p>
+
+    <div class="stats">
+      <div class="stat">
+        <span class="stat-num">7</span>
+        <span class="stat-label">期</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat">
+        <span class="stat-num">80+</span>
+        <span class="stat-label">則報導</span>
+      </div>
+      <div class="stat-sep"></div>
+      <div class="stat">
+        <span class="stat-num">每日</span>
+        <span class="stat-label">更新</span>
+      </div>
+    </div>
+
+    <!-- EMAIL FORM -->
+    <div class="form-wrap" id="form-wrap">
+      <input type="email" id="email-input" placeholder="your@email.com" autocomplete="email" />
+      <button onclick="handleSubscribe()">訂閱情報</button>
+    </div>
+    <p class="success-msg" id="success-msg">✓ 已收到，下一期情報會寄到你的信箱。</p>
+    <p class="privacy">免費訂閱 · 隨時退訂</p>
+
+    <div class="or-divider"><span>或</span></div>
+
+    <a class="browse-btn" href="briefings.html">
+      直接在網站瀏覽
+      <span class="browse-arrow">→</span>
+    </a>
+
+    <!-- LATEST ISSUE TEASER -->
+    <div class="latest-teaser">
+      <div class="teaser-label">最新一期 · 2026-03-20</div>
+      <div class="teaser-headline">今天有誰在贏，有誰在輸？</div>
+      <div class="teaser-summary">從 Google Stitch 的格式標準化、Nvidia 的模擬器護城河，到 Anthropic 在訴訟中獲利，結構性的贏家正在浮現。</div>
+      <div class="teaser-meta">今日 11 篇</div>
+    </div>
+
+  </div>
+
+  <div class="bottom-rule"></div>
+
+  <script>
+    function handleSubscribe() {
+      const input = document.getElementById('email-input');
+      const wrap = document.getElementById('form-wrap');
+      const msg = document.getElementById('success-msg');
+      const val = input.value.trim();
+      if (!val || !val.includes('@')) {
+        input.style.outline = '2px solid #c0533a';
+        setTimeout(() => input.style.outline = '', 1200);
+        return;
+      }
+      wrap.style.display = 'none';
+      msg.style.display = 'block';
+    }
+  </script>
 </body>
 </html>

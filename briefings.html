@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>所有期數 · Daily Briefing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #f5f3ee;
+      --surface:      #fdfcf9;
+      --surface-alt:  #f9f7f2;
+      --border:       #dedad2;
+      --border-light: #e8e5de;
+      --ink:          #18160f;
+      --ink-body:     #38342a;
+      --ink-muted:    #7c7868;
+      --ink-faint:    #b0ac9e;
+      --rule:         #c8c3b4;
+      --accent:       #7a6a48;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #111008;
+        --surface:      #171510;
+        --surface-alt:  #131210;
+        --border:       #2a2820;
+        --border-light: #222018;
+        --ink:          #ede8dc;
+        --ink-body:     #b8b2a0;
+        --ink-muted:    #706a58;
+        --ink-faint:    #403c30;
+        --rule:         #2a2820;
+        --accent:       #b09060;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 28px 100px;
+      font-family: 'Noto Sans TC', 'Helvetica Neue', sans-serif;
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── HEADER ── */
+    .site-header {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+    .site-label {
+      font-size: 11px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .site-label a {
+      color: inherit;
+      text-decoration: none;
+    }
+    .site-label a:hover { color: var(--accent); }
+    .site-header h1 {
+      font-family: 'Noto Serif TC', 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+    .site-tagline {
+      font-size: 13.5px;
+      color: var(--ink-muted);
+      margin-bottom: 20px;
+    }
+    .site-meta {
+      font-size: 12px;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .site-meta span + span::before { content: " · "; }
+
+    /* ── ENTRY LIST ── */
+    .entry-list { display: flex; flex-direction: column; gap: 0; }
+    .entry {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-light);
+      text-decoration: none;
+      color: inherit;
+      transition: background .15s;
+    }
+    .entry:hover { background: var(--surface-alt); margin: 0 -12px; padding-left: 12px; padding-right: 12px; border-radius: 6px; }
+
+    .entry-date {
+      flex-shrink: 0;
+      width: 108px;
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      font-variant-numeric: tabular-nums;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding-top: 2px;
+    }
+    .entry-weekday {
+      font-size: 11px;
+      color: var(--ink-faint);
+    }
+
+    .entry-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-width: 0;
+    }
+    .entry-headline {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.45;
+    }
+    .entry-summary {
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      line-height: 1.65;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .entry-right {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      padding-top: 2px;
+    }
+    .entry-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+      white-space: nowrap;
+    }
+    .entry-arrow {
+      font-size: 14px;
+      color: var(--accent);
+      transition: transform .15s;
+    }
+    .entry:hover .entry-arrow { transform: translateX(3px); }
+
+    @media (max-width: 520px) {
+      .entry { gap: 12px; }
+      .entry-date { width: 80px; font-size: 11.5px; }
+      .entry-summary { display: none; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-label"><a href="index.html">← Daily Briefing</a></div>
+    <h1>82則，對你有意義的洞察</h1>
+    <p class="site-tagline">不只是摘要，是讓你更聰明一點的思考點。</p>
+    <div class="site-meta">
+      <span>7 期</span>
+      <span>最新：2026-03-20</span>
+    </div>
+  </header>
+
+  <main class="entry-list">
+
+  <a class="entry" href="briefings/2026-03-20.html">
+    <span class="entry-date">2026-03-20<span class="entry-weekday">週五</span></span>
+    <span class="entry-body">
+      <span class="entry-headline">今天有誰在贏，有誰在輸？</span>
+      <span class="entry-summary">從 Google Stitch 的格式標準化、Nvidia 的模擬器護城河，到 Anthropic 在訴訟中獲利，結構性的贏家正在浮現。</span>
+    </span>
+    <span class="entry-right">
+      <span class="entry-count">今日 11 篇</span>
+      <span class="entry-arrow">→</span>
+    </span>
+  </a>
+  <a class="entry" href="briefings/2026-03-19.html">
+    <span class="entry-date">2026-03-19<span class="entry-weekday">週四</span></span>
+    <span class="entry-body">
+      <span class="entry-headline">監管翻案的那天，有人正在數錢</span>
+      <span class="entry-summary">SEC/CFTC 聯合指引轉向加密商品監管，OpenAI 與 Anthropic 的企業通路之爭浮出水面，而加密世界的真實繁榮正在從生態融資悄悄轉向傳統金融的 M&A 併購。</span>
+    </span>
+    <span class="entry-right">
+      <span class="entry-count">今日 10 篇</span>
+      <span class="entry-arrow">→</span>
+    </span>
+  </a>
+  <a class="entry" href="briefings/2026-03-18.html">
+    <span class="entry-date">2026-03-18<span class="entry-weekday">週三</span></span>
+    <span class="entry-body">
+      <span class="entry-headline">誰在為誰承擔風險？</span>
+      <span class="entry-summary">晶片、數據中心、衛星、玻璃都在用同一個邏輯解決問題：把建設成本轉給供應方，自己買剩下的容量。這不是聰明的談判，是風險轉嫁鏈的開始。</span>
+    </span>
+    <span class="entry-right">
+      <span class="entry-count">今日 13 篇</span>
+      <span class="entry-arrow">→</span>
+    </span>
+  </a>
+  <a class="entry" href="briefings/2026-03-17.html">
+    <span class="entry-date">2026-03-17<span class="entry-weekday">週二</span></span>
+    <span class="entry-body">
+      <span class="entry-headline">誰在悄悄收割別人的混亂</span>
+      <span class="entry-summary">今天有幾個看起來很強的人，正在用別人看不清楚的方式輸掉——而另一些沒人注意的位置，正在悄悄變成新的基礎設施。</span>
+    </span>
+    <span class="entry-right">
+      <span class="entry-count">今日 12 篇</span>
+      <span class="entry-arrow">→</span>
+    </span>
+  </a>
+  <a class="entry" href="briefings/2026-03-16.html">
+    <span class="entry-date">2026-03-16<span class="entry-weekday">週一</span></span>
+    <span class="entry-body">
+      <span class="entry-headline">聰明錢正在用腳投票</span>
+      <span class="entry-summary">Paradigm 擴張邊界、Samani 離開管理崗、ZODL 拿到頂級 VC 背書——有幾個人同時在告訴你一件事，但沒有人明說。</span>
+    </span>
+    <span class="entry-right">
+      <span class="entry-count">今日 13 篇</span>
+      <span class="entry-arrow">→</span>
+    </span>
+  </a>
+  <a class="entry" href="briefings/2026-03-15.html">
+    <span class="entry-date">2026-03-15<span class="entry-weekday">週日</span></span>
+    <span class="entry-body">
+      <span class="entry-headline">有人在說一件事，卻在做另一件事</span>
+      <span class="entry-summary">a16z 出了一本企業銷售手冊，但找不到一個成功案例。Paradigm 說在轉型，但技術積累根本不在 AI。Solana 說自己是支付鏈，但數字裡全是機器人。今天的主題是：敘事和現實之間的距離。</span>
+    </span>
+    <span class="entry-right">
+      <span class="entry-count">今日 9 篇</span>
+      <span class="entry-arrow">→</span>
+    </span>
+  </a>
+  <a class="entry" href="briefings/2026-03-14.html">
+    <span class="entry-date">2026-03-14<span class="entry-weekday">週六</span></span>
+    <span class="entry-body">
+      <span class="entry-headline">有幾個假設，今天同時被打破了</span>
+      <span class="entry-summary">McKinsey 的 AI 工具在兩小時內被入侵，Rivian 的平價電動車再次跳票，Uber 的費率數據揭露了誰在付單。今天的故事有一個共同線索：「我們以為安全的東西，其實沒有。」</span>
+    </span>
+    <span class="entry-right">
+      <span class="entry-count">今日 14 篇</span>
+      <span class="entry-arrow">→</span>
+    </span>
+  </a>
+  </main>
+</body>
+</html>
