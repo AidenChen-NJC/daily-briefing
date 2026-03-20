@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-03-20</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:             #f5f3ee;
+      --surface:        #fdfcf9;
+      --surface-alt:    #f9f7f2;
+      --border:         #dedad2;
+      --border-light:   #e8e5de;
+      --ink:            #18160f;
+      --ink-body:       #38342a;
+      --ink-muted:      #7c7868;
+      --ink-faint:      #b0ac9e;
+      --rule:           #c8c3b4;
+      --thought-bg:     #edeae0;
+      --thought-border: #7a6a48;
+      --thought-text:   #3a3220;
+      --accent:         #7a6a48;
+      --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+      --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+      --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:             #111008;
+        --surface:        #171510;
+        --surface-alt:    #131210;
+        --border:         #2a2820;
+        --border-light:   #222018;
+        --ink:            #ede8dc;
+        --ink-body:       #b8b2a0;
+        --ink-muted:      #706a58;
+        --ink-faint:      #403c30;
+        --rule:           #2a2820;
+        --thought-bg:     #1a1810;
+        --thought-border: #6a5e3e;
+        --thought-text:   #c0b898;
+        --accent:         #b09060;
+        --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+        --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+        --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+      }
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+
+    #progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+
+    #back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+    #back-top.visible{opacity:1;pointer-events:auto}
+    #back-top:hover{background:var(--surface-alt);color:var(--ink)}
+
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+    .toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .toc-list li{display:flex;align-items:baseline;gap:10px}
+    .toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+    .toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+    .toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+    .header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+    .header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+    .header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+    .header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+    .header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+    .header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+
+    .section-block{margin-bottom:80px}
+    .section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+    .section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+    .section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+    .article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+    .article-card:hover{border-color:var(--rule)}
+    .article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+    .article-card:hover::before{opacity:.9}
+
+    .card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+    .card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+    .card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+    .card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+
+    .block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+    .factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+
+    details.analysis-details{margin-top:0}
+    details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+    details.analysis-details > summary::-webkit-details-marker{display:none}
+    .analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+    .analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+    details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+    .analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+    .analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+    details[open] .analysis-preview{display:none}
+    .analysis-body{padding-top:12px}
+    .research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+    .analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+
+    .key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+    .key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+    .key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+
+    .food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+    .food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+    .food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+    .food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+    .food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+
+    .footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+
+    @media(max-width:600px){
+      body{padding:0 18px 80px}
+      .header{padding:40px 0 30px}
+      .header h1{font-size:24px}
+      .article-card{padding:22px 18px 22px 24px}
+      .article-card h3{font-size:17px}
+      .section-title{font-size:18px}
+      #back-top{bottom:20px;right:20px}
+      .toc{padding:16px 18px}
+      .analysis-preview{max-width:200px}
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 3 月 20 日　星期五</span>
+    <span class="header-issue">今日 11 篇</span>
+  </div>
+  <h1>今天有誰在贏，有誰在輸？</h1>
+  <p class="header-summary">從 Google Stitch 的格式標準化、Nvidia 的模擬器護城河，到 Anthropic 在訴訟中獲利，結構性的贏家正在浮現。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-stitch">Google Stitch 的真正目標客戶</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-minimax">MiniMax M2.7 的自我演化敘事</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-microsoft">Microsoft 訴訟的真正贏家</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#robotics-nvidia">Nvidia GTC 的護城河在模擬器</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#robotics-gecko">Gecko Robotics 的 GSA 框架武器</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#robotics-memories">Memories.ai 最可能被 Nvidia 收購</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-rwa">房地產代幣化的流動性殼</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-mariana">廢銅出口禁止的真正贏家</a></li>
+  </ol>
+</nav>
+
+<!-- AI · 科技 -->
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-stitch">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Google Stitch 的真正目標客戶不是設計師，是 Cursor</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Google Labs 正式升級 Stitch，定位為「vibe design」工具，對標「vibe coding」對開發者的衝擊。核心更新包括無限畫布、語音控制（預覽版）、秒級靜態稿轉可點擊原型，以及一個新格式：DESIGN.md，讓設計規範可以直接匯入 Cursor 或 Claude 等 AI coding 工具，每個 Stitch 專案會自動生成一份 style system 文件。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">若 Cursor 和 Anthropic 主動支援 DESIGN.md，Google 就等於在這兩個工具的工作流上游植入了自己的格式標準</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">研究指向的結論不是 Stitch 的 UI 功能，而是 DESIGN.md 這個格式的槓桿點。若 Cursor 和 Anthropic 主動支援 DESIGN.md，Google 就等於在這兩個工具的工作流上游植入了自己的格式標準，設計師只是使用 Stitch 的人，但 coding agent 才是真正被綁定的對象。Figma 是這裡最直接的輸家，Dev Mode 的格式鎖定若被 DESIGN.md 架空，Figma 被迫相容等於讓 Google 在自己的工作流裡插旗。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 DESIGN.md 成為事實標準，Figma 選擇「快速跟進相容」還是「建立自己的對等格式」，哪條路的代價比較小？</li>
+            <li>如果 Cursor 和 Anthropic 不主動支援 DESIGN.md，Google 有沒有籌碼強迫他們接受？</li>
+            <li>當設計師可以用自然語言描述介面、coding agent 直接讀取規範，「設計師」這個職位的門檻往哪個方向移動？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-minimax">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>MiniMax M2.7 的「自我演化」可能只是 AutoML 加行銷文案</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">中國 AI 新創 MiniMax 發布 M2.7，聲稱是「首個深度參與自身演化的模型」。訓練期間早期版本的 M2.7 執行了 100 次以上的自主迭代，流程包括分析失敗軌跡、修改訓練程式碼、評估結果、保留或回滾，承擔約 30-50% 的訓練工作量。對外跑分表現：SWE-Pro 56.22%、VIBE-Pro 55.6%，逼近 GPT-5.3-Codex，PinchBench 86.2% 全球第五。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">「30-50% 訓練工作量由模型自主承擔」這個數字沒有任何外部可審計的 checkpoint</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">「30-50% 訓練工作量由模型自主承擔」這個數字沒有任何外部可審計的 checkpoint 或 commit log，與自動化超參數搜尋（AutoML）加上行銷敘事在機制上無法區分。更根本的問題是：「保留或回滾」的決策函數若由同一模型執行，100 輪迭代後幾乎確定已對已知 benchmark 分佈過度擬合，這是強化學習的已確立風險，而 MiniMax 沒有公開任何 out-of-distribution 測試。輸家是認真引用這個數字的分析師，贏家是 MiniMax 的公關團隊，他們以接近零代價搶占了「模型自研」的話語權。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 MiniMax 開放外部研究者重現這個「自主迭代」流程，他們會發現什麼和公告不一樣的地方？</li>
+            <li>SWE-Pro 56.22% 意味著接近一半的真實 GitHub issue 仍然無法解決，企業採購者在等什麼樣的數字才會認真評估 MiniMax？</li>
+            <li>中國 AI 公司在「模型能力敘事」上搶占話語權，對 OpenAI 和 Anthropic 的市場溝通策略有沒有壓力？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-microsoft">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Microsoft 威脅提告的真正贏家是 Anthropic，不是 Microsoft</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">OpenAI 與 Amazon 簽署 Frontier 企業 AI agent 平台協議，含向 AWS 採購 $138B 算力的框架承諾，其中 $50B 直接與 OpenAI 模型相關。微軟認定此舉可能違反 Azure 獨家條款，其核心爭議不是算力，而是「所有開發者存取 OpenAI 模型均須通過 Azure」這條保留至 2025 年 10 月重談後的條款。FT 引述微軟立場：若 OpenAI 違約，將提告。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Anthropic 是這場糾紛最直接的結構性贏家，邏輯清晰</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Anthropic 是這場糾紛最直接的結構性贏家，邏輯清晰。若 OpenAI 被迫在 AWS 和 Azure 之間選邊，Anthropic 就成為 AWS GovCloud 生態中唯一不受 Azure 條款約束的頂級 frontier model，而五角大廈的 Frontier 合約恰好在這個市場。Microsoft 的訴訟威脅反而加速了 Anthropic 的政府市場地位，Amazon 對 Anthropic 已投入至少 $8B，這個棋局對 Amazon 來說幾乎是無損的。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Frontier 被法院定義為 OpenAI 的「第一方 SaaS 產品」而非「模型 API」，Microsoft 的合約主張能否站得住腳？</li>
+            <li>OpenAI 同時面對 Musk 訴訟和 IPO 在即，訴訟威懾效果能讓他們妥協到什麼程度？</li>
+            <li>Amazon 同時持有 OpenAI 的算力合約和 Anthropic 的股權，這兩邊的利益在什麼情境下會開始衝突？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<!-- 機器人 · 自動駕駛 -->
+<div class="section-block">
+  <div class="section-header" id="section-robotics">
+    <span class="section-title">機器人 · 自動駕駛</span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <div class="article-card" id="robotics-nvidia">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Robotics</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Nvidia GTC 的真正護城河在模擬器，不在 GPU</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Nvidia CEO Jensen Huang 在 GTC 2026 宣佈完整的機器人軟硬體生態，包括 GR00T N1.7 人形機器人基礎模型、Isaac 模擬框架、Cosmos 物理 AI 工具集，並與 Uber 深化合作，目標 2027 年上半年在洛杉磯和舊金山推出 Level 4 robotaxi（無需人類監控的高度自動化），2028 年擴展至 28 個城市、部署 100,000 輛。BYD、Hyundai、Nissan、Geely 等共 7 家整車廠加入 DRIVE Hyperion 自動駕駛平台。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Nvidia 的真正護城河不在 CUDA 推論層，而在 Isaac Sim 的模擬環境和訓練數據格式</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Nvidia 的真正護城河不在 CUDA 推論層，Qualcomm 和 MediaTek 在邊緣推論上已有替代能力。關鍵鎖定在 Isaac Sim 的模擬環境和訓練數據格式：機器人 OEM 若用 Isaac 訓練了數萬小時的模擬數據，遷移到其他平台的沉沒成本才是不可逆的轉換成本，Qualcomm 短期在這層完全無法競爭。另外，Waymo 在舊金山取得無安全員商業許可花了超過 5 年，且 Waymo 是垂直整合公司，Nvidia 作為純平台層完全無法加速 DMV/NHTSA 的許可流程，2028 年 28 城 100,000 輛的時間表極度樂觀。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 OEM 決定自建模擬環境以避免 Isaac 依賴，他們需要投入多少時間和資源才能追上 Nvidia 的生態系？</li>
+            <li>robotaxi 的監管許可瓶頸若無法加速，Nvidia 的平台收入要靠什麼維持成長？</li>
+            <li>B2B 採購場景中「Nvidia Inside」的品牌溢價幾乎不存在，Nvidia 的定價權最終來自哪裡？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="robotics-gecko">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Robotics</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Gecko Robotics 的 $71M 只是入場券，但 FedRAMP 可能讓它卡在門口</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Pittsburgh 新創 Gecko Robotics 取得美國海軍有史以來最大機器人合約，5 年 IDIQ（用量彈性的政府框架合約）上限 $71M，初始授予 $54M。Gecko 的爬牆、飛行、游泳機器人掃描軍艦後由 AI 生成高解析度數位孿生（Digital Twin，實體設備的即時數位映射模型），識別腐蝕與結構問題比人工快 50 倍。合約透過 GSA 框架簽署，任何國防部軍種均可直接採購。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">GSA 框架合約是真正的武器，競爭對手必須從零開始跑政府採購流程</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">GSA 框架合約是真正的武器，競爭對手必須從零開始跑政府採購流程，Gecko 至少有 2-3 年先發窗口。但最被低估的卡點是數據安全認證：Gecko 的 AI 生成數位孿生若包含艦體精確幾何結構，這些數據極可能被歸類為受控非機密信息（CUI）甚至更高等級，若 Gecko 的雲端架構尚未通過 FedRAMP High 認證，跨軍種擴展將面臨每個軍種各自要求重新認證的現實，$71M 的上限可能會在這裡卡住。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果數位孿生數據被升級為機密等級，Gecko 的雲端架構需要做多大的改動才能符合要求？</li>
+            <li>「比人工快 50 倍」這個數字若把假陽性後的人工覆核納入，實際效率提升會掉到哪裡？</li>
+            <li>Trump 政府重建造船能力的政策優先級若在下個預算週期降低，Gecko 的合約續約有多大的脆弱性？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="robotics-memories">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Robotics</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">Nvidia 平台化策略的 ISV 吞食邏輯，在 Memories.ai 身上看得最清楚。</span>
+    </div>
+    <h3>Memories.ai 最可能的結局是被 Nvidia 買走，而不是成為獨立平台</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">前 Meta Ray-Ban 眼鏡工程師 Shawn Shen 和 Ben Zhou 於 2024 年創立 Memories.ai，累計融資 $16M（$8M seed 輪 + $8M Susa Ventures 領投的延伸輪），建立「視覺記憶層」讓穿戴裝置和機器人能儲存、索引、搜尋第一人稱視頻。技術上深度整合 Nvidia 的 Cosmos-Reason 2（視覺語言推理模型）和 Metropolis（大規模視頻分析框架）。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Nvidia 完全有動機直接把視覺記憶功能內化進 Cosmos 管線</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Nvidia 完全有動機直接把視覺記憶功能內化進 Cosmos 管線，屆時 Memories.ai 從合作夥伴變成被替代的 ISV，這個模式在 CUDA 生態中有充分先例，信心高。護城河幾乎不可能來自技術本身，而必須依賴穿戴裝置廠商的獨家數據合作，但 Meta、Apple、三星都有動機自建，不會把第一人稱視覺數據交給外部小公司。Memories.ai 最可能的出路是被 Nvidia 收購以補完 Cosmos 生態，而非成為獨立平台。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Nvidia 決定自建視覺記憶層，Memories.ai 手上有什麼是 Nvidia 買不到或複製不了的？</li>
+            <li>Meta 已經有 Ray-Ban 眼鏡的第一人稱視覺數據，他們為什麼需要和 Memories.ai 合作而不是自建？</li>
+            <li>$16M 融資規模下，Memories.ai 的現金跑道大概能撐多久，在那之前需要證明什麼才能拿到下一輪？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<!-- Web3 · Crypto -->
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-rwa">
+    <div class="card-meta">
+      <span class="card-source">Multicoin Capital</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Multicoin 的 RWA 報告揭示：房地產代幣化是給流動性差的資產套了一個流動性殼</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Multicoin Capital 研究員 Shayon Sengupta 和 Spencer Applebaum 發布「鏈上市場」系列第三篇深度報告，解構 RWA（Real World Asset，現實世界資產的代幣化版本）的各資產類別上鏈路徑。報告提出四種模型：合成衍生品（如 Hyperliquid 股票/原油 perps）、包裝資產（如 Franklin Templeton BENJI、Ondo OUSG）、抵押借貸（如 Kamino、Sky RWA Vaults）、原生發行（Galaxy/Superstate 的早期案例）。Hyperliquid HIP-3 市場總未平倉合約（OI）達歷史新高 $1.34B，原油（CL-USDC）單日交易量高達 $1-1.6B。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">房地產是所有資產類別中上鏈難度最高、且問題最難治本的</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Multicoin 自己在報告中點出了最重要的結論：房地產是所有資產類別中上鏈難度最高、且問題最難治本的。代幣化只是在本來就流動性差的資產上加了一個流動性殼，底層問題（法律轉讓摩擦、物業管理、地方法規）完全沒有被解決。相反，合成衍生品路線在公開股票和大宗商品上已跑出 $1.34B OI 的真實數據，Hyperliquid 是目前唯一有規模數字可以引用的贏家。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Hyperliquid 的合成股票 perps 用戶大多數是在規避傳統券商的 KYC，這個市場在監管收緊後還剩多少？</li>
+            <li>房地產代幣化的流動性殼問題，有沒有任何底層機制創新可以實際降低轉讓摩擦，還是這根本上是法律問題而非技術問題？</li>
+            <li>Multicoin 下一篇預告要討論「DeFi 長期資本效率低落的根本原因」，這個方向和他們目前的投資組合有沒有衝突？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<!-- VC · 投資動態 -->
+<div class="section-block">
+  <div class="section-header" id="section-vc">
+    <span class="section-title">VC · 投資動態</span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <div class="article-card" id="vc-mariana">
+    <div class="card-meta">
+      <span class="card-source">a16z</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>廢銅出口禁止比新建礦山更快解決美國銅短缺，Mariana 的真正賭注在這裡</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">a16z 刊出 Mariana Minerals CEO Turner Caldwell 投稿，詳述 Copper One 礦場定位。Mariana 於 2025 年底收購位於猶他州東南部的 Copper One（前 Lisbon Valley Mining Company），已運營逾 15 年，有現成露天礦坑、堆浸設施（Heap Leaching，在廢石堆噴酸液萃取低品位銅礦）與 SX-EW 精煉線（Solvent Extraction Electrowinning，濕法冶金製程生產高純度銅陰極）。核心技術 MarianaOS 整合 PlantOS、MineOS、CapitalProjectOS，目標年產 50,000 公噸銅。美國精煉銅自給率僅約 50%，過去 25 年產量下降約 50%，本十年內 20 萬名礦業從業人員預計退休，每年礦業工程畢業生不足 400 人。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">最值得注意的數字不在礦場本身，而在美國每年出口約 95 萬公噸銅廢料</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">最值得注意的數字不在礦場本身，而在美國每年出口約 95 萬公噸銅廢料，其中超過 40% 流向中國。若 Copper One 整合廢銅精煉進現有電路，等同在不申請任何新礦場許可的前提下完成美國銅供應的再工業化，政治阻力遠低於新建礦山，且可以立即動工。這個廢銅整合策略才是 Mariana 真正的速度優勢，MarianaOS 是工具，廢銅是燃料。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>美國政府若對銅廢料出口實施管制，Mariana 能多快擴大廢銅精煉產能，現有 SX-EW 設施的瓶頸在哪？</li>
+            <li>MarianaOS 的 CapitalProjectOS 宣稱能加速資本專案交付，但礦業自動化的實際部署週期（瑞典 Garpenberg Mine 花了 13 年）如何壓縮？</li>
+            <li>如果中國因應廢銅來源減少而加速自建精煉能力，全球銅精煉格局在 5 年內會怎麼移動？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-03-20</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
