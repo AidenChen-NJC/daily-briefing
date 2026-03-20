@@ -402,18 +402,51 @@
   <div class="bottom-rule"></div>
 
   <script>
-    function handleSubscribe() {
+    async function handleSubscribe() {
       const input = document.getElementById('email-input');
-      const wrap = document.getElementById('form-wrap');
-      const msg = document.getElementById('success-msg');
-      const val = input.value.trim();
+      const btn   = document.querySelector('.form-wrap button');
+      const wrap  = document.getElementById('form-wrap');
+      const msg   = document.getElementById('success-msg');
+      const val   = input.value.trim();
+
       if (!val || !val.includes('@')) {
         input.style.outline = '2px solid #c0533a';
         setTimeout(() => input.style.outline = '', 1200);
         return;
       }
-      wrap.style.display = 'none';
-      msg.style.display = 'block';
+
+      btn.disabled    = true;
+      btn.textContent = '送出中…';
+
+      try {
+        const res = await fetch(
+          'https://api.beehiiv.com/v2/publications/pub_880757b1-57ac-4677-bfc2-c8091e00aba6/subscriptions',
+          {
+            method:  'POST',
+            headers: {
+              'Content-Type':  'application/json',
+              'Authorization': 'Bearer huYJkNuOj20eGClvZY2YsYDqdLiFXrchghwZYzD6B3yptH0GXMT0rhGdfXqxUgGI',
+            },
+            body: JSON.stringify({
+              email:                val,
+              reactivate_existing:  false,
+              send_welcome_email:   true,
+            }),
+          }
+        );
+
+        if (res.ok) {
+          wrap.style.display = 'none';
+          msg.style.display  = 'block';
+        } else {
+          throw new Error(res.status);
+        }
+      } catch {
+        btn.disabled    = false;
+        btn.textContent = '訂閱情報';
+        input.style.outline = '2px solid #c0533a';
+        setTimeout(() => input.style.outline = '', 1200);
+      }
     }
   </script>
 </body>
