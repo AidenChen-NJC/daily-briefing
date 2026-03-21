@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-03-21</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:             #f5f3ee;
+      --surface:        #fdfcf9;
+      --surface-alt:    #f9f7f2;
+      --border:         #dedad2;
+      --border-light:   #e8e5de;
+      --ink:            #18160f;
+      --ink-body:       #38342a;
+      --ink-muted:      #7c7868;
+      --ink-faint:      #b0ac9e;
+      --rule:           #c8c3b4;
+      --thought-bg:     #edeae0;
+      --thought-border: #7a6a48;
+      --thought-text:   #3a3220;
+      --accent:         #7a6a48;
+      --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+      --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+      --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:             #111008;
+        --surface:        #171510;
+        --surface-alt:    #131210;
+        --border:         #2a2820;
+        --border-light:   #222018;
+        --ink:            #ede8dc;
+        --ink-body:       #b8b2a0;
+        --ink-muted:      #706a58;
+        --ink-faint:      #403c30;
+        --rule:           #2a2820;
+        --thought-bg:     #1a1810;
+        --thought-border: #6a5e3e;
+        --thought-text:   #c0b898;
+        --accent:         #b09060;
+        --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+        --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+        --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+
+    #progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+
+    #back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+    #back-top.visible{opacity:1;pointer-events:auto}
+    #back-top:hover{background:var(--surface-alt);color:var(--ink)}
+
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+    .toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .toc-list li{display:flex;align-items:baseline;gap:10px}
+    .toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+    .toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+    .toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+    .header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+    .header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+    .header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+    .header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+    .header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+    .header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+
+    .section-block{margin-bottom:80px}
+    .section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+    .section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+    .section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+    .article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+    .article-card:hover{border-color:var(--rule)}
+    .article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+    .article-card:hover::before{opacity:.9}
+
+    .card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+    .card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+    .card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+    .card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+
+    .block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+    .factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+
+    details.analysis-details{margin-top:0}
+    details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+    details.analysis-details > summary::-webkit-details-marker{display:none}
+    .analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+    .analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+    details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+    .analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+    .analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+    details[open] .analysis-preview{display:none}
+    .analysis-body{padding-top:12px}
+    .research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+    .analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+
+    .key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+    .key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+    .key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+
+    .food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+    .food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+    .food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+    .food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+    .food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+
+    .footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+
+    .tracking-section{margin-top:60px;padding-top:40px;border-top:1px solid var(--rule)}
+    .tracking-title{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:20px;font-weight:600;color:var(--ink);margin-bottom:24px}
+    .tracking-table{width:100%;border-collapse:collapse;font-size:13px}
+    .tracking-table th{text-align:left;padding:12px 16px 12px 0;border-bottom:1px solid var(--border);font-weight:500;color:var(--ink-muted);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+    .tracking-table td{padding:12px 16px 12px 0;border-bottom:1px solid var(--border-light);color:var(--ink-body);line-height:1.6}
+    .tracking-table tr:last-child td{border-bottom:none}
+
+    @media(max-width:600px){
+      body{padding:0 18px 80px}
+      .header{padding:40px 0 30px}
+      .header h1{font-size:24px}
+      .article-card{padding:22px 18px 22px 24px}
+      .article-card h3{font-size:17px}
+      .section-title{font-size:18px}
+      #back-top{bottom:20px;right:20px}
+      .toc{padding:16px 18px}
+      .analysis-preview{max-width:200px}
+      .tracking-table th,.tracking-table td{padding:10px 12px 10px 0;font-size:12px}
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 3 月 21 日　星期六</span>
+    <span class="header-issue">今日 11 篇</span>
+  </div>
+  <h1>誰在悄悄換籌碼？</h1>
+  <p class="header-summary">三個月內，$12.5 億投資只確定 $3 億、$220 億估值賭一部未過法案、CEO 帶著個人倉位離開基金。大牌玩家正在用看似對外宣示的舉動，實際上執行資本調度。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-uber-rivian">Uber 給的 $12.5 億，Rivian 其實只確定拿到 $3 億</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic">Anthropic 花可能不到 $10 萬，打破質性研究定價邏輯</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-amazon">Amazon 手機的真正死因在 Google，不在市場</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-microsoft">Microsoft 自研圖像模型排第五，最好的還在 OpenAI 手裡</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-supermicro">Supermicro 走私案，Nvidia 合規系統才是更長尾的風險</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-kalshi">Kalshi 的 $220 億估值賭的是一部還沒通過的法案</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-base">Base 代幣框架裡，Coinbase 不太可能真的放棄 Sequencer 收入</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-stellar">U.S. Bank 選 Stellar 而非以太坊，關鍵在白名單控制</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-bluesky">Bluesky 融了 $1 億，但協議設計讓平台本身沒有護城河</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-multicoin">Kyle Samani「退出」Multicoin，實際上是在加大 Solana 倉位</a></li>
+  </ol>
+</nav>
+
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">5 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-uber-rivian">
+    <div class="card-meta">
+      <span class="card-source">TechCrunch / CNBC / Automotive News</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Uber 給的 $12.5 億，Rivian 其實只確定拿到 $3 億</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">里程碑支付結構讓 Uber 把大部分執行風險轉移給 Rivian，頭條數字與實際承諾相差 4 倍</span>
+    </div>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Uber 宣布對 Rivian 投資最高 $12.5 億，雙方計畫將 Rivian 即將量產的 R2 電動 SUV 改裝為自動駕駛計程車（Robotaxi），2028 年首先在舊金山與邁阿密上路，最終擴展至美國、加拿大、歐洲共 25 個城市。首批確定訂購 10,000 台，另有最多 40,000 台選購權。R2 搭載 11 個攝影機、5 個雷達、1 個 LiDAR 及自研 RAP1 晶片（1,600 TOPS）。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">$12.5 億分五筆投入，首批 $3 億在協議簽署後支付，其餘四筆全部綁定里程碑達成……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">$12.5 億分五筆投入，首批 $3 億在協議簽署後支付，其餘四筆全部綁定里程碑達成。Rivian 喬治亞廠尚未完工、R2 尚未量產，這份合約的期望值更接近 $3–5 億，而非頭條數字。真正的輸家是把 $12.5 億當實際承諾定價的市場分析師，贏家是 Uber 的法務團隊，他們用里程碑結構把大部分執行風險轉移給了 Rivian。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 RAP1 晶片量產出問題，整個電子架構已鎖死在這顆晶片上的 Rivian，有沒有任何替換路徑，還是說 2028 年交車目標直接崩掉？</li>
+            <li>Uber 現在同時合作約 25 家自動駕駛公司——押注 Rivian 的真正邏輯是「非 Alphabet、非 Tesla 的備用籌碼」，那如果 Waymo 明天宣布獨家平台，這張牌的價值會上升還是下降？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-anthropic">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 花可能不到 $10 萬，打破了質性研究公司的定價邏輯</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Anthropic 於 2025 年 12 月推出 Claude Interviewer，這是一個特別版 Claude，能以開放式對話形式在 70 種語言中進行深度訪談。本次研究耗時一週，完成 81,000 份訪談，覆蓋 159 個國家。主要發現：最常提到的希望是「專業卓越」，最大恐懼是 AI 犯錯；地區差異顯著，印度與南美偏正面，美國、歐洲、日本、南韓偏中立或負面。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">這份研究的媒體焦點在調查結果，但更具意義的是成本結構……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">這份研究的媒體焦點在調查結果，但更具意義的是成本結構。同等規模的傳統質性研究外包費用估計在 $500 萬至 $2,000 萬之間，Claude 的執行成本可能低於 $10 萬。Qualtrics、Ipsos 等傳統調研公司的定價護城河已被結構性攻破，這才是這則新聞真正的輸家。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>願意打開 Claude 並完成深度訪談的人，本身就是對 AI 持開放態度的自選樣本——這份研究描述的，是全球態度還是「Claude 用戶的態度」？</li>
+            <li>如果 GPT-5 或 Gemini 明天複製同規模的多語言訪談研究，「Anthropic 做的 AI 態度研究」和「Google 做的 AI 態度研究」在公信力上有沒有差距，這個差距從哪裡來？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-amazon">
+    <div class="card-meta">
+      <span class="card-source">Reuters</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Amazon 手機的真正死因在 Google，不在市場</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Amazon 正秘密開發新款智慧型手機，代號「Transformer」，由內部小團隊 ZeroOne 負責，由前 Microsoft 高管 J Allard（Xbox 與 Zune 之父）領導。新手機以 Alexa 為核心，作為 Amazon 服務生態系的隨身入口。Amazon 首次手機嘗試 Fire Phone 於 2014 年以 $649 上市，後降至 $159，14 個月後停產，留下 $1.7 億存貨損失。此次除完整版外，Amazon 也探索類似 Light Phone 的極簡版，瞄準螢幕時間管控市場。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Fire Phone 的核心死因不是售價或行銷，而是走 Android 開源版本缺乏 Google Play Services……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Fire Phone 的核心死因不是售價或行銷，而是走 Android 開源版本（AOSP fork）缺乏 Google Play Services，導致 app 生態殘缺。這次「Transformer」面對同一個結構性卡點：若走 Android fork，Google GMS 授權政策再次成為致命限制；若走自研 OS，Alexa 技能的開發者生態在 2028 年前根本無法支撐一個可用的 app 平台。Amazon 在這個問題上沒有第三條路，只有兩個都很難的選擇。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Alexa 的日常使用深度從未被 Amazon 公開，Echo 裝置主要用於播放音樂和設定計時器——如果 Alexa 的黏性就只有這樣，「以 Alexa 為核心的手機」的整個前提還成立嗎？</li>
+            <li>極簡手機（Light Phone）年銷量只有數萬台，Amazon 的供應鏈最低經濟規模遠超這個市場容量——Amazon 探索極簡版的真實目的，是產品還是對 Alexa 硬體入口的另一次賭注？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-microsoft">
+    <div class="card-meta">
+      <span class="card-source">Microsoft AI / The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Microsoft 自研圖像模型排第五，最好的圖像模型還在 OpenAI 手裡</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Microsoft AI Superintelligence 團隊發布 MAI-Image-2，一款文字轉圖像模型，在 Arena.ai（AI 模型公眾評測排行榜）排名第 5，僅落後 Gemini 多個版本與 GPT Image-1.5。最大升級在文字渲染，較前代跳升 115 分，對海報、投影片、資訊圖表有改善。現可在美國 MAI Playground 免費試用，Copilot、Bing 與 Foundry API 整合正在推出中。Mustafa Suleiman 同期傳出已淡出 Copilot 消費業務，轉而專注前沿模型研究。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">MAI-Image-2 排名第 5，落後 GPT Image-1.5，意味著 Microsoft 在自研模型上燒錢的同時……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">MAI-Image-2 排名第 5，落後 GPT Image-1.5，意味著 Microsoft 在自研模型上燒錢的同時，最好的圖像模型仍在 OpenAI 手中，「減少對 OpenAI 依賴」的敘事目前只是在兩邊同時燒錢。若 Adobe 或 Canva 今天選擇圖像生成 API，MAI-Image-2 排名第 5 且生態整合尚不完整，沒有理由優先選擇它而非 GPT Image-1.5 或 Gemini。真正的贏家是 OpenAI 和 Google，他們在第三方整合市場上幾乎沒有受到 MAI-Image-2 的任何挑戰。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Suleiman 淡出 Copilot 消費業務，但 MAI-Image-2 的商業化路徑全部依賴 Copilot 產品線——模型研發主管和產品分發線在組織上脫鉤，MAI 系列的迭代方向還會被用戶需求驅動嗎？</li>
+            <li>Microsoft 唯一能強制推 MAI-Image-2 的管道是 M365 生態系，但這對獨立開發者和企業 API 客戶無效——微軟有沒有辦法在不靠 M365 捆綁的情況下搶到第三方整合份額？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-supermicro">
+    <div class="card-meta">
+      <span class="card-source">Fortune / The Rundown Tech</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Supermicro 走私案，Nvidia 的合規系統才是更長尾的風險點</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Supermicro 共同創辦人遭美國聯邦起訴，指控協助將最高 $25 億的搭載 Nvidia GPU AI 伺服器走私至中國，違反出口管制。這是自 2022 年美國加強 AI 晶片對中出口限制以來，涉及金額最大的此類起訴。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">$25 億規模的走私若屬實，通常需要透過轉運殼公司進行……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">$25 億規模的走私若屬實，通常需要透過轉運殼公司（新加坡、馬來西亞、阿聯酋等地）進行，Nvidia 的下游 KYC 系統理論上應該捕捉到這類異常轉售行為。若司法部起訴書列出供應鏈節點，Nvidia 的合規部門與特定授權中間商將面臨連帶調查風險，這才是對 Nvidia 股價比 Supermicro 本身更長尾的暴露。Debarment 只影響聯邦合約，Supermicro 的 Meta 等商業客戶在短期內不受影響，但 Dell EMC 與 HPE 是聯邦合約替換需求的直接受益者。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>晶片出口管制已執行近四年，$25 億級別的走私還能發生——這是單一漏洞還是系統性失效，管制的實際效果比市場預期的差多少？</li>
+            <li>Supermicro 被排除聯邦採購後，已採購其設備的政府機構換到 Dell EMC 或 HPE 的硬件替換週期是 12–18 個月，這段過渡期誰來填補空缺？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-kalshi">
+    <div class="card-meta">
+      <span class="card-source">CoinDesk / Bloomberg / Messari</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Kalshi 的 $220 億估值賭的是一部還沒通過的法案</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">預測市場平台 Kalshi 完成由 Coatue Management 領投的逾 $10 億融資，估值達 $220 億，較 2025 年 12 月翻倍。業務面，2026 年 2 月單月交易量突破 $100 億，是六個月前的 12 倍；年化收入達 $15 億。與此同時，Kalshi 面臨 Nevada 州禁令及 Arizona 州刑事指控，涉嫌非法賭博與選舉押注。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Coatue 在 Nevada 禁令與 Arizona 刑事指控同時出現的時間點領投 $10 億……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Coatue 在 Nevada 禁令與 Arizona 刑事指控同時出現的時間點領投 $10 億，押注邏輯是「在監管窗口關閉前鎖定規模、等待 CLARITY Act 提供聯邦合規傘」，而非現有業務的穩健性。$15 億 ARR 若大部分來自體育賽事和選舉等高爭議性合約，Arizona 案件一旦形成判例、其他州跟進，剩餘「安全」類別可能只撐得起不到 20–30% 的現有 ARR。真正承擔尾部風險的是後進的散戶投資人，不是 Coatue。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>$100 億單月交易量裡，做市商對敲和套利機器人佔了多少，真實散戶的留存率是多少——如果大部分量是機器人，這個 12 倍成長代表的是什麼？</li>
+            <li>如果 CLARITY Act 聯邦立法失敗，Kalshi 的美國業務要逐州應對禁令，$220 億估值的情境假設還成立嗎？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-base">
+    <div class="card-meta">
+      <span class="card-source">Messari UO Newsletter</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Base 代幣四支柱框架裡，Coinbase 不太可能真的讓出 Sequencer 收入</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Base 是 Coinbase 旗下的 Ethereum Layer 2，截至 2026 年 3 月以 DeFi TVL 與 Sequencer 收入領先所有 L2，年化 Sequencer 收入 $7,790 萬，佔 Coinbase 總營收 1.1%。Messari 研究員 Eric Manoukian 提出四支柱代幣框架：Sequencer 質押、代幣加權治理、全網效用、Coinbase 保留 20% 戰略儲備，並估算若 BASE 代幣 FDV 達 $60 億，Coinbase 的 20% 儲備價值 $12 億。背景：ARB、OP、STRK 自 2025 年 1 月均已跌超 85%。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Coinbase 目前靠單一控制 Sequencer 每年賺 $7,790 萬……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Coinbase 目前靠單一控制 Sequencer 每年賺 $7,790 萬，若真推 Sequencer 質押去中心化，這筆收入就直接被稀釋給代幣質押者。更可能的設計是把「質押」做成許可制白名單，表面去中心化、實際維持控制。ARB、OP、STRK 跌超 85% 的共同原因是持有人承擔稀釋但沒有現金流，Messari 四支柱裡「全網效用」和「治理」都是非現金價值，若沒有對應 Sequencer 收入分配機制，BASE 代幣只是重走 OP 的舊路，真正的輸家是期待費用分潤的代幣持有者。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Base 退出 Optimism Superchain 改用自研技術棧，OP 持有人原本可以分享的 Base TVL 和 Sequencer 收入已經消失，這個損失有沒有被市場定價進去？</li>
+            <li>如果 Coinbase 發行 BASE 代幣但把所有 Sequencer 收入留在自己手上，Aerodrome 和 Base 上的 DeFi 協議建設者有沒有任何機制拿到上行，還是純粹在幫 Coinbase 增加 $12 億資產負債表？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-stellar">
+    <div class="card-meta">
+      <span class="card-source">Messari UO Newsletter</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>U.S. Bank 選 Stellar 而非以太坊，因為白名單控制是協議層原生的</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Stellar 的 RWA 市值於 2026 年 1 月 21 日首次突破 $10 億，2025 全年增長 184%，由 Franklin Templeton BENJI 基金、Spiko 國債、RedSwan 房地產、Etherfuse 政府債等驅動。穩定幣市值年增 53% 至 $2.44 億。2026 年 1 月，X-Ray 隱私協議升級上線，引入零知識證明密碼學。最大亮點：U.S. Bank 正在 Stellar 上測試自有穩定幣發行。網路可用性 >99.99%，每筆結算成本 <$0.01。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Stellar 的資產發行控制是協議層原生功能……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Stellar 的資產發行控制（Authorization Required flag）是協議層原生功能，讓發行方可以白名單化持有者，這是以太坊 ERC-20 預設不具備的。U.S. Bank 測試的核心優勢就在這一層，而非只是鏈下合規包裝。但同一時間，X-Ray 的零知識隱私升級讓交易資訊對外部不可見，而 AML/KYC 法規要求銀行對監管機構保持全可見性，若 Stellar 沒有提供「選擇性披露」機制，隱私升級對 U.S. Bank 這類受監管機構不只無用，還是負擔。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Circle USDC 在 Stellar 上已達 $2.23 億，如果 U.S. Bank 正式發行自有穩定幣，它們爭的是同一池企業端結算需求，Circle 在 Stellar 上的地位會怎麼變？</li>
+            <li>Stellar 吸引了 Franklin Templeton 和 U.S. Bank，但 DeFi-native 協議幾乎沒有在這裡建設——如果二級市場流動性不夠深，RWA 發行方只是在把資產放在一條沒有二級市場的鏈上，和在 Excel 裡記帳有什麼本質差別？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-vc">
+    <span class="section-title">VC · 投資動態</span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <div class="article-card" id="vc-bluesky">
+    <div class="card-meta">
+      <span class="card-source">CoinDesk / The Block</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>Bluesky 融了 $1 億，但它的協議設計讓平台本身沒有護城河</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">去中心化社交平台 Bluesky 宣布完成 $1 億 B 輪融資，消息與 CEO Jay Graber 離任幾乎同步發出。Bluesky 以去中心化 AT Protocol 為底層，被視為 Twitter/X 的替代平台，吸引大量因 Elon Musk 入主 X 而遷移的用戶。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">AT Protocol 的設計讓用戶可以帶走數據離開 Bluesky……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">AT Protocol 的設計讓用戶可以帶走數據離開 Bluesky，平台沒有任何網路效應護城河，$1 億 B 輪的估值邏輯只能建立在「Protocol 層的標準化價值」而非「平台壟斷」。Bluesky 的用戶峰值與 X 的政治爭議高度相關，Threads 才是真正的結構性競爭者，因為它有 Instagram 的社交圖譜鎖定力，而 Bluesky 協議原生就沒有鎖定力。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>CEO 離任和 $1 億融資幾乎同時公告，投資人通常在領導層確認後才完成交割，接班者是不是已經確定但還沒公開？</li>
+            <li>如果 Bluesky 的日活用戶在 2025 年爭議潮後出現結構性回落，這 $1 億是在為下一次 X 危機備用跑道，還是真的在賭有機增長？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="vc-multicoin">
+    <div class="card-meta">
+      <span class="card-source">CoinDesk / The Block</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>Kyle Samani「退出」Multicoin，實際上是在加大 Solana 個人倉位</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Multicoin Capital 共同創辦人 Kyle Samani 於 2026 年 2 月 4 日宣布退出管理職，日常運營由 Tushar Jain 與 Brian Smith 接手。Samani 保留 Forward Industries（FWDI，Nasdaq 上市的 Solana 國庫公司）董事長職位。他向 Multicoin Master Fund 提交的 2026-03-31 贖回申請為實物贖回，形式為 FWDI 股票與認股權，而非現金。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Samani 選擇實物贖回而非現金，這是在放大個人對 Solana 的曝險……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Samani 選擇實物贖回（FWDI 股票）而非現金，這是在放大個人對 Solana 的曝險，而非減少，與「退休淡出」的市場解讀相反。FWDI 作為 Solana 國庫公司，其資產負債表主要是 SOL 持倉，Samani 拿 FWDI 股票而非 SOL 本身，中間存在一個流動性折價，這個選擇暗示他相信 FWDI 相對 SOL 本身有上行，或者有其他結構性考量。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Samani 退出後 Multicoin 由 Tushar Jain 主導，Jain 的投資主張和 Samani 有多大差異，Multicoin 會不會趁這個機會悄悄調整成多鏈倉位？</li>
+            <li>如果 Samani 真的看好 Solana，為什麼不要求直接拿 SOL，而是拿一個帶有流動性折價的上市公司股票？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="tracking-section">
+  <h2 class="tracking-title">本月追蹤</h2>
+  <table class="tracking-table">
+    <thead>
+      <tr>
+        <th>追蹤項目</th>
+        <th>指標</th>
+        <th>本期數值</th>
+        <th>上期 / 基準</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Rivian R2 量產進度</td>
+        <td>喬治亞廠開線時間</td>
+        <td>尚未公告</td>
+        <td>2028 交車目標</td>
+      </tr>
+      <tr>
+        <td>Base Sequencer 年化收入</td>
+        <td>月度 Sequencer 費用</td>
+        <td>$7,790 萬（年化）</td>
+        <td>追蹤是否因 DeFi TVL 成長上調</td>
+      </tr>
+      <tr>
+        <td>Kalshi 月交易量</td>
+        <td>單月交易量</td>
+        <td>$100 億（2 月）</td>
+        <td>6 個月前 $8.3 億</td>
+      </tr>
+      <tr>
+        <td>Bluesky DAU</td>
+        <td>日活用戶數</td>
+        <td>未公開</td>
+        <td>追蹤 CEO 換人後留存變化</td>
+      </tr>
+      <tr>
+        <td>FWDI 股價 vs. SOL</td>
+        <td>FWDI/SOL 相對表現</td>
+        <td>追蹤中</td>
+        <td>Samani 贖回日 2026-03-31</td>
+      </tr>
+      <tr>
+        <td>Stellar RWA 市值</td>
+        <td>不含穩定幣 RWA 總值</td>
+        <td>$10 億（1 月突破）</td>
+        <td>2025 全年 $8.55 億</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-03-21</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
