@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-03-24</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:             #f5f3ee;
+      --surface:        #fdfcf9;
+      --surface-alt:    #f9f7f2;
+      --border:         #dedad2;
+      --border-light:   #e8e5de;
+      --ink:            #18160f;
+      --ink-body:       #38342a;
+      --ink-muted:      #7c7868;
+      --ink-faint:      #b0ac9e;
+      --rule:           #c8c3b4;
+      --thought-bg:     #edeae0;
+      --thought-border: #7a6a48;
+      --thought-text:   #3a3220;
+      --accent:         #7a6a48;
+      --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+      --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+      --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:             #111008;
+        --surface:        #171510;
+        --surface-alt:    #131210;
+        --border:         #2a2820;
+        --border-light:   #222018;
+        --ink:            #ede8dc;
+        --ink-body:       #b8b2a0;
+        --ink-muted:      #706a58;
+        --ink-faint:      #403c30;
+        --rule:           #2a2820;
+        --thought-bg:     #1a1810;
+        --thought-border: #6a5e3e;
+        --thought-text:   #c0b898;
+        --accent:         #b09060;
+        --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+        --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+        --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+      }
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+
+    #progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+
+    #back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+    #back-top.visible{opacity:1;pointer-events:auto}
+    #back-top:hover{background:var(--surface-alt);color:var(--ink)}
+
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+    .toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .toc-list li{display:flex;align-items:baseline;gap:10px}
+    .toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+    .toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+    .toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+    .header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+    .header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+    .header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+    .header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+    .header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+    .header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+
+    .section-block{margin-bottom:80px}
+    .section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+    .section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+    .section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+    .article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+    .article-card:hover{border-color:var(--rule)}
+    .article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+    .article-card:hover::before{opacity:.9}
+
+    .card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+    .card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+    .card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+    .card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+
+    .block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+    .factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+
+    details.analysis-details{margin-top:0}
+    details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+    details.analysis-details > summary::-webkit-details-marker{display:none}
+    .analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+    .analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+    details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+    .analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+    .analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+    details[open] .analysis-preview{display:none}
+    .analysis-body{padding-top:12px}
+    .research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+    .analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+
+    .key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+    .key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+    .key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+
+    .food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+    .food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+    .food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+    .food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+    .food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+
+    .footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+
+    @media(max-width:600px){
+      body{padding:0 18px 80px}
+      .header{padding:40px 0 30px}
+      .header h1{font-size:24px}
+      .article-card{padding:22px 18px 22px 24px}
+      .article-card h3{font-size:17px}
+      .section-title{font-size:18px}
+      #back-top{bottom:20px;right:20px}
+      .toc{padding:16px 18px}
+      .analysis-preview{max-width:200px}
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 3 月 24 日　星期二</span>
+    <span class="header-issue">今日 12 篇</span>
+  </div>
+  <h1>你以為你懂的，其實都是假設</h1>
+  <p class="header-summary">Strategy 的高毛利率護城河、Terafab 的太空能源賭注、Drift Protocol 的收入衰退陷阱——今天的故事都是「市場認為發生了什麼」與「實際發生了什麼」之間的落差。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-terafab">Terafab 真正的賭注：讓太空能源成本打趴地面電網</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-a16z">a16z 這篇文章最激進的主張被大家忽略了</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openclaw">OpenClaw 進機器人：中國創造了一個新的安全風險類別</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-unitree">Unitree IPO：62.9% 毛利率說明機器人的護城河在哪裡</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-btc">比特幣漲了 5.2%，但這次黃金是反向的</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-mastercard">Mastercard 買的不是 BVNK，是 Coinbase 永遠買不到的東西</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-strategy">Strategy 繼續加碼，但均價早已高於市價</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-drift">Drift Protocol：4.8x P/E 的背後是收入在衰退</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-decc">DeCC：數億美元市值，但找不到一個付費的企業客戶</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-bluesky">Bluesky $1 億 B 輪：AT Protocol 的去中心化目前只存在於架構圖上</a></li>
+  </ol>
+</nav>
+
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-terafab">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Terafab 真正的賭注：讓太空能源成本打趴地面電網</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Elon Musk 宣佈 Terafab 計畫：由 Tesla、SpaceX、xAI 聯合投資 $250 億，在德州奧斯汀 Giga Texas 北側建設全棧半導體設施，整合晶片設計、製造、封裝與測試全流程。目標年產算力 1 太瓦（terawatt，等於 1 兆瓦，約現今全球 AI 算力的 50 倍），其中 80% 部署在軌道 AI 衛星上，由太陽能驅動。兩款晶片：Tesla AI5（車輛與 Optimus 機器人用）、D3（抗輻射太空級處理器，由 Starship 部署）。小批量生產目標 2026 年底，量產 2027 年。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Terafab 的核心賭注不是晶片製造能力，而是「太空太陽能 + 真空散熱」這個能源模型是否成立。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Terafab 的核心賭注不是晶片製造能力，而是「太空太陽能 + 真空散熱」這個能源模型是否成立。軌道太陽輻射強度是地面的 5 倍，若成本假設成立，這不是對 Nvidia/TSMC 地面算力體系的補充，而是根本性的替代威脅。但「2-3 年內太空算力成本低於地面」這個主張，目前沒有任何公開的熱管理與部署成本數據可以驗證。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果太空算力的散熱問題在工程上是可解的，為什麼現在才由 Musk 提出，而不是 Google 或 AWS 早就在做了？</li>
+            <li>Starship 的每公斤入軌成本若無法繼續下降，「太空算力比地面便宜」的時間線會推遲多久？</li>
+            <li>Tesla AI5 和 D3 是真正的獨立晶片架構，還是 Nvidia GPU 的再包裝——這個問題的答案會徹底改變 Terafab 的估值邏輯？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-a16z">
+    <div class="card-meta">
+      <span class="card-source">a16z Substack</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>a16z 這篇文章最激進的主張被大家忽略了</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">a16z 合夥人發公開信給軟件公司 CEO 與董事會，提出兩條路：Path 1 是在 12-18 個月內透過真正 AI 原生新產品將收入成長率提高 10 個百分點以上；Path 2 是在 12-24 個月內達到含 SBC（股票薪酬，Stock-Based Compensation）的真實營業利潤率 40-50%。參考案例是 Broadcom 收購 VMware 後 FY2024 調整後 EBITDA 利潤率達 61%。頂尖工程師每月代幣預算參考值：$1,000；工程師理論上可同步管理 20-30 個 AI 代理，生產力潛在倍增 20 倍。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">這篇文章最激進的主張被標題搶走了風頭：a16z 在預言 SaaS 的計費單位即將從「用戶席位」轉為「代幣消耗量」。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">這篇文章最激進的主張被標題搶走了風頭：a16z 在預言 SaaS 的計費單位即將從「用戶席位」轉為「代幣消耗量（token/consumption pricing）」。若此預言成立，現有所有基於席位授權的 SaaS 公司估值模型需要重寫，因為定價單位的改變直接衝擊 NRR（淨收入留存率）與 ARR 預測的可靠性。受衝擊最重的是中型 SaaS 公司，它們的護城河（整合複雜度、客戶成本）恰好在代幣定價下被最大程度地稀釋。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果定價單位從席位轉成代幣消耗，SaaS 公司的 NRR 指標還有意義嗎，還是投資人需要一個全新的衡量標準？</li>
+            <li>Path 2（砍到 40% 利潤率）和 Path 1（AI 原生成長）能同時執行嗎，還是追求利潤率本質上會扼殺 AI 產品所需的實驗文化？</li>
+            <li>Broadcom/VMware 是 Path 2 的案例，但 Hock Tan 的方法是收購後大幅削減 R&D——這個模式對有機成長的軟件公司真的可複製嗎？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-openclaw">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Robotics</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>OpenClaw 進機器人：中國創造了一個新的安全風險類別</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">開源 AI 代理 OpenClaw（以自然語言控制設備執行任務的框架）正在中國機器人市場快速擴散。已整合案例：Unitree G1 人形機器人（開發者發佈 OpenClaw 技能包，可透過即時通訊遙控）、Ecovacs Bajie 家用機器人（上海消費電子展亮相，具備機械臂與夾爪）、AgileX Robotics Nero 7 軸機械臂（發佈 OpenClaw 整合指南）。中國 OpenClaw 採用率已超越美國，騰訊、阿里、字節均推出本土化版本。北京監管機構同步警告：OpenClaw 可能洩露隱私、產生網絡安全風險，或在獲得過多訪問權限後「採取錯誤行動」。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">OpenClaw 被接入實體機器人，創造了一個現有安全框架尚未覆蓋的風險類別：軟件層的代理自主性與硬件層的實體執行能力首次結合。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">OpenClaw 被接入實體機器人，創造了一個現有安全框架尚未覆蓋的風險類別：軟件層的代理自主性與硬件層的實體執行能力首次結合。這不是「AI 說錯話」的問題，而是「AI 做出有物理後果的錯誤動作」，北京的監管警告是全球第一個正式針對此組合發出的信號，可能催生一個獨立的機器人 AI 安全合規市場。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>「代理自主性 + 實體執行」的責任歸屬問題，現有侵權法框架能處理嗎，還是需要一個全新的法律類別？</li>
+            <li>如果中國率先建立 AI 代理機器人的安全規範，這套規範會成為全球標準還是只在境內生效？</li>
+            <li>OpenClaw 是開源的——如果有人在代碼層面植入惡意指令，Unitree 或 AgileX 作為硬件廠商是否有能力在執行前攔截？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-unitree">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Robotics</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Unitree IPO：62.9% 毛利率說明機器人的護城河在哪裡</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">毛利率超過純軟件公司水準，說明護城河已從硬件遷移到軟件與訓練數據。</span>
+    </div>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Unitree Robotics 向上海證券交易所（A 股，A-share，境內人民幣計價股票市場）提交 IPO 申請，目標募資 4.2 億元人民幣（約 $6.1 億美元）。2025 年營收 17.1 億元，成長 335%；調整後淨利潤近 8 倍增至 6 億元。人形機器人（外型仿人類雙足直立的機器人）在 2025 年前九個月貢獻 51.5% 收入（2023 年僅 1.9%），毛利率 62.9%。2025 年出貨 5,500 台人形機器人，全球市占率 32.4%；四足機器人自 2022 年累計出貨逾 30,000 台。此前尋求的 $70 億估值已下調。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">62.9% 的人形機器人毛利率，遠超一般硬件行業，已接近純軟件公司水準。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">62.9% 的人形機器人毛利率，遠超一般硬件行業，已接近純軟件公司水準。這表示 Unitree 的真正護城河是訓練數據與軟件棧，而不是機械設計本身，與 Unitree 長期以「低成本硬件」著稱的市場印象形成直接矛盾。若此毛利率可持續，同賽道的估值框架需要從「硬件倍數」切換到「軟件倍數」，這對競爭對手（Figure、Boston Dynamics）的相對估值有重大含義。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Unitree 的高毛利來自軟件，那它累積的 30,000 台四足機器人數據和 5,500 台人形機器人數據，對競爭對手構成多高的壁壘？</li>
+            <li>Unitree 是美軍與美國警察局的供應商，同時申請 A 股 IPO——在當前地緣政治環境下，這個身份組合會不會在 IPO 過程中被監管機構質疑？</li>
+            <li>估值從 $70 億下調是因為市場環境，還是財務盡調後發現了什麼問題？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">6 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-btc">
+    <div class="card-meta">
+      <span class="card-source">Messari UO Newsletter</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>比特幣漲了 5.2%，但這次黃金是反向的</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">2026 年 3 月 23 日，Trump 在 Truth Social 宣佈暫緩對伊朗能源基礎設施的軍事打擊 5 天，稱會談「非常良好且富有成效」。消息出後，比特幣從亞洲盤的 $68,316 快速拉升至盤中高點 $71,400，漲幅 5.2%；以太坊同步上漲 5% 至 $2,170。同日，WTI 原油跌 11%、Brent 跌 8%。伊朗外交部隨即否認美伊之間存在任何談判，比特幣部分回吐，最終報 $70,800 附近。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">這次事件直接否定了「BTC 是地緣政治避險資產」的敘事：BTC 與納斯達克同向，與黃金反向。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">這次事件直接否定了「BTC 是地緣政治避險資產」的敘事：BTC 與納斯達克同向，與黃金反向。當前持有者結構（MSTR 類槓桿買家、對沖基金）在結構上決定了 BTC 對流動性擴張的敏感度，遠高於對風險規避的敏感度。這次 5.2% 拉升的真正受益者是 Binance、Bybit 等收取資金費率與清算罰金的交易所基礎設施層，而非任何方向性押注者。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 BTC 的漲跌邏輯跟納斯達克高度相關，那「加密資產配置」到底在投資組合裡提供什麼樣的風險分散效果？</li>
+            <li>五天暫緩期結束後，若伊朗局勢升級，$71,400 附近接盤的槓桿多單規模有多大，系統性清算的觸發門檻在哪裡？</li>
+            <li>持有者結構（機構 vs 散戶 vs 企業金庫）的變化，是否正在讓 BTC 的避險敘事永久失效，還是只是這個週期的特例？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-mastercard">
+    <div class="card-meta">
+      <span class="card-source">Messari Crypto Venture Weekly</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Mastercard 買的不是 BVNK，是 Coinbase 永遠買不到的東西</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">傳統支付巨頭首次以史上最大規模（$1.8B）直接收購穩定幣基礎設施，標誌著穩定幣支付的競爭主戰場已從鏈上移至傳統金融清算通道。</span>
+    </div>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Mastercard 宣佈以最高 $18 億收購英國穩定幣基礎設施（stablecoin infrastructure，連結法幣支付與區塊鏈網絡的中間件）商 BVNK，含 $3 億績效對賭款（contingent payments，依未來業績達標支付的浮動部分），為目前史上最大穩定幣相關收購。BVNK 自 2021 年成立，覆蓋 130 個以上國家、支援所有主要區塊鏈網絡，2025 年全球穩定幣支付量至少 $3,500 億。Coinbase 此前曾與 BVNK 進行收購談判但告吹。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Coinbase 談崩不是意外，而是結構性必然：BVNK 的價值核心是接入法幣清算網絡，Coinbase 恰好沒有 Mastercard 那條網絡。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Coinbase 談崩不是意外，而是結構性必然：BVNK 的價值核心是接入法幣清算網絡，Coinbase 恰好沒有 Mastercard 那條網絡，買來無法釋放同等價值。Mastercard 將 BVNK 的多鏈穩定幣結算綁入自身商戶網絡與銀行清算通道後，Circle/Coinbase 組合在企業支付層面缺乏等量級的法幣分發基礎設施來對抗。$3 億績效對賭款的存在，反映 Mastercard 對 BVNK 真實基本面的不確定性——BVNK 在 $3,500 億全球穩定幣支付量中的實際份額與 take rate 從未公開。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Visa 已整合 Circle USDC，Mastercard 拿下 BVNK——如果兩大支付網絡各自綁定不同的穩定幣基礎設施，穩定幣賽道會不會走向「Visa 系 vs Mastercard 系」的雙頭壟斷？</li>
+            <li>Coinbase 在企業穩定幣支付這條路上輸掉了，它的下一步是自建法幣清算能力，還是接受在鏈上賽道做第二名？</li>
+            <li>BVNK 的 $3 億績效對賭條款，具體觸發條件是什麼——如果是收入目標，Mastercard 整合之後這個數字還有獨立意義嗎？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-strategy">
+    <div class="card-meta">
+      <span class="card-source">Messari Crypto Venture Weekly</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Strategy 均價 $75,696，市價 $70,194：帳面浮虧下的估值敘事</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Strategy（Nasdaq: MSTR）本週再購入 22,337 枚比特幣，耗資 $15.7 億，均價 $70,194，使公司累計持倉達 761,068 BTC，成本約 $576.1 億，均價 $75,696。同期，日本上市公司 Metaplanet（TSE: 3350）透過股票增發籌得 $2.55 億，長期目標持有 210,000 BTC（BTC 金庫策略，Bitcoin treasury strategy，企業將融資所得轉為持有 BTC 作為主要儲備資產的策略）；英國小型上市公司 Stack BTC（AQSE: STAK）融資 $240 萬，投資人含前英國獨立黨領袖 Nigel Farage。本週三家公司合計 BTC 增倉宣告超過 $18.3 億。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Strategy 均價成本 $75,696 遠高於本次購買均價 $70,194，帳面浮虧明顯，但仍持續加碼。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Strategy 均價成本 $75,696 遠高於本次購買均價 $70,194，帳面浮虧明顯，但仍持續加碼。這說明「BTC 金庫」策略對 MSTR 而言已不是交易邏輯，而是核心估值敘事：一旦停止購買，維繫 MSTR 相對於直接持有 BTC 的溢價的敘事就會瓦解，繼續買才能維持「BTC 代理股」的市場定位。Metaplanet 和 Stack BTC 的跟進，表明這個估值套利結構已被全球小型上市公司複製，但每一家模仿者的資產負債表強度都遠低於 Strategy。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>MSTR 的市值溢價建立在「持續增購」的敘事上，如果有一季它停止買入，溢價會在多短的時間內消失？</li>
+            <li>Metaplanet 用股票增發融資買 BTC，等於讓現有股東承擔 BTC 下跌風險，這個結構在日本散戶投資人中真的被理解了嗎？</li>
+            <li>如果 BTC 跌回 $60,000，Stack BTC 這種融資 $240 萬的迷你版 Strategy 會是第一批被清算的嗎？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-drift">
+    <div class="card-meta">
+      <span class="card-source">Decentralised.co</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Drift Protocol 的 4.8x P/E 建立在收入衰退上，不是成長</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">去中心化投資機構 Decentralised.co（Joel John 主理）發佈研報並宣佈建倉 Drift Protocol，Solana 鏈上最老牌的永續合約（perpetual swaps，不設到期日的加密衍生品合約）交易所。核心論點：Drift FDV（Fully Diluted Valuation，完全稀釋後的代幣估值）僅 $9,500 萬，以 2025 年協議年收入 $4,100 萬計算，隱含本益比約 4.8 倍。2025 年收入成長 193%，費用金庫積累 $2,700 萬。新競爭者 Pacifica 閉測期成交量 $67 億，Drift 同期 $14 億，Jupiter $33 億。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">研報用 2025 年全年 $4,100 萬收入計算出 4.8x P/E，但 2026 年 1-2 月外推年化已降至 $3,075 萬，比 2025 年衰退 25%。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">研報用 2025 年全年 $4,100 萬收入計算出 4.8x P/E，但 2026 年 1-2 月外推年化已降至 $3,075 萬，比 2025 年衰退 25%；若以當前趨勢計算，真實 P/E 約 3.1x，但「便宜」的前提是收入在萎縮而非成長。Pacifica 閉測期 $67 億對比 Drift $14 億的成交量差距，意味著 Drift 在核心衍生品賽道的市占率正在加速流失。更根本的問題：Decentralised.co 公開喊單自己的持倉，但建倉均價、鎖倉條件均未披露，研報讀者實質上可能是在為 Joel John 的退出提供流動性。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Drift 不是跟 Hyperliquid 競爭而是在做 RWA 對沖基礎設施，為什麼它的現貨成交量在 Pacifica 出現後這麼快就萎縮了？</li>
+            <li>「公開研報即行銷自己持倉」這個模式在加密市場是合法的——但如果 Joel John 在研報發布後一個月內出清，讀者會怎麼重新評估這類機構研究的可信度？</li>
+            <li>Drift 的 JIT Auction + DLOB 三層架構真的在鏈上執行更可驗證嗎，還是這只在沒有更快競爭者時才有意義？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-decc">
+    <div class="card-meta">
+      <span class="card-source">Messari UO Newsletter</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>DeCC：數億美元的市值，找不到一個可以驗證的付費企業客戶</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Messari 研究分析師 Alex Beaudry 發佈 DeCC（Decentralized Confidential Computing，去中心化機密運算，讓數據在加密狀態下執行計算）生態系概覽，指出 AI 成為 DeCC 的首要需求驅動力。核心場景：臨床試驗數據、交易信號、醫療記錄、專有模型權重等高價值數據集，在中心化信任模型下無法安全進入 AI 流水線。DeCC 生態目前包含接近 30 個專案，總市值達數億美元，橫跨金融服務、隱私 L1/L2、AI 基礎設施與企業平台。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">目前沒有任何一家製藥公司或金融機構公開披露在生產環境中使用 DeCC 協議。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">目前沒有任何一家製藥公司（Pfizer、Roche、Novartis）或金融機構公開披露在生產環境中使用 DeCC 協議，這是可查的事實而非推測。Nvidia（H100 TEE）和 Azure Confidential Ledger 已提供具 SLA 保障的企業級機密運算，但同樣缺乏大規模採用案例，DeCC 的唯一不可替代場景是「跨多個互不信任機構的數據協作且任何一方均不願依賴中心化雲端」，這個場景真實存在，但付費規模與「數億美元市值」所暗示的市場體量嚴重不符。整個 DeCC 類別的市值很可能建立在零可驗證企業付費客戶之上。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 DeCC 的核心場景是競爭對手之間的聯合建模，誰有動機第一個付費使用——是律師事務所、藥廠聯盟，還是監管機構？</li>
+            <li>FHE（全同態加密）的推論延遲是明文計算的 10,000 倍以上，在這個限制解決之前，哪些 AI 應用場景在現實中是可行的，哪些只是白皮書？</li>
+            <li>如果 Nvidia 或 Microsoft 把機密運算做成標準基礎設施，DeCC 的去中心化到底在解決什麼問題？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-bluesky">
+    <div class="card-meta">
+      <span class="card-source">Messari Crypto Venture Weekly</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Bluesky $1 億 B 輪：AT Protocol 的去中心化，目前只存在於架構圖上</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">去中心化社交平台 Bluesky 公開披露 2025 年 4 月完成的 $1 億 B 輪融資，由 Bain Capital Crypto 領投，跟投方包括 Alumni Ventures、True Ventures、Anthos Capital。用戶數從 A 輪（2024 年 10 月）的 1,300 萬成長至 4,300 萬（增幅逾三倍），基於 AT Protocol（去中心化社交協議，標準化用戶身份、社交圖譜與內容跨應用互通方式）的第三方 app 已超過 1,000 個，SDK 月下載量 400,000+。創辦人 Jay Graber 轉任首席創新官（CIO），前 Automattic（WordPress.com 母公司）CEO Toni Schneider 擔任臨時 CEO，同時搜尋永久人選。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Bain Capital Crypto 領投的真正邏輯應該是 AT Protocol 的可互操性基礎設施，而非 Bluesky app。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Bain Capital Crypto 領投的真正邏輯應該是 AT Protocol 的可互操性基礎設施，而非 Bluesky app，但目前獨立運營的 PDS（Personal Data Server，用戶自主存儲社交數據的伺服器）佔比極低，若 95% 以上用戶數據仍跑在 Bluesky 官方基礎設施上，AT Protocol 的「去中心化」只是架構可能性，這筆投資與投資任何中心化社交平台在結構上沒有本質差異。更直接的問題：目前沒有任何基於 atproto 的第三方 app 向 Bluesky 付費，$1 億融資後的商業化路徑完全不明。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Bluesky 的商業模式最終是廣告或訂閱，AT Protocol 的去中心化理念和商業壓力之間的矛盾要怎麼解決？</li>
+            <li>Jay Graber 退居 CIO、臨時 CEO 搜尋永久人選的過程中，誰在做關於聯邦化架構升級的實質決策？</li>
+            <li>atproto 有 1,000 個第三方 app，但沒有一個在向 Bluesky 付費——這是協議設計的成功還是商業模式的空洞？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-03-24</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
