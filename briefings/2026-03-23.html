@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2025-03-23</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:             #f5f3ee;
+  --surface:        #fdfcf9;
+  --surface-alt:    #f9f7f2;
+  --border:         #dedad2;
+  --border-light:   #e8e5de;
+  --ink:            #18160f;
+  --ink-body:       #38342a;
+  --ink-muted:      #7c7868;
+  --ink-faint:      #b0ac9e;
+  --rule:           #c8c3b4;
+  --thought-bg:     #edeae0;
+  --thought-border: #7a6a48;
+  --thought-text:   #3a3220;
+  --accent:         #7a6a48;
+  --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+  --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+  --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:             #111008;
+    --surface:        #171510;
+    --surface-alt:    #131210;
+    --border:         #2a2820;
+    --border-light:   #222018;
+    --ink:            #ede8dc;
+    --ink-body:       #b8b2a0;
+    --ink-muted:      #706a58;
+    --ink-faint:      #403c30;
+    --rule:           #2a2820;
+    --thought-bg:     #1a1810;
+    --thought-border: #6a5e3e;
+    --thought-text:   #c0b898;
+    --accent:         #b09060;
+    --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+    --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+    --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+  }
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+
+#progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+
+#back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+#back-top.visible{opacity:1;pointer-events:auto}
+#back-top:hover{background:var(--surface-alt);color:var(--ink)}
+
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+.toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.toc-list li{display:flex;align-items:baseline;gap:10px}
+.toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+.toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+.toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+.toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+.toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+.toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+.header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+.header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+.header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+.header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+.header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+.header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+
+.section-block{margin-bottom:80px}
+.section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+.section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+.section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+.article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+.article-card:hover{border-color:var(--rule)}
+.article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+.article-card:hover::before{opacity:.9}
+
+.card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+.card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+.card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+.card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+.card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+.article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+
+.block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+.factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+
+details.analysis-details{margin-top:0}
+details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+details.analysis-details > summary::-webkit-details-marker{display:none}
+.analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+.analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+.analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+.analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+details[open] .analysis-preview{display:none}
+.analysis-body{padding-top:12px}
+.research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+.analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+
+.key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+.key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+.key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+
+.food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+.food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+.food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+.food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+.food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+
+.footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+
+@media(max-width:600px){
+  body{padding:0 18px 80px}
+  .header{padding:40px 0 30px}
+  .header h1{font-size:24px}
+  .article-card{padding:22px 18px 22px 24px}
+  .article-card h3{font-size:17px}
+  .section-title{font-size:18px}
+  #back-top{bottom:20px;right:20px}
+  .toc{padding:16px 18px}
+  .analysis-preview{max-width:200px}
+}
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2025 年 3 月 23 日　星期日</span>
+    <span class="header-issue">今日 17 篇</span>
+  </div>
+  <h1>老的不退，AI 的鍋誰來背？</h1>
+  <p class="header-summary">年輕人失業與老年勞動者延遲退休的真實關係被掩蓋了，而被誤認為是 AI 的責任。同時，機構投資人正在用估值為數字化押注：預測市場在面對刑事訴訟時反而翻倍融資，銀行在考慮繞過穩定幣中間層直接發行區塊鏈美元。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-rivian">Uber 押注 Rivian 的邏輯</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-supermicro">Supermicro 走私案的警示</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-hsbc">HSBC 裁員 2 萬人的真實目標</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-cursor">Cursor 以中國模型打 Anthropic</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic">Anthropic 的 8 萬人訪談</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-bezos">Bezos 的 $1,000 億賭注</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-microsoft">Microsoft MAI-Image-2</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-amazon">Amazon 的 Transformer 手機</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-a16z">年輕人失業的診斷</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-kalshi">Kalshi 面對刑事訴訟的融資</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-a16z">廣告網路的 1997 年失敗</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-base">Base 退出 Superchain</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-stellar">U.S. Bank 的自有穩定幣</a></li>
+  </ol>
+</nav>
+
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">9 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-rivian">
+    <div class="card-meta">
+      <span class="card-source">CNBC / TechCrunch</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Uber 押注 Rivian 的邏輯是製造業護城河，而非自駕技術領先</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Uber 宣布與電動車公司 Rivian 簽署協議，投資最高 $12.5 億美元，計劃部署最多 5 萬輛基於 Rivian R2 平台的自動駕駛計程車（robotaxi）。首期 $3 億待監管批准後執行，後續四期以里程碑達成為前提，整體計劃延伸至 2031 年。首批 1 萬輛預計 2028 年在舊金山與邁阿密上路，服務範圍最終擴展至美國、加拿大、歐洲共約 25 個城市，且僅供 Uber 平台使用。R2 自駕版配備 11 個攝影機、5 個雷達、1 個 LiDAR，搭載 Rivian 自研 RAP1 晶片（1,600 TOPS，即每秒兆次運算）。風險在於 R2 尚未量產，Rivian 的 Georgia 工廠仍在建設中。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Uber 目前已與 Waymo、Zoox 等 25 家自駕公司合作，選擇 Rivian 的差異點不是自駕算法，而是「整車製造 + 晶片 + 軟體 + 美國製造」的垂直整合能力。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Uber 目前已與 Waymo、Zoox 等 25 家自駕公司合作，選擇 Rivian 的差異點不是自駕算法，而是「整車製造 + 晶片 + 軟體 + 美國製造」的垂直整合能力。這個邏輯與當前 AI 硬件賽道的端到端自研趨勢一致，Uber 實際上是在押注製造業護城河比算法更難被複製。研究信心中等，因 R2 量產時間表存在相當不確定性，2028 年能否如期上路仍是最大變數。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Waymo 在 2028 年前大幅擴張，Uber-Rivian 的排他性協議對 Uber 是護城河還是戰略包袱？</li>
+            <li>Rivian 目前現金流緊張，若 2031 年前出現財務危機，Uber 的里程碑式付款設計是保護還是曝險？</li>
+            <li>「垂直整合」作為護城河，在自駕技術快速迭代的情境下，究竟鎖定的是優勢還是路徑依賴？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-supermicro">
+    <div class="card-meta">
+      <span class="card-source">CNBC / The Register</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Supermicro 走私案的真正警示：上市公司董事會成員能長期欺騙商務部審計</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">這不只是一個刑事案件，是整個 AI 晶片出口管制執行體系可信度的公開壓力測試。</span>
+    </div>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Supermicro（Super Micro Computer）共同創辦人 Yih-Shyan「Wally」Liaw 與另外兩名員工被美國司法部起訴，指控串謀違反《出口控制改革法》（ECRA，Export Controls Reform Act）、走私及詐騙政府。起訴書指控三人透過東南亞公司將 $25 億的伺服器（含 Nvidia AI GPU）偽裝成非受限目的地出口，其中 $5.1 億最終流入中國。執行細節：Sun 等人被監視錄像拍到以熱風槍移除序號貼紙，貼至假伺服器上，並以同一批假伺服器通過美國商務部審計。Liaw 已獲保釋，另一涉案者 Chang 目前仍在逃，Liaw 起訴後立即辭去董事會職位。Supermicro 股價應聲下跌 33%。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">這個案件最關鍵的細節是，騙過商務部審計的工具不是複雜的技術手段，而是熱風槍和假伺服器，且操作者是上市公司的董事會成員。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">這個案件最關鍵的細節是，騙過商務部審計的工具不是複雜的技術手段，而是熱風槍和假伺服器，且操作者是上市公司的董事會成員，並持續相當時間。這直接說明出口管制的問題不在法規嚴不嚴，而在執行端根本缺乏有效的實物稽核機制。輸家是整個 Supermicro 品牌，但更大的輸家是美國商務部的執法公信力。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果熱風槍就能欺騙商務部審計，現有的晶片追蹤機制（如晶片 ID 序列號）究竟鎖住了什麼？</li>
+            <li>Nvidia 作為 GPU 供應商在這條鏈上承擔任何責任嗎，還是監管思路只到「製造商」這一層？</li>
+            <li>這個案例曝光後，其他東南亞中間商的類似操作會加速還是暫停？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-hsbc">
+    <div class="card-meta">
+      <span class="card-source">Bloomberg / Yahoo Finance</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>HSBC 裁員 2 萬人，真正的戰場是監管合規，不是客服中心</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">HSBC Holdings 正在評估未來 3 至 5 年裁減最多 20,000 個職位的方案，約佔全體員工（約 20 萬人）的 10%。計劃由 CEO Georges Elhedery 主導，以 AI 縮減中台與後台規模為核心邏輯。CFO Pam Kaur 具體點名 KYC（Know Your Customer，金融機構核實客戶身份、評估洗錢風險的法規要求流程）、交易監控、客服中心為主要應用場景。預計受衝擊最大的是全球服務中心的非客戶接觸崗位，涵蓋運營、合規、財務、IT 等職能。HSBC 發言人拒絕置評，計劃尚未最終確定。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">CFO 點名 KYC 和交易監控不是隨機選擇，這兩項工作是銀行合規成本最高、最依賴人工判斷、同時也最難自動化的領域。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">CFO 點名 KYC 和交易監控不是隨機選擇，這兩項工作是銀行合規成本最高、最依賴人工判斷、同時也最難自動化的領域。如果 HSBC 成功以 AI 替代這些崗位且通過監管審核，這對整個 RegTech（以科技手段協助金融機構滿足合規要求的行業）是顛覆性訊號，直接受衝擊的是那些靠幫銀行做合規軟體賺錢的公司。研究信心中等，因計劃仍在評估初期，最終範圍未定。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>銀行監管機構（如 FCA、OCC）什麼條件下才會接受 AI 作為 KYC 合規執行者，而不是人工審核的輔助工具？</li>
+            <li>如果 HSBC 成功，其他大型銀行跟進的速度，是受制於技術還是監管許可的時間表？</li>
+            <li>RegTech 公司（如 Comply Advantage、NICE Actimize）的商業模式，是被 AI 替代還是因此受益？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-cursor">
+    <div class="card-meta">
+      <span class="card-source">VentureBeat / The New Stack</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Cursor 以可能來自中國的底層模型，在美國市場用 1/10 成本打 Anthropic</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Cursor（Anysphere）發布第三代自研 coding 模型 Composer 2，在獨立評測基準 Terminal-Bench 2.0（測量 AI agent 執行命令行任務的能力）得分 61.7%，超越 Anthropic Opus 4.6（58%），但仍落後 OpenAI GPT-5.4（75.1%）。定價：$0.50/$2.50 per M input/output tokens（基礎版），約為 Opus 4.6（$5/$25）的 1/10 至 1/20。公司自有 CursorBench 顯示三代進化：38% → 54% → 61.3%（自 2025 年 10 月起）。多個報導指出 Composer 2 底層模型之一為中國 AI 公司 Kimi K2.5。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">如果 Kimi K2.5 確為底層模型之一，Cursor 的商業模式實際上是以中國基礎研究能力為後端、以美國開發者市場為前端的組合。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">如果 Kimi K2.5 確為底層模型之一，Cursor 的商業模式實際上是以中國基礎研究能力為後端、以美國開發者市場為前端，在晶片出口管制和 AI 國家安全政策的敏感背景下，這條技術路線的政策風險被嚴重低估。Anthropic 是直接的輸家，因為 Cursor 用更低成本達到接近的性能，同時侵蝕了 Opus 系列作為「coding 最強」的市場定位。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Kimi K2.5 底層說法屬實，美國政府會以什麼理由介入，還是應用層的供應鏈目前根本不在監管視野內？</li>
+            <li>Anthropic 的護城河究竟是模型能力還是合規性承諾（CSAM 過濾、安全評測等），後者是否才是企業客戶真正付溢價的原因？</li>
+            <li>Cursor 的定價壓縮，最終傷害的是 Anthropic 還是 OpenAI，還是兩者都輸給了應用層？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-anthropic">
+    <div class="card-meta">
+      <span class="card-source">Anthropic / Euronews</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 真正的示範不是調查結論，而是 Claude 一週做完了研究公司半年的工作</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Anthropic 於 2025 年 12 月以特製版 Claude（Claude Interviewer）在一週內對 80,508 名 Claude.ai 用戶進行開放式訪談，涵蓋 159 個國家、70 種語言，為 Anthropic 自稱「史上最大規模 AI 態度質性研究（qualitative study，以開放式對話為主的研究方法，通常採樣量遠小於量化研究）」。核心發現：81% 認為 AI 已達成其願景；最大恐懼是 AI 出錯（27%），其次是就業衝擊（22%）、自主性侵蝕（22%）、認知退化（16%）；人們最愛 AI 提供情感支持，卻有 3 倍可能性擔心對其依賴。地區差異顯著：印度與南美態度明顯積極，美國、歐洲、日本、韓國持中性或偏低情緒。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">這項研究最關鍵的不是數據，而是 Claude 在一週內完成 8 萬次深度多語言對話訪談這件事本身。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">這項研究最關鍵的不是數據，而是 Claude 在一週內完成 8 萬次深度多語言對話訪談這件事本身，相當於一個中型市場研究公司半年的工作量，且以自然語言而非結構化問卷執行。這是 AI 作為研究基礎設施最強的 proof of concept（概念驗證），傳統市調公司（如 Nielsen、Ipsos）是這個案例最直接的參照失敗者。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>以 Claude 訪談 Claude 用戶，這個樣本是否系統性地偏向「已接受 AI 的人」，81% 正面情緒是真實態度還是選擇偏誤？</li>
+            <li>如果 AI 訪談能替代傳統問卷，市調公司的商業模式還剩下哪一段是 AI 短期內無法複製的？</li>
+            <li>印度和南美的高積極情緒，是因為 AI 威脅感更低，還是因為預期 AI 能解決的問題更根本？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-bezos">
+    <div class="card-meta">
+      <span class="card-source">TechCrunch / WSJ</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Bezos 的 $1,000 億賭的是 LLM 之後的下一代 AI，而不是製造業整合</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Jeff Bezos 正在早期洽談中，計劃募集 $1,000 億美元，用於收購製造業企業，目標包含芯片製造、國防、航太。計劃的技術引擎是 Project Prometheus，Bezos 最近共同擔任 CEO，啟動資金 $62 億，技術定位為「從現實世界而非數位資料學習」的 AI 模型，與 ChatGPT 等 LLM（大型語言模型，Large Language Model）形成差異化。Bezos 已赴新加坡與中東路演，向主權財富基金及大型機構投資人推介。若達成，$1,000 億將比肩 Softbank Vision Fund 一期（私募基金，Private Equity Fund，以收購成熟企業進行運營改造後套現退出為核心策略）。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Project Prometheus 以「從物理世界學習」為定位，是對 LLM 範式的刻意差異化，即所謂 embodied AI。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Project Prometheus 以「從物理世界學習」為定位，是對 LLM 範式的刻意差異化，即所謂 embodied AI（能與物理世界互動並從中學習的 AI 系統）。Bezos 實際上是在押注第二代 AI 技術路線，認為現有的語言模型不是製造業自動化的最終答案，而他的 $1,000 億收購計劃是讓這個技術路線有足夠的真實世界數據去訓練。這個賭注的最直接競爭對手不是 OpenAI，而是 Figure、Physical Intelligence 這類物理 AI 公司。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>主權財富基金（尤其是中東）投入這個計劃，政治上會面臨什麼美國國會層面的審查？</li>
+            <li>如果 embodied AI 還需要 5 年才能達到製造業可用標準，$1,000 億的收購標的在這段時間如何維持價值？</li>
+            <li>Bezos 同時在做 Blue Origin 和 Project Prometheus，資源分配上誰優先，這對後者的執行力是什麼意義？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-microsoft">
+    <div class="card-meta">
+      <span class="card-source">Microsoft AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Suleyman 從 Copilot 調崗，才是 MAI-Image-2 這件事真正值得看的訊號</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Microsoft AI Superintelligence team 發布圖像生成模型 MAI-Image-2，在 Arena.ai 排行榜（以用戶盲測對比投票評比 AI 模型的獨立排行榜，公信力高於官方 benchmark）位居第 5，僅次於 Google Gemini 系列與 OpenAI GPT Image-1.5。相比前代，文字渲染（海報、投影片、資訊圖表）提升最顯著，達 +115 分。現階段可在 Microsoft MAI Playground 免費試用（限美國用戶），Copilot、Bing 及 Foundry API 接入即將推出。人事方面，Mustafa Suleyman（DeepMind 共同創辦人，現任 Microsoft AI CEO）將職責從 Copilot 轉移至專注 frontier model 研究工作。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Suleyman 調崗的時間點與 MAI-Image-2 取得 Arena.ai 第 5 名同步發生，這個人事調整傳遞的訊息是微軟在轉變策略。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Suleyman 調崗的時間點與 MAI-Image-2 取得 Arena.ai 第 5 名同步發生，這個人事調整傳遞的訊息是：Microsoft 已承認 Copilot 的差異化路線不是靠整合 OpenAI 模型實現的，而自研模型的優先級正在上升。這對 OpenAI 是一個明確的競爭訊號，微軟正在從客戶轉變為競爭者。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Suleyman 離開 Copilot 日常運營後，Copilot 的產品定位會更往 OpenAI 整合靠，還是繼續走自研路線？</li>
+            <li>MAI-Image-2 排名第 5，在 OpenAI 和 Google 之後——對企業客戶來說，第 5 名能有足夠的差異化理由選擇微軟嗎？</li>
+            <li>微軟和 OpenAI 之間的「投資換獨家」協議如果在自研模型上被稀釋，OpenAI 有什麼法律或合同上的反制手段？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-amazon">
+    <div class="card-meta">
+      <span class="card-source">Reuters</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Amazon 的「Transformer」手機，是要為 Alexa agent 做一個永遠在線的入口</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Reuters 報導 Amazon 正在開發新智能手機，代號「Transformer」，設計定位為 Alexa 的「永遠在線接入點」，與 Amazon 服務生態深度整合。專案由內部小組 ZeroOne（成立約一年）負責，領導者為前微軟高管 J Allard（曾主導 Zune 與 Xbox）。背景：Amazon Fire Phone 2014 年以 $649 上市，14 個月後停產，遺留 $1.7 億庫存減損。此次 Amazon 正在評估兩個方向：全功能智能手機，或功能極簡的「dumbphone（功能有限的基本手機）」，以 Light Phone 為參考對象。當前市場環境困難：蘋果加三星合佔全球約 40%，2026 年全球出貨量預期下跌 13%。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">「Transformer」代號加上「dumbphone」方向的探索，在 AI agent 全面滲透的脈絡下意義完全不同。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">「Transformer」代號加上「dumbphone」方向的探索，在 AI agent 全面滲透的脈絡下意義完全不同。這不是要正面挑戰 iPhone，而是要做一個以語音和 agent 為核心交互、螢幕為輔的後智能手機設備，護城河是 Alexa agent 生態而非硬件本身。直接的競爭對比不是三星，而是 Meta 的 Ray-Ban 眼鏡，兩者都在測試「螢幕不是第一接口」的未來硬件形態。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Alexa agent 的核心競爭力不如 ChatGPT 或 Gemini，這個硬件的入口價值還剩多少？</li>
+            <li>J Allard 的 Zune 和 Xbox 都是在市場已有強勢玩家時切入，這次他的策略是複製哪一個？</li>
+            <li>「dumbphone」路線在中高收入用戶中是真實需求還是短暫趨勢，Amazon 的數據支持哪一個結論？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-a16z">
+    <div class="card-meta">
+      <span class="card-source">a16z</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>年輕人失業的診斷如果是「老人不退休」，解方就不是 AI 監管</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">a16z 發布多組勞動市場數據分析。青年就業：大學與非大學學歷年輕人就業率過去兩年等幅下滑；勞動力平均年齡 2025 年單年上升 1 歲（正常速率約每 5 年升 1 歲，加速約 5 倍）；20 至 30 歲年輕人在職場佔比自 1976 年迄今下降約 12%。AI 基建需求：Goldman Sachs 估計 AI 基建所需新增就業約 50 萬人，含約 78,000 人的「勞動力缺口」；製造業職缺 2026 年初開始回升，白領職缺持續 3 年下跌。GPU 稀缺：B200 現貨可用率幾乎為 0%，GH200 低於 40%（3Fourteen Research 數據），直接反駁 Michael Burry 的「GPU 2 至 3 年內折舊」論點。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">非大學學歷年輕人和大學學歷年輕人的就業率等幅下滑，直接破解了「AI 在消滅知識工作者」的流行說法。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">非大學學歷年輕人和大學學歷年輕人的就業率等幅下滑，直接破解了「AI 在消滅知識工作者」的流行說法。更準確的診斷是老年勞動者延遲退休佔據了位置，「職業內老化」數據支持這個結論，2025 年勞動力平均年齡單年跳升 1 歲是加速到正常速率 5 倍的警示。如果診斷正確，政策解方是退休制度改革，而不是 AI 監管。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>老年勞動者延遲退休的背後是退休金不足還是意願問題，這兩種原因需要完全不同的政策回應？</li>
+            <li>Goldman Sachs 估計的 78,000 人藍領缺口，在地理分布上集中在哪些州，這對政治議程有什麼影響？</li>
+            <li>如果年輕人失業和 AI 的關係被過度強調，現在投入 AI 監管的政治資本，5 年後會被怎麼評價？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-kalshi">
+    <div class="card-meta">
+      <span class="card-source">Bloomberg / Fortune</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>面對刑事訴訟，Coatue 仍給出 $22B 估值，說明機構已接受「監管不確定性」作為資產</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">預測市場（prediction market，允許用戶對真實世界事件結果下注的平台，類似金融衍生品但標的是事件結果）平台 Kalshi 完成由 Coatue Management（專注科技的大型對沖基金兼成長期 VC）領投的超 $10 億美元融資，估值達 $22 億美元，較 2025 年 12 月的 $11 億翻倍，上輪同樣籌得 $10 億美元。2026 年 2 月，Kalshi 月交易量突破 $100 億美元，較六個月前成長 12 倍，已超越競爭對手 Polymarket，成為美國最大預測市場。同時，Kalshi 面臨越來越多州級監管阻力：Nevada 已宣布禁令，Arizona 因涉嫌非法賭博與選舉下注提起刑事訴訟。Kalshi 方面尚未公開回應。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Coatue 在 Kalshi 面對 Arizona 刑事訴訟的情況下仍領投並給出翻倍估值，這不是忽視風險，而是一個明確的押注。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Coatue 在 Kalshi 面對 Arizona 刑事訴訟的情況下仍領投並給出翻倍估值，這不是忽視風險，而是一個明確的押注：聯邦層面的監管環境已足夠友善，州級阻力最終會被聯邦法規覆蓋。這個邏輯如果成立，Polymarket 才是真正的輸家，因為它在美國沒有合規牌照，無法複製 Kalshi 的「聯邦合規 + 州級對抗」的雙線戰略。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Arizona 的刑事指控如果進入正式起訴，聯邦層面的合規牌照能否有效抵擋州檢察官的管轄權？</li>
+            <li>Polymarket 在美國恢復合法運營的路徑，和 Kalshi 現在走的路相比，哪個更現實？</li>
+            <li>如果預測市場被納入正規金融監管，原本的「賭博」流動性會增加還是因為過度合規而消失？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-a16z">
+    <div class="card-meta">
+      <span class="card-source">a16z crypto</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>廣告免費網路是 1997 年技術失敗的意外副產品，AI agent 正在完成本該發生的修正</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">a16z crypto 發布深度文章，論述 AI agent 無法被廣告打擾，正在瓦解廣告支撐的網路商業模式。Stack Overflow 流量自 GPT-4 後下跌 75%，科技媒體流量下跌 60%。兩個競爭性開放支付協議正在浮現：x402（Coinbase 主導），以 HTTP 402 狀態碼（1997 年預留的「需要付款」回應碼）為靈感，已處理 5,000 萬筆交易，日交易 13.1 萬筆，均值 $0.20，合作夥伴含 Cloudflare、Google、Visa、Anthropic MCP；MPP（Machine Payments Protocol，機器支付協議）（Stripe + Tempo 聯合開發），全棧企業級方案，支援串流支付與法幣整合，合作夥伴含 OpenAI、Mastercard、Shopify、Revolut、DoorDash、Standard Chartered。從 Claude 4.5+ 與 Codex 5.2+ 起，agent 可自主探索並使用未經預訓練的 API。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">x402 和 MPP 的合作夥伴名單揭示了一個清晰的陣營分裂：x402 吸引的是基礎設施層玩家，MPP 吸引的是消費者平台層玩家。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">x402 和 MPP 的合作夥伴名單揭示了一個清晰的陣營分裂：x402（Coinbase 主導）吸引的是基礎設施層玩家（Cloudflare、Google、Visa），MPP（Stripe 主導）吸引的是消費者平台層玩家（Shopify、DoorDash、Revolut）。這個分裂不是技術選擇，而是利益站位，最終決定哪個標準勝出的，是誰先讓足夠多的 AI agent 把它當作默認支付路徑。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Google 同時出現在 x402 的合作夥伴名單，自己卻靠廣告賺 $200B+，它在這兩個賭注上怎麼做對沖？</li>
+            <li>如果 AI agent 成為主要的網路消費主體，現在依賴廣告收入的內容創作者的商業模式要往哪裡走？</li>
+            <li>x402 的 stablecoin 微支付路線，和 Apple Pay / Google Pay 的法幣小額支付相比，對最終用戶有什麼真實的差異化優勢？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-base">
+    <div class="card-meta">
+      <span class="card-source">Messari / Bitcoin Ethereum News</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Base 退出 Optimism Superchain 才是代幣發行的真正前提，不是技術準備度</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Messari 分析師 Eric Manoukian 發布報告，指出 Base 是所有 Ethereum L2（Layer 2，建立在以太坊主鏈之上的擴容方案）中 DeFi TVL（總鎖倉價值）最高、序列器收入（sequencer revenue，處理並排序 L2 交易的節點費用）最高（$77.9M/年，佔 Coinbase 總營收 1.1%）的網路，同時是唯一缺乏原生代幣的主要 L2。2026 年 2 月，Base 宣布退出 Optimism Superchain（多個 OP Stack L2 共享技術棧與治理的聯盟架構）。主要 L2 治理代幣（ARB、OP、STRK 各跌超 85%）顯示問題在於缺乏結構性需求機制。Messari 建議「四柱混合模型」：序列器質押 + 代幣加權治理 + 全網效用 + 20% Coinbase 戰略儲備，以 $60 億 FDV（完全稀釋估值）計算，20% 儲備 = $12 億股權價值。Polymarket 賠率：69% 機率 2026 年底推出代幣。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Base 退出 Optimism Superchain 是推出代幣的隱性前提，因為留在 Superchain 就意味著序列器收入需與 Optimism 共享。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Base 退出 Optimism Superchain 是推出代幣的隱性前提，因為留在 Superchain 就意味著序列器收入需與 Optimism 共享，而 BASE 代幣的核心需求機制恰恰依賴 100% 序列器收入留在自己生態。這個退出決定在時機上與代幣計劃高度吻合，比技術準備度或監管環境更能解釋為什麼「現在」是時間點。Coinbase 作為上市公司，代幣發行對其財報的影響是最終決策的真正門檻。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Coinbase 上市公司的會計處理，如何把 BASE 代幣的 $12 億戰略儲備價值反映在財報上，而不觸發 SEC 的額外審查？</li>
+            <li>ARB、OP、STRK 跌超 85% 的歷史，靠「四柱模型」能被打破嗎，還是 L2 代幣就是結構上無法創造持久需求？</li>
+            <li>如果 BASE 代幣在 Coinbase 交易所上市，這對 Coinbase 的利益衝突審查意味著什麼？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-stellar">
+    <div class="card-meta">
+      <span class="card-source">Messari</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>U.S. Bank 測試自有穩定幣，意味著美國第五大銀行在考慮繞過 USDC 基礎設施</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Stellar 2025 年 Q4 數據：RWA（Real World Assets，現實世界資產的代幣化）市值（不含穩定幣）全年增 184%，從 $3.01 億增至 $8.55 億，並於 2026 年 1 月 21 日突破 $10 億里程碑。成長動力來自 Spiko 國庫券、RedSwan 房地產、Franklin Templeton BENJI 基金及 Etherfuse 政府債務。穩定幣市值 YoY +53%（$1.59 億至 $2.44 億），USDC 佔 $2.23 億（YoY +45%）。PayPal PYUSD 於 2025 年 9 月加入 Stellar。Stellar 正常運行時間 >99.99%，結算成本 <$0.01/筆。重點：U.S. Bank（美國第五大銀行，總資產約 $7,000 億）正在測試在 Stellar 上發行自有品牌穩定幣。借貸協議 Templar 即將支援 Stellar 上可流通的 RWA。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">U.S. Bank 測試自有穩定幣這件事通常被埋在 Stellar RWA 成長數字裡，但真正的意涵是美國第五大銀行在考慮繞過 Circle。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">U.S. Bank 測試自有穩定幣這件事通常被埋在 Stellar RWA 成長數字裡，但真正的意涵是：美國第五大銀行正在考慮以自己的品牌繞過 Circle（USDC 發行商）的穩定幣基礎設施，直接在區塊鏈上發行可程式化的美元工具。如果其他大型銀行跟進，Circle 作為「銀行的銀行穩定幣中間層」的商業模式面臨根本性威脅。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>U.S. Bank 選擇 Stellar 而非 Ethereum 或 Solana，是因為技術優勢還是監管上的可解釋性更高？</li>
+            <li>銀行自有穩定幣和 USDC 的關鍵差異如果只是品牌控制權，企業客戶會為什麼原因付出更換成本？</li>
+            <li>如果多家大型銀行各自發行自有穩定幣，流動性碎片化的問題由誰來解決，這反而會是 Circle 的機會嗎？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="footer-rule">Daily Briefing · 2025-03-23</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
