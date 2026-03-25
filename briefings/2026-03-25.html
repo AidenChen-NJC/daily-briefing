@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-03-25</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:             #f5f3ee;
+  --surface:        #fdfcf9;
+  --surface-alt:    #f9f7f2;
+  --border:         #dedad2;
+  --border-light:   #e8e5de;
+  --ink:            #18160f;
+  --ink-body:       #38342a;
+  --ink-muted:      #7c7868;
+  --ink-faint:      #b0ac9e;
+  --rule:           #c8c3b4;
+  --thought-bg:     #edeae0;
+  --thought-border: #7a6a48;
+  --thought-text:   #3a3220;
+  --accent:         #7a6a48;
+  --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+  --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+  --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:             #111008;
+    --surface:        #171510;
+    --surface-alt:    #131210;
+    --border:         #2a2820;
+    --border-light:   #222018;
+    --ink:            #ede8dc;
+    --ink-body:       #b8b2a0;
+    --ink-muted:      #706a58;
+    --ink-faint:      #403c30;
+    --rule:           #2a2820;
+    --thought-bg:     #1a1810;
+    --thought-border: #6a5e3e;
+    --thought-text:   #c0b898;
+    --accent:         #b09060;
+    --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+    --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+    --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+  }
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+
+#progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+
+#back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+#back-top.visible{opacity:1;pointer-events:auto}
+#back-top:hover{background:var(--surface-alt);color:var(--ink)}
+
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+.toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.toc-list li{display:flex;align-items:baseline;gap:10px}
+.toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+.toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+.toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+.toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+.toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+.toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+.header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+.header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+.header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+.header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+.header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+.header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+
+.section-block{margin-bottom:80px}
+.section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+.section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+.section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+.article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+.article-card:hover{border-color:var(--rule)}
+.article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+.article-card:hover::before{opacity:.9}
+
+.card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+.card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+.card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+.card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+.card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+.article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+
+.block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+.factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+
+details.analysis-details{margin-top:0}
+details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+details.analysis-details > summary::-webkit-details-marker{display:none}
+.analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+.analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+.analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+.analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+details[open] .analysis-preview{display:none}
+.analysis-body{padding-top:12px}
+.research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+.analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+
+.key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+.key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+.key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+
+.food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+.food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+.food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+.food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+.food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+
+.footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+
+@media(max-width:600px){
+  body{padding:0 18px 80px}
+  .header{padding:40px 0 30px}
+  .header h1{font-size:24px}
+  .article-card{padding:22px 18px 22px 24px}
+  .article-card h3{font-size:17px}
+  .section-title{font-size:18px}
+  #back-top{bottom:20px;right:20px}
+  .toc{padding:16px 18px}
+  .analysis-preview{max-width:200px}
+}
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 3 月 25 日　星期三</span>
+    <span class="header-issue">今日 12 篇</span>
+  </div>
+  <h1>今天的 AI 都在假裝自己更強</h1>
+  <p class="header-summary">從 Anthropic 的系統依賴，到 OpenAI 的財務承諾，再到 Helion 的物理極限，每一個宣佈都在超越現實能支撑的邊界。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-dispatch">Anthropic Dispatch：Apple 的一次系統更新就能讓它歸零</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-jensen-agi">Jensen Huang 的 AGI 宣言在邏輯上是自我指涉的</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-meta-dreamer">Meta 收購 Dreamer，但核心功能在 iPhone 上根本跑不起來</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-zuckerberg-agent">Zuckerberg 的 CEO Agent 可能讓 Meta 法遵團隊頭痛</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-pe">OpenAI 用 17.5% 保障回報包裝了一個法律結構追索權未知的承諾</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-helion-fusion">Helion：核融合 2030 年 100 座反應爐，核能史上從未有人做到</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-revolut-credit">Revolut：LDR 6% 不是增長飛輪，是信用冷啟動的難題</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-wing-faa">Alphabet Wing 灣區計畫：FAA 審批週期讓「2026 年稍晚」幾乎不可行</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-fcc-router">FCC 禁令：真正確定性受益者幾乎不存在</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-multicoin">Multicoin Capital 接班：集體領導，不是繼位</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-hyperliquid">Hyperliquid：市佔從 70% 跌到 30%，結構性弱點就是它選擇當一條孤島鏈</a></li>
+  </ol>
+</nav>
+
+<!-- AI · 科技 -->
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">9 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-anthropic-dispatch">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI / CNBC</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Anthropic Dispatch 的真正風險，是 Apple 不需要做任何動作就能讓它失效</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Anthropic 於 2026-03-23 發布研究預覽版 Cowork Dispatch，允許 Pro 或 Max 計畫的 macOS 用戶從手機指派任務，由 Claude（Anthropic 的 AI 助理）在電腦上自主點擊、打字、瀏覽網頁完成工作。功能底層依賴 computer use（AI 直接操控桌面應用的能力），優先呼叫直接 API，只在必要時回退到模擬滑鼠點擊的 screen control 模式。這是 Anthropic 於 2026 年 2 月收購 computer use 新創 Vercept 後，僅 4 週推出的首個產品，Windows 版本仍在規劃中。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Apple 從 macOS Sequoia 起持續收緊 TCC（Transparency, Consent, and Control，隱私權限管理框架），Dispatch 若未取得 Apple 正式白名單地位，下一次系統更新就能直接中斷它的核心能力。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Apple 從 macOS Sequoia 起持續收緊 TCC（Transparency, Consent, and Control，隱私權限管理框架），Dispatch 若未取得 Apple 正式白名單地位，下一次系統更新就能直接中斷它的核心能力。Anthropic 從未披露與 Apple 的合作條款，這是整張發布故事裡被刻意略過的最大執行風險。輸家是已付費 Pro/Max 訂閱、期待「手機指派、電腦自主完成」的用戶，他們的訂閱價值繫於一個 Anthropic 無法控制的第三方決定。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Apple 真的在下一次更新切斷 Dispatch 的權限，Anthropic 有什麼反制手段？</li>
+            <li>Vercept 在被收購前是否已取得 Apple 的某種程度默許，還是這完全是 Anthropic 自己的賭注？</li>
+            <li>「4 週出產品」是整合速度的優勢，還是跳過了重要合規檢查的信號？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-jensen-agi">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI / Yahoo Finance</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Jensen Huang 宣告 AGI 已至，用的是一個只有 Nvidia 能從中獲益的定義</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Nvidia CEO Jensen Huang 於 2026-03-22 的 Lex Fridman Podcast 中表示「我認為我們已實現 AGI（Artificial General Intelligence，通用人工智慧）」。他採用的定義是：AI 能建立、成長並短暫達到市值超過 10 億美元的科技公司，並以被 OpenAI 收購的 OpenClaw 爆紅為例證。業界多數 AI 研究者認為 Huang 刻意壓低了定義門檻，Windows Central 指出這個宣告還可能牽動 Microsoft-OpenAI 協議中涉及 AGI 認定的合約條款。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">OpenClaw 的 10 億美元估值是 OpenAI 的收購出價，而 OpenAI 本身是 AI 最大受益者之一，其收購定價包含戰略溢價，不是自由市場發現的價格。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">OpenClaw 的 10 億美元估值是 OpenAI 的收購出價，而 OpenAI 本身是 AI 最大受益者之一，其收購定價包含戰略溢價，不是自由市場發現的價格。用一個被戰略買家人為膨脹的估值，去論證 AGI 定義裡「唯一的實證」，邏輯上是完全自我指涉的循環。Nvidia 是這個宣告最直接的受益者，因為「AGI 已至」隱含算力需求永續，而微軟法律團隊是最直接的輸家。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果企業 CIO 真的相信「AGI 已至」就加速採購 GPU，Huang 這句話的實際商業效果是什麼？</li>
+            <li>Microsoft-OpenAI 協議裡的 AGI 認定條款，到底是誰有權宣告？</li>
+            <li>「AGI 已至」的敘事對 Nvidia 長期是雙刃劍嗎？宣告算力需求已到頂，會不會反而給做空方彈藥？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-meta-dreamer">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI / Bloomberg</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Meta 花 5 億買了一個在 iPhone 上根本無法實現的設計哲學</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Meta 於 2026-03-23 以「人才收購加非獨家技術授權」結構將 Dreamer AI 全隊納入 Meta Superintelligence Labs。三位共同創辦人，包括前 Google 高管 David Singleton、曾歷任 Xiaomi 和 Meta 的 Hugo Barra、前 Stripe 高管 Nicholas Jitkoff，全數加入。Dreamer 收購前共融資 5,600 萬美元，估值達 5 億美元，其核心技術是可跨智慧型手機、桌機、穿戴設備持久運行並記憶用戶習慣的 agent OS（AI 代理作業系統）。這是 Meta 過去 4 個月的第三次重大 AI 人才收購。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Apple 不開放 iOS 的 on-device agent 常駐權限，Dreamer「跨裝置持久 agent」的核心架構在 WhatsApp 和 Instagram 這兩個 Meta 最大用戶觸達管道上，從底層就無法實現。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Apple 不開放 iOS 的 on-device agent 常駐權限，Dreamer「跨裝置持久 agent」的核心架構在 WhatsApp 和 Instagram 這兩個 Meta 最大用戶觸達管道上，從底層就無法實現。Meta 引進的「設計哲學」在最重要的平台上是被鎖死的，反而是 Android 開放程度更高的 Google 在架構上更具優勢。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Dreamer 的技術在 Android 生態上能走多遠，Meta 有沒有可能靠 Ray-Ban 眼鏡或 Quest 繞過 iOS 限制？</li>
+            <li>Hugo Barra 曾在 Meta 做過 VR 再出走，這次回來的條件和授權邊界是什麼？</li>
+            <li>Meta 四個月收了三個架構哲學各異的團隊，Alexandr Wang 有沒有足夠的整合權限？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-zuckerberg-agent">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI / WSJ</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Zuckerberg 的 CEO Agent 能聚合敏感資訊，Meta 法遵團隊還沒想清楚怎麼辦</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Mark Zuckerberg 正開發個人「CEO Agent」，讓他無需通過多層組織架構就能即時獲取跨部門答案。Meta 內部同步湧現員工自製 AI 工具：「My Claw」讓員工的 agent 直接與同事的 agent 談判，「Second Brain」以 Claude 為底層，可從任何內部文件即時召喚答案。Meta 已將 AI 使用率納入員工績效考核，Zuckerberg 此前曾試圖招攬 OpenClaw 創辦人，並於 2025 年 12 月收購了 AI 代理平台 Manus。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">CEO Agent 若能跨部門聚合受 SEC 監管的 MNPI（Material Non-Public Information，內幕消息），其權限模型實質上繞過了 Meta 自身的 information barrier 合規架構，合規責任歸屬目前完全不明確。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">CEO Agent 若能跨部門聚合受 SEC 監管的 MNPI（Material Non-Public Information，內幕消息），其權限模型實質上繞過了 Meta 自身的 information barrier 合規架構，合規責任歸屬目前完全不明確。Meta 法遵團隊和外部稽核方是最直接的輸家，若出現 insider trading 相關調查，Zuckerberg 本人的暴露面也不因「是 AI 做的」而消失。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 agent 對 agent 的談判陷入僵局，誰來打破？還是說這個場景根本還不存在，只是 demo？</li>
+            <li>把「AI 使用率」納入績效考核，Meta 用什麼指標定義「有效使用」？</li>
+            <li>若 DOJ 對 CEO Agent 的數據存取範圍感興趣，Meta 的法律邊界在哪裡？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-openai-pe">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI / Reuters</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 向 PE 承諾 17.5% 保障回報，但追索權機制完全沒人說清楚</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">OpenAI 正向 TPG、Advent 等私募股權（PE）機構提供 17.5% 最低保障回報率，吸引其加入企業聯合投資計畫，被 PE 投資的企業將成為 OpenAI 企業產品的分銷渠道。交換條件包括優先股地位、優先清算償付、下行保護機制，以及優先取用 OpenAI 最新模型。OpenAI 2025 年化收入突破 200 億美元，但 2026 年預計虧損仍達 140 億美元，距 IPO 窗口越來越近。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">17.5% 保障回報的法律兌現機制未公開，在每年虧損 140 億美元的資產負債表上，母體擔保的可信度從一開始就有限。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">17.5% 保障回報的法律兌現機制未公開，在每年虧損 140 億美元的資產負債表上，母體擔保的可信度從一開始就有限。若兌現機制是「後進資金墊付」，則與龐氏結構的差異只剩增長是否真正兌現這一個變數，這個風險是否在 TPG、Advent 的 LP（有限合夥人）層級被充分揭露，是這份協議最需要追問的問題。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>若 OpenAI 在 IPO 前遭遇收入不及預期，17.5% 的保障到底由誰兌付？</li>
+            <li>被 PE 聯合投資的企業，是否在投資條款裡隱含了採購 OpenAI 產品的義務？這在 FTC 眼中是什麼？</li>
+            <li>Anthropic 沒有提供類似保障，這讓它在企業市場的位置更乾淨還是更脆弱？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-helion-fusion">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI / Axios / TechCrunch</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Helion 要在 3 年內從零蓋 100 座核融合反應爐，核能史上沒有先例</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">OpenAI 的能源戰略賭注，建立在物理和工業製造都沒有先例的時程上。</span>
+    </div>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">OpenAI 正與核融合新創 Helion Energy 洽談購電協議，初步框架設定 OpenAI 獲得 Helion 總輸出的 12.5%，若實現代表 2030 年取得 5 吉瓦（GW，10 億瓦特）、2035 年 50 吉瓦的電力。每座 Helion 反應爐設計輸出 50 兆瓦（MW），達成 2030 年目標須建 100 座、2035 年再增 900 座。Helion 目前融資總額 4.25 億美元，已持有微軟和鋼鐵商 Nucor 的購電協議，Sam Altman 作為長達十年的投資人已辭去董事長以避免利益衝突，但保留投資人身份。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Helion 在未公開展示任何單座 Q 大於 1（輸出能量超過輸入能量）持續運行的前提下，2030 年 100 座的時程需要超導磁鐵、高溫等離子體容器、電力轉換系統同步建立從零開始的製造供應鏈。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Helion 在未公開展示任何單座 Q 大於 1（輸出能量超過輸入能量）持續運行的前提下，2030 年 100 座的時程需要超導磁鐵、高溫等離子體容器、電力轉換系統同步建立從零開始的製造供應鏈。核能工業歷史上沒有任何先例支持從單座驗證到百座量產在 3 年內完成，4.25 億美元融資離這個資本需求的缺口以百億計。相信這個時程的是 OpenAI 董事會，他們的判斷正在被寫進企業戰略。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Helion 到 2028 年仍無法展示穩定的 Q > 1 運行，OpenAI 的能源戰略備案是什麼？</li>
+            <li>Altman 辭去董事長但保留投資人，OpenAI 用企業資金為他的個人持股創造機構買家，非 Altman 股東怎麼看這件事？</li>
+            <li>核融合如果在 2030 年代真的商業化，受益最大的是 AI 公司還是鋼鐵、化工這類高耗能傳統產業？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-revolut-credit">
+    <div class="card-meta">
+      <span class="card-source">a16z / Bloomberg / CNBC</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Revolut 的 LDR 6% 不是潛力，是它進入貸款業務要先翻越的一堵牆</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Revolut 發布 2025 年年報，收入較 2024 年增長 46% 至 45 億英鎊，稅前利潤增長 57% 至 17 億英鎊，38% 利潤率，用戶數增長 30% 至 6,800 萬，總交易量成長 65% 至 1.3 兆英鎊。股東權益報酬率（ROE）達 35%，遠超傳統銀行同業的 8-12%。貸款存款比（LDR，銀行將多少存款轉換為貸款的比率）僅 6%，傳統銀行通常在 70-90%。2026 年 3 月取得完整英國銀行牌照，目前已申請美國銀行牌照。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">零售支付行為數據與信貸違約預測的相關性在學術研究中遠低於直覺認知，高頻消費數據能預測流動性，但對長期違約率的預測能力有限。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">零售支付行為數據與信貸違約預測的相關性在學術研究中遠低於直覺認知，高頻消費數據能預測流動性，但對長期違約率的預測能力有限。Revolut 進入貸款業務面臨與傳統銀行相同的冷啟動問題，且需從零建立監管資本緩衝，相信「LDR 6% 等於 ARPU 六倍潛力即將兌現」而給出 75 億美元估值的後期投資人，押注的前提正在面對這道牆。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Nubank 在相似的擴張階段，估值壓縮幅度有多大？這能給 Revolut 的後期投資人什麼參考？</li>
+            <li>英國牌照申請耗時三年、多次因 AML 問題被質疑，美國 OCC 的審查會更嚴還是差不多？</li>
+            <li>如果貸款啟動使 ROE 從 35% 回落到 15%，75 億美元估值的邏輯要怎麼重寫？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-wing-faa">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Tech / TechCrunch</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Wing 說「2026 年稍晚」進灣區，但 FAA 對城市無人機審批從來不是以月計算</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Alphabet 旗下無人機配送部門 Wing 宣布 2026 年稍晚進軍舊金山灣區，與 Walmart 和 DoorDash 合作提供住宅配送。Wing 全球已累積超過 75 萬次配送記錄，Walmart 合作規模預計 2027 年前擴展至 270 家門市。同日，競爭對手 Zipline 完成 2 億美元新融資，Amazon Prime Air 計畫 2026 年進入英國市場。BVLOS（Beyond Visual Line of Sight，超視距飛行）是無人機在城市規模化運作的必要條件，目前受 FAA 嚴格管制。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">舊金山灣區有 SFO、OAK、SJC 三座國際機場的終端管制區，加上密集醫療直升機航線，是 FAA 對城市 BVLOS 審批難度最高的環境之一。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">舊金山灣區有 SFO、OAK、SJC 三座國際機場的終端管制區，加上密集醫療直升機航線，是 FAA 對城市 BVLOS 審批難度最高的環境之一，審批歷史週期以年計算，Wing「2026 年稍晚」的承諾在監管層面幾乎不可行，除非已有未公開的 FAA 豁免協議存在。相信這個時程並據此安排供應鏈的 Walmart 零售合作夥伴是輸家。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Wing 在灣區的 FAA 審批拖到 2027 年，Walmart 的合作條款有沒有退出或違約的安排？</li>
+            <li>Zipline 剛融了 2 億美元，它的城市落地策略和 Wing 的差異在哪裡？</li>
+            <li>監管審批先行者會獲得空域護城河，但這個護城河本身還不存在，現在誰投這個賽道是在賭什麼？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-fcc-router">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Tech / BBC</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI · 科技政策</span>
+    </div>
+    <h3>FCC 禁令受益的美國品牌路由器，供應鏈大多還是在中國組裝</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">FCC 宣布將所有新型外國製家用路由器列入國家安全禁止清單，禁止進口，安全豁免門檻極高。禁令不追溯既有設備，已核准型號的現有庫存暫時仍可出貨，但新型號管道基本封堵。主要衝擊對象是中國製造商，TP-Link 此前已因多起高知名度入侵事件被調查，目前是 Amazon 路由器暢銷榜第一。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Netgear、Eero（Amazon 自有品牌）、Linksys 的核心晶片組封裝和組裝大量仍在中國完成，若「外國製」的定義以最終組裝地為準，這些「美國品牌」同樣可能被納入禁令範圍。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Netgear、Eero（Amazon 自有品牌）、Linksys 的核心晶片組封裝和組裝大量仍在中國完成，若「外國製」的定義以最終組裝地為準，這些「美國品牌」同樣可能被納入禁令範圍。真正確定性受益的是在美國本土完成最終組裝的廠商，而那個類別目前幾乎不存在。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>FCC 的「外國製」定義最終會以什麼為準，原產地規則還是最終組裝地？</li>
+            <li>TP-Link 如果靠「更換內部元件但保留 FCC ID」的方式繼續賣，FCC 有沒有能力識別和執法？</li>
+            <li>消費者如果選擇把現有路由器多用幾年，整個家用路由器市場的年銷售量會縮多少？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<!-- Web3 · Crypto -->
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-multicoin">
+    <div class="card-meta">
+      <span class="card-source">Multicoin Capital 官方公告</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Multicoin 選擇雙 GP 集體領導，而不是讓一個人繼位，這在 Crypto VC 不常見</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Multicoin Capital 宣布 Spencer Applebaum（任職逾 8 年）和 Shayon Sengupta（任職逾 5 年）雙雙晉升為 General Partner（基金實際管理人）及 Co-Heads of Venture。兩人是 Solana、Helium、Hyperliquid、Jito、Dune、Drift、Kamino、Render、Sei 等主要投資案的共同主導人，並共同署名 Multicoin 最新整體投資論文。此次晉升是回應共同創辦人 Kyle Samani 於 2026 年 2 月宣布離開，Kyle 在 Multicoin 9 年間將基金從零打造至約 59 億美元 AUM（資產管理規模），離開後轉向 AI、長壽科技、機器人等領域。Tushar Jain 和 Brian Smith 仍留任基金運營管理。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">晉升公告在 Kyle 離開 6 週後才正式對外公佈，顯示 Multicoin 在確認接班架構前確實歷經一段過渡期，而最終選擇雙 GP 共同領導而非單一繼任者，在 Crypto VC 中屬少見安排。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">晉升公告在 Kyle 離開 6 週後才正式對外公佈，顯示 Multicoin 在確認接班架構前確實歷經一段過渡期，而最終選擇雙 GP 共同領導而非單一繼任者，在 Crypto VC 中屬少見安排。這個結構分散了投資決策風險，但也代表下一個重大押注不再有一個人能完全主導敘事，Multicoin 的論文型投資風格能否在集體領導下保持一致性，是接下來的真正考驗。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Kyle 主導的「高度集中押注單一敘事」的風格，兩個 GP 的集體決策能複製嗎？</li>
+            <li>59 億美元的規模和創辦人強勢個人品牌綁定，LP 在 Kyle 離開後的留任意願如何？</li>
+            <li>Multicoin 的 Internet Capital Markets 新論文，是 Spencer 和 Shayon 的自主研判，還是仍受 Kyle 在任期間的框架影響？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-hyperliquid">
+    <div class="card-meta">
+      <span class="card-source">Dune Analytics</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Hyperliquid 市佔從壟斷跌到三足鼎立，根本原因是它的架構不能被組合</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">Hyperliquid 的市佔下滑不只是競爭問題，是它從第一天就選擇當一條孤島鏈的結果。</span>
+    </div>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Hyperliquid 當前週衍生品（Derivatives，無到期日合約）交易量仍超過 500 億美元，但市場份額已從鼎盛期的成交量 70%、未平倉合約（Open Interest，市場上所有未結算合約總量）90%，下滑至約成交量 30%、未平倉合約 50%。新興競爭者包括建立在 BNB Chain 上的 Aster，以及建立在 Arbitrum 上的 Variational，兩者分別在各自生態中積累了顯著的交易量。Multicoin Capital 是 Hyperliquid 早期重要投資人。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Hyperliquid 建立在自有 L1 鏈上，缺乏與以太坊生態的可組合性（Composability，DeFi 協議可被其他協議調用和組合的能力），這不是執行問題，是架構選擇帶來的結構性弱點。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Hyperliquid 建立在自有 L1 鏈上，缺乏與以太坊生態的可組合性（Composability，DeFi 協議可被其他協議調用和組合的能力），這不是執行問題，是架構選擇帶來的結構性弱點。競爭者的打法正是在各大 L2 生態深耕本地用戶，讓 Hyperliquid 的跨鏈用戶逐步被本地替代品吸走，未來市場格局很可能是「各生態自己的 perp DEX」分食，而不是某個新挑戰者正面擊敗它。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Hyperliquid 推出跨鏈橋接或在以太坊 L2 上部署，它還剩多少自有 L1 的差異化優勢？</li>
+            <li>Aster 在 BNB Chain、Variational 在 Arbitrum，下一個會從哪個生態長出來？</li>
+            <li>Multicoin 作為 Hyperliquid 早期投資人，這個市佔下滑對他們的持倉邏輯有什麼影響？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-03-25</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+</body>
+</html>
