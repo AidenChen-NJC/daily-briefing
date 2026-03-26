@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-03-26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:             #f5f3ee;
+      --surface:        #fdfcf9;
+      --surface-alt:    #f9f7f2;
+      --border:         #dedad2;
+      --border-light:   #e8e5de;
+      --ink:            #18160f;
+      --ink-body:       #38342a;
+      --ink-muted:      #7c7868;
+      --ink-faint:      #b0ac9e;
+      --rule:           #c8c3b4;
+      --thought-bg:     #edeae0;
+      --thought-border: #7a6a48;
+      --thought-text:   #3a3220;
+      --accent:         #7a6a48;
+      --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+      --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+      --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:             #111008;
+        --surface:        #171510;
+        --surface-alt:    #131210;
+        --border:         #2a2820;
+        --border-light:   #222018;
+        --ink:            #ede8dc;
+        --ink-body:       #b8b2a0;
+        --ink-muted:      #706a58;
+        --ink-faint:      #403c30;
+        --rule:           #2a2820;
+        --thought-bg:     #1a1810;
+        --thought-border: #6a5e3e;
+        --thought-text:   #c0b898;
+        --accent:         #b09060;
+        --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+        --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+        --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+
+    #progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+
+    #back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+    #back-top.visible{opacity:1;pointer-events:auto}
+    #back-top:hover{background:var(--surface-alt);color:var(--ink)}
+
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+    .toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .toc-list li{display:flex;align-items:baseline;gap:10px}
+    .toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+    .toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+    .toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+    .header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+    .header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+    .header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+    .header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+    .header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+    .header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+
+    .section-block{margin-bottom:80px}
+    .section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+    .section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+    .section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+    .article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+    .article-card:hover{border-color:var(--rule)}
+    .article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+    .article-card:hover::before{opacity:.9}
+
+    .card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+    .card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+    .card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+    .card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+
+    .block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+    .factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+
+    details.analysis-details{margin-top:0}
+    details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+    details.analysis-details > summary::-webkit-details-marker{display:none}
+    .analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+    .analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+    details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+    .analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+    .analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+    details[open] .analysis-preview{display:none}
+    .analysis-body{padding-top:12px}
+    .research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+    .analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+
+    .key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+    .key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+    .key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+
+    .food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+    .food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+    .food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+    .food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+    .food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+
+    .footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+
+    @media(max-width:600px){
+      body{padding:0 18px 80px}
+      .header{padding:40px 0 30px}
+      .header h1{font-size:24px}
+      .article-card{padding:22px 18px 22px 24px}
+      .article-card h3{font-size:17px}
+      .section-title{font-size:18px}
+      #back-top{bottom:20px;right:20px}
+      .toc{padding:16px 18px}
+      .analysis-preview{max-width:200px}
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 3 月 26 日　星期四</span>
+    <span class="header-issue">今日 8 篇</span>
+  </div>
+  <h1>今天的科技棋盤，有人在換子，有人在補洞</h1>
+  <p class="header-summary">OpenAI 砍掉 Sora，a16z 重寫區塊鏈學義，Cloudflare 悄悄拿下 AI 代理執行層。改組、轉向、卡位，都在這一天發生。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-sora">OpenAI 砍掉 Sora</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-hark">Brett Adcock 的 Hark 雙引擎賭注</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-ai2">Ai2 人才出走 Microsoft</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-cloudflare">Cloudflare Dynamic Workers 卡位戰</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-a16z">a16z 的區塊鏈論文備忘錄</a></li>
+  </ol>
+</nav>
+
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-openai-sora">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 砍掉 Sora，等於承認視頻生成從來不是真正的戰略目標</h3>
+    
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">OpenAI 的優先序重排，是理解整個 AI 產業資源流向最直接的指標。</span>
+    </div>
+
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">OpenAI 宣布關閉所有視頻產品，包括 Sora 的行動 App、Sora.com 及 API。Sora 曾在發布後登上 App Store 第一名，並於 2025 年 12 月與 Disney 簽訂合作協議，Disney 計劃授權 IP 並承諾投資 $10 億（雙方均尚未有資金往來）。此次關閉使該協議直接擱置，騰出的算力將全數投入代號 Spud 的下一代模型，Sam Altman 稱其為「能真正加速經濟的模型」，預計數週內發布。組織層面，安全責任從 Fidji Simo 轉移至 Mark Chen，Simo 所領導部門更名為「AGI Deployment（通用人工智慧部署）」。</p>
+
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Sora 負責人 Bill Peebles 明確表示，團隊將轉向為機器人開發「世界模擬」技術…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Sora 負責人 Bill Peebles 明確表示，團隊將轉向為機器人開發「世界模擬（World Simulation，透過生成逼真虛擬世界訓練機器人的技術路徑）」技術。這句話的意思是：視頻生成從頭到尾都只是一個副產品，OpenAI 真正想要的是能訓練機器人的合成數據引擎。Disney 合作案的擱置不是意外，而是 OpenAI 從娛樂賽道主動撤退的確認，娛樂產業在 OpenAI 的算盤裡，輸給了物理世界自動化。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果世界模擬才是 Sora 的真實價值，OpenAI 為什麼要先走一圈「視頻生成給消費者用」這條路？</li>
+            <li>Spud 若定位為「加速經濟的模型」，它的直接競爭對手是 Anthropic 的 Claude 還是 Gemini？</li>
+            <li>安全責任從 Fidji Simo 手上移走，代表的是降低安全優先級，還是換人來強化？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-hark">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Hark 的個人 AI 裝置是包裝，共用 Figure 機器人底層模型才是真正的賭注</h3>
+
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Brett Adcock（Figure AI 創辦人，Vettery 以 $1 億賣給 Adecco、Archer Aviation 透過 SPAC 上市）宣布推出 Hark，秘密運作 8 個月，個人投入 $1 億自有資金。45 人團隊由前 Apple iPhone Air 主設計師 Abidur Chowdhury 領導硬體設計，核心成員來自 Apple、Google、Meta、Tesla。Hark 已簽約訂購數千張 NVIDIA B200 GPU（Nvidia 最新 Blackwell 架構，專為 AI 訓練推理設計），4 月到貨後開始訓練。首批 AI 模型與軟體預計 2026 年夏季發布，硬體隨後推出。</p>
+
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">原始新聞最關鍵的一句話埋在最後：Hark 的 AI 模型同步在 Figure 的機器人上訓練…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">原始新聞最關鍵的一句話埋在最後：Hark 的 AI 模型同步在 Figure 的機器人上訓練。這不是附帶說明，而是整個架構的核心邏輯，Adcock 正在建立一個人形機器人與個人 AI 裝置共享底層模型的系統。若這個架構成立，「個人 AI」和「工廠自動化」由同一套模型驅動，Hark 的估值邏輯就不是跟 Humane 或 Rabbit 比，而是機器人 + 消費端雙飛輪的早期押注。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>消費端的個人 AI 裝置如果持續失敗（Humane 已倒，Rabbit 停滯），Adcock 還需要 Hark 嗎，還是 Hark 本來就只是個數據收集入口？</li>
+            <li>同一套模型同時服務人形機器人和個人裝置，這兩個場景的訓練目標會不會互相衝突？</li>
+            <li>$1 億自有資金不引外部 VC，是為了保持控制權，還是因為他知道外部投資人在這個估值階段進不來？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-ai2">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Ai2 換資助模式，等於把開源基礎模型研究的最後防線拱手讓給 Big Tech</h3>
+
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Microsoft AI 宣布聘用 Allen Institute for AI（Ai2，保羅·艾倫創立的非營利 AI 研究機構，以 OLMo 等開源模型著稱）前 CEO Ali Farhadi、研究員 Hanna Hajishirzi 與 Ranjay Krishna，以及前 COO Sophie Lebrecht，加入 Mustafa Suleyman 的 Superintelligence（超智能）團隊。四人均保留 University of Washington 教職。Farhadi 於 2026 年 3 月 12 日宣布離職，在 Ai2 任職超過 2.5 年。</p>
+
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">觸發這波出走的不是 Microsoft 出了多少錢，而是 Ai2 的資金結構轉型…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">觸發這波出走的不是 Microsoft 出了多少錢，而是 Ai2 的資金結構轉型：從整體年度撥款改為提案制，且資金方向從開源基礎模型轉向「真實世界應用」。這不是一次人才流失事件，而是全球少數資源充足的非營利 AI 研究機構之一，主動退出了基礎模型競賽。結果是開源基礎模型研究的實質主導者，將比以前更集中在 Meta、Google、Microsoft 這幾個有商業動機的大型機構手中。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Ai2 轉向真實世界應用之後，還有什麼機構有資源做真正中立的開源基礎模型研究？</li>
+            <li>Microsoft 同時擁有 OpenAI 的模型授權和 Suleyman 的自研團隊，這兩條線最終會合併還是互相競爭？</li>
+            <li>Farhadi 等人保留 UW 教職，這是 Microsoft 的策略（維持學術光環）還是研究員自己的保險機制？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-cloudflare">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Cloudflare Dynamic Workers：AI 代理執行層的卡位戰，沒人在報，但很關鍵</h3>
+
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Cloudflare 於 2026 年 3 月 24 日宣布 Dynamic Workers 進入 open beta，對付費 Workers 用戶開放。此功能允許 AI 代理即時生成 TypeScript 函式，並在安全沙盒（Sandbox，隔離執行環境）中執行，啟動速度比傳統 Linux 容器快約 100 倍，記憶體使用量少 10 至 100 倍。核心應用場景是 AI 代理工具呼叫：LLM 生成函式後將多個 API 呼叫串接成單一邏輯，Dynamic Worker 立刻執行，相比逐步呼叫可節省約 80% 推理 token。目前 beta 免費，正式收費方案待定。</p>
+
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Dynamic Workers 的真正意義不在速度數字，而在架構轉移…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Dynamic Workers 的真正意義不在速度數字，而在架構轉移：它讓「LLM 生成程式碼、立刻在全球邊緣網路（Edge Computing，在靠近用戶的分散節點執行計算）跑起來」變成可行，等同在不需要後端伺服器的前提下，提供一個 AI 代理的全球執行基礎設施。這個位置，AWS Lambda 和 Google Cloud Run 也在搶，但 Cloudflare 的邊緣覆蓋密度是其他人短期內追不上的結構優勢。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 AI 代理的執行層被 Cloudflare 拿走，AWS 和 GCP 的 Lambda/Cloud Run 還剩下什麼差異化理由？</li>
+            <li>80% 推理 token 節省這個數字，前提是 LLM 能穩定生成可執行的程式碼，現在的模型做得到嗎？</li>
+            <li>Cloudflare 把這個功能放在付費 Workers 後面，是要獲取收入，還是先篩選出有能力測試的開發者社群？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-a16z">
+    <div class="card-meta">
+      <span class="card-source">a16z crypto</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>a16z 的區塊鏈「學術論文」，讀起來更像是下一期基金的投資備忘錄</h3>
+
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">a16z crypto 研究員 Pranav Garimidi 發表長篇技術文章，論點是：鏈上金融應用的瓶頸已非吞吐量（目前已達每秒數萬筆且持續提升），而是兩個缺失屬性。第一，短期抗審查性（Short-Term Censorship Resistance）：任何合法交易到達誠實節點後，必須保證納入「下一個區塊」，而非幾秒內的某個區塊。第二，隱藏性（Hiding）：交易內容在確認前，除接收節點外任何人均不得知曉。文章指出，現有單一出塊者（Single Leader Protocol，每一輪只有一個節點決定交易順序）架構天然無法同時滿足這兩者，並引用 arxiv 論文（2509.23984）作為形式定義，提出 DeFi 目前仰賴「社會壓力」維持秩序是不可持續的。</p>
+
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">此文發布時點恰好是 Solana 因 MEV 問題受到最多批評的時期…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">此文發布時點恰好是 Solana（a16z 和 Multicoin 的主要持倉）因 MEV（Maximal Extractable Value，出塊者透過排序交易獲取的額外利潤）問題受到最多批評的時期。a16z 在定義「理想區塊鏈」的學術屬性時，正好把 Solana 的現行架構描述為結構性不足，這篇論文更像是在為 a16z 下一期基金（Fortune 報導正在募集約 $20 億的第五期 crypto 基金）的投資標的建立學術合法性，而非中立的技術研究。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>a16z 如果真的認為 Solana 架構有根本缺陷，他們會在什麼條件下減倉，還是這篇文章只是在推動 Solana 升級？</li>
+            <li>「社會壓力」支撐 DeFi 秩序這個說法，在鏈上金融規模到多大的時候會正式失效？</li>
+            <li>同時滿足短期抗審查性和隱藏性，在技術上需要放棄什麼，有沒有任何現有協議做到了？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-03-26</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
