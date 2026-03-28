@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-03-27</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:             #f5f3ee;
+      --surface:        #fdfcf9;
+      --surface-alt:    #f9f7f2;
+      --border:         #dedad2;
+      --border-light:   #e8e5de;
+      --ink:            #18160f;
+      --ink-body:       #38342a;
+      --ink-muted:      #7c7868;
+      --ink-faint:      #b0ac9e;
+      --rule:           #c8c3b4;
+      --thought-bg:     #edeae0;
+      --thought-border: #7a6a48;
+      --thought-text:   #3a3220;
+      --accent:         #7a6a48;
+      --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+      --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+      --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:             #111008;
+        --surface:        #171510;
+        --surface-alt:    #131210;
+        --border:         #2a2820;
+        --border-light:   #222018;
+        --ink:            #ede8dc;
+        --ink-body:       #b8b2a0;
+        --ink-muted:      #706a58;
+        --ink-faint:      #403c30;
+        --rule:           #2a2820;
+        --thought-bg:     #1a1810;
+        --thought-border: #6a5e3e;
+        --thought-text:   #c0b898;
+        --accent:         #b09060;
+        --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+        --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+        --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+      }
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+
+    #progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+
+    #back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+    #back-top.visible{opacity:1;pointer-events:auto}
+    #back-top:hover{background:var(--surface-alt);color:var(--ink)}
+
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+    .toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .toc-list li{display:flex;align-items:baseline;gap:10px}
+    .toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+    .toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+    .toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+    .header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+    .header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+    .header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+    .header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+    .header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+    .header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+
+    .section-block{margin-bottom:80px}
+    .section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+    .section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+    .section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+    .article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+    .article-card:hover{border-color:var(--rule)}
+    .article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+    .article-card:hover::before{opacity:.9}
+
+    .card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+    .card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+    .card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+    .card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+
+    .block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+    .factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+
+    details.analysis-details{margin-top:0}
+    details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+    details.analysis-details > summary::-webkit-details-marker{display:none}
+    .analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+    .analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+    details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+    .analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+    .analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+    details[open] .analysis-preview{display:none}
+    .analysis-body{padding-top:12px}
+    .research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+    .analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+
+    .key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+    .key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+    .key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+
+    .food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+    .food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+    .food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+    .food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+    .food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+
+    .footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+
+    @media(max-width:600px){
+      body{padding:0 18px 80px}
+      .header{padding:40px 0 30px}
+      .header h1{font-size:24px}
+      .article-card{padding:22px 18px 22px 24px}
+      .article-card h3{font-size:17px}
+      .section-title{font-size:18px}
+      #back-top{bottom:20px;right:20px}
+      .toc{padding:16px 18px}
+      .analysis-preview{max-width:200px}
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 3 月 27 日　星期五</span>
+    <span class="header-issue">今日 14 篇</span>
+  </div>
+  <h1>你以為今天是普通星期四</h1>
+  <p class="header-summary">但 0.37% 的基準線、政府敗訴的判決書、$10 億的被迫賣盤，和一位 CFO 說出「IPO」——才是真正在轉動的指針。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-arc-agi-3">ARC-AGI-3 的 0.37%</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-1200">OpenAI $1,200 億融資輪</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-turboquant">TurboQuant 讓記憶體股跌 3–5%</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-reddit-world-id">Reddit 用 World ID 驗人類</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-enterprise">Anthropic 企業市場已經贏了</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-amazon-fauna">Amazon 買 Fauna</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-zoox-expansion">Zoox 宣布擴張四城</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-brinc-guardian">Guardian 無人機</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-btc-etf">BTC ETF 連五日流出</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-mara">MARA 在 $70K 賣了 $10 億 BTC</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-a16z-sovereign">a16z 說「主權牆」</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-superhuman">Superhuman 拒絕賣給錯的人</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#legal-anthropic-pentagon">法院叫停 Pentagon 封鎖 Anthropic</a></li>
+  </ol>
+</nav>
+
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">8 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-arc-agi-3">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>ARC-AGI-3 的 0.37% 不是壞消息，是讓前沿實驗室砸更多錢的發令槍</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">ARC Prize Foundation 創辦人 François Chollet 於 2026 年 3 月 24 日發布 ARC-AGI-3，這是第三代 AI 推理能力基準（ARC-AGI 全名 Abstraction and Reasoning Corpus for Artificial General Intelligence，旨在測試真正的歸納推理而非記憶訓練答案）。與前代靜態題目不同，V3 採互動式回合制遊戲格式，模型需在無任何說明或目標的環境中自行推斷規則。結果：人類首次嘗試正確率 100%，Google Gemini 3.1 Pro 最高得 0.37%，OpenAI GPT 5.4 High 得 0.26%，Anthropic Opus 4.6 得 0.25%，xAI Grok-4.20 得 0%。獎金池從 $1M 倍增至 $2M，截止日 11 月 2 日，結果公布 12 月 4 日。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">ARC-AGI-2 的分數在不到一年內從 3% 升至 50%，路徑是前沿實驗室集中火力暴力攀爬，而非真正的推理突破。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">ARC-AGI-2 的分數在不到一年內從 3% 升至 50%，路徑是前沿實驗室集中火力暴力攀爬，而非真正的推理突破。V3 採互動式動態環境正是為了封堵這條路，但問題是：封堵不了資本。0.37% 的分數對外是「AI 還差得遠」的公關素材，對內是促使 Google、OpenAI、Anthropic 追加訓練預算的競爭信號。Chollet 製造的不是一個難題，而是一個加速器。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 ARC-AGI-3 最終也在一年內被攀升至 50%，你會怎麼判斷那代表「真正推理」還是「更貴的暴力破解」？</li>
+            <li>動態互動式格式真的比靜態題目更能防止過擬合（overfitting），還是只是延遲了幾個月？</li>
+            <li>當所有前沿實驗室都衝著 $2M 獎金優化同一個基準，這個基準還能作為中立評估工具嗎？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-openai-1200">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>OpenAI $1,200 億融資輪的真正新聞，是 CFO 說出了「IPO」這個詞</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">OpenAI CFO Sarah Friar 於 2026 年 3 月 24 日在 CNBC 宣布追加 $100 億融資，新投資方包含微軟、a16z、T. Rowe Price、D.E. Shaw Ventures、MGX 與 TPG。此輪融資使總額突破 $1,200 億，超出原定 $1,000 億目標，現有大股東 Amazon 已投入 $500 億、Nvidia 與 SoftBank 各 $300 億。當前估值約 $8,500 億。同日，Friar 被問及 IPO 計畫時回應 OpenAI「已開始建構那個結果」（starting to build that outcome）。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">$1,200 億融資本身不是新聞，CFO 在公開場合使用「building that outcome」才是。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">$1,200 億融資本身不是新聞，CFO 在公開場合使用「building that outcome」才是。這是 OpenAI 高管首次對 IPO 明確發出正向信號，而非迴避，時間點卡在估值接近 $1 兆、非營利部門重組完成之後。如果 IPO 在 2027 年前落地，a16z 和 T. Rowe Price 這輪進場的時機就是在公開發行前最後一個私募窗口。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>估值 $8,500 億的 IPO，定價模型要怎麼建——OpenAI 該被定價為科技基礎設施公司還是消費平台？</li>
+            <li>非營利部門 2026 年計劃支出 $10 億，IPO 之後這個結構怎麼處理？</li>
+            <li>如果 Anthropic 在 2026 年中 ARR 超越 OpenAI 企業端，這對 OpenAI 的 IPO 估值有多大影響？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-turboquant">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>TurboQuant 讓記憶體股跌 3–5%，但市場在反應一篇去年四月的論文</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Google Research 正式發布 TurboQuant 演算法，該演算法可將 LLM（大型語言模型）的 KV Cache（Key-Value Cache，AI 在對話中暫存上下文的記憶體空間）壓縮超過 6 倍，量化至 3 位元（位元越少，記憶體佔用越小），無需重新訓練，準確率幾乎零損失。在 Nvidia H100 晶片上推理速度最高提升 8 倍，企業潛在成本降幅 50% 以上。發布當日，記憶體晶片股 MU、WDC、SNDK 跌幅 3–5%。論文將於 ICLR 2026（4 月）發表，但實際上早於 2025 年 4 月已公開。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">市場在 2026 年 3 月對一篇 2025 年 4 月就已公開的論文做出 3–5% 的拋售反應，說明記憶體基礎設施股的定價對「AI 效率提升」敘事極度敏感。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">市場在 2026 年 3 月對一篇 2025 年 4 月就已公開的論文做出 3–5% 的拋售反應，說明記憶體基礎設施股的定價對「AI 效率提升」敘事極度敏感，而非對技術本身的實際部署進度反應。TurboQuant 的企業落地仍需工程整合時間，短期記憶體需求不會因此蒸發，MU、WDC、SNDK 的拋售更接近情緒反應而非基本面修正。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 AI 軟體效率每年提升一個數量級，「算力需求持續增長」的投資論文該怎麼修正？</li>
+            <li>企業在評估是否採用 TurboQuant 時，整合成本和準確率的 tradeoff 會是主要卡點嗎？</li>
+            <li>這種「學術論文 → 正式發布 → 市場反應」的時差，是市場沒有追蹤預印本，還是「官方」背書本身才算數？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-reddit-world-id">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Reddit 用 World ID 驗人類，Sam Altman 的虹膜掃描器首次進入主流平台基礎設施</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Reddit CEO Steve Huffman（帳號 spez）發文宣布，平台將對自動化帳號標示 [App] 標籤，可疑帳號需通過通行密鑰（Passkey，基於生物辨識的無密碼登入標準）或 World ID（Sam Altman 共同創辦的 World Network 旗下產品，以虹膜掃描提供「人類唯一性」憑證）驗證，僅在法律要求時才動用政府 ID。Reddit 不禁止 AI 生成內容，各社群可自訂規則。Cloudflare 預測自動化流量將於 2027 年超越人類流量。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">World ID 此前的應用場景主要停留在加密貨幣空投驗證和小型 Web3 協議，Reddit 是第一個將其嵌入主流消費平台身份驗證流程的案例。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">World ID 此前的應用場景主要停留在加密貨幣空投驗證和小型 Web3 協議，Reddit 是第一個將其嵌入主流消費平台身份驗證流程的案例。World Network 拿到這個背書，等於拿到了「人類身份驗證基礎設施」的主流市場入場券，對其商業化路徑的意義遠大於任何 Web3 場景的採用。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果「証明你是人類」成為平台標配，World ID 和通行密鑰最終誰會成為主流標準——生物識別掃描門檻更高還是更低？</li>
+            <li>Reddit 把驗證決定權交給各社群，這在規模上是可行的治理模型嗎？</li>
+            <li>一旦 World ID 進入主流身份驗證基礎設施，虹膜生物數據的監管問題怎麼辦？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-anthropic-enterprise">
+    <div class="card-meta">
+      <span class="card-source">Epoch AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">Anthropic 企業份額超車 OpenAI 是本月最重要的競爭格局變化，因為它同時重寫了「OpenAI 是企業默選」的既有假設。</span>
+    </div>
+    <h3>今日最重要訊號：Anthropic 在企業 AI 市場已經贏了，Claude Code 是沒人說出口的真正原因</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">根據企業費用管理平台 Ramp 的支付數據，Anthropic 的企業 AI API 市占率已從 2025 年初不到 20% 升至 40%，OpenAI 同期從 50% 跌至 27%。在「首次購買企業 AI 工具的公司」中，73% 選擇 Anthropic。從 ARR（年度經常性營收）看，Anthropic 在 2025 年 12 月約 $90 億，2026 年 3 月初接近 $190 億，年增速約 10 倍；OpenAI 年增速約 3.4 倍。Epoch AI 預測 Anthropic 將於 2026 年中在 ARR 上超越 OpenAI 企業端。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">OpenAI 企業份額從 50% 崩至 27% 的核心拖累，是 ChatGPT 免費版的消費端成本稀釋了整體邊際，而 Anthropic 的增速引擎是 Claude Code 這個工程師工具。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">OpenAI 企業份額從 50% 崩至 27% 的核心拖累，是 ChatGPT 免費版的消費端成本稀釋了整體邊際，而 Anthropic 的增速引擎是 Claude Code 這個工程師工具——程式設計師大量轉向 Claude 輔助編程產生的 API 計費，是 ARR 暴增的主要來源，但大多數分析把功勞歸給「企業採購轉向」。Claude Code 代表的是「工具付費轉換率」比任何企業銷售動作都更有效，這對整個 AI SaaS 的商業模式評估框架有直接影響。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Claude Code 的工程師用戶是 Anthropic ARR 的主要驅動，那麼這個增速能在 Claude Code 市場成熟後持續嗎？</li>
+            <li>OpenAI 有沒有辦法用 Codex 或其他工具反攻，還是工程師的工具習慣一旦形成就很難換？</li>
+            <li>Ramp 的數據反映的是 B2B 付款，ChatGPT 的消費端訂閱不在這個數據集裡——你要怎麼評估 OpenAI 整體的競爭健康度？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-amazon-fauna">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Robotics</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Amazon 買 Fauna 不是為了賣機器人，是在重複它在 AWS 用過的平台策略</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Amazon 以未揭露金額收購紐約新創 Fauna Robotics，約 50 名員工（含兩位共同創辦人，前 Meta 與 Google 工程師）全數加入 Amazon 的 Personal Robotics Group。Fauna 旗艦產品 Sprout 身高 3.5 英尺（約 107 公分）、體重 50 磅（約 23 公斤）、售價 $50,000，搭載 64GB Nvidia Jetson AGX Orin（Nvidia 為邊緣 AI 設計的嵌入式運算模組），附帶模組化 AI 架構開發者平台。這是 Amazon 本月第二筆機器人收購，上週剛完成對瑞士新創 Rivr 的收購。Amazon 此前兩次家庭機器人嘗試均告失敗：Astro 無疾而終、iRobot 收購被 EU 監管機構否決。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Amazon 這次買的不是 Sprout 這個產品，而是 Fauna 的開發者平台和工程團隊。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Amazon 這次買的不是 Sprout 這個產品，而是 Fauna 的開發者平台和工程團隊。前兩次失敗（Astro、iRobot）都是試圖直接推出消費品，這次轉向「先建生態系、讓開發者定義用途」的平台策略，和 AWS 早期邏輯如出一轍。$50,000 的 Sprout 定價本身就說明這不是要賣給消費者，而是要吸引機器人開發者在這個平台上構建應用。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Amazon 的機器人策略是「平台先行」，誰是它在機器人 OS 上最直接的競爭對手——Boston Dynamics（Hyundai）還是 1X、Figure？</li>
+            <li>Fauna 的開發者平台在被收購後會開放還是關閉？這個決定對人形機器人生態的影響有多大？</li>
+            <li>Amazon 同月收購兩家機器人公司，節奏在加快——這是防禦性布局還是真的看到了近期商業化機會？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-zoox-expansion">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Robotics</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Zoox 宣布擴張四城，但收費許可還沒拿到，這是競爭宣言不是商業化</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Amazon 旗下 Zoox 宣布將無方向盤機器人計程車擴展至奧斯汀與邁阿密，2026 年內完成；拉斯維加斯與舊金山持續擴大服務區。Zoox 已累計近 200 萬自駕里程，35 萬次乘客搭乘。同步宣布與 Uber 簽多年合作協議，拉斯維加斯用戶今夏可在 Uber App 叫 Zoox，2027 年擴至洛杉磯。但 Zoox 目前仍須等待 NHTSA（美國公路交通安全管理局）安全豁免方可合法收費，其全向無方向盤設計不符合聯邦機動車安全標準。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Zoox 至今沒有 NHTSA 豁免，意味著奧斯汀、邁阿密的部署法律上無法收費，這輪擴張公告的核心功能是「告訴市場 Zoox 還在競爭」。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Zoox 至今沒有 NHTSA 豁免，意味著奧斯汀、邁阿密的部署法律上無法收費，這輪擴張公告的核心功能是「告訴市場 Zoox 還在競爭」，而非真正的商業化落地。Uber App 整合才是真正的里程碑，因為它代表 Zoox 放棄自建叫車應用，選擇依賴 Uber 的分銷網絡，這個選擇讓 Zoox 的商業化速度取決於 Uber 的整合優先級，而非自己的技術進度。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Waymo 已在 10 城運營且正在自建叫車 App，Zoox 押寶 Uber 分銷是聰明還是放棄了關鍵控制權？</li>
+            <li>NHTSA 豁免的審核時間軸取決於什麼——技術審查還是政治決定？</li>
+            <li>自駕計程車市場最終會是贏者全拿，還是有空間給多個玩家按城市切割市場？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-brinc-guardian">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Robotics</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Guardian 無人機：NDAA 把 DJI 踢出場，BRINC 接走的是一個政策製造出來的市場</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">BRINC 於 2026 年 3 月 24 日發布 Guardian 警用無人機，最高時速 60 mph、續航 62 分鐘、響應半徑最遠 8 英里（現有系統上限約 3 英里），內嵌 Starlink 面板（號稱首款配備 Starlink 的公共安全無人機），可從屋頂「巢穴」自主起飛並自動更換電池。BRINC 由前 Thiel Fellow Blake Resnick 於 2017 年創立，投資人包含 Sam Altman、Index Ventures、Motorola Solutions、Dylan Field、Elad Gil 等。推出背景：NDAA（國防授權法，美國年度國防立法）條款持續加強對 DJI 等中國製無人機的聯邦採購限制。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Guardian 的競爭優勢不主要來自技術，而來自監管。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Guardian 的競爭優勢不主要來自技術，而來自監管。NDAA 對 DJI 的限制讓美國公共安全無人機市場出現了一個被政策強制清場的缺口，BRINC 的所有規格設計（8 英里響應距離、Starlink 整合、自主巢穴）都是針對警察直升機替代這個政府採購場景定制的，不是消費品邏輯。這讓 BRINC 的護城河高度依賴政策持續，而非產品本身。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 NDAA 對 DJI 的限制在下一屆政府鬆動，BRINC 的商業模式還站得住嗎？</li>
+            <li>公共安全無人機市場的採購決策者是地方警局還是聯邦機構——這對 BRINC 的銷售周期影響有多大？</li>
+            <li>Starlink 整合是真正的技術差異化，還是在美國農村場景以外意義有限？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-btc-etf">
+    <div class="card-meta">
+      <span class="card-source">WebSearch</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>BTC ETF 連五日流出，但年初 +$21 億說明機構沒有真正撤退</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Bitcoin 於 2026 年 3 月 26 日收盤 $69,984，跌幅 1.76%，連續第三個交易日收在 $70K 以下（該水準為整個 Q1 2026 的關鍵支撐）。訂單簿顯示上方阻力 $72K，下方支撐 $67K，並觸及 200 日均線（$69,200，長期趨勢分析常用基準線，跌破通常被視為趨勢反轉信號）。美國現貨 BTC ETF（2024 年 1 月正式上市、讓投資者無需自持幣即可獲得比特幣價格敞口的指數型基金）在 3 月 25 日錄得 $1.24 億淨流出，為連續第五日流出。加密恐懼貪婪指數進入「極度恐懼」區間。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">連五日流出的絕對金額是 $1.24 億，但 BTC ETF 年初至今仍有 $21 億正向累積，短期流出規模大約佔年累積的 6%。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">連五日流出的絕對金額是 $1.24 億，但 BTC ETF 年初至今仍有 $21 億正向累積，短期流出規模大約佔年累積的 6%。研究指向一個結論：這更可能是機構的套利再平衡而非信心喪失，因為真正的基本面退出不會在 $21 億的累積背景下只產生 $1.24 億的單日流出。「極度恐懼」的情緒指數在機構籌碼結構仍健康的情況下，歷史上更常是短期底部訊號。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 BTC 跌穿 200 日均線並收在 $67K 支撐以下，你的倉位策略會怎麼改？</li>
+            <li>機構的「再平衡」和「減倉」從 ETF 流量數據上要怎麼分辨？</li>
+            <li>BTC 在 $70K 下方的時間越長，散戶和礦工的持有意願會如何改變？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-mara">
+    <div class="card-meta">
+      <span class="card-source">WebSearch</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>MARA 在 $70K 賣了 $10 億 BTC，意識形態輸給了財務壓力</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">MARA Holdings（前 Marathon Digital Holdings，全球規模最大的上市比特幣挖礦企業，同時是比特幣財庫公司——以比特幣作為主要資產儲備的上市公司）宣布出售近 $10 億美元比特幣，目的為削減 30% 的公司債務。此舉在 BTC 於 $70K 附近震盪時宣布，與其長期倡導的 HODL（持有不賣）策略相悖。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">MARA 過去是 Bitcoin Treasury 策略最積極的公開倡導者之一，在 $70K 附近大規模出售說明其財務壓力已超過策略立場的邊界。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">MARA 過去是 Bitcoin Treasury 策略最積極的公開倡導者之一，在 $70K 附近大規模出售說明其財務壓力已超過策略立場的邊界。問題不是 MARA 這一筆，而是示範效應：高槓桿礦企的 BTC 持倉是市場在本輪震盪中的潛在結構性賣壓，如果 BTC 跌向 $67K 支撐，同樣負債較高的礦企被迫跟進出售的機率在上升。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>除了 MARA，還有哪些高槓桿礦企持有大量 BTC 且負債比例類似？</li>
+            <li>Bitcoin Treasury 策略的核心假設是「BTC 長期升值抵銷負債成本」，這個假設在什麼價格水準開始動搖？</li>
+            <li>如果礦企賣壓持續，BTC ETF 的機構買盤能不能吸收？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-vc">
+    <span class="section-title">VC · 投資動態</span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <div class="article-card" id="vc-a16z-sovereign">
+    <div class="card-meta">
+      <span class="card-source">a16z</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>a16z 說「主權牆」是 AI 全球化障礙，但文章裡沒有一個具體的贏家</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">a16z New Media Fellow Sakina Arsiwala（前 YouTube 國際拓展 PM，曾在 14 個月內讓 YouTube 上線 21 個國家）在 a16z 發表分析，主張 AI 下一個十億用戶的最大障礙是分發與信任，而非模型能力。她定義的「主權牆」（Sovereign Wall）是指各國拒絕讓外國 AI 控制本國公民數據的政策邊界，並提出兩個解方：賦能在地信任中介人（如 YouTube 靠在地創作者勝出），以及「主權金庫」架構（將模型以殘差式部署於國家數位公共基礎設施）。India AI Impact Summit 2026 上，Google、OpenAI、Anthropic、DeepMind CEO 均與印度總理 Modi 同台。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">這篇文章的框架準確，但停在框架。研究角度看，它沒有點名任何一個在「信任中介人」策略上已有具體落地的 AI 公司或新興市場案例。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">這篇文章的框架準確，但停在框架。研究角度看，它沒有點名任何一個在「信任中介人」策略上已有具體落地的 AI 公司或新興市場案例，也沒有說出哪家公司在主權牆問題上走在最前面。文章的實際功能更接近 a16z 吸引新興市場相關新創的定位宣言，而非對競爭格局的分析判斷。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>在「主權金庫」架構下，AI 實驗室要把多少控制權交出去才換得到市場准入？這個 tradeoff 對 Anthropic 和 OpenAI 各意味著什麼？</li>
+            <li>如果「在地信任中介人」是關鍵，誰來決定哪個創作者或教育者值得信任？平台還是政府？</li>
+            <li>印度是主權牆問題最複雜的市場之一，Modi 同時跟四大 AI 公司 CEO 見面代表合作還是分而治之？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="vc-superhuman">
+    <div class="card-meta">
+      <span class="card-source">a16z speedrun</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>Superhuman 拒絕賣給錯的人，「以流失換留存品質」才是它能撐到 ARR 爆發的原因</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Superhuman 創辦人 Rahul Vohra 在 a16z speedrun 對談中分享，首次 PMF 調查（Product-Market Fit，以「若無法再使用此產品你會多失望？」量化，Sean Ellis 設定 40% 用戶選「非常失望」為門檻）得分 22%，僅調整目標市場聚焦（從數據科學、銷售、工程聚焦至 VC/CEO/創辦人/BD）後不改產品，分數升至 32%，後續三季升至 46%、56%、58%。Vohra 多年拒絕 Android 用戶購買，因無 Android App。Superhuman 定價 $30/月（後新增 $40 方案），估算因延後調漲損失約 30% ARR（年度經常性營收）。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Vohra 主動拒絕 Android 用戶付費的決定，本質是以短期流失換取留存品質的提升。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Vohra 主動拒絕 Android 用戶付費的決定，本質是以短期流失換取留存品質的提升：每位用戶如果都成為淨推薦者（Net Promoter），就形成一個不需要廣告預算的增長引擎。這套邏輯和傳統 SaaS「最大化用戶數」完全相反，但在 Prosumer（兼具消費者習慣但擁有企業預算的高端個人用戶）市場有效，因為這個市場的決策者彼此之間有信任網絡。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>「拒絕賣給錯的人」這個策略在什麼規模上會開始傷害增長——Superhuman 現在到那個邊界了嗎？</li>
+            <li>如果 AI 原生的電子郵件工具出現（比如直接整合 Claude 的 inbox），Superhuman 的 $30/月 護城河還有多厚？</li>
+            <li>PMF 分數從 22% 到 58% 的路徑是「調整目標市場」加「修產品」，這對還在 40% 以下的創辦人最實用的一步是什麼？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="legal-anthropic-pentagon">
+    <div class="card-meta">
+      <span class="card-source">CNBC / Fortune / Axios</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>法院叫停 Pentagon 封鎖 Anthropic，這是 AI 公司第一次用第一修正案打贏政府</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">2026 年 2 月下旬，美國國防部長 Pete Hegseth 宣布將 Anthropic 列為「供應鏈風險」（Supply Chain Risk，美國 NDAA/DOD 安全認定，過去主要用於 DJI 等外國企業，一旦被標記，國防承包商須證明其產品不含被標記技術），理由是 Anthropic 拒絕給予五角大廈對其模型的「不受限使用授權」，具體紅線為：不允許 Claude 用於全自主武器系統或國內大規模監控。DOD 隨後要求 Amazon、微軟、Palantir 等所有國防承包商簽署「不使用 Claude 聲明」。Anthropic 提告，3 月 26 日聯邦法官 Rita Lin（Biden 提名）發出初步禁令，43 頁裁定書認定此舉構成「違憲的第一修正案報復（First Amendment Retaliation）」，政府有 1 週緩衝期上訴。Anthropic 2025 年 7 月已與五角大廈簽署 $2 億合約，Series G 後估值 $3,800 億。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Anthropic 是美國史上第一家以「供應鏈風險」標籤被列入限制名單的美國本土公司，這個標籤過去只針對 DJI 等外國企業。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Anthropic 是美國史上第一家以「供應鏈風險」標籤被列入限制名單的美國本土公司，這個標籤過去只針對 DJI 等外國企業。法官 Rita Lin 明確指出 DOD 的動機是政治報復而非真正的安全評估，這個裁定為所有 AI 公司確立了一個重要先例：在政府合約談判中對採購條款提出公開批評，屬於第一修正案保護的言論，不能因此被懲罰。這對 OpenAI 和 Google 在未來聯邦合約談判中的談判籌碼有直接影響。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果政府上訴成功推翻初步禁令，AI 公司在聯邦市場的「道德邊界」談判空間會縮窄多少？</li>
+            <li>Anthropic 堅守的紅線（不允許全自主武器）如果成為業界標準，OpenAI 和 Google 的立場會怎麼改變？</li>
+            <li>這個案例讓「AI 倫理立場」第一次有了法律保護，這對 Anthropic 的品牌定位是意外收穫還是早就計算好的？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-03-27</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
