@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-03-28</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:             #f5f3ee;
+      --surface:        #fdfcf9;
+      --surface-alt:    #f9f7f2;
+      --border:         #dedad2;
+      --border-light:   #e8e5de;
+      --ink:            #18160f;
+      --ink-body:       #38342a;
+      --ink-muted:      #7c7868;
+      --ink-faint:      #b0ac9e;
+      --rule:           #c8c3b4;
+      --thought-bg:     #edeae0;
+      --thought-border: #7a6a48;
+      --thought-text:   #3a3220;
+      --accent:         #7a6a48;
+      --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+      --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+      --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:             #111008;
+        --surface:        #171510;
+        --surface-alt:    #131210;
+        --border:         #2a2820;
+        --border-light:   #222018;
+        --ink:            #ede8dc;
+        --ink-body:       #b8b2a0;
+        --ink-muted:      #706a58;
+        --ink-faint:      #403c30;
+        --rule:           #2a2820;
+        --thought-bg:     #1a1810;
+        --thought-border: #6a5e3e;
+        --thought-text:   #c0b898;
+        --accent:         #b09060;
+        --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+        --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+        --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+      }
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+
+    #progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+
+    #back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+    #back-top.visible{opacity:1;pointer-events:auto}
+    #back-top:hover{background:var(--surface-alt);color:var(--ink)}
+
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+    .toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .toc-list li{display:flex;align-items:baseline;gap:10px}
+    .toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+    .toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+    .toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+    .header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+    .header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+    .header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+    .header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+    .header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+    .header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+
+    .section-block{margin-bottom:80px}
+    .section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+    .section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+    .section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+    .article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+    .article-card:hover{border-color:var(--rule)}
+    .article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+    .article-card:hover::before{opacity:.9}
+
+    .card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+    .card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+    .card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+    .card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+
+    .block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+    .factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+
+    details.analysis-details{margin-top:0}
+    details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+    details.analysis-details > summary::-webkit-details-marker{display:none}
+    .analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+    .analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+    details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+    .analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+    .analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+    details[open] .analysis-preview{display:none}
+    .analysis-body{padding-top:12px}
+    .research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+    .analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+
+    .key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+    .key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+    .key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+
+    .food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+    .food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+    .food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+    .food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+    .food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+
+    .footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+
+    @media(max-width:600px){
+      body{padding:0 18px 80px}
+      .header{padding:40px 0 30px}
+      .header h1{font-size:24px}
+      .article-card{padding:22px 18px 22px 24px}
+      .article-card h3{font-size:17px}
+      .section-title{font-size:18px}
+      #back-top{bottom:20px;right:20px}
+      .toc{padding:16px 18px}
+      .analysis-preview{max-width:200px}
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 3 月 28 日　星期六</span>
+    <span class="header-issue">今日 16 篇</span>
+  </div>
+  <h1>當危機比想像中更不可逆</h1>
+  <p class="header-summary">霍爾木茲海峽關閉每延遲一天就鎖死數千萬桶原油，Meta 和 SpaceX 的資本支出邏輯都沒有透露，而加密業界新品的假設漸次崩裂。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-spacex-ipo">SpaceX IPO 的 30% 散戶配額</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-meta-tribe">Meta TRIBE v2 開源了模型</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-shield">Shield AI 估值 127 億</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-meta-datacenter">Meta 德州數據中心 1 GW</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-wikipedia">Wikipedia 禁止 AI 撰文</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-bitcoin">Bitcoin 跌至 68,507</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-sacks">David Sacks 辭職</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-paradigm">Paradigm 進軍機器人 AI</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-pharos">Pharos L1 的 30,000 TPS</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-kelp">Kelp KUSD 10% 收益率</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-polymarket">Polymarket 200 億 FDV</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-hormuz">霍爾木茲危機時間代價</a></li>
+  </ol>
+</nav>
+
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">5 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-spacex-ipo">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Tech</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>SpaceX 的 30% 散戶配額，是政治護城河建設，不是民主化</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">SpaceX 計畫於 2026 年 6 月中旬以約 $1.5 兆估值上市，募資規模估計 $400 億至 $750 億。此次 IPO 已將 xAI 整合進 SpaceX 向投資人兜售「軌道 AI 數據中心」概念，散戶配額高達 30%，遠高於傳統 IPO 的 5–10%，且 Musk 要求投資人直接飛到 SpaceX 園區而非走銀行路演（Roadshow，IPO 前由承銷銀行主導的機構投資人巡迴說明會）。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">30% 散戶配額在 $400–750 億募資規模下，意味著散戶需要吸收 $120–225 億…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">30% 散戶配額在 $400–750 億募資規模下，意味著散戶需要吸收 $120–225 億，但沒有傳統路演的做市穩定機制。持有 SpaceX 股票的 Musk 粉絲群體會成為最積極的監管阻力，這是刻意設計的政治護城河，而非讓散戶「共享上漲」的善意。研究進一步指出，xAI 合併帶來的估值溢價約 $2,500 億幾乎沒有財務錨定，「軌道 AI 數據中心」在延遲、散熱、功耗三個維度均無成熟工程方案，跟進的機構投資者才是結構性輸家。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果散戶 90 天內持有率低於 50%，開盤後的拋壓由誰來接？機構會因為市場敘事而站出來當接盤方嗎？</li>
+            <li>Musk 把銀行限制在「嚴格界定業務範圍」內，銀行接受這個條件——他們預期從哪裡拿回這筆讓步？</li>
+            <li>若 xAI 的「軌道 AI 數據中心」敘事在 IPO 後 12 個月內找不到工程驗證，估值會怎麼調整？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-meta-tribe">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Meta 開源了 TRIBE v2，但訓練數據沒開源，學術界成了免費驗證員</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Meta AI Research 開源 TRIBE v2（Total Representation In Brain Encoding），訓練資料來自 700+ 名受試者的逾 1,000 小時腦部掃描，模擬視覺、聽覺與語言三個模態的神經活動，覆蓋 70,000 個腦區（前代僅 1,000 個）。模型的群體層級神經活動預測準確率已超越真實 fMRI（功能性磁振造影，透過測量腦部血流推斷神經活動的掃描技術）紀錄，Meta 已開源模型權重、程式碼及互動 Demo。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Meta 開源了模型權重，但 1,000+ 小時腦部掃描訓練數據本身未開源…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Meta 開源了模型權重，但 1,000+ 小時腦部掃描訓練數據本身未開源，第三方無法獨立微調或復現，「開源」的實質是以學術表象建立數據護城河。Google DeepMind 若要追上需要與大型醫學中心建立類似合作，時間估計 3–5 年。誤以為拿到完整工具的獨立研究者是輸家，他們的後續研究反而為 Meta 的數據壁壘提供了免費驗證。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 700+ 受試者的掃描數據來自 NIH 資助的公立大學研究，Meta 用納稅人出錢的數據訓練廣告優化引擎，「開源」算是對等的回報嗎？</li>
+            <li>目前 TRIBE v2 只做到群體層級預測，距離「預測這個用戶對這個廣告的反應」還差多遠？</li>
+            <li>如果 Meta 的競爭對手買不到相同規模的腦部掃描數據，這個護城河幾年後會演變成什麼？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-shield">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Tech</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Shield AI 的護城河只到合約期限為止，下一份標案是開放競爭</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Shield AI 宣布 Series G 融資，由 Advent International 和 JPMorgan Chase 共同領投，Blackstone 另外投入 $5 億優先股並提供 $2.5 億延遲提款額度，最新估值從一年前的 $53 億升至 $127 億，漲幅 140%。催化劑為美國空軍選定 Shield AI 的 Hivemind 軟體（自主飛行 AI，已通過美軍 CCA 計畫測試）作為無人機「僚機」與人類戰鬥機並肩作戰的核心，本年預計營收 $5.4 億以上，同時收購飛行模擬公司 Aechelon Technology。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Shield AI 的防禦性來自美國空軍 CCA 合約中已寫入 Hivemind 的條款鎖定…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Shield AI 的防禦性來自美國空軍 CCA 合約中已寫入 Hivemind 的條款鎖定，而非技術本身，合約期內 Anduril 的替換成本確實不可行，但下一份標案是開放競爭。Blackstone $5 億優先股帶有清算優先權，在估值低於 $127 億的退出情境下，Advent 和 JPMorgan 的普通股替 Blackstone 扛下行風險，Blackstone 是結構性贏家。此外，$5.4 億預計營收中，國防合約常見的 IDIQ 結構（不定量不定期合約，天花板金額虛高）若被計入，23.5 倍的營收估值倍數可能建立在不可靠的數字上。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Hivemind 同時跑在 Anduril 的 Fury 無人機上，兩家公司在同一個飛行平台上共生，這個關係到下一個採購週期能維持嗎？</li>
+            <li>如果 $5.4 億營收大部分來自 IDIQ 合約天花板而非實際交付，這個估值泡沫什麼時候會被招股書揭露？</li>
+            <li>Blackstone 的優先股保護讓它在 IPO 前就鎖定報酬，那 Advent 和 JPMorgan 的實際回報依賴什麼？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-meta-datacenter">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Tech</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Meta 在沙漠蓋 1 GW 數據中心，用水問題被刻意說模糊了</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Meta 宣布將德州 El Paso 新數據中心投資從 $15 億上調至逾 $100 億，增幅七倍，設施面積從 120 萬平方英尺擴至 310 萬平方英尺，設計容量 1 GW（吉瓦，相當於一座大型核電廠發電量），預計 2028 年投入運營。Meta 2026 年資本支出（購置長期資產的費用）指引為 $1,150–1,350 億，較 2025 年的 $722 億大幅跳升，並承諾向電網增加超過 5,000 MW 清潔能源。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">El Paso 沙漠氣候下，1 GW 數據中心的蒸發冷卻每日估計耗水 300–500 萬加侖…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">El Paso 沙漠氣候下，1 GW 數據中心的蒸發冷卻每日估計耗水 300–500 萬加侖，而 Rio Grande 水權是德州、新墨西哥州和墨西哥三方長期爭議。Meta「與非營利組織合作減輕用水負擔」的表述沒有任何工程量化，是此次公告中最刻意模糊的風險因素，若 2027–2028 年監管介入，1 GW 容量可能無法滿載運營。電力側同樣存在 ERCOT 獨立批發市場的極端天氣風險，2021 年冬季風暴曾讓現貨電價飆至 $9,000/MWh，PPA 購電合約是否附帶實體備用保障未被披露。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Rio Grande 水權爭議若在數據中心動工後才介入，Meta 的法律曝險有多大？墨西哥政府有沒有辦法阻止這件事？</li>
+            <li>Meta $1,150–1,350 億的年度資本支出，回收邏輯完全押在廣告 AI 增量上，但從來沒有給過可驗證的回收期假設，股東為什麼沒有要求？</li>
+            <li>如果 Llama 系列在企業市場繼續輸給 OpenAI 和 Anthropic，這筆錢的商業邏輯怎麼自圓其說？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-wikipedia">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Wikipedia 的 AI 禁令只能過濾最懶的人，進階用戶完全繞得過去</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Wikipedia 英語版志願編輯以 40:2 的壓倒性多數，通過禁止使用 LLM（大型語言模型）撰寫或改寫文章的政策，允許編輯繼續使用 AI 進行語法修正和翻譯但需人工審核。導火索是 AI 生成錯誤的累積，而非意識形態立場，StackOverflow 和德語 Wikipedia 已有類似禁令，西班牙語 Wikipedia 更進一步全面禁止 AI 包括編輯輔助。ARK Invest 數據顯示 AI 文字在 2025 年已首次超越人類產出。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">這個禁令在技術執行層面幾乎完全依賴社群自律…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">這個禁令在技術執行層面幾乎完全依賴社群自律，現有 AI 偵測工具在事實密集的百科文體上誤判率高，經人類潤飾的 AI 文字更難偵測。政策實質上只過濾最懶的濫用者，知道如何潤飾 AI 輸出的進階編輯者反而獲得了相對優勢。相信禁令能維持內容品質的 Wikipedia 讀者才是真正的輸家。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果禁令只能擋住懶人，有心人繞過去，長期下來 Wikipedia 的 AI 內容佔比會比禁令前更難偵測而非更少，這個政策的預期效果和實際效果會不會南轅北轍？</li>
+            <li>英語版保留 AI 翻譯、西班牙語版全面禁止，這個不對稱會讓兩者在非西方議題的覆蓋深度上出現多大的差距？</li>
+            <li>Grokipedia 主打即時更新速度，Wikipedia 主打事實核查深度，如果兩者都做不到兼顧，使用者會選哪個？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">6 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-bitcoin">
+    <div class="card-meta">
+      <span class="card-source">Messari</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>JPMorgan 說 Bitcoin 優於黃金，但只是因為它波動率更高，不是因為它更安全</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Bitcoin 於 2026-03-27 跌至 $68,507，24 小時跌幅 3.2%，主要催化劑為 Trump 將對伊朗的截止日期延至 4 月 6 日。XRP 同期跌 2.7% 至約 $1.35。JPMorgan 分析指出 Bitcoin 在整個伊朗戰爭期間累積報酬率優於黃金和白銀，但 Bitcoin 與 S&P 500 相關係數達 89%，與黃金達 95%。Bitcoin 目前面臨 $140 億選擇權（賦予買方在特定價格買賣資產的金融合約）到期壓力，伊朗戰爭開打 28 天以來每次重大消息均觸發逾 $10 億清算（強制平倉）。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Bitcoin 與黃金 95% 相關係數下，所謂「超額報酬」幾乎全部來自 Bitcoin 波動率是黃金 5–8 倍的 beta 效應…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Bitcoin 與黃金 95% 相關係數下，所謂「超額報酬」幾乎全部來自 Bitcoin 波動率是黃金 5–8 倍的 beta 效應，JPMorgan 的說法混淆了「高波動資產在上漲段的絕對報酬更大」和「避險資產的結構性優勢」。在這場危機 28 天中，Bitcoin 的行為更接近「流動性最好的風險資產代理」，「數位黃金」的敘事沒有任何結構性數據支撐。以避險為由配置 Bitcoin 的機構投資者是輸家，因為同樣的邏輯在下跌段會讓 Bitcoin 跌得比黃金更深。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Bitcoin 和黃金 95% 相關，Bitcoin 的「避險」功能和「高槓桿黃金替代品」有什麼實質差別？</li>
+            <li>每次戰爭消息在週末發生，Crypto 單獨承受初始衝擊，這個結構性問題對做市商的定價行為有沒有長期影響？</li>
+            <li>$140 億選擇權到期，如果 Deribit 是最大的對手方風險承受者，它的 gamma 曝險能撐住多大的單次波動？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-sacks">
+    <div class="card-meta">
+      <span class="card-source">Messari</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>David Sacks 離開加密沙皇職位，業界 130 天沒有拿到任何已簽署的立法</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Trump 任命的加密與 AI 政策沙皇 David Sacks（前 Craft Ventures 管理合夥人）宣布在任職 130 天後離開政府職務。Sacks 的官方身份為 SGE（Special Government Employee，美國法律允許的特殊政府僱員，每年最多服務 130 天），離職時間點與法定上限完全吻合。其任內積極推動的 Clarity Act（加密監管框架法案）目前仍在委員會審議中，尚未通過。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Sacks 在 130 天內交出的可驗證立法成果接近零…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Sacks 在 130 天內交出的可驗證立法成果接近零，Clarity Act 停在委員會，沒有任何已簽署的行政命令或已通過的立法，SEC 對加密案件的態度軟化更多是 Gensler 離任和 Trump 整體政策基調的結果，而非 Sacks 個人貢獻。空窗期中，Coinbase 和 Ripple 的遊說團隊將扮演事實上的政策推動者，這對它們是機會。預期 130 天內有立法突破的加密投資人是輸家。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Clarity Act 在委員會卡住，繼任者若沒有 Sacks 的技術背景，「去中心化協議」的定義條款在標記階段被稀釋的風險有多真實？</li>
+            <li>Craft Ventures 投資組合中的加密項目如果直接受 Clarity Act 定義條款影響，Sacks 的 130 天參與構成多大的旋轉門問題？</li>
+            <li>如果下一任負責人是純政治任命而非技術背景，加密業界的遊說策略要怎麼調整？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-paradigm">
+    <div class="card-meta">
+      <span class="card-source">WSJ / The Block</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Paradigm 進軍機器人 AI，但它在這個領域的能力棧和加密幾乎沒有重疊</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">加密原生 VC Paradigm 宣布募集 $15 億新基金，首次正式將 AI 和機器人納入投資範圍，管理資產約 $127 億。Paradigm 由前 Coinbase 合夥人 Fred Ehrsam 和前 Sequoia 合夥人 Matt Huang 於 2018 年創立，過去投資組合包含 Uniswap、Coinbase、Chainalysis，但也含 FTX（已爆雷）。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">機器人 AI 的關鍵能力棧，包括感測器融合、運動規劃、sim-to-real transfer…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">機器人 AI 的關鍵能力棧，包括感測器融合、運動規劃、sim-to-real transfer（模擬到現實的遷移訓練）和硬體供應鏈，與加密協議設計幾乎無技術重疊。Paradigm 在機器人領域的投資決策將退化為依賴外部技術顧問，失去過去在加密協議上的資訊優勢。在 AI 和機器人領域早已深耕的 Sequoia、a16z Growth、Founders Fund 是贏家，Paradigm 進入這個領域的差異化優勢不清晰。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Paradigm 的差異化優勢是「懂加密協議」，那它在機器人 AI 裡押的到底是什麼特定的交叉場景？「AI 代理人自主支付」這個假設夠大嗎？</li>
+            <li>機器人硬體公司的退出週期是 5–10 年，加密代幣 TGE 後 6–18 個月就有流動性，現有 LP 接受這個差異是因為相信策略，還是因為相信 Matt Huang 這個人？</li>
+            <li>Paradigm 在 FTX 損失了估計逾 $2.5 億，如果新基金的 LP 批准建立在帳面回報而非已實現現金回報上，這個資本結構問題什麼時候會浮出水面？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-pharos">
+    <div class="card-meta">
+      <span class="card-source">Messari</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Pharos 的 30,000 TPS 是行銷數字，整個 RWA 市場連 1,000 TPS 的持續需求都沒有</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">前螞蟻集團高管 Alex Zhang 和 Wish Wu 創立的 Pharos，定位為 RWA（Real World Assets，在鏈上代幣化的現實世界資產）原生 L1 區塊鏈，目標主網 30,000 TPS，技術亮點包括全生命週期並行化、Pharos Store 降低磁碟讀取次數（從 8–10 次降至 1–3 次），以及 DTVM（將 EVM 和 WASM 兩種智能合約執行環境統一在確定性運行時下的混合架構）。主網 TGE（代幣首次發行）預計 2026 年 Q1–Q2。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">全球 RWA 鏈上交易量目前每天連 1,000 TPS 的持續需求都不存在…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">全球 RWA 鏈上交易量目前每天連 1,000 TPS 的持續需求都不存在，Solana 理論值 65,000 TPS 對現有 RWA 交易量已是過度供給，30,000 TPS 對真正要上鏈的貿易融資企業完全不是決策因素。對這些機構來說，真正重要的是合規框架和機構流動性，而這正是 Ondo、Centrifuge、BlackRock BUIDL 已佔據的競爭維度。此外，雖然「前螞蟻」背景有品牌溢價，但螞蟻集團現有企業客戶在中國監管不確定性下接入境外公鏈的意願極低，客戶資源的可移植性存疑。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果貿易融資企業的決策點是合規框架而非 TPS，Pharos 的技術差異化在哪個具體場景裡才會成為採購理由？</li>
+            <li>DTVM 讓 EVM 和 WASM 共存，但兩者的 gas 定價機制不同，跨 VM 調用的定價差異會不會成為攻擊向量？有沒有做過公開的對抗性測試？</li>
+            <li>Alex Zhang 帶出來的是技術架構知識，還是真的帶出了企業客戶關係？這兩件事在 TGE 估值裡被混在一起算了嗎？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-kelp">
+    <div class="card-meta">
+      <span class="card-source">Messari</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Kelp KUSD 的 10% 收益率是假設，鏈上應收帳款目前部署規模接近零</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Kelp 從再質押（Restaking，將已質押的 ETH 用於同時保護其他協議以獲取額外收益）業務起家，TVL（協議鎖倉總價值）達 $12.5 億，年化收入 $300 萬。新產品 KUSD 是由已驗證貿易應收帳款（企業已發貨但尚未收到的短期債權）支撐的生息穩定幣，宣稱透過借款方還款產生 10%+ 年化收益，目標市場為全球 $25 兆貿易應收帳款和 $200 兆跨境支付結算中的流動性缺口。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Kelp 年化收入 $300 萬對應 $12.5 億 TVL，這個收入幾乎全部來自再質押業務…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Kelp 年化收入 $300 萬對應 $12.5 億 TVL，這個收入幾乎全部來自再質押業務，目前公開數據顯示實際部署到貿易應收帳款的規模接近零，KUSD 仍是產品設計階段，10%+ 收益率是假設而非承諾。更根本的問題是，Goldfinch 和 Credix 已走過「鏈上結算加鏈下信用評估加跨境司法管轄不清晰」這條路並遭遇實際違約，在鏈上唯一性驗證（防止同一張應收帳款在多個平台重複質押）問題解決前，KUSD 的護城河比傳統保理業務更薄，而非更強。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Goldfinch 和 Credix 違約後 LP 本金直接受損，Kelp 準備用什麼機制保護 KUSD 持有者，在跨境借款人拖欠時？</li>
+            <li>如果鏈上沒有機制防止同一張應收帳款被重複質押，Kelp 是依賴哪家中心化機構做這件事？</li>
+            <li>$25 兆市場規模的說法成立，但現有的鏈下保理業務已在做這件事，Kelp 的成本優勢具體是多少個 basis points？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-polymarket">
+    <div class="card-meta">
+      <span class="card-source">Messari</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Polymarket 的歷史新高交易量發生在戰爭期間，非事件年的基準可能低 80%</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Polymarket 是目前最大的去中心化預測市場（允許用戶對事件結果下注的交易平台），POLY 代幣預計 2026 年推出，2026-03-07 尋求以 $200 億 FDV（Fully Diluted Valuation，所有代幣全部流通時的假設市值）融資。2 月交易量達 $35.5 億歷史新高，Messari 以費用倍數（類似 P/E 比但針對協議費用的估值方法）模型建立三情境估值，基本情境使用 30x 倍數基於 2028 年預估費用。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Polymarket 2 月 $35.5 億的歷史新高恰好發生在伊朗戰爭期間…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Polymarket 2 月 $35.5 億的歷史新高恰好發生在伊朗戰爭期間，非事件驅動的基準月交易量估計落在 $3–5 億（參考 2024 年大選前後的量能落差），若 2028 年是非大選年且無重大地緣事件，實際費用基礎可能比估值假設低 70–80%，$200 億 FDV 在此情境下難以支撐。更直接的威脅是 Kalshi，它已取得 CFTC 許可合法服務美國用戶，Polymarket 若被明確執法，美國流動性池將直接遷移至 Kalshi，而 POLY 代幣的價值捕獲機制無法對沖這個合規風險。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Polymarket 的商業模式本質上依賴大選年和戰爭，這是一個「事件紅利收割機」而非可持續平台，估值應該怎麼定？</li>
+            <li>POLY 代幣在 Kalshi 取得 CFTC 許可後的時間點推出，持有者在美國用戶流動性遷移發生前有多少出場視窗？</li>
+            <li>如果本輪 $200 億 FDV 沒有新的外部機構以真金白銀入場，估值只是內部定價，你會用什麼指標判斷這件事？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-vc">
+    <span class="section-title">VC · 投資動態</span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <div class="article-card" id="vc-hormuz">
+    <div class="card-meta">
+      <span class="card-source">a16z</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>霍爾木茲海峽關閉，是俄烏式的「可繞道危機」，只是這次沒有路可繞</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">霍爾木茲危機的時間代價是每天 6,000–8,500 萬桶，即使明天開放也已經太晚，這是本輪能源衝擊和俄烏戰爭的結構性差異。</span>
+    </div>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">a16z 能源分析師 Michael Spyker 發布長文，解析霍爾木茲海峽關閉的全球能源系統衝擊。波斯灣佔全球液體燃料出口 15–20%，是中東原油唯一出口通道，過去 7 天通過船隻約 17 艘，為正常 50–60 艘/天的 5%。已關閉液體生產量約 1,250 萬桶/天，伊朗戰爭 24 天累積停產 2.85 億桶，而俄烏戰爭 24 週（約六倍時間）才累積損失 9,500 萬桶。替代路線，包含沙烏地 Yanbu 管線、阿聯酋 Fujairah 港口、伊拉克轉土耳其，合計最多替代正常出口量的 15–20%。即使海峽立即開放，2026 年仍有約 7 億桶液體無法補回，年底庫存從原預期 +11% 反轉至 -9%，每延遲一天再損失 6,000–8,500 萬桶。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">這場危機與俄烏戰爭的根本差異在於替代路線…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">這場危機與俄烏戰爭的根本差異在於替代路線，俄羅斯原油有多條陸上和海上替代管道，中東原油幾乎沒有，科威特、巴林、卡達幾乎完全被困。化工品的上游傳導已經發生，凝析油（開採天然氣時產生的輕質液態烴，塑料原料的上游）短缺推動 Butadiene（橡膠原料）在中國年初至今漲 140%、PET（瓶裝水和外賣容器材料）在德國漲 45%、Toluene（黏合劑和指甲油原料）在南韓漲 70%，這個傳導鏈還未反映在通膨數字中。WTI 比 Brent 便宜最高 $20/bbl，原因是 WTI 最快需 60 天才能運到亞洲，這是市場在極度理性地定價危機的持續時間。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>IEA 已釋放約 4 億桶戰略儲備，估計能覆蓋約一個月損失，如果 4 月 6 日 Trump 的截止日期後局勢升級而非緩解，各國還有多少籌碼？</li>
+            <li>化工品漲幅（Butadiene +140%、PET +45%）目前還沒有反映在消費端通膨，這個傳導時間大概是多久？</li>
+            <li>阿曼原油溢價高出 WTI $60/bbl，純粹是因為地理位置在海峽外側，這表示「能出貨」的稀缺性已經遠超「油本身」的價值，這個定價邏輯在危機結束後會留下什麼市場結構？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-03-28</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
