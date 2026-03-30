@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-03-30</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:             #f5f3ee;
+      --surface:        #fdfcf9;
+      --surface-alt:    #f9f7f2;
+      --border:         #dedad2;
+      --border-light:   #e8e5de;
+      --ink:            #18160f;
+      --ink-body:       #38342a;
+      --ink-muted:      #7c7868;
+      --ink-faint:      #b0ac9e;
+      --rule:           #c8c3b4;
+      --thought-bg:     #edeae0;
+      --thought-border: #7a6a48;
+      --thought-text:   #3a3220;
+      --accent:         #7a6a48;
+      --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+      --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+      --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:             #111008;
+        --surface:        #171510;
+        --surface-alt:    #131210;
+        --border:         #2a2820;
+        --border-light:   #222018;
+        --ink:            #ede8dc;
+        --ink-body:       #b8b2a0;
+        --ink-muted:      #706a58;
+        --ink-faint:      #403c30;
+        --rule:           #2a2820;
+        --thought-bg:     #1a1810;
+        --thought-border: #6a5e3e;
+        --thought-text:   #c0b898;
+        --accent:         #b09060;
+        --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+        --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+        --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+
+    #progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+
+    #back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+    #back-top.visible{opacity:1;pointer-events:auto}
+    #back-top:hover{background:var(--surface-alt);color:var(--ink)}
+
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+    .toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .toc-list li{display:flex;align-items:baseline;gap:10px}
+    .toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+    .toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+    .toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+    .header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+    .header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+    .header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+    .header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+    .header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+    .header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+
+    .section-block{margin-bottom:80px}
+    .section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+    .section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+    .section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+    .article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+    .article-card:hover{border-color:var(--rule)}
+    .article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+    .article-card:hover::before{opacity:.9}
+
+    .card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+    .card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+    .card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+    .card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+
+    .block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+    .factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+
+    details.analysis-details{margin-top:0}
+    details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+    details.analysis-details > summary::-webkit-details-marker{display:none}
+    .analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+    .analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+    details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+    .analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+    .analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+    details[open] .analysis-preview{display:none}
+    .analysis-body{padding-top:12px}
+    .research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+    .analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+
+    .key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+    .key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+    .key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+
+    .food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+    .food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+    .food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+    .food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+    .food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+
+    .footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+
+    @media(max-width:600px){
+      body{padding:0 18px 80px}
+      .header{padding:40px 0 30px}
+      .header h1{font-size:24px}
+      .article-card{padding:22px 18px 22px 24px}
+      .article-card h3{font-size:17px}
+      .section-title{font-size:18px}
+      #back-top{bottom:20px;right:20px}
+      .toc{padding:16px 18px}
+      .analysis-preview{max-width:200px}
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 3 月 30 日　星期一</span>
+    <span class="header-issue">今日 8 篇</span>
+  </div>
+  <h1>機器開始付錢了</h1>
+  <p class="header-summary">支付的主體從人類變成了代理，整個 SaaS、VC 和跨境結算的定價邏輯都需要重新想。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-accio-work">Alibaba Accio Work 的護城河不在 AI，在支付捆綁</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-fedwire">鏈上「24/7 結算」在 Fedwire 關閉時只是帳面記錄</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-clarity">CLARITY Act 不過，真正被凍結的是 a16z 自己的 portfolio</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-tempo">Tempo/MPP 上線讓 Dragonfly 的 agentic payments 押注夾在中間</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-samani">Samani 選擇股票而非現金，是稅務結構，不是 Solana 信仰</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-paradigm">Paradigm 進軍 AI，但 $50M 押注 Nous Research 暴露能力邊界</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-a16z">a16z 基金縮水不是看空，是承認大基金部署速度輸給加密週期</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#aiweb3-tempo-mpp">Tempo MPP 重新定義了付款的主體，SaaS 定價邏輯現在需要從頭想</a></li>
+  </ol>
+</nav>
+
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-accio-work">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI / PR Newswire</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Alibaba Accio Work 的護城河不在 Qwen 模型，在供應商側的支付捆綁</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">alibaba.com 是 Alibaba 旗下 B2B 跨境貿易平台。2026 年 3 月 23 日，其正式發布 Accio Work，以自研 Qwen 模型（大型語言模型）為基礎的企業 AI 代理（Agentic AI，能自主規劃並執行多步驟任務的系統）平台，月活用戶突破 1,000 萬。平台可在 30 分鐘內完成 Shopify、Amazon、TikTok Shop 的電商開店，支援全球 100 個以上市場的 VAT 報稅、供應商議價、物流追蹤，人類僅在最終付款與法規提交時介入。alibaba.com 總裁 Kuo Zhang 公開表示，A2A（Agent-to-Agent，企業間業務流程由 AI 代理直接溝通協作）將是 B2B 的未來，「一人十億美元公司距離我們可能只有幾個月」。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Accio Work 的免費代理層與 2003 年 Alibaba 用免費 Gold Supplier 試用期鎖定賣家的結構完全一致…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Accio Work 的免費代理層與 2003 年 Alibaba 用免費 Gold Supplier 試用期鎖定賣家的結構完全一致，買方體驗免費，利潤來自賣方佣金、跨境收款與物流抽成。Shopify Sidekick 和 Amazon Project Amelia 可以複製前端代理體驗，但無法複製 Alibaba 在供應商側的獨佔交易數據與支付捆綁。護城河不在模型能力，在支付通道。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Stripe/Tempo 的 MPP 讓 AI 代理可以用穩定幣直接繞過 Alibaba 的跨境結算，Kuo Zhang 說的「A2A 未來」實際上是在替自己挖護城河的競爭對手鋪路嗎？</li>
+            <li>「一人十億美元公司」的前提是代理能自主執行所有流程，但 Zhang 自己承認 AI 代理缺乏「物理接地」能力。這個缺口有多大，他有沒有說清楚？</li>
+            <li>Alibaba 把法律責任定性為「工具提供方」而非「報稅代理人」，這個定性在歐盟和東南亞能撐多久？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-fedwire">
+    <div class="card-meta">
+      <span class="card-source">a16z crypto</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>NYSE 鏈上平台的「24/7 結算」在週末 Fedwire 關閉時只是帳面暫態</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">a16z crypto 於 2026 年 3 月 29 日發布長文，列舉三大機構鏈上化動作：DTCC 獲 SEC 無異議函（No-Action Letter，SEC 對特定行為暫不採取執法的書面聲明），目標 2026 年上半年在 Canton Network 推出美國國債代幣化（Tokenization，將真實世界資產以區塊鏈代幣表示）生產服務，2024 年處理交易量達 3.7 千兆美元。NYSE 宣布建設 24/7 鏈上股票與 ETF 交易平台，BNY 與 Citi 提供代幣化存款支援，目標 Q2 2026 上線。Tradeweb 於 2025 年 8 月完成全球首筆全鏈上美國國債對 USDC 回購融資，參與方包括 Bank of America、Citadel Securities、Virtu Financial。DeFi 協議管理資本從 2019 年不足 10 億美元成長至 1,210 億美元，穩定幣市值超過 3,100 億美元。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">NYSE 鏈上平台的結算資產是 BNY、Citi 的代幣化存款，而 Fedwire（美聯儲法幣結算系統）週末不營業…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">NYSE 鏈上平台的結算資產是 BNY、Citi 的代幣化存款，而 Fedwire（美聯儲法幣結算系統）週末不營業。週末在鏈上記錄的交易只是暫態狀態，法幣最終結算仍受限於美聯儲的營業窗口。24/7 只對鏈上原生資產成立，對手方風險沒有消失，而是轉移到 BNY、Citi 的信用風險上。依賴「24/7 無中介結算」敘事建立估值的鏈上券商新創，承擔了這個敘事最終被打破的風險。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 24/7 結算的前提不成立，NYSE 這個平台對散戶的核心賣點究竟是什麼？</li>
+            <li>代幣化存款的信用風險集中在 BNY 和 Citi，這和傳統清算結構的系統性風險有什麼本質差異？</li>
+            <li>a16z 說「創業者應在機構打好的合規基礎上建造新一層」，但 FINRA 會員身份的門檻讓哪些新創進不去？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-clarity">
+    <div class="card-meta">
+      <span class="card-source">a16z crypto / CoinDesk</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>CLARITY Act 若卡死，a16z 自己的 DeFi Portfolio 才是最大輸家</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">美國數位資產市場結構法案 CLARITY Act（Digital Asset Market Clarity Act of 2025，旨在明確 SEC/CFTC 對加密資產的管轄邊界）於 2025 年 7 月通過眾議院後在參議院卡關，核心爭議有二：穩定幣收益條款（Stablecoin Yield，持有穩定幣所獲利息）的銀行業反對，以及 DeFi（去中心化金融）監管方法的分歧。Senate Banking Committee 於 2026 年 3 月中旬啟動第二次 markup（法案審議修訂會議），若未能在 2026 年 8 月競選期前完成立法，下一次機會可能在 2027 年以後。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">DTCC、NYSE、Tradeweb 已透過個案監管豁免繼續推進，大機構根本不需要 CLARITY Act…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">DTCC、NYSE、Tradeweb 已透過個案監管豁免繼續推進，大機構根本不需要 CLARITY Act。真正被法律不確定性凍結的是 Uniswap（SEC 已發過 Wells Notice）、未持有 broker-dealer 牌照的鏈上 RWA 協議，以及提供收益型穩定幣的項目如 Ethena 和 Sky。法案若卡死，贏家是已拿到個案豁免的大機構，輸家正好是 a16z portfolio 裡的中型 DeFi 協議。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>a16z 公開倡議 CLARITY Act，但法案卡死對大機構無傷，a16z 是在為整個產業遊說還是主要在護盤自己的投資組合？</li>
+            <li>穩定幣收益條款的銀行業反對，本質上是要把 DeFi 的核心用例扼殺在監管框架裡，如果妥協版本通過，DeFi 協議還剩下什麼競爭優勢？</li>
+            <li>若 2026 年立法窗口錯失，SEC 會不會在選舉後對 Uniswap 等繼續採取執法行動？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-tempo">
+    <div class="card-meta">
+      <span class="card-source">Fortune / CoinDesk</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Tempo MPP 帶著 Visa 和 OpenAI 上線，Dragonfly 的 Rain 和 Mesh 被夾在中間</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Dragonfly Capital 於 2026 年 2 月 18 日關閉第四支基金，規模 6.5 億美元，超出原定 5 億美元目標，在加密 VC 面臨行業整體收縮的環境下完成超額募集。管理合夥人 Haseeb Qureshi 將 agentic payments（AI 代理自主執行的支付行為）與鏈上隱私列為新基金的重點投資方向，portfolio 包含企業卡公司 Rain 與帳戶聚合平台 Mesh，以及早期押注的 Polymarket（已獲 ICE 投資 20 億美元）、Ethena、Rain。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Tempo/MPP 已帶著 Visa、Mastercard、OpenAI、Anthropic 作為設計合夥人上線，agentic payments 的協議標準層已有 Stripe 背書…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Tempo/MPP 已帶著 Visa、Mastercard、OpenAI、Anthropic 作為設計合夥人上線，agentic payments 的協議標準層已有 Stripe 背書的強力候選人。Dragonfly 的 Rain 和 Mesh 若與 MPP 競爭，面對 Stripe 的分發優勢幾乎沒有勝算；若整合 MPP 成為應用層，估值邏輯從「協議層溢價」降為「Shopify 插件溢價」。兩條路對 Dragonfly Fund IV 的 carry 都不有利。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Rain 和 Mesh 還有什麼差異化路徑，讓它們不只是 MPP 生態裡的附屬插件？</li>
+            <li>Haseeb Qureshi 在公開場合把 agentic payments 說成重點方向，但他的核心 portfolio 可能正在被 Tempo 邊緣化，這個矛盾他怎麼回應？</li>
+            <li>Dragonfly 超額募集的 $150M 增量，有多少來自沒有義務跟投的 first-time LP？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-vc">
+    <span class="section-title">VC · 投資動態</span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <div class="article-card" id="vc-samani">
+    <div class="card-meta">
+      <span class="card-source">X / CoinDesk / The Block</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>Samani 拿股票不拿現金，是稅務遞延加資訊優勢，不是 Solana 信仰宣言</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Multicoin Capital 共同創辦人 Kyle Samani 於 2026 年 2 月 4 日宣布離職，結束約 8 年加密 VC 生涯。管理規模 59 億美元的 Multicoin 日常營運將由共同創辦人 Tushar Jain 與 Brian Smith 主導。Samani 計劃於 2026 年 3 月 31 日提交 Master Fund 贖回申請，選擇以 Forward Industries（FWDI，一家以 Solana 為財庫的上市公司）股票及認股權證進行 in-kind redemption（實物贖回，從基金中取回實物資產而非現金），並擔任 FWDI 董事長，同時表示仍「mega long SOL」。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Multicoin Master Fund 在 SOL 大幅回撤後，清算倉位換現金的實際折價…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Multicoin Master Fund 在 SOL 大幅回撤後，清算倉位換現金的實際折價（市場衝擊成本加稅務觸發）很可能高於持有 FWDI 股票的流動性折價。Samani 同時擔任 FWDI 董事長，對 FWDI 的 NAV 折溢價有資訊優勢。這是稅務遞延與資訊不對稱的雙重結構安排，不是 SOL 多頭信念的表達。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果這是稅務結構而非信仰，Samani 在 FWDI 的董事長角色有沒有利益衝突的問題需要揭露？</li>
+            <li>Tushar Jain 的公開影響力集中在宏觀框架，Multicoin 在 Solana 協議治理層的席位會怎麼轉移？</li>
+            <li>下一批需要 Multicoin 作為 lead 背書的 Solana 早期項目，現在應該找誰？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="vc-paradigm">
+    <div class="card-meta">
+      <span class="card-source">The Information / WSJ</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>Paradigm 的 AI 野心被一筆 $50M 的投資出賣了</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">加密 VC 龍頭 Paradigm 計畫募集最高 15 億美元新基金，首次系統性擴展至 AI 與機器人領域，現管理約 127 億美元資產。Paradigm 由前 Coinbase 高管 Fred Ehrsam 與前紅杉合夥人 Matt Huang 於 2018 年共同創立，決定不另設 AI 投資部門，由現有技術團隊直接跨界評估 AI 與機器人交易。Paradigm 已先行佈局 AI：以 5,000 萬美元投資 Nous Research，並與 OpenAI 合作開發 EVMbench（評估 AI 處理以太坊虛擬機任務性能的基準工具）。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">加密 diligence 的核心是代幣經濟模型與 MEV 動態，AI 與機器人 diligence 的核心是訓練資料飛輪…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">加密 diligence 的核心是代幣經濟模型與 MEV 動態，AI 與機器人 diligence 的核心是訓練資料飛輪、推論成本結構與 sim-to-real transfer，兩套框架的重疊只在元方法論層面。$50M 押注 Nous Research 而非 Mistral 或 Anthropic 級別的標的，暗示 Paradigm 目前只能在「加密加 AI 交集」的窄走廊裡找到有把握的交易，而非真正的 AI-native 頂級機會。這支基金對機器人公司的 LP 而言，需要和 Lux Capital、Eclipse Ventures 比較風險調整後回報，後兩者有硬體供應鏈與 OEM 關係，Paradigm 沒有。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Paradigm 真的只能在「加密加 AI 交集」的窄走廊找交易，這支基金的機器人投資部分有多少是真正的機器人公司，有多少只是「用鏈上支付的機器人公司」？</li>
+            <li>同一支基金裡，加密 LP 如何理解機器人硬體量產失敗的風險，和加密清零的風險是完全不同的失敗模式？</li>
+            <li>Fred Ehrsam 和 Matt Huang 進軍 AI 的時間點，比 a16z 晚了多少，這個時間差意味著什麼？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="vc-a16z">
+    <div class="card-meta">
+      <span class="card-source">Fortune / CoinDesk / The Block</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>a16z 基金縮水不是看空，是承認大基金部署速度輸給加密週期</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">大基金募資規模首次逆轉，信號不是市場態度，是募資結構缺陷的自我承認。</span>
+    </div>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">a16z crypto 正在募集第五支基金，目標規模約 20 億美元，計畫 2026 年上半年完成募資，聚焦純加密賽道，不擴展至 AI。基金規模是 2022 年第四支基金 45 億美元的不到一半，在 Bitcoin 從 2025 年 10 月高點下跌約 50% 的環境下進行。a16z crypto 負責人 Chris Dixon 的解釋是加密趨勢迭代速度快，更短的募資週期與更精準的規模可以讓基金更靈活。這是 a16z crypto 自 2018 年 3 億美元首支基金以來首次規模逆轉。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">a16z 的邏輯指向一個直接承認：$4.5B 的部署週期太長，在加密市場裡造成了結構性錯位…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">a16z 的邏輯指向一個直接承認：$4.5B 的部署週期太長，在加密市場裡造成了結構性錯位，大基金本身是個負擔。這和 Paradigm 選擇擴大規模跨入 AI 的邏輯形成明確對比，兩家頂級 VC 對同一個問題給出了方向相反的答案，而 a16z 的答案是在承認過去一個基金的配置節奏出了問題。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果大基金部署週期是問題，$2B 的規模是真的夠小，還是只是向 LP 表態的象徵性縮減？</li>
+            <li>a16z 選擇純加密而 Paradigm 選擇跨入 AI，五年後哪個判斷更接近正確，現在有什麼早期信號可以追蹤？</li>
+            <li>Chris Dixon 有沒有公開說過第四支基金哪些投資是因為「部署壓力」而做的？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-aiweb3">
+    <span class="section-title">AI · Web3</span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <div class="article-card" id="aiweb3-tempo-mpp">
+    <div class="card-meta">
+      <span class="card-source">Fortune / CoinDesk</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Tempo MPP 重新定義了付款的主體，SaaS 定價邏輯現在需要從頭想</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">由 Stripe 背書、Paradigm 孵化的 Tempo 區塊鏈於 2026 年 3 月 18 日正式上線主網，同步發布 Machine Payments Protocol（MPP，機器支付協議，讓 AI 代理能以程式化方式協調支付的開源標準），在約 3.5 個月測試後轉入生產環境。設計合夥人包括 Visa、Mastercard、Deutsche Bank、Standard Chartered、Revolut、Nubank、Shopify、OpenAI、Anthropic、Ramp、DoorDash 等 11 家以上機構。Visa 已將 MPP 延伸至其卡支付網路，Lightspark 將其接入比特幣閃電網路（Bitcoin Lightning Network，比特幣的二層支付協議）。MPP 支援穩定幣與傳統卡支付，與 Stripe 現有 AI 支付基礎設施完全相容。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">MPP 解決的核心問題不是「人類怎麼用 AI 付錢」，而是「AI 代理怎麼自主持有資金、支付服務…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">MPP 解決的核心問題不是「人類怎麼用 AI 付錢」，而是「AI 代理怎麼自主持有資金、支付服務、接收報酬」。一旦服務對象從「有信用卡的人類」變成「有預算的機器」，現有 SaaS 與 API 的定價邏輯需要重新設計，因為機器沒有信用評分、沒有消費習慣、也沒有 churn 的情緒因素。Stripe 通過讓自己成為 MPP 相容性的中心節點，把未來所有 AI 代理支付的基礎設施稅收預先卡位。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 AI 代理可以自主持有預算，SaaS 公司的 per-seat 定價模型是否已經過時，應該改成什麼？</li>
+            <li>MPP 是開源協議，Stripe 的壁壘在哪，為什麼不會被 Visa 或 Mastercard 自己繞過去建立另一套標準？</li>
+            <li>AI 代理沒有信用評分，金融機構怎麼對「機器客戶」進行 KYC 和風險管控？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-03-30</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
