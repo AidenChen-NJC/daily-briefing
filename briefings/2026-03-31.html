@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-03-31</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:             #f5f3ee;
+  --surface:        #fdfcf9;
+  --surface-alt:    #f9f7f2;
+  --border:         #dedad2;
+  --border-light:   #e8e5de;
+  --ink:            #18160f;
+  --ink-body:       #38342a;
+  --ink-muted:      #7c7868;
+  --ink-faint:      #b0ac9e;
+  --rule:           #c8c3b4;
+  --thought-bg:     #edeae0;
+  --thought-border: #7a6a48;
+  --thought-text:   #3a3220;
+  --accent:         #7a6a48;
+  --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+  --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+  --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:             #111008;
+    --surface:        #171510;
+    --surface-alt:    #131210;
+    --border:         #2a2820;
+    --border-light:   #222018;
+    --ink:            #ede8dc;
+    --ink-body:       #b8b2a0;
+    --ink-muted:      #706a58;
+    --ink-faint:      #403c30;
+    --rule:           #2a2820;
+    --thought-bg:     #1a1810;
+    --thought-border: #6a5e3e;
+    --thought-text:   #c0b898;
+    --accent:         #b09060;
+    --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+    --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+    --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+  }
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+
+#progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+
+#back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+#back-top.visible{opacity:1;pointer-events:auto}
+#back-top:hover{background:var(--surface-alt);color:var(--ink)}
+
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+.toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.toc-list li{display:flex;align-items:baseline;gap:10px}
+.toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+.toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+.toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+.toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+.toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+.toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+.header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+.header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+.header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+.header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+.header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+.header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+
+.section-block{margin-bottom:80px}
+.section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+.section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+.section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+.article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+.article-card:hover{border-color:var(--rule)}
+.article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+.article-card:hover::before{opacity:.9}
+
+.card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+.card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+.card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+.card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+.card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+.article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+
+.block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+.factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+
+details.analysis-details{margin-top:0}
+details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+details.analysis-details > summary::-webkit-details-marker{display:none}
+.analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+.analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+.analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+.analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+details[open] .analysis-preview{display:none}
+.analysis-body{padding-top:12px}
+.research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+.analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+
+.key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+.key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+.key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+
+.food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+.food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+.food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+.food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+.food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+
+.footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+
+@media(max-width:600px){
+  body{padding:0 18px 80px}
+  .header{padding:40px 0 30px}
+  .header h1{font-size:24px}
+  .article-card{padding:22px 18px 22px 24px}
+  .article-card h3{font-size:17px}
+  .section-title{font-size:18px}
+  #back-top{bottom:20px;right:20px}
+  .toc{padding:16px 18px}
+  .analysis-preview{max-width:200px}
+}
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 3 月 31 日　星期二</span>
+    <span class="header-issue">今日 10 篇</span>
+  </div>
+  <h1>今天你以為看到的，和實際發生的不一樣</h1>
+  <p class="header-summary">Anthropic 贏了官司但丟了聯邦認證；Physical Intelligence 估值翻倍卻零客戶；AGIBOT 出貨 10,000 台卻缺乏運行數據。當新聞標題閃閃發光時，底層的結構性問題才決定了真實的輸贏。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-cms">Anthropic CMS 外洩，Microsoft 笑了</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-lilly-insilico">Lilly 的 $1.15 億，每個化合物 $410 萬</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-icts">Anthropic 贏禁令，但 ICTS 規則還在</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-pi-robotics">Physical Intelligence 估值翻倍，但零客戶</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-agibot">AGIBOT 的 10,000 台，缺乏運行率數據</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-eth-staking">以太坊基金會的質押計畫，2.7% 夠不夠</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-polymarket">Polymarket 開始收費，真正考試開始</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-a16z-aec">a16z 的 AEC 研究，定價模型才是關鍵</a></li>
+  </ol>
+</nav>
+
+<!-- AI · 科技 -->
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">5 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-anthropic-cms">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI / Fortune / The Decoder</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 洩露 Mythos 的最大贏家，是它的競爭對手 Microsoft</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">CMS 外洩導致控制環境缺失記錄，直接威脅 Anthropic 的聯邦認證時程，而非模型能力本身。</span>
+    </div>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Anthropic 的內容管理系統（CMS）設定錯誤，導致約 3,000 件未發布資產暴露於公開可存取的快取，其中包含下一代旗艦模型「Claude Mythos」的完整草稿部落格文章。草稿描述 Mythos 屬於第四層級「Capybara」，位於現有 Haiku / Sonnet / Opus 之上，在軟體程式碼、學術推理與網路安全測試上「大幅超越」Claude Opus 4.6，並特別標注其網路安全能力「遠超任何現有 AI 模型」。外洩由 LayerX Security 研究員 Roy Paz 與劍橋大學研究員 Alexandre Pauwels 率先發現。Anthropic 確認正在測試「具有重大進展的新型通用模型」，並據 Axios 報導已私下向美國政府官員警告 Mythos 可能顯著提升 2026 年大規模網路攻擊的可行性。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">FedRAMP High 與 CMMC Level 2 的審計標準明確要求資產管理控制，這次 CMS 事件構成審計員可直接引用的控制環境缺失紀錄……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">FedRAMP High 與 CMMC Level 2 的審計標準明確要求資產管理控制，這次 CMS 事件構成審計員可直接引用的控制環境缺失紀錄，最直接的受害者是 Anthropic 的聯邦認證時程。Microsoft Azure OpenAI Service 已持有這些認證，競爭優勢不需要 Mythos 有多厲害就自動擴大。這個外洩事件本身，才是 Anthropic 今年聯邦市場最大的結構性損傷，不是模型能力。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Anthropic 的模型安全團隊和基礎設施安全團隊是否在同一條匯報線下？如果不是，這類事件是組織設計問題，還是優先順序問題？</li>
+            <li>如果 Anthropic 私下警告政府「Mythos 危險」，但沒有同步向 CISA 提交正式漏洞影響評估，這個「警告」對政府採購決策的影響和行銷動作有什麼實質差別？</li>
+            <li>一家把「安全優先」作為品牌核心的公司，在 CMS 設定上犯這種基礎失誤，應該讓你重新評估它的安全主張是文化還是行銷？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-lilly-insilico">
+    <div class="card-meta">
+      <span class="card-source">Rundown AI / CNBC / STAT News</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Lilly 買的不是 AI 製藥的驗證，是一組還沒長大的選擇權</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Eli Lilly（美國製藥巨頭）宣布與香港 AI 製藥公司 Insilico Medicine 簽署最高 $2.75B（27.5 億美元）的多程序授權合作，預付款 $1.15 億，其餘依監管與商業里程碑（Milestone payments，依臨床或法規進展觸發的付款）觸發支付，另加銷售版稅。Insilico 已利用生成式 AI 工具開發 28 種化合物，近一半進入臨床階段，雙方合作可追溯至 2023 年。Lilly 獲得多個治療領域「特定適應症口服藥物」的全球獨家開發、製造與商業化授權。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">$1.15 億預付款除以 28 個化合物，每個化合物的隱含價值不到 $410 萬，遠低於傳統授權底價……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">$1.15 億預付款除以 28 個化合物，每個化合物的隱含價值不到 $410 萬，遠低於傳統 Phase II（第二期臨床試驗）驗證資產的授權底價（通常 $5,000 萬起）。這個數字清楚表明 Lilly 買的是早期選擇權組合，而非已驗證資產。這筆交易的真正輸家是把「$2.75B」當成 AI 製藥已被驗證的信號來定價的二級市場投資人。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Insilico 的臨床化合物主要集中在 Phase I 安全性試驗，如果 AI 真的縮短了研發時程，我們應該在什麼時間點、什麼數據上看到這個主張被證實或推翻？</li>
+            <li>Insilico 的研發跨香港、中國與阿布達比，若中國的《數據出境安全評估辦法》對臨床數據跨境設限，Lilly「全球獨家」授權的中國市場部分實際上值多少？</li>
+            <li>AI 藥物探索縮短時程這個主張，和臨床成功率是兩個不同的問題，目前市場是否在定價時把這兩件事混在一起了？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-anthropic-icts">
+    <div class="card-meta">
+      <span class="card-source">Rundown AI / CNBC / TechCrunch / NPR</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 贏得禁令，但政府有一條它擋不住的後門</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">2025 年 7 月，Anthropic 與五角大廈簽署 $2 億合約，談判因部署限制破裂——Anthropic 拒絕將 Claude 用於全自主武器或國內大規模監控。2026 年 2 月 27 日，Trump 政府以「供應鏈風險（Supply Chain Risk，美國政府限制採購被視為安全威脅供應商的法規機制）」為由，命令所有聯邦機構停止與 Anthropic 往來，國防部長 Pete Hegseth 並在 X 公開宣布。舊金山聯邦法官 Lin 於 3 月 26 日發出初步禁令（Preliminary Injunction，法院在案件審結前暫時禁止特定行為的命令），在 43 頁裁定中稱政府行為是「教科書式的非法第一修正案報復」。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">ICTS 規則（商務部對資訊通信技術供應鏈的裁量權）在設計上幾乎不受司法審查……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">ICTS 規則（商務部對資訊通信技術供應鏈的裁量權）在設計上幾乎不受司法審查，比 FAR 國家安全例外更難挑戰，而 Anthropic 現在的法律先例針對的是 FAR 框架下的第一修正案報復。若 Trump 政府重新以 ICTS 框架包裝同樣的排除動作，這份禁令大概率失效。真正的贏家是 Microsoft Azure Government，它已預先布局 ICTS 合規，不需要打這場官司。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果輸掉 $2 億國防合約、同時在歐盟和日本政府採購市場獲得「拒絕為全自主武器提供 AI」的品牌加分，這個交換在五年內會怎麼算帳？</li>
+            <li>Anthropic 的聯邦銷售團隊是否應該把這份禁令當成長期保護，還是當成爭取時間完成 FedRAMP 認證的視窗？</li>
+            <li>OpenAI 在政府部署中對武器化限制的立場比 Anthropic 更模糊，如果這個立場差異真的影響歐洲政府採購，OpenAI 是否需要在這個問題上公開表態？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-pi-robotics">
+    <div class="card-meta">
+      <span class="card-source">Rundown Robotics / Bloomberg / TechCrunch</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Physical Intelligence 估值翻倍，最像它的前輩最後被 Microsoft 拆解了</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">舊金山 AI 機器人實驗室 Physical Intelligence（PI）正在洽談以逾 $11B 估值募集約 $1B 新資金，相較四個月前 $600M 輪次的 $5.6B 估值近乎翻倍。PI 由前 Google DeepMind 科學家 Karol Hausman（CEO）、UC Berkeley 教授 Sergey Levine 與 Stanford 教授 Chelsea Finn 聯合創辦於 2024 年，目標是打造可驅動通用機器人的 AI 基礎模型（Foundation Model，通用型大型預訓練模型，可微調用於多種下游任務）。本輪預期投資人包含 Founders Fund 與 Lightspeed Venture Partners。PI 目前約有 80 名員工，無收入模型，無商業化時程。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">這個估值結構與 2023 年 Inflection AI（$4B 估值後以人才收購方式被 Microsoft 解體）高度相似……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">這個估值結構與 2023 年 Inflection AI（$4B 估值後以人才收購方式被 Microsoft 解體）高度相似，差別只在於 PI 的學術創始團隊技術信用更強，但技術信用無法取代商業驗證。PI 賣的是「機器人腦」，但硬體供應商（Figure、Boston Dynamics）有充分理由自己做腦，這意味著 PI 的潛在客戶同時也是潛在競爭者。現在用 $11B 估值進場的跟投方，是最可能承受這個結構矛盾後果的人。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Tesla Optimus 靠工廠閉環數據飛輪持續改進，純軟體的 PI 能靠什麼機制獲得同等品質的訓練數據？</li>
+            <li>「機器人腦平台」這個商業模式是否預設了硬體商願意開放數據共享，而這個假設在競爭環境下成立嗎？</li>
+            <li>如果 PI 最終的出口是被 Google DeepMind 或 Microsoft 收購，現在的 $11B 估值讓這個出口在財務上還合理嗎？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-agibot">
+    <div class="card-meta">
+      <span class="card-source">Rundown Robotics / PRNewswire</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>AGIBOT 的 10,000 台，需要運行率數據才能判斷是里程碑還是庫存</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">中國人形機器人製造商 AGIBOT 宣布第 10,000 台人形機器人完成下線，從 5,000 台到 10,000 台僅花三個月，較前一階段（1,000 到 5,000 台約需一年）加速超過 4 倍。出貨量（Shipments，已完成製造並交付的數量，不等同於實際部署或運行數量）已涵蓋物流、零售、製造、展廳導覽與教育場景。根據行業分析師，AGIBOT 在 2025 年全球人形機器人出貨量中排名第一。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">中國硬體補貼採購有明確的歷史先例：早期電動巴士大量交付後幾乎不運行……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">中國硬體補貼採購有明確的歷史先例：早期電動巴士大量交付後幾乎不運行。若 AGIBOT 的物流和教育場景客戶主要是政府補貼項目，uptime（運行率）和任務完成率數據的缺席本身就是一個應該讓人停下來的訊號。Unitree 的機器人定價更低、部署更分散，反而更難被單一政府採購扭曲，是目前能提供更可信商業驗證數據的競爭者。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>AGIBOT 公布的客戶中，有多少是政府採購框架協議，有多少是私人企業自費採購？這個比例是判斷出貨量含金量的關鍵。</li>
+            <li>如果 AGIBOT 的護城河主要來自政府關係而非軟體或供應鏈，BYD 或富士康進場時這條護城河還有多寬？</li>
+            <li>人形機器人「量產驗證」的真正標準應該是什麼，出貨台數還是有效工時，還是兩者都要？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<!-- Web3 · Crypto -->
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-eth-staking">
+    <div class="card-meta">
+      <span class="card-source">Messari UO Newsletter / CoinDesk</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>以太坊基金會的質押計畫，2.7% 收益率能不能支撐開支才是真問題</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">以太坊基金會將逾 20,000 ETH（約 $42-46M）存入信標鏈（Beacon Chain，以太坊 PoS 共識層，持有質押 ETH 的鏈），延續 2026 年 2 月宣布的 70,000 ETH 質押計畫。質押（Staking，將 ETH 鎖定以驗證交易並換取收益）預期年化收益率約 2.7%，低於年初的 3.4%。基金會目前仍持有約 147,400 ETH（約 $3.03 億）庫存，計畫以質押收益資助研究、補助金及公共財，取代此前被社區批評製造拋壓的 ETH 直接出售模式。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">這個動作的本質是社區關係管理，不是財務優化。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">這個動作的本質是社區關係管理，不是財務優化。70,000 ETH 質押在 2.7% 年化下每年產生約 1,890 ETH 收益，折算今天幣價約 $390 萬，對一個管理數億美元研究預算的基金會來說幾乎不夠用，意味著 ETH 直接出售並不會真正消失，只是換了包裝。這個計畫能讓社區情緒好轉，但無法解決基金會的結構性財務問題。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 2.7% 的質押收益遠不足以覆蓋運營開支，基金會在什麼條件下會重新開始出售 ETH，這個觸發點是否應該提前透明化？</li>
+            <li>以太坊基金會的開支規模有多透明？如果年度預算公開，市場才能真正評估質押收益是否夠用。</li>
+            <li>基金會選擇自行質押而非使用 Lido 或 Rocket Pool，對去中心化質押協議的政治訊號意義是什麼？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-polymarket">
+    <div class="card-meta">
+      <span class="card-source">Messari UO Newsletter / Messari Research</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Polymarket 今天開始收費，接下來三週的數據才是 $20B 估值的真正考試</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Polymarket（鏈上預測市場平台，以合約形式對未來事件押注）於 2026 年 3 月 30 日正式對幾乎所有市場啟動 taker fee（吃單手續費，主動成交一方支付的費用）。Messari 高級分析師 Austin Weiler 針對市場傳出的 $20B FDV（Fully Diluted Valuation，全流通市值，代幣總供應量乘以當前價格，含未流通代幣）目標進行由下而上估值，以 2028 年預測費用乘以 30 倍為基本情境，而 Kalshi 當前乘數為 83.5 倍。自 2025 年 9 月至 2026 年 2 月，Polymarket 產生 $310 億交易量，佔預測市場平台總量 31%。上輪估值為 $9B（2025 年 10 月，Intercontinental Exchange 投資協議後）。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Polymarket 今天才開始收費，這意味著在此之前的所有交易量數據都是在免費條件下產生的……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Polymarket 今天才開始收費，這意味著在此之前的所有交易量數據都是在免費條件下產生的。接下來幾週的交易量留存率，才是第一個真正告訴市場「有多少用戶是因為免費才留下的」的先行指標，而 $20B FDV 假設此前從未被這個問題測試過。在留存率數據出現之前，所有基於歷史交易量的估值模型都建立在一個未經驗證的前提上。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果收費後交易量在四週內下滑超過 40%，Messari 的牛市情境是否還成立，還是連基本情境都需要重算？</li>
+            <li>Polymarket 的主要用戶是散戶還是機構對沖用途，兩種用戶對 taker fee 的價格敏感度差很多，這個結構是否已知？</li>
+            <li>Kalshi 目前不對美國以外用戶開放，如果 Polymarket 的海外用戶佔大多數，Kalshi 的競爭威脅在短期內是否被高估了？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<!-- VC · 投資動態 -->
+<div class="section-block">
+  <div class="section-header" id="section-vc">
+    <span class="section-title">VC · 投資動態</span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <div class="article-card" id="vc-a16z-aec">
+    <div class="card-meta">
+      <span class="card-source">a16z Substack Newsletter</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>a16z 寫了一份 AEC 市場研究，真正的洞察藏在定價模型轉型，不在軟體本身</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">a16z 於 2026 年 3 月 30 日發布長文研究，分析 AI 如何攻克全球 $13T（兆美元）/年的建築工程與施工產業（AEC，Architecture, Engineering & Construction）。核心數據：工程師有 35% 的時間花在查找資訊和處理返工等非生產性工作；85% 的建築專案超出預算；75% 延期；美國每年因返工、誤溝通與資訊尋找損失 $1,770 億，其中 70% 以上源自設計錯誤。主流 BIM 軟體（Building Information Modeling，以 3D 數位模型整合設計與施工資訊）Autodesk Revit 市佔逾 95%、年度 ARR 約 $3B，但自 2002 年被以 $1.33 億收購後幾乎停止創新。a16z 識別三條攻城路線，並點名已投資其中：直接取代 Revit 的 Motif、圍繞文件審查的 LightTable，以及直接攻取 MEP（Mechanical, Electrical & Plumbing，機電管道系統設計）服務預算的 Endra。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">這篇研究最有價值的部分不是市場規模，而是定價模型的轉型主張……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">這篇研究最有價值的部分不是市場規模，而是定價模型的轉型主張：從「每席位 SaaS 訂閱」轉向「每個專案預防的變更單（Change Order，施工過程中因設計變更產生的額外費用）金額或恢復的利潤率分成」。這個定價邏輯讓 AI 工具直接與工程服務公司的利潤對齊，理論上比席位訂閱更難被砍預算。但 a16z 點名的三家公司——Motif、LightTable、Endra——沒有一家提供了客戶數、合約金額或已驗證專案結果，整篇研究的商業論證建立在效率問題被充分記錄，卻沒有解決方案被充分驗證的前提上。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>「以預防的變更單金額分成」這個定價模式，需要客戶願意開放完整的專案財務數據給 AI 供應商，在實際採購談判中這個數據共享障礙有多高？</li>
+            <li>AEC 產業的數位化滯後是技術問題還是採購文化問題？如果是後者，換一個更好的軟體本身並不能解決採購決策者不想換工具的問題。</li>
+            <li>Autodesk 在 BIM 市場有 95% 市佔率，它真的沒有能力做這些 AI 功能，還是它沒有動機做？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-03-31</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+</body>
+</html>
