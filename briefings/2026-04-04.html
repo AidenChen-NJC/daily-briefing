@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-04-05</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:             #f5f3ee;
+      --surface:        #fdfcf9;
+      --surface-alt:    #f9f7f2;
+      --border:         #dedad2;
+      --border-light:   #e8e5de;
+      --ink:            #18160f;
+      --ink-body:       #38342a;
+      --ink-muted:      #7c7868;
+      --ink-faint:      #b0ac9e;
+      --rule:           #c8c3b4;
+      --thought-bg:     #edeae0;
+      --thought-border: #7a6a48;
+      --thought-text:   #3a3220;
+      --accent:         #7a6a48;
+      --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+      --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+      --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:             #111008;
+        --surface:        #171510;
+        --surface-alt:    #131210;
+        --border:         #2a2820;
+        --border-light:   #222018;
+        --ink:            #ede8dc;
+        --ink-body:       #b8b2a0;
+        --ink-muted:      #706a58;
+        --ink-faint:      #403c30;
+        --rule:           #2a2820;
+        --thought-bg:     #1a1810;
+        --thought-border: #6a5e3e;
+        --thought-text:   #c0b898;
+        --accent:         #b09060;
+        --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+        --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+        --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+      }
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+
+    #progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+
+    #back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+    #back-top.visible{opacity:1;pointer-events:auto}
+    #back-top:hover{background:var(--surface-alt);color:var(--ink)}
+
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+    .toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .toc-list li{display:flex;align-items:baseline;gap:10px}
+    .toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+    .toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+    .toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+    .header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+    .header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+    .header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+    .header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+    .header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+    .header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+
+    .section-block{margin-bottom:80px}
+    .section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+    .section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+    .section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+    .article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+    .article-card:hover{border-color:var(--rule)}
+    .article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+    .article-card:hover::before{opacity:.9}
+
+    .card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+    .card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+    .card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+    .card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+
+    .block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+    .factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+
+    details.analysis-details{margin-top:0}
+    details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+    details.analysis-details > summary::-webkit-details-marker{display:none}
+    .analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+    .analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+    details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+    .analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+    .analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+    details[open] .analysis-preview{display:none}
+    .analysis-body{padding-top:12px}
+    .research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+    .analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+
+    .key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+    .key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+    .key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+
+    .food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+    .food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+    .food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+    .food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+    .food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+
+    .footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+
+    @media(max-width:600px){
+      body{padding:0 18px 80px}
+      .header{padding:40px 0 30px}
+      .header h1{font-size:24px}
+      .article-card{padding:22px 18px 22px 24px}
+      .article-card h3{font-size:17px}
+      .section-title{font-size:18px}
+      #back-top{bottom:20px;right:20px}
+      .toc{padding:16px 18px}
+      .analysis-preview{max-width:200px}
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 4 月 5 日　星期日</span>
+    <span class="header-issue">今日 11 篇</span>
+  </div>
+  <h1>今天讀的最後一篇，可能才是最重要的那篇</h1>
+  <p class="header-summary">從遠距醫療的財務敘事、編輯獨立的信任折舊、天然氣廠的隱藏輸家，到被折疊在 AI 報告裡的實體經濟訊號，每張卡片背後都藏著簡報表面看不到的邏輯。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-medvi">Medvi $1.8B 遠距醫療</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-tbpn">OpenAI 收購 TBPN</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-gemma4">Google Gemma 4 開源</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-cursor3">Cursor 3 重建介面</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-google-texas">Google 德州天然氣廠</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-kobe">Amazon Project Kobe</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-whoop">Whoop $101 億估值</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-artemis">NASA Artemis II 飛月</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-duna">DUNA 法案擴散</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-a16z">a16z 圖表週</a></li>
+  </ol>
+</nav>
+
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">8 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-medvi">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Medvi $1.8B 遠距醫療：「AI一人公司」敘事的真實毛利可能只有標題的十五分之一</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Matthew Gallagher 在 2024 年 9 月以 $2 萬美元創立遠距醫療公司 Medvi，透過 CareValidate 和 OpenLoop 外包醫師、處方與物流，用 ChatGPT、Claude、Midjourney、ElevenLabs 等 AI 工具處理程式、廣告與客服。2025 年報告營收 $4.01 億，淨利率 16.2%，超越 Hims & Hers 的 5.5%，現有員工兩人（兄弟），2026 年預估衝至 $18 億。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Medvi 極可能將外包平台的藥品流水全額認列為自有營收…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Medvi 極可能將外包平台（CareValidate、OpenLoop）的藥品流水全額認列為自有營收，而非僅認列導流佣金。GLP-1（胰高血糖素樣肽-1，司美格魯肽等減重藥的作用機制）藥物成本佔售價 60% 以上，剝除外包費用後真實截留毛利可能僅在 $3,000 至 $6,000 萬級別，與 $4 億「營收」相差一個數量級。這個敘事裡真正的輸家是在監管收緊時沒有退路的 Medvi，贏家是正在自建藥房並簽獨家 GLP-1 供應協議的 Hims，因為 Hims 的垂直整合在 FDA 收緊 503B 複合藥規則時可以直接把外包競爭者擠出市場。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Medvi 的「營收」更接近流水而非真實毛利，Sam Altman「一人十億美元 AI 公司」的預言算是兌現了嗎，還是只是定義問題？</li>
+            <li>外包合規帶來的法律風險和自建合規帶來的資本需求，哪個在 GLP-1 市場更致命？</li>
+            <li>Hims 的垂直整合要花多久才能把外包模型的競爭者系統性清出市場？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-openai-tbpn">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 買下的是一個在產權轉移當天就開始失效的資產</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">OpenAI 宣布收購科技直播節目 TBPN，收購金額為低億美元級，TBPN 每集吸引約 7 萬名觀眾，常態邀請大型科技公司 CEO，11 人團隊將隸屬 OpenAI 全球事務長 Chris Lehane 旗下，廣告業務終止但聲明維持編輯獨立。TBPN 創立 17 個月，2026 年預估營收 $3,000 萬。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">TBPN 的核心護城河是讓高知名度 CEO 願意上節目說真話的中立性…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">TBPN 的核心護城河是讓高知名度 CEO 願意上節目說真話的中立性，這個信任資產在產權轉移的瞬間開始折舊。Anthropic、Google DeepMind、Meta AI 的高層從此有系統性理由拒絕上節目，因為他們不會在競爭對手擁有的平台說真話，任何「編輯獨立聲明」都無法修復這個邏輯。廣告業務終止後 $3,000 萬營收歸零，TBPN 變成純成本中心，OpenAI 用投資人資金買了一個公關部門，能讓董事會接受的唯一敘事是 Chris Lehane 將其定位為政策影響力投資。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>TBPN 的第一次真實信用測試會在什麼事件上發生？到時候你會怎麼解讀它選擇沉默？</li>
+            <li>如果高知名度 CEO 開始集體婉拒 TBPN，OpenAI 的下一步是再買一個「更獨立」的節目嗎？</li>
+            <li>媒體中立性是可以靠架構設計維持的，還是它本質上只是一個還沒被試探的狀態？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-gemma4">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Google Gemma 4 的 Apache 2.0 授權打的不是技術仗，而是准入門檻仗</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Google DeepMind 發布 Gemma 4 家族，共四個開源模型（E2B、E4B、26B MoE、31B Dense），首次採用 Apache 2.0 授權（允許商業使用、修改與再發行）。31B 模型在 Arena AI 開源排行榜位居第 3，26B MoE（混合專家架構，推論時僅激活 3.8B 參數）排名第 6，全系列支援視覺、程式、多步 agent 任務。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Apache 2.0 消除的是法律摩擦，但受益者只有尚未選定開源模型的新部署企業…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Apache 2.0 消除的是法律摩擦，但受益者只有尚未選定開源模型的新部署企業，不是 Qwen 的現有用戶。已深度整合 Qwen 的企業面對的真實切換障礙是微調管線、評估基礎設施、推論優化的工程遷移成本，授權問題從來不是他們的考量。Google 在這場開源競賽裡承擔全部訓練算力成本，若沒有 GCP（Google Cloud Platform）推論優惠或 Vertex AI 獨佔功能綁定，最終利潤收割者可能是把 Gemma 微調後部署在 AWS 的第三方企業。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Google 真的推 GCP 綁定優惠，這還算「開源」嗎，還是只是換了授權形式的雲端鎖定？</li>
+            <li>對於沒有選定開源模型的新企業，Apache 2.0 這一個因素有多大機率讓他們選 Gemma 而非 Qwen？</li>
+            <li>開源模型的訓練成本越來越高，還有哪個玩家有能力持續燒錢做「真正開放」的開源？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-cursor3">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Cursor 3 把自己的目標用戶縮窄了，卻還是用全市場的估值在定價</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Anysphere 發布 Cursor 3，介面從頭重建（非 VS Code 衍生版本），核心功能為統一工作區，可同時在多個程式碼儲存庫（repo）運行本地與雲端 coding agent 群組，新增 Agents Window 管理面板、Design Mode、Composer 2 模型，整合 Slack、GitHub、Linear，開發者角色從寫程式轉向任務調度。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">脫離 VS Code 自建介面放棄了龐大的擴充套件生態…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">脫離 VS Code 自建介面放棄了龐大的擴充套件生態，對依賴 Remote SSH、特定語言語言伺服器協定（LSP）、Docker 整合的企業開發團隊是硬性卡點。Cursor 3 實際上把目標用戶縮窄到「AI原生新創」，大型工程組織的企業席次（seat）擴張將受阻，這直接衝擊 Anysphere 估值所隱含的年度重複性收入（NRR）假設。真正的風險在更下層：若 Microsoft 在 GitHub 層面限制 API 存取，Anysphere 沒有自有程式碼托管平台也沒有自有模型，整個黏性可被基礎設施控制者瞬間瓦解，贏家是 Microsoft。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>你的工程團隊裡有多少人依賴 VS Code 擴充套件到無法切換的程度？這個數字是 Cursor 3 企業採用率的天花板。</li>
+            <li>GitHub Copilot Workspace 和 Windsurf 做的是相同的事，Cursor 的護城河到底是什麼？</li>
+            <li>如果 Microsoft 明天限制 Cursor 的 GitHub API 存取，Anysphere 有什麼應對選項？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-google-texas">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Tech</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Google 德州天然氣廠的真正輸家不是 Google，是 Crusoe</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Google 確認與能源公司 Crusoe 合作，在德州 Armstrong County 建設 Goodnight AI 資料中心園區，Crusoe 已申請建設 933MW 天然氣廠供電，不連接電網，無碳捕捉技術，估計年排放 CO₂ 約 450 萬噸（超過舊金山全市年排放量），資料中心總造價估計近 $300 億。這是 Google 近期已知的第三個天然氣合作案，Google 已簽署超過 22GW 的清潔能源電力採購協議（PPA）。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Crusoe 的原始商業模式是用油田廢氣供電，減少甲烷排放是其 ESG 估值溢價的核心敘事…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Crusoe 的原始商業模式是用油田廢氣（flare gas）供電，減少甲烷排放是其 ESG（環境、社會、治理）估值溢價的核心敘事。為 Google 新建 933MW 天然氣廠從根本上逆轉了這個敘事，Crusoe 的下一輪融資若仍主張 ESG 溢價，將面臨投資人（Valor Equity、Polychain）的直接質疑。Google 在這件事上只是輿論受損，Crusoe 才是承擔最大品牌風險的那一方。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Crusoe 的現有投資人進場時的核心論文是什麼？這個合約讓他們的投資論文成立了還是破裂了？</li>
+            <li>再生能源 PPA 從簽約到交付需要五到七年，這個時間差讓「碳中和承諾」在結構上變成了什麼？</li>
+            <li>如果美國未來引入碳稅，Google 的 $300 億德州資料中心的現金流折現模型（DCF）需要重算哪些假設？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-kobe">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Tech</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Amazon 用第三方賣家的錢建雜貨店，Walmart 的護城河卻買不到</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">線上增費補貼線下的利潤轉移模型已在可觀察層面出現，直接受損者是第三方賣家</span>
+    </div>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Amazon Project Kobe 計劃建設每家 22.5 萬平方英尺的混合型超市，後場配備 AutoStore 倉儲機器人與 AI 庫存助手 Frida，約有 25 萬個商品品項（SKU，商品品項數，約 Walmart 超市兩倍），首個核准地點在伊利諾州 Orland Park，預計 2027 年底開幕。Amazon 雜貨市佔率 3%，Walmart 為 21%。同日 Amazon 亦宣布對第三方賣家加收 3.5% 燃油及物流附加費。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Amazon 同日對第三方賣家加收 3.5% 附加費，以 Amazon 年度第三方服務營收約 $1,400 億估算…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Amazon 同日對第三方賣家加收 3.5% 附加費，以 Amazon 年度第三方服務營收約 $1,400 億估算，這可帶來每年約 $50 億增量，足以覆蓋多個 Kobe 門店的年度資本支出。「線上增費補貼線下」的利潤轉移模型是真實存在的，直接輸家是第三方賣家。但 Walmart 真正的護城河不是門店數，而是二十年建立的生鮮冷鏈本地供應商關係，這是 $300 億資本買不到的時間資產。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果你是 Amazon 第三方賣家，你的定價模型要怎麼消化這 3.5%？你能轉嫁給消費者嗎？</li>
+            <li>AutoStore 設計給標準化電商小件，在生鮮冷鏈環境有沒有任何大規模部署的可靠數據？</li>
+            <li>Amazon 從 3% 打到 10% 雜貨市佔需要多少年，這個時間軸對 Walmart 的防禦策略意味著什麼？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-whoop">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Tech</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Whoop $101 億估值的醫療溢價，建立在一封 FDA 警告信尚未解除的前提上</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">健康穿戴裝置公司 Whoop 完成 $5.75 億 G 輪融資，估值 $101 億，約為上一輪 $36 億的三倍。領投方 Collaborative Fund，策略投資人包含醫療器材大廠 Abbott 和梅奧診所，個人投資人涵蓋 C. Ronaldo、LeBron James。2025 年底年化訂單金額（bookings run rate，非 GAAP 確認收入）達 $11 億，YoY 成長 103%，擁有 250 萬會員。FDA 曾於 2025 年就其血壓宣稱發出警告信。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Abbott 和梅奧診所的策略價值在於幫 Whoop 打通醫療採購與監管通道…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Abbott 和梅奧診所的策略價值在於幫 Whoop 打通醫療採購與監管通道，但這個價值要能兌現，前提是 Whoop 取得 FDA 510(k) clearance（醫療器材上市前許可），而 2025 年 FDA 警告信顯示 Whoop 在消費裝置與醫療器材的分類邊界上已踩雷。若「醫療化」敘事無法通過監管，$101 億估值的醫療溢價部分需要全部重算，直接受損的是以醫療估值邏輯跟投的後期有限合夥人（LP）。年化訂單金額 $11 億是非 GAAP 數字，若穿戴裝置年流失率 15%–25% 的行業基準適用於 Whoop，IPO 前呈現的 GAAP 收入將顯著低於這個數字。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>FDA 510(k) clearance 的審核時程通常是多久？Whoop 的 IPO 視窗和這個時程有沒有可能對齊？</li>
+            <li>Apple Watch Ultra 賣 $799 且內建同等級感測器，Whoop 的訂閱模式要怎麼向公開市場投資人解釋 LTV/CAC 的差異？</li>
+            <li>如果你是跟投這輪的 LP，你對「醫療化」敘事設定的容錯範圍是什麼？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-artemis">
+    <div class="card-meta">
+      <span class="card-source">The Rundown Tech</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>NASA 飛月背後，SLS 火箭每次延遲都讓波音多賺一次</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">NASA Artemis II 於 4 月 1 日由 SLS（太空發射系統）火箭搭載 Orion 飛船升空，四名太空人進行 10 天月球飛越任務，最遠距地 252,021 英里，超越 Apollo 13 紀錄，為 1972 年 Apollo 17 後人類首度離開地球軌道。4 月 6 日預定月球飛越，任務數據將為 Artemis III（2027 年月面演示）和 Artemis IV（2028 年首次載人登月）奠定基礎。Artemis IV 登月依賴 SpaceX Starship 作為登月艙（HLS）。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">SLS 繼續飛的真實原因是政治而非技術：波音採用成本加成合約…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">SLS 繼續飛的真實原因是政治而非技術：波音（SLS 核心級）和 Lockheed Martin（Orion）採用成本加成合約，每次延遲反而讓承包商多賺，國會選區就業依賴確保撥款持續，輸家是納稅人，贏家是波音和 Lockheed Martin。Artemis IV 登月的單點故障不在 SLS，而在 SpaceX Starship HLS 的軌道加油技術，SpaceX 至今未完成任何全流程軌道加油演示，這是最可能觸發 2028 時程再次延遲的節點。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>Starship 的軌道加油演示最樂觀的時程是什麼？如果 2026 年底還沒完成，Artemis IV 的 2028 目標是否還站得住腳？</li>
+            <li>如果 SpaceX 的 Starship 在 2027 年前完成軌道加油驗證，國會有沒有政治意願在那個節點砍掉 SLS？</li>
+            <li>成本加成合約在航太業還有多少案例？這個結構在 AI 算力採購中會出現嗎？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-duna">
+    <div class="card-meta">
+      <span class="card-source">a16z crypto</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>先採用 DUNA 的 DAO，在聯邦立法通過時手上有別人沒有的東西</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Wyoming、Alabama、West Virginia 三州相繼通過 DUNA（去中心化非法人非盈利協會，Decentralized Unincorporated Nonprofit Association）法案，賦予 DAO（去中心化自治組織）完整法人資格，可簽合約、在法院出庭、開銀行帳戶、繳稅，同時保護成員免於無限個人責任。Alabama 由州長 Kay Ivey 本週簽署，West Virginia 在 24 小時後跟進。已採用 DUNA 的組織包含 Uniswap Governance、Nouns DAO、Syndicate Network Collective。聯邦 CLARITY Act 草案中，DUNA 是唯一被認可的去中心化治理法律結構。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">DUNA 解決的核心問題不是技術，而是 DAO 長期被迫偽裝成「基金會」以逃避法律定性的窘境…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">DUNA 解決的核心問題不是技術，而是 DAO 長期被迫偽裝成「基金會」以逃避法律定性的窘境。聯邦 CLARITY Act 草案中 DUNA 是唯一認可結構，意味著先採用的項目（Uniswap Governance、Nouns DAO、Syndicate Network Collective）在法案通過後具可舉證的治理紀錄優勢，這不是象徵性的先發優勢，而是在法規博弈中有具體籌碼。尚未轉換的 DAO 若繼續維持「基金會」形式，在 CLARITY Act 通過後反而需要主動解釋為何不採用唯一認可結構。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>「去中心化劇場（decentralization theater）」這個詞是 a16z 發明的，但 a16z 自己投資的項目裡有多少一直在演這齣戲？</li>
+            <li>DUNA 的「非盈利」要求對 token 持有者的經濟回報有什麼實質限制？</li>
+            <li>如果 CLARITY Act 未通過，現在採用 DUNA 的 DAO 的法律優勢是否仍然成立？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-vc">
+    <span class="section-title">VC · 投資動態</span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <div class="article-card" id="vc-a16z">
+    <div class="card-meta">
+      <span class="card-source">a16z</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>a16z 圖表週：AI 付費率只有 3%，但貨運數字說美國工廠正在悄悄開動</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">貨運拒絕率飆升是一個藏在 AI 報告裡的製造業訊號，值得單獨追蹤</span>
+    </div>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">a16z 圖表週報彙整四大主題：消費 AI 付費訂閱家庭比例僅 3%（BofA 數據），但較 2024 年 2 月成長 40%，40% 以上付費戶月花超過 $20，BofA 估長期市場規模達 $750 億。SaaS 領域，HubSpot、Figma、Box、Cloudflare、Datadog 等具 AI 整合能力的公司在大客群中成長 25% 以上，系統整合商（SI）被 71% CIO 認為受 AI 排擠最嚴重。串流平台廣告層佔比全面上升，Netflix 廣告層從 32% 升至 40%，Disney+ 從 37% 升至 45%，Prime Video 達 86%。平板卡車合約拒絕率（flatbed tender rejection rate，貨運需求緊繃的先行指標）達 49%，為 2022 年疫情高峰以來最高，3 月聯運費率單月漲 10%。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">消費 AI 3% 付費率和 SaaS 成長數字是這份報告的表面，真正的非顯然訊號藏在貨運數據裡…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">消費 AI 3% 付費率和 SaaS 成長數字是這份報告的表面，真正的非顯然訊號藏在貨運數據裡：49% 平板卡車拒絕率（歷史上此指標是製造與建築活動的先行指標）加上聯運費率單月漲 10%，暗示美國製造業回流和關稅前囤貨效應正在實體物流層面反映。這個實體經濟升溫訊號與科技股表面疲弱的敘事背道而馳，是目前市場上最值得交叉驗證的反向指標。S&P 500 遠期本益比（Forward P/E，以未來預估盈利計算的估值倍數）雖從高峰約 23x 回落至 21.5x，但若製造業持續升溫帶動企業盈利上修，這個回落本身可能是買點訊號而非警示。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果製造業回流是真實的，哪些 AI 應用最先受益？是工廠自動化軟體還是工業數據平台？</li>
+            <li>貨運拒絕率作為先行指標，歷史上領先 GDP 數字多少個月？這次的時間差是否還適用？</li>
+            <li>消費 AI 付費率 3% 聽起來很低，但如果對比串流媒體早期的滲透曲線，現在是哪個階段？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-04-05</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
