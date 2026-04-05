@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-04-02</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:             #f5f3ee;
+      --surface:        #fdfcf9;
+      --surface-alt:    #f9f7f2;
+      --border:         #dedad2;
+      --border-light:   #e8e5de;
+      --ink:            #18160f;
+      --ink-body:       #38342a;
+      --ink-muted:      #7c7868;
+      --ink-faint:      #b0ac9e;
+      --rule:           #c8c3b4;
+      --thought-bg:     #edeae0;
+      --thought-border: #7a6a48;
+      --thought-text:   #3a3220;
+      --accent:         #7a6a48;
+      --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+      --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+      --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:             #111008;
+        --surface:        #171510;
+        --surface-alt:    #131210;
+        --border:         #2a2820;
+        --border-light:   #222018;
+        --ink:            #ede8dc;
+        --ink-body:       #b8b2a0;
+        --ink-muted:      #706a58;
+        --ink-faint:      #403c30;
+        --rule:           #2a2820;
+        --thought-bg:     #1a1810;
+        --thought-border: #6a5e3e;
+        --thought-text:   #c0b898;
+        --accent:         #b09060;
+        --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+        --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+        --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+
+    #progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+
+    #back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+    #back-top.visible{opacity:1;pointer-events:auto}
+    #back-top:hover{background:var(--surface-alt);color:var(--ink)}
+
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+    .toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .toc-list li{display:flex;align-items:baseline;gap:10px}
+    .toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+    .toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+    .toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+    .header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+    .header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+    .header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+    .header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+    .header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+    .header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+
+    .section-block{margin-bottom:80px}
+    .section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+    .section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+    .section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+    .article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+    .article-card:hover{border-color:var(--rule)}
+    .article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+    .article-card:hover::before{opacity:.9}
+
+    .card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+    .card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+    .card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+    .card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+
+    .block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+    .factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+
+    details.analysis-details{margin-top:0}
+    details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+    details.analysis-details > summary::-webkit-details-marker{display:none}
+    .analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+    .analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+    details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+    .analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+    .analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+    details[open] .analysis-preview{display:none}
+    .analysis-body{padding-top:12px}
+    .research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+    .analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+
+    .key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+    .key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+    .key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+
+    .food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+    .food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+    .food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+    .food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+    .food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+
+    .section-notice{color:var(--ink-muted);font-style:italic;font-size:13px;padding:20px;text-align:center}
+
+    .footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+
+    @media(max-width:600px){
+      body{padding:0 18px 80px}
+      .header{padding:40px 0 30px}
+      .header h1{font-size:24px}
+      .article-card{padding:22px 18px 22px 24px}
+      .article-card h3{font-size:17px}
+      .section-title{font-size:18px}
+      #back-top{bottom:20px;right:20px}
+      .toc{padding:16px 18px}
+      .analysis-preview{max-width:200px}
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 4 月 2 日　星期三</span>
+    <span class="header-issue">今日 4 篇</span>
+  </div>
+  <h1>你用得越多，越不信任它</h1>
+  <p class="header-summary">OpenAI 完成史上最大單輪融資，但公眾信任度跌至冰點；同時 Anthropic 連續洩密，護城河正在被開源掉；而 AI 使用率上升時，人們對就業前景的恐慌也在翻倍成長。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-superapp">OpenAI 的超級應用是防禦戰</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-leak">Anthropic 洩漏的不只是程式碼</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-heron-power">Heron Power 的真實客戶名單</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-quinnipiac-trust">只有 5% 的人信任 AI 開發者</a></li>
+  </ol>
+</nav>
+
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-openai-superapp">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI / Bloomberg / TechCrunch</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 的超級應用是防禦戰，護城河正在被 Google 三面包抄</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">OpenAI 完成史上最大單輪 VC 融資 $122B，估值達 $852B。Amazon 投入 $50B、SoftBank 投入 $30B 共同領投，Nvidia、Andreessen Horowitz、TPG、T. Rowe Price 參與，另有 $3B 來自通過銀行管道的零售投資人。公司目前每月營收 $2B、每週活躍用戶 9 億+，企業營收占比超過 40%。資金用途包括算力基礎設施，以及將 ChatGPT、Codex（AI 程式生成工具）、瀏覽與代理功能合併為單一「超級應用（Superapp，以微信為代表的整合型應用）」。Amazon 的投資合約據報含有 AGI 條款（AGI，Artificial General Intelligence，通用人工智慧，目前無公認定義或觸發標準）——一旦 OpenAI 達到 AGI 門檻，所有合約條款可完全重設。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">超級應用策略是防禦動作，防禦對象是 Google，後者正透過 Chrome、Android、Workspace 三條通路同步壓縮 ChatGPT 的入口控制權。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">超級應用策略是防禦動作，防禦對象是 Google，後者正透過 Chrome、Android、Workspace 三條通路同步壓縮 ChatGPT 的入口控制權。微信模式的核心是支付閉環，OpenAI 沒有，這個策略只能提高替代成本，無法複製護城河。AGI 條款的可執行性存在根本缺陷：觸發標準由 OpenAI 自己定義，Amazon 買到的是未來談判桌上的席位，不是真正的重議權。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Google 把 Gemini 設為 Chrome 預設助理，OpenAI 的 9 億 WAU 有多少比例是「習慣」而非「黏性」？</li>
+            <li>AGI 條款由賣方掌握觸發鍵，Amazon 簽下這份合約時，是真的認為這保護了它，還是這只是完成投資的政治包裝？</li>
+            <li>超級應用缺少支付層，OpenAI 最終會嘗試進入金融服務嗎，還是它打算用 API 生態作為替代閉環？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-anthropic-leak">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI / Fortune / Bloomberg / CNBC</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 洩漏的不是程式碼，是 Claude Code 的整個競爭優勢</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">這次洩漏讓 Claude Code 在 enterprise coding agent 賽道上的差異化敘事，在競爭對手看過之前就提前結束了。</span>
+    </div>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Anthropic 因 npm 打包流程的人為錯誤，將 Claude Code CLI 的完整原始碼推送至公開 registry。洩漏內容包含約 1,900 個檔案、50 萬行程式碼、44 個 feature flags（功能標記，控制後端功能開關的代碼變數），以及 3 個未發布專案，含跨對話持久記憶與深度規劃系統。GitHub 鏡像在數小時內達到 4,000+ stars 和 7,000+ forks。這是同週繼 Claude Mythos 模型洩漏後的第二次重大安全事件。Anthropic 聲明屬人為錯誤，無客戶資料外洩。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">被公開的不是模型權重，而是 Agent harness（代理框架，包在基礎模型外層、控制工具調用與多步驟規劃的軟體層）的完整邏輯，這才是 Claude Code 的核心競爭力所在。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">被公開的不是模型權重，而是 Agent harness（代理框架，包在基礎模型外層、控制工具調用與多步驟規劃的軟體層）的完整邏輯，這才是 Claude Code 的核心競爭力所在。Cursor 或 Windsurf 拿到架構藍圖但沒有對應的模型微調配置，實際效能落差會立刻在 benchmark 上暴露，但 OpenAI Codex 團隊有自己的底層模型可以對應調參，是這次洩漏最直接的受益者。兩週兩次洩漏的複合效應，會在 ISO 27001 和 SOC 2 審查框架下觸發企業採購的供應商風險重新評估，正在和 Anthropic 談判中的金融與醫療垂直整合案是最直接的輸家。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 OpenAI Codex 用這份架構藍圖跟著調參，Anthropic 要怎麼在法律上主張競爭傷害，開源授權的邊界在哪裡？</li>
+            <li>企業客戶內部安全團隊在引用這兩次事件時，Anthropic 有什麼論述能讓採購決策不轉向 Google Vertex AI？</li>
+            <li>兩週內的兩次洩漏是流程問題還是組織問題，這兩種診斷對 Anthropic 的補救動作意味著完全不同的路徑？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-heron-power">
+    <div class="card-meta">
+      <span class="card-source">a16z / TechCrunch / GlobeNewswire</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+      <span class="card-dot"></span>
+      <span class="card-tag vc">VC</span>
+    </div>
+    <h3>Heron Power 的真實客戶不是電力公司，是 Amazon 和 Microsoft</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">美國 70% 的輸電線路和大型功率變壓器已服役超過 25 年，ASCE 2025 年給出 D+ 評級。自 2019 年以來，變壓器需求翻倍但成本漲 80%，美國本土有 30% 的供應缺口且 80% 依賴進口。電費自 2019 年上漲 25% 至 30%，原因不在發電端（再生能源成本持續下降），而在傳輸與配電（占用戶電費約 50%）。Heron Power 由前 Tesla SVP Drew Baglino 創立，以碳化矽（SiC，比傳統矽基功率半導體更耐高壓、效率更高的材料）固態變壓器（SST，Solid-State Transformer）取代傳統油浸鐵芯設備，讓配電節點具備軟體控制與遠端監控能力。公司於 2026 年 2 月完成 $140M Series B，由 a16z 美國活力基金與 Breakthrough Energy Ventures 聯合領投，計畫建設年產 40GW 工廠，目標 2027 年初試產。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Heron 的實際突破口是不受 PUC（公用事業委員會）管制的資料中心業主，Amazon、Microsoft、Google 自建電力基礎設施可以跳過 18 至 36 個月的費率審批流程直接採購。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Heron 的實際突破口是不受 PUC（公用事業委員會）管制的資料中心業主，Amazon、Microsoft、Google 自建電力基礎設施可以跳過 18 至 36 個月的費率審批流程直接採購，受監管的公用事業只是中長期市場。然而這條路徑的集中度風險很高，若任一 hyperscaler 轉向 Siemens 或 ABB 的 SST 方案，Heron 的營收曲線會斷崖式下滑。Heron 的護城河是軟體控制 IP，但在 Wolfspeed（SiC 主要供應商）財務困境的背景下，40GW 產能目標在 2027 年能否兌現本身就是問號。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 ABB 或 Siemens 決定認真做 SST，它們的 SiC 替代供應商（STMicro、Infineon）關係讓 Heron 的先發優勢還剩多少個月？</li>
+            <li>Hyperscaler 直接採購模式讓 Heron 繞開了電力監管，但這也意味著它的定價權完全由三到四家客戶決定，這是護城河還是陷阱？</li>
+            <li>Wolfspeed 如果繼續財務惡化，Heron 有沒有辦法在不改變核心架構的情況下切換 SiC 供應商？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-quinnipiac-trust">
+    <div class="card-meta">
+      <span class="card-source">The Rundown AI / Quinnipiac University</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>只有 5% 的人信任 AI 開發者，這個數字會以監管的形式釋放</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Quinnipiac 大學最新民調顯示，AI 使用率上升 14%，但公眾情緒全面逆行。預期 AI 將縮減工作機會的比例跳升 14 個百分點至 70%。收入差距明顯，年收入 $200K 以上受訪者 52% 認為 AI 利大於弊，年收入 $50K 以下受訪者 60% 認為弊大於利。只有 5% 的受訪者信任 AI 開發者代表自己的利益。74% 認為政府監管不足。最常見使用場景為研究（51%）、寫作（28%）、學校或工作（27%）、數據分析（27%）。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">5% 的信任度轉化為實質合規成本，最可能的觸發點是加州的 SB-1047 後續立法，而非聯邦層級。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">5% 的信任度轉化為實質合規成本，最可能的觸發點是加州的 SB-1047 後續立法，而非聯邦層級，因為加州可以繞開國會兩黨共識快速落地，且科技公司的運營中心在其管轄範圍內。OpenAI 會是最先被打到的公司，原因是消費者產品規模最大（9 億 WAU）加上本輪 $122B 融資的媒體曝光，讓它成為立法目標的最高優先順序。Google 的遊說能量和 Meta 的法律戰積累讓它們相對有緩衝。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>使用率上升同時信任度下降，這表示「不信任但還是在用」正在成為常態，那麼信任赤字還會真的轉化為政治行動嗎？</li>
+            <li>如果加州率先立法，OpenAI 有多大意願把核心運營遷出加州，這在實務上可行嗎？</li>
+            <li>$50K 以下的低收入群體是 AI 最強烈的反對者，也是最可能被取代的勞動力，當這兩件事同時成立，政策設計者的選項清單上有什麼？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">—</span>
+  </div>
+  <p class="section-notice">今日無符合洞察標準的 Web3 相關新聞。</p>
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-vc">
+    <span class="section-title">VC · 投資動態</span>
+    <span class="section-count">—</span>
+  </div>
+  <p class="section-notice">Heron Power Series B 相關投資分析已收錄於 AI · 科技 section。</p>
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-04-02</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
