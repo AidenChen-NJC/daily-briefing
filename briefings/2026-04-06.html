@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-04-06</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:             #f5f3ee;
+      --surface:        #fdfcf9;
+      --surface-alt:    #f9f7f2;
+      --border:         #dedad2;
+      --border-light:   #e8e5de;
+      --ink:            #18160f;
+      --ink-body:       #38342a;
+      --ink-muted:      #7c7868;
+      --ink-faint:      #b0ac9e;
+      --rule:           #c8c3b4;
+      --thought-bg:     #edeae0;
+      --thought-border: #7a6a48;
+      --thought-text:   #3a3220;
+      --accent:         #7a6a48;
+      --tag-ai-bg:      #e8f0e4;
+      --tag-ai-fg:      #3a5c2e;
+      --tag-web3-bg:    #e8eaf4;
+      --tag-web3-fg:    #2e3a6a;
+      --tag-vc-bg:      #f4e8e8;
+      --tag-vc-fg:      #6a2e2e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:             #111008;
+        --surface:        #171510;
+        --surface-alt:    #131210;
+        --border:         #2a2820;
+        --border-light:   #222018;
+        --ink:            #ede8dc;
+        --ink-body:       #b8b2a0;
+        --ink-muted:      #706a58;
+        --ink-faint:      #403c30;
+        --rule:           #2a2820;
+        --thought-bg:     #1a1810;
+        --thought-border: #6a5e3e;
+        --thought-text:   #c0b898;
+        --accent:         #b09060;
+        --tag-ai-bg:      #1a2218;
+        --tag-ai-fg:      #88b07a;
+        --tag-web3-bg:    #181a28;
+        --tag-web3-fg:    #7a88c8;
+        --tag-vc-bg:      #281818;
+        --tag-vc-fg:      #c87a7a;
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--bg);
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 0 28px 120px;
+      font-family: 'Noto Sans TC', 'Helvetica Neue', sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width 0.08s linear;
+    }
+
+    #back-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 36px;
+      height: 36px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      color: var(--ink-muted);
+      font-size: 14px;
+      z-index: 99;
+    }
+    #back-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #back-top:hover {
+      background: var(--surface-alt);
+      color: var(--ink);
+    }
+
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 20px 24px;
+      margin-bottom: 52px;
+    }
+    .toc-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 14px;
+    }
+    .toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .toc-tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 2px;
+      flex-shrink: 0;
+      min-width: 50px;
+      text-align: center;
+    }
+    .toc-tag.ai {
+      background: var(--tag-ai-bg);
+      color: var(--tag-ai-fg);
+    }
+    .toc-tag.web3 {
+      background: var(--tag-web3-bg);
+      color: var(--tag-web3-fg);
+    }
+    .toc-tag.vc {
+      background: var(--tag-vc-bg);
+      color: var(--tag-vc-fg);
+    }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.5;
+      transition: color 0.15s;
+    }
+    .toc-list a:hover {
+      color: var(--ink);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .header {
+      padding: 60px 0 44px;
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 40px;
+    }
+    .header-eyebrow {
+      display: flex;
+      align-items: baseline;
+      gap: 20px;
+      margin-bottom: 22px;
+    }
+    .header-date {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-issue {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .header h1 {
+      font-family: 'Playfair Display', 'Noto Serif TC', Georgia, serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.35;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+    .header-summary {
+      font-size: 13.5px;
+      color: var(--ink-muted);
+      line-height: 1.7;
+    }
+
+    .section-block {
+      margin-bottom: 80px;
+    }
+    .section-header {
+      margin-bottom: 28px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--rule);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      scroll-margin-top: 24px;
+    }
+    .section-title {
+      font-family: 'Noto Sans TC', 'Helvetica Neue', sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: 0.01em;
+    }
+    .section-count {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    .article-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 28px 32px 28px 36px;
+      margin-bottom: 20px;
+      position: relative;
+      transition: border-color 0.2s;
+      scroll-margin-top: 24px;
+    }
+    .article-card:hover {
+      border-color: var(--rule);
+    }
+    .article-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 24px;
+      width: 3px;
+      height: 28px;
+      background: var(--accent);
+      border-radius: 0 2px 2px 0;
+      opacity: 0.5;
+      transition: opacity 0.2s;
+    }
+    .article-card:hover::before {
+      opacity: 0.9;
+    }
+
+    .card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .card-source {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .card-dot {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: var(--ink-faint);
+      opacity: 0.4;
+      flex-shrink: 0;
+    }
+    .card-tag {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 6px;
+      border-radius: 2px;
+    }
+    .card-tag.ai {
+      background: var(--tag-ai-bg);
+      color: var(--tag-ai-fg);
+    }
+    .card-tag.web3 {
+      background: var(--tag-web3-bg);
+      color: var(--tag-web3-fg);
+    }
+    .card-tag.vc {
+      background: var(--tag-vc-bg);
+      color: var(--tag-vc-fg);
+    }
+    .article-card h3 {
+      font-family: 'Playfair Display', 'Noto Serif TC', Georgia, serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.45;
+      margin-bottom: 20px;
+      letter-spacing: -0.01em;
+    }
+
+    .block-label {
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .block-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-light);
+    }
+    .factual-context {
+      font-size: 13.5px;
+      color: var(--ink-body);
+      line-height: 1.82;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border-light);
+      margin-bottom: 20px;
+      font-family: 'Noto Serif TC', Georgia, serif;
+      font-weight: 400;
+    }
+
+    details.analysis-details {
+      margin-top: 0;
+    }
+    details.analysis-details > summary {
+      list-style: none;
+      cursor: pointer;
+      display: flex;
+      align-items: baseline;
+      gap: 0;
+      outline: none;
+      user-select: none;
+      margin-bottom: 0;
+    }
+    details.analysis-details > summary::-webkit-details-marker {
+      display: none;
+    }
+    .analysis-summary-label {
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      flex-shrink: 0;
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .analysis-summary-label::before {
+      content: '▸';
+      font-size: 8px;
+      transition: transform 0.18s;
+      display: inline-block;
+      color: var(--ink-faint);
+      opacity: 0.7;
+    }
+    details[open] .analysis-summary-label::before {
+      transform: rotate(90deg);
+    }
+    .analysis-summary-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--border-light);
+      align-self: center;
+    }
+    .analysis-preview {
+      font-size: 13px;
+      color: var(--ink-muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 440px;
+      display: inline-block;
+      vertical-align: baseline;
+      margin-left: 10px;
+      font-style: italic;
+    }
+    details[open] .analysis-preview {
+      display: none;
+    }
+    .analysis-body {
+      padding-top: 12px;
+    }
+    .research-insight {
+      font-size: 14.5px;
+      color: var(--ink);
+      line-height: 1.88;
+      margin-bottom: 0;
+      font-family: 'Noto Serif TC', Georgia, serif;
+      font-weight: 400;
+    }
+    .analysis-divider {
+      border: none;
+      border-top: 1px solid var(--border-light);
+      margin: 20px 0;
+    }
+
+    .key-signal {
+      border: 1px solid var(--border);
+      background: var(--surface-alt);
+      border-radius: 3px;
+      padding: 12px 16px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 1px;
+      opacity: 0.65;
+    }
+    .key-signal-text {
+      font-size: 12.5px;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      font-style: italic;
+    }
+
+    .food-for-thought {
+      background: var(--thought-bg);
+      border-left: 2px solid var(--thought-border);
+      padding: 18px 20px;
+      border-radius: 0 3px 3px 0;
+    }
+    .food-label {
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--thought-border);
+      margin-bottom: 13px;
+    }
+    .food-for-thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .food-for-thought ol li {
+      font-size: 13px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 20px;
+      position: relative;
+      counter-increment: q;
+    }
+    .food-for-thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 2px;
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--thought-border);
+      opacity: 0.55;
+      line-height: 1.8;
+    }
+
+    .footer-rule {
+      margin-top: 80px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 0 18px 80px;
+      }
+      .header {
+        padding: 40px 0 30px;
+      }
+      .header h1 {
+        font-size: 24px;
+      }
+      .article-card {
+        padding: 22px 18px 22px 24px;
+      }
+      .article-card h3 {
+        font-size: 17px;
+      }
+      .section-title {
+        font-size: 18px;
+      }
+      #back-top {
+        bottom: 20px;
+        right: 20px;
+      }
+      .toc {
+        padding: 16px 18px;
+      }
+      .analysis-preview {
+        max-width: 200px;
+      }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 4 月 6 日　星期一</span>
+    <span class="header-issue">今日 2 篇</span>
+  </div>
+  <h1>鏈上治理的法律殼，空頭擠壓的假反彈</h1>
+  <p class="header-summary">DUNA 以法律架構的名義出現，卻無法隱掩 DAO 的治理現實；BTC 的反彈需要靠流動性真空才能製造，正常市場能否承接仍有疑問。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-duna">DUNA 的「可驗證治理紀錄」是一張空頭支票</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-btc">BTC $69K 反彈的流動性真空幻覺</a></li>
+  </ol>
+</nav>
+
+<!-- Web3 · Crypto -->
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-duna">
+    <div class="card-meta">
+      <span class="card-source">a16z crypto</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>DUNA 的「可驗證治理紀錄」是一張空頭支票，因為這些 DAO 的參與率本來就是爛的</h3>
+
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">DUNA（Decentralized Unincorporated Nonprofit Association，去中心化非法人非營利協會）是一種讓 DAO（Decentralized Autonomous Organization，去中心化自治組織）取得法律主體地位的架構，允許其簽合約、持有智識財產、納稅與出庭，同時維持鏈上治理結構。截至 2026 年 4 月初，美國三州已完成立法：Wyoming 於 2024 年率先立法，Alabama 州長 Kay Ivey 於 4 月 2 日簽署 DUNA Act，West Virginia 眾議院已通過 HB 5060 待州長簽署。採用門檻為至少 100 名成員。已採用 DUNA 架構的知名協議包括 Uniswap Governance、Nouns DAO、Syndicate Network Collective。a16z crypto 政策負責人 Miles Jennings 主張，隨著 CLARITY Act（美國加密市場結構立法草案）推進，採用 DUNA 的項目將擁有「可驗證的去中心化治理紀錄」作為未來合規護身符，取代長期作為權宜架構的離岸 Foundation（基金會模式）。</p>
+
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">目前沒有任何公開數據顯示採用 DUNA 後的治理參與率有實質變化…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">目前沒有任何公開數據顯示 Uniswap Governance、Nouns DAO 或 Syndicate Network Collective 在採用 DUNA 後，鏈上提案通過率或財庫操作頻率有實質變化，「採用 DUNA」更接近法律外殼替換。更大的問題是：若 CLARITY Act 最終對去中心化設下量化門檻，這些項目鏈上參與率長期偏低的事實將直接穿透「可驗證治理紀錄」的敘事。Uniswap Governance 的獨立投票地址數長期偏低，是目前最高風險的早期採用者。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 CLARITY Act 最終要求 DAO 提交「可驗證的去中心化證明」，Uniswap 現有的投票參與率能過關嗎？</li>
+            <li>a16z 同時遊說立法、提供合規建議、又持有 DUNA 項目代幣，這個三位一體的位置，誰在盯著它？</li>
+            <li>DUNA 的有限責任保護建立在「成員持幣且主動投票」的假設上，但被動持幣者算不算成員，Wyoming 法院還沒有判例，這個法律殼到底有多硬？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-btc">
+    <div class="card-meta">
+      <span class="card-source">CoinDesk</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>BTC $69K 反彈是假期流動性真空製造的幻覺，$2 億清算在正常市場連 1% 都推不動</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">復活節假期訂單簿偏薄製造的價格位移，一旦正常流動性回歸將被迅速重測。</span>
+    </div>
+
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">2026 年 4 月 6 日復活節假期結束後，BTC 反彈約 3% 至 $69,000，為一周多以來最高位。驅動力有二：市場傳出美伊可能就 45 天停火進行談判、霍爾木茲海峽通行疑慮緩解，以及技術面約 $2 億的空頭（Short Squeeze，空頭被迫回補推動價格上漲）被強制清算。ETH 以 +3.7% 至 $2,130 領漲，SOL +2% 至 $82，XRP +2.2% 至 $1.34，DOGE +1.7% 至 $0.093，加密總市值重回 $2.5 兆以上。宏觀背景仍偏空：BTC 年初至今跌幅 -26%，距 2025 年 10 月高點跌幅 -47%，30 日已實現波動率（Realized Volatility，基於歷史實際價格路徑計算）從 45% 升至 68%。關鍵支撐與壓力區間為 $65K–$73K。</p>
+
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">BTC 正常日均現貨量介於 $150 億至 $250 億，$2 億清算在正常流動性條件下不足以產生 3% 的價格位移…</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">BTC 正常日均現貨量介於 $150 億至 $250 億，$2 億清算在正常流動性條件下不足以產生 3% 的價格位移。這次的傳導機制是復活節假期訂單簿異常偏薄，Binance 和 Bybit 永續合約市場的深度缺口放大了衝擊，而非真實買盤回歸。正常流動性一旦回歸，這個價位將被迅速重新測試。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>停火談判破局的話，MicroStrategy 平均成本約 $68K，它被迫減倉的壓力是否會成為下行加速器？</li>
+            <li>BlackRock IBIT 的 ETF 淨流量和 USDT/USDC 鑄造速度，哪一個會先給出明確的方向信號？</li>
+            <li>Jump 和 Wintermute 這類做市商在 $65K–$73K 區間邊緣持續 delta-hedging，這個區間是市場共識還是他們自己強化的結果？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-04-06</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
