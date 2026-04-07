@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-04-07</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:             #f5f3ee;
+      --surface:        #fdfcf9;
+      --surface-alt:    #f9f7f2;
+      --border:         #dedad2;
+      --border-light:   #e8e5de;
+      --ink:            #18160f;
+      --ink-body:       #38342a;
+      --ink-muted:      #7c7868;
+      --ink-faint:      #b0ac9e;
+      --rule:           #c8c3b4;
+      --thought-bg:     #edeae0;
+      --thought-border: #7a6a48;
+      --thought-text:   #3a3220;
+      --accent:         #7a6a48;
+      --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+      --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+      --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:             #111008;
+        --surface:        #171510;
+        --surface-alt:    #131210;
+        --border:         #2a2820;
+        --border-light:   #222018;
+        --ink:            #ede8dc;
+        --ink-body:       #b8b2a0;
+        --ink-muted:      #706a58;
+        --ink-faint:      #403c30;
+        --rule:           #2a2820;
+        --thought-bg:     #1a1810;
+        --thought-border: #6a5e3e;
+        --thought-text:   #c0b898;
+        --accent:         #b09060;
+        --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+        --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+        --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+      }
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+
+    #progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+
+    #back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+    #back-top.visible{opacity:1;pointer-events:auto}
+    #back-top:hover{background:var(--surface-alt);color:var(--ink)}
+
+    .toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+    .toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+    .toc-list li{display:flex;align-items:baseline;gap:10px}
+    .toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+    .toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+    .toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+    .header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+    .header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+    .header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+    .header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+    .header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+    .header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+
+    .section-block{margin-bottom:80px}
+    .section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+    .section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+    .section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+    .article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+    .article-card:hover{border-color:var(--rule)}
+    .article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+    .article-card:hover::before{opacity:.9}
+
+    .card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+    .card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+    .card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+    .card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+    .card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+    .card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+    .card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+    .article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+
+    .block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+    .block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+    .factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+
+    details.analysis-details{margin-top:0}
+    details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+    details.analysis-details > summary::-webkit-details-marker{display:none}
+    .analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+    .analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+    details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+    .analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+    .analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+    details[open] .analysis-preview{display:none}
+    .analysis-body{padding-top:12px}
+    .research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+    .analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+
+    .key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+    .key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+    .key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+
+    .food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+    .food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+    .food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+    .food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+    .food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+
+    .footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+
+    .section-empty{font-size:13px;color:var(--ink-muted);font-style:italic;padding:24px 0;border-bottom:1px solid var(--border-light);margin-bottom:20px}
+
+    @media(max-width:600px){
+      body{padding:0 18px 80px}
+      .header{padding:40px 0 30px}
+      .header h1{font-size:24px}
+      .article-card{padding:22px 18px 22px 24px}
+      .article-card h3{font-size:17px}
+      .section-title{font-size:18px}
+      #back-top{bottom:20px;right:20px}
+      .toc{padding:16px 18px}
+      .analysis-preview{max-width:200px}
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 4 月 7 日　星期二</span>
+    <span class="header-issue">今日 5 篇</span>
+  </div>
+  <h1>當每個人都在搶電，誰先斷電？</h1>
+  <p class="header-summary">AI 和加密都在競逐同一份能源，但他們面對的不只是電價問題，而是一個在物理上無法同時滿足的需求——以及誰有權力決定優先級。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-altman">Altman 的「新政」搶敘事框架</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic">Anthropic 算力綁定 Google</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-polymarket">Polymarket 的原生穩定幣幻覺</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-tether">Tether 5,000 億估值的審計盲區</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-ledger">Ledger 的防禦工具管不住 AI 攻擊</a></li>
+  </ol>
+</nav>
+
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-altman">
+    <div class="card-meta">
+      <span class="card-source">Fortune / Axios</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Altman 的「新政」：13 頁文件，最核心的功能是搶敘事框架</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">OpenAI 是一家開發通用人工智能（AGI，即能執行人類所有認知任務的 AI 系統）的公司，CEO Sam Altman 於 4 月 6 日發布 13 頁政策文件《Industrial Policy for the Intelligence Age》，建議美國設立 AI 財富基金（由 AI 公司注資）、對自動化勞動課稅、試行 32 小時工作週，並將稅基從薪資轉向資本利得稅（出售股票、房產等資產獲利的課稅）。文件發布於 OpenAI 完成史上最大融資後四天，本輪融資總額 1,220 億美元，估值 8,520 億美元，投資方包含 Amazon（500 億）、Nvidia（300 億）、SoftBank（300 億）。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">「自動化勞動稅」在工程層面無法區分「取代人類的產出」與「純增量創造」……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">「自動化勞動稅」在工程層面無法區分「取代人類的產出」與「純增量創造」，任何嘗試立法的政府都會卡在定義階段，這份文件根本無法執行。它的真實功能是搶在歐盟 AI Act 執行細則落地、以及 Anthropic 在企業合規敘事上追近之前，把「負責任 AI 領袖」這個品牌位置釘死在 OpenAI 身上。這份提案最終的成本不會由 OpenAI 承擔，承擔者是那些被這個敘事推高估值、卻在 12 個月後交不出技術里程碑的 OpenAI 投資人。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果「自動化勞動稅」的定義問題讓任何政府都卡住，那誰最受益於這個提案永遠停留在「討論階段」？</li>
+            <li>這輪融資裡非現金的算力信用額度佔比若超過一半，8,520 億的估值是在什麼基礎上定的？</li>
+            <li>Anthropic 在企業合規敘事上的追趕速度，到底有多讓 Altman 感到緊迫？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="ai-anthropic">
+    <div class="card-meta">
+      <span class="card-source">CoinDesk</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 把算力鎖在 Google 的院子裡，架構轉移時帳單才會出現</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">AI 算力競賽的真正瓶頸是電網互聯許可，平均審批週期超過 5 年，這個物理事實將決定 2027 年之後誰能兌現算力承諾。</span>
+    </div>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Anthropic 與 Google、Broadcom 簽署多吉瓦特（數十億瓦特等級）的下一代 TPU（Google 自研 AI 訓練晶片，相對 GPU 在特定任務更省電）算力合約，預計 2027 年起生效。Anthropic 年度經常性收入（ARR，訂閱與合約制業務的年化收入指標）已從 2025 年底的 90 億美元成長至 300 億美元，年花費超 100 萬美元的企業客戶在不到兩個月內從 500 家翻倍至逾 1,000 家。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">真正的瓶頸不是電價，是電網互聯許可（interconnection queue）……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">真正的瓶頸不是電價，是電網互聯許可（interconnection queue），持有已核准互聯資格的 Constellation Energy、Talen Energy、AWS 才是不可繞過的議價方，Anthropic 作為純算力買家，談判主導權在 Google 手上，自身幾乎無法影響電網時程。更深的風險是架構鎖定：TPU 的訓練吞吐優化是針對 dense Transformer 設計，若主流架構向 state-space model（如 Mamba）大規模遷移，重新調優成本由 Anthropic 獨力承擔，而綁定通用 GPU 的 OpenAI 和 Meta 的切換成本遠低於此。ARR 從 90 億到 300 億的增長中，Google 作為最大股東兼算力供應商，其內部消費 Claude API 的貢獻比例未被披露。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Google 自身消費佔 Anthropic ARR 的比例超過三成，這個「市場驗證」對外部投資人還有多少說服力？</li>
+            <li>電網互聯審批卡住的情況下，2027 年的算力合約實際能兌現多少比例？</li>
+            <li>如果 Transformer 不是終點，TPU 生態的鎖定會在哪個時間點從優勢變成負債？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-polymarket">
+    <div class="card-meta">
+      <span class="card-source">CoinDesk / Bitcoin Magazine</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Polymarket 的「結算主權」是個幻覺，Circle 凍結帳號一樣失效</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">預測市場平台 Polymarket（估值逾 200 億美元）宣布上線基礎設施重大升級：推出原生穩定幣 Polymarket USD（與 USDC 1:1 錨定，取代原先的 bridged USDC.e，即通過跨鏈橋接的 USDC 衍生版本），同時重建中央限價訂單簿（CLOB，傳統金融交易所依價格優先撮合的核心機制）、部署新版智能合約並支援智能合約錢包。Polymarket 自 2022 年關閉美國業務，於 2025 年 7 月重新向 CFTC 登記，正積極籌備重返美國市場。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Polymarket USD 是在 USDC 上疊一層包裝合約，底層贖回承諾仍依賴 Circle……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Polymarket USD 是在 USDC 上疊一層包裝合約，底層贖回承諾仍依賴 Circle，若 Circle 凍結地址，這個「原生結算層」即刻失效。更關鍵的問題是監管分類：CLOB 加自發行穩定幣的組合，在 CFTC 框架下高度接近「未註冊指定合約市場（DCM）」的認定門檻，Kalshi 的先例只確立了事件合約本身的合法性，沒有為自行結算的穩定幣提供掩護。目前唯一持有 CFTC 全牌照的贏家是 Kalshi，Polymarket 的 200 億估值是在正式 DCM 申請完成之前、在監管灰區上定的價。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 CFTC 把 Polymarket USD 認定為 DCM 設施的一部分，重新申請牌照的時間和成本會讓「兩週內上線」的動作顯得多倉促？</li>
+            <li>非選舉週期的常態流量到底有多低，這個數字是否足以支撐 Polymarket 宣稱的「流動性護城河」？</li>
+            <li>Robinhood 若推出預測市場，Polymarket 的做市商關係能撐多久？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-tether">
+    <div class="card-meta">
+      <span class="card-source">The Coin Republic</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Tether 做的可能只是時點快照審計，5,000 億估值的底層看不清楚</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Tether（USDT 發行方，USDT 為全球最大穩定幣）正接觸外部投資者進行新一輪融資，目標估值 5,000 億美元，並設定約兩週的決策截止期（約 2026-04-20）。Tether 於 2026 年 3 月委託 KPMG 針對其 1,850 億美元儲備規模進行外部審計，為歷來最重大的透明度舉措。同期 Tether 將 USDT 部署至 Celo Layer-2（以太坊擴展鏈，以低手續費與手機端易用性著稱，鎖定新興市場支付場景）。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">KPMG 被委託的幾乎可以確定是「準備金鑒證（attestation）」……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">KPMG 被委託的幾乎可以確定是「準備金鑒證（attestation）」，即時點快照式的儲備驗證，而非 GAAP/IFRS 完整審計，後者需要對所有實體的財務報表、交易對手風險和到期日錯配進行全面查核。投資者在盡職調查中看不到商業票據對手方、擔保貸款集中度和 repo（附買回協議，一種短期融資工具）錯配，5,000 億的定價基礎缺乏底層支撐。一家靠儲備利息年賺數十億、不需要外部資金的公司設兩週截止期，最合理的解釋是在為流動性事件（IPO 或二級市場定價）鋪路，而真正的威脅是 GENIUS Act 通過後 Circle 取得合規優勢，Circle 已有完整審計記錄，Tether 沒有。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 KPMG 的範圍只是時點快照，這份「審計」對機構投資者的盡調有多大實際說服力？</li>
+            <li>GENIUS Act 一旦通過，Tether 在美國市場的空間會縮到哪裡？</li>
+            <li>設兩週截止期的真正觸發因素是什麼——是利率下行的壓力，還是監管窗口快要關上？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-ledger">
+    <div class="card-meta">
+      <span class="card-source">CoinDesk</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Ledger 建議的防禦工具，管不住 AI 最擅長發的那類攻擊</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">Ledger CTO Charles Guillemet 於 4 月 5 日警告，AI 正大幅降低加密攻擊的技術門檻，過去一年加密駭客與漏洞損失達 14 億美元。Guillemet 呼籲產業轉向形式驗證（formal verification，透過數學方法證明程式碼符合特定規格，比傳統測試更嚴格）、硬體基礎安全架構與強化離線儲存。此警告與另一背景數據並列：自 2025 年初至今，加密開發者每週 GitHub 提交量從約 85 萬次驟降至 21 萬次，活躍開發者數量減少 56% 至約 4,600 人，部分原因是人才向 AI 項目轉移。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">形式驗證的可證明範圍僅限於單一合約邏輯層……</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">形式驗證的可證明範圍僅限於單一合約邏輯層，而跨合約組合性攻擊、MEV（礦工可提取價值，即透過調整交易順序獲取的套利收益）引發的經濟攻擊和預言機操縱，這三類佔 DeFi 損失大宗的攻擊，在數學上不在 Certora、Halmos 等主流形式驗證工具的可證明範疇內。AI 恰恰最擅長發現這些跨層漏洞，Guillemet 的建議存在根本性的類別錯誤：他的解方管用的那些攻擊，不是 AI 最有能力發動的那些攻擊。在企業端，真正有能力執行安全升級的是 Fireblocks，消費端是 Apple Secure Enclave，不是 Ledger，Ledger 自身的 2023 年 Connect Kit 供應鏈事件尚未完全修復市場信任。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果形式驗證覆蓋不了跨合約攻擊，現在有沒有任何工具能在數學上約束這類風險？</li>
+            <li>開發者提交量暴跌 75%、活躍開發者只剩 4,600 人，這個生態的韌性還夠撐多久？</li>
+            <li>Ledger 的媒體發聲和它自身的供應鏈安全記錄放在一起，這份警告有多少可信度？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-vc">
+    <span class="section-title">VC · 投資動態</span>
+    <span class="section-count">0 篇</span>
+  </div>
+  <p class="section-empty">今日無符合標準的 VC 卡片（相關洞察已納入 Tether 與 Anthropic 卡片分析）。</p>
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-04-07</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
