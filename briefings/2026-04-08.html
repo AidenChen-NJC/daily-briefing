@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — 2026-04-08</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:             #f5f3ee;
+  --surface:        #fdfcf9;
+  --surface-alt:    #f9f7f2;
+  --border:         #dedad2;
+  --border-light:   #e8e5de;
+  --ink:            #18160f;
+  --ink-body:       #38342a;
+  --ink-muted:      #7c7868;
+  --ink-faint:      #b0ac9e;
+  --rule:           #c8c3b4;
+  --thought-bg:     #edeae0;
+  --thought-border: #7a6a48;
+  --thought-text:   #3a3220;
+  --accent:         #7a6a48;
+  --tag-ai-bg:      #e8f0e4; --tag-ai-fg:   #3a5c2e;
+  --tag-web3-bg:    #e8eaf4; --tag-web3-fg: #2e3a6a;
+  --tag-vc-bg:      #f4e8e8; --tag-vc-fg:   #6a2e2e;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:             #111008;
+    --surface:        #171510;
+    --surface-alt:    #131210;
+    --border:         #2a2820;
+    --border-light:   #222018;
+    --ink:            #ede8dc;
+    --ink-body:       #b8b2a0;
+    --ink-muted:      #706a58;
+    --ink-faint:      #403c30;
+    --rule:           #2a2820;
+    --thought-bg:     #1a1810;
+    --thought-border: #6a5e3e;
+    --thought-text:   #c0b898;
+    --accent:         #b09060;
+    --tag-ai-bg:  #1a2218; --tag-ai-fg:   #88b07a;
+    --tag-web3-bg:#181a28; --tag-web3-fg: #7a88c8;
+    --tag-vc-bg:  #281818; --tag-vc-fg:   #c87a7a;
+  }
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);max-width:700px;margin:0 auto;padding:0 28px 120px;font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:15px;line-height:1.8;color:var(--ink-body);-webkit-font-smoothing:antialiased}
+
+#progress-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--accent);z-index:100;transition:width .08s linear}
+
+#back-top{position:fixed;bottom:32px;right:32px;width:36px;height:36px;background:var(--surface);border:1px solid var(--border);border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;color:var(--ink-muted);font-size:14px;z-index:99}
+#back-top.visible{opacity:1;pointer-events:auto}
+#back-top:hover{background:var(--surface-alt);color:var(--ink)}
+
+.toc{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:52px}
+.toc-label{font-size:10px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:14px}
+.toc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.toc-list li{display:flex;align-items:baseline;gap:10px}
+.toc-tag{display:inline-block;font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:2px;flex-shrink:0;min-width:50px;text-align:center}
+.toc-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+.toc-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+.toc-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+.toc-list a{font-size:13px;color:var(--ink-body);text-decoration:none;line-height:1.5;transition:color .15s}
+.toc-list a:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+
+.header{padding:60px 0 44px;border-bottom:1px solid var(--rule);margin-bottom:40px}
+.header-eyebrow{display:flex;align-items:baseline;gap:20px;margin-bottom:22px}
+.header-date{font-size:11px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-muted)}
+.header-issue{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint)}
+.header h1{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:30px;font-weight:700;color:var(--ink);line-height:1.35;letter-spacing:-.02em;margin-bottom:16px}
+.header-summary{font-size:13.5px;color:var(--ink-muted);line-height:1.7}
+
+.section-block{margin-bottom:80px}
+.section-header{margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;scroll-margin-top:24px}
+.section-title{font-family:'Noto Sans TC','Helvetica Neue',sans-serif;font-size:20px;font-weight:500;color:var(--ink);letter-spacing:.01em}
+.section-count{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint)}
+
+.article-card{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:28px 32px 28px 36px;margin-bottom:20px;position:relative;transition:border-color .2s;scroll-margin-top:24px}
+.article-card:hover{border-color:var(--rule)}
+.article-card::before{content:'';position:absolute;left:0;top:24px;width:3px;height:28px;background:var(--accent);border-radius:0 2px 2px 0;opacity:.5;transition:opacity .2s}
+.article-card:hover::before{opacity:.9}
+
+.card-meta{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.card-source{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint)}
+.card-dot{width:3px;height:3px;border-radius:50%;background:var(--ink-faint);opacity:.4;flex-shrink:0}
+.card-tag{font-size:9px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:2px 6px;border-radius:2px}
+.card-tag.ai{background:var(--tag-ai-bg);color:var(--tag-ai-fg)}
+.card-tag.web3{background:var(--tag-web3-bg);color:var(--tag-web3-fg)}
+.card-tag.vc{background:var(--tag-vc-bg);color:var(--tag-vc-fg)}
+.article-card h3{font-family:'Playfair Display','Noto Serif TC',Georgia,serif;font-size:18px;font-weight:600;color:var(--ink);line-height:1.45;margin-bottom:20px;letter-spacing:-.01em}
+
+.block-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+.block-label::after{content:'';flex:1;height:1px;background:var(--border-light)}
+.factual-context{font-size:13.5px;color:var(--ink-body);line-height:1.82;padding-bottom:20px;border-bottom:1px solid var(--border-light);margin-bottom:20px;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+
+details.analysis-details{margin-top:0}
+details.analysis-details > summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;gap:0;outline:none;user-select:none;margin-bottom:0}
+details.analysis-details > summary::-webkit-details-marker{display:none}
+.analysis-summary-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);flex-shrink:0;margin-right:10px;display:flex;align-items:center;gap:6px}
+.analysis-summary-label::before{content:'▸';font-size:8px;transition:transform .18s;display:inline-block;color:var(--ink-faint);opacity:.7}
+details[open] .analysis-summary-label::before{transform:rotate(90deg)}
+.analysis-summary-rule{flex:1;height:1px;background:var(--border-light);align-self:center}
+.analysis-preview{font-size:13px;color:var(--ink-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:440px;display:inline-block;vertical-align:baseline;margin-left:10px;font-style:italic}
+details[open] .analysis-preview{display:none}
+.analysis-body{padding-top:12px}
+.research-insight{font-size:14.5px;color:var(--ink);line-height:1.88;margin-bottom:0;font-family:'Noto Serif TC',Georgia,serif;font-weight:400}
+.analysis-divider{border:none;border-top:1px solid var(--border-light);margin:20px 0}
+
+.key-signal{border:1px solid var(--border);background:var(--surface-alt);border-radius:3px;padding:12px 16px;margin-bottom:20px;display:flex;gap:10px;align-items:flex-start}
+.key-signal-icon{font-size:13px;flex-shrink:0;margin-top:1px;opacity:.65}
+.key-signal-text{font-size:12.5px;color:var(--ink-muted);line-height:1.6;font-style:italic}
+
+.food-for-thought{background:var(--thought-bg);border-left:2px solid var(--thought-border);padding:18px 20px;border-radius:0 3px 3px 0}
+.food-label{font-size:9.5px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--thought-border);margin-bottom:13px}
+.food-for-thought ol{list-style:none;counter-reset:q;display:flex;flex-direction:column;gap:12px}
+.food-for-thought ol li{font-size:13px;color:var(--thought-text);line-height:1.75;padding-left:20px;position:relative;counter-increment:q}
+.food-for-thought ol li::before{content:counter(q);position:absolute;left:0;top:2px;font-size:10px;font-weight:600;color:var(--thought-border);opacity:.55;line-height:1.8}
+
+.footer-rule{margin-top:80px;padding-top:24px;border-top:1px solid var(--rule);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-align:center}
+
+@media(max-width:600px){
+  body{padding:0 18px 80px}
+  .header{padding:40px 0 30px}
+  .header h1{font-size:24px}
+  .article-card{padding:22px 18px 22px 24px}
+  .article-card h3{font-size:17px}
+  .section-title{font-size:18px}
+  #back-top{bottom:20px;right:20px}
+  .toc{padding:16px 18px}
+  .analysis-preview{max-width:200px}
+}
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<div class="header">
+  <div class="header-eyebrow">
+    <span class="header-date">2026 年 4 月 8 日　星期三</span>
+    <span class="header-issue">今日 5 篇</span>
+  </div>
+  <h1>安全的假象，監管的碎片</h1>
+  <p class="header-summary">三個月內三次監管同步，Tether 卻是唯一明確的贏家；而當每個防禦框架都在解決上一次攻擊的問題時，下一次攻擊已經換個角度了。</p>
+</div>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">今日目錄</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-robot-tax">OpenAI 沒有稅率數字的機器人稅提案</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-drift-stride">STRIDE 計畫解決的是上一次的攻擊</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-stablecoin-fdic">三個監管機構，一個贏家</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-tom-lee-eth">Tom Lee 的 ETH 看漲，來自 $102 億 持倉</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-better-money">a16z 押注的監管賭注</a></li>
+  </ol>
+</nav>
+
+<div class="section-block">
+  <div class="section-header" id="section-ai">
+    <span class="section-title">AI · 科技</span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <div class="article-card" id="ai-openai-robot-tax">
+    <div class="card-meta">
+      <span class="card-source">TechCrunch / Fortune</span>
+      <span class="card-dot"></span>
+      <span class="card-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 那份沒有稅率數字的機器人稅提案，目的是讓立法者不去討論安全監管</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">⚡</span>
+      <span class="key-signal-text">13 頁白皮書，零具體稅率，目標是佔據進步立場同時迴避開發監管。</span>
+    </div>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">2026 年 4 月 6 日，OpenAI 發布 13 頁政策白皮書，提出機器人稅（對以自動化替代人力產生的生產力收益課稅）、全國公共財富基金（由 AI 公司出資播種、向全體公民分配收益）、四天工作制補貼等政策框架。Goldman Sachs 估算 AI 目前每月在美國導致約 16,000 人失業，風投 Vinod Khosla 同日提出配套稅改，建議免除年收入低於 $10 萬的約 1 億美國人聯邦所得稅。Carnegie Endowment 學者 Anton Leicht 稱整份文件是「為監管虛無主義提供掩護的公關操作」。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">白皮書全文沒有提供任何具體稅率數字，也沒有說明如何在工程層面區分「AI 替代人力」與「AI 創造全新產出」。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">白皮書全文沒有提供任何具體稅率數字，也沒有說明如何在工程層面區分「AI 替代人力」與「AI 創造全新產出」，而這個邊界在現有稅務框架中根本不存在對應機制。OpenAI 同時引用了 Goldman 的 16,000 人月失業數字和 Khosla 的「2030 年 80% 工作可自動化」，這兩個數字在緊迫性上相差超過一個數量級，白皮書對兩者都未作為設計基準。真正的輸家是需要可執行政策框架的立法者，OpenAI 成功將討論引向就業補償，同時對 AI 開發約束的強制性立法不承擔任何具體承諾。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果機器人稅的計量邊界在工程層面無法定義，那麼這個提案實際上永遠不會被立法，OpenAI 是否正在靠著「支持一個不可能實施的稅」來佔據進步立場？</li>
+            <li>如果 Anthropic 的 Responsible Scaling Policy 有可驗證的能力閾值和強制暫停機制，OpenAI 的白皮書是否正在迫使 Anthropic 在「政策可見度」和「差異化定位」之間做一個不可能同時贏的選擇？</li>
+            <li>如果國會議員的注意力有限，就業補償框架和開發約束框架只能擇一主導議程，哪一個對 OpenAI 的商業利益傷害更小？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="section-block">
+  <div class="section-header" id="section-web3">
+    <span class="section-title">Web3 · Crypto</span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <div class="article-card" id="web3-drift-stride">
+    <div class="card-meta">
+      <span class="card-source">CoinDesk</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>STRIDE 計畫解決了 Drift 攻擊不存在的問題，下一次北韓滲透同樣會成功</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">2026 年 4 月 1 日，Solana 生態 DeFi 交易協議 Drift Protocol 遭受攻擊，損失 $270M 至 $285M。後續調查揭露這是長達 6 個月的北韓國家級滲透行動，攻擊者 UNC4736（又稱 AppleJeus 或 Citrine Sleet）透過惡意 GitHub 代碼庫與偽裝 TestFlight 應用植入惡意軟件，取得內部設備存取權限，最終濫用 Solana 的 durable nonces（持久 nonce，Solana 的離線交易預簽功能，讓交易可在不聯網環境先行簽署再廣播）抽乾協議倉位。事件發生後第 6 天，Solana Foundation 聯合 Asymmetric Research 宣布推出 STRIDE 計畫，為 TVL 超過 $1,000 萬的協議提供 24/7 威脅監控，並為 TVL 超過 $1 億的協議資助正式驗證（formal verification，以數學方法窮舉合約所有執行路徑確保正確性）。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">STRIDE 的正式驗證覆蓋的是合約邏輯正確性，但 Drift 的攻擊向量是管理員設備被社工入侵後濫用合法簽署權限。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">STRIDE 的正式驗證覆蓋的是合約邏輯正確性，但 Drift 的攻擊向量是管理員設備被社工入侵後濫用合法簽署權限，由正確私鑰發出的格式合法交易，在鏈上對任何監控系統都完全無法和正常操作區分。真正需要的干預是 durable nonce 的協議層限制，例如強制多簽門檻或有效期上限，但 Solana Foundation 刻意迴避觸碰 L1 設計，因為任何限制都會打破現有 DApp 的離線簽署體驗，損害的是依賴此功能的既有協議開發者。STRIDE 在架構上解決的是一個和這次攻擊完全不同的問題層，對下一次同類型 APT 滲透的防禦價值接近零。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果真正有效的防禦必須限制 durable nonces，Solana Foundation 願意為了安全性犧牲現有 DApp 的使用者體驗嗎？</li>
+            <li>協議的核心貢獻者接受「持續性行為監控」這件事，在去中心化社群的治理文化下，是技術問題還是政治問題？</li>
+            <li>Asymmetric Research 拿到 Solana Foundation 獨家合約，如果其真正的壁壘是關係鎖定而非技術能力，那麼 DeFi 安全市場的下一個真正空白是什麼？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-stablecoin-fdic">
+    <div class="card-meta">
+      <span class="card-source">CoinDesk</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>三個監管機構同時提出不同的穩定幣規則，唯一的受益者是 Tether</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">2026 年 4 月 7 日，FDIC 正式發布 GENIUS Act（Guiding and Establishing National Innovation for U.S. Stablecoins Act，2025 年通過的美國首部聯邦穩定幣法）穩定幣監管框架草案，成為繼 OCC（Office of the Comptroller of the Currency，貨幣監理署）2 月之後第二個提出 GENIUS Act 實施規則的聯邦監管機構。草案涵蓋資本要求、流動性標準、托管標準，並提出 operational backstop（營運備抵資金，獨立於資本要求之外的額外流動性緩衝，金額基於前一年度營運費用計算）。FDIC 明確穩定幣不享有聯邦存款保險，並開放 144 題公眾意見徵詢，期限 60 天。同日，美國財政部另提出針對小型穩定幣發行商的獨立規則草案，三套規則須在 2026 年 7 月前同步生效。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">FDIC 對 Tether 不具實質執法管轄權，operational backstop 要求在技術上無法強制執行於境外發行商。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">FDIC 對 Tether（BVI 註冊離岸實體）不具實質執法管轄權，operational backstop 要求在技術上無法強制執行於境外發行商。這套框架實際的效果是提高 Circle、PayPal PYUSD 和銀行系穩定幣發行商的合規成本，同時讓 USDT 繼續在監管套利下運營。真正的輸家是 Circle，它必須同時應對 FDIC、OCC、財政部三套互相未協調的規則，而在三套規則 7 月同步生效但可能互相衝突的情況下，合規技術路徑在物理上不可能同時滿足。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 FDIC 明確知道自己無法管轄 Tether，這套框架在設計上是針對誰的？</li>
+            <li>Circle 若需要同時滿足三套可能衝突的規則，它會選擇以哪一套為主，另兩套規則的制定機構會如何回應？</li>
+            <li>如果監管碎片化反而鞏固了 Tether 的市場地位，這是監管失敗還是有人希望如此？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-tom-lee-eth">
+    <div class="card-meta">
+      <span class="card-source">CoinDesk</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>Tom Lee 對 ETH 的看漲研究，來自一個掌管 $102 億 ETH 持倉的 CEO</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">2026 年 4 月 6 日，BitMine Immersion Technologies（NYSE: BMNR）公布持有 4,803,334 ETH，按均價 $2,123 計算市值約 $102 億，占 ETH 流通供應量的 3.98%，接近其宣布的 5% 目標。旗下 Mavan 質押網絡目前質押 3,330,000 ETH，產生年化約 $1.96 億的質押收益。公司同步完成從 NYSE American 升板至 NYSE 主板，總持倉達 $114 億，包含 $8.64 億現金、198 BTC、$2 億 Beast Industries 股權及 $9,200 萬 Eightco Holdings 股份。BitMine CEO 即 Fundstrat 創辦人 Tom Lee。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">以太坊全網質押比例持續上升，收益率將面臨長期壓縮風險。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">以太坊全網質押比例持續上升（目前約 28%），每增加 5% 質押比例，收益率約再壓縮 0.3% 至 0.5%。若 12 至 18 個月後收益率壓至 2%，Mavan 年化收益將從 $1.96 億降至約 $1.4 億，縮水近三成，而 $8.64 億現金儲備在帳面虧損達百億量級時只能保住「不強制平倉」，無法對沖資產負債表壓力。更關鍵的是，Tom Lee 以 Fundstrat「獨立分析師」身份發表的公開 ETH 看漲研究，依靠的是公司資產而非個人帳戶的法律切割，使大多數媒體引用時不需要標準揭露，這個分發護城河本身就是 BitMine 最難被複製的資產，不是技術，是二十年在 CNBC 建立的「獨立聲音」人設。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果收益率壓縮是協議層的確定性趨勢，BitMine 的商業模式是否依賴一個正在消失的利差？</li>
+            <li>媒體在引用 Fundstrat 的 ETH 研究時，應該有什麼揭露義務？如果 SEC Regulation AC 存在漏洞，誰有動機去填補它？</li>
+            <li>如果 Tom Lee 的媒體影響力是 BitMine 最核心的護城河，那麼這家公司的估值裡有多少是在為這個人設定價？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <div class="article-card" id="web3-better-money">
+    <div class="card-meta">
+      <span class="card-source">The Block</span>
+      <span class="card-dot"></span>
+      <span class="card-tag web3">Web3</span>
+    </div>
+    <h3>a16z 押注的不是穩定幣清算產品，是 GENIUS Act 會要求互操作性這個監管賭注</h3>
+    <div class="block-label">事實背景</div>
+    <p class="factual-context">The Better Money Company 完成由 a16z crypto 領投的 $1,000 萬 Seed 輪融資，目標建構讓 USDC、USDT 等主要穩定幣可在鏈上互換的清算基礎設施。創辦人 Sam Broner 為前 a16z crypto 核心團隊成員，共同創辦人為 Adam Zuckerman。Curve 3pool 目前已有數十億 TVL 做 USDC/USDT 兌換，滑點接近零，GENIUS Act 實施規則須在 2026 年 7 月前完成。</p>
+    <details class="analysis-details">
+      <summary>
+        <span class="analysis-summary-label">分析</span>
+        <span class="analysis-preview">Tether 沒有任何商業動機接入一個讓 USDT 和 USDC 完全可互換的協議。</span>
+        <span class="analysis-summary-rule"></span>
+      </summary>
+      <div class="analysis-body">
+        <p class="research-insight">Tether 沒有任何商業動機接入一個讓 USDT 和 USDC 完全可互換的協議，因為互換性直接削弱 Tether 的流量護城河。這筆投資的核心賭注不是產品市場拉力，而是 GENIUS Act 後續細則會強制要求互操作性，類似歐盟 PSD2 對銀行 API 的強制開放，若監管賭注成立，Tether 是明確輸家，Sam Broner 和 a16z 是贏家。Tether 若缺席，這個協議的冷啟動問題在商業說服層面幾乎無解。</p>
+        <hr class="analysis-divider">
+        <div class="food-for-thought">
+          <div class="food-label">值得追問</div>
+          <ol>
+            <li>如果 Tether 拒絕接入，The Better Money Company 的網絡效應能在 USDC 和其他合規穩定幣之間建立起來嗎？</li>
+            <li>GENIUS Act 最終細則強制互操作性的機率有多高？哪些國會議員或監管官員的立場是這個賭注的關鍵變數？</li>
+            <li>a16z 同時是 Circle 的關聯投資方，如果 USDC 因互換摩擦降低而獲益，a16z 這筆投資的真正受益者是誰？</li>
+          </ol>
+        </div>
+      </div>
+    </details>
+  </div>
+
+</div>
+
+<div class="footer-rule">Daily Briefing · 2026-04-08</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
