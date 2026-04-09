@@ -141,7 +141,97 @@
       .toc{padding:16px 18px}
       .analysis-preview{max-width:200px}
     }
-  </style>
+  
+/* ═══ FLOATING PODCAST PLAYER ═══ */
+.podcast-player {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 98;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 0;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 -4px 24px rgba(0,0,0,.25);
+}
+.podcast-progress-wrap {
+  width: 100%;
+  height: 3px;
+  background: rgba(255,255,255,.15);
+  cursor: pointer;
+  position: relative;
+}
+.podcast-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: width .1s linear;
+  pointer-events: none;
+}
+.podcast-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 24px 12px;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+}
+.podcast-play-btn {
+  flex-shrink: 0;
+  width: 40px; height: 40px;
+  background: #fff;
+  border: none; border-radius: 50%;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .15s;
+}
+.podcast-play-btn:hover { transform: scale(1.08); }
+.podcast-play-btn svg { width: 18px; height: 18px; fill: var(--ink); }
+.podcast-skip {
+  background: none; border: none;
+  color: rgba(255,255,255,.6);
+  font-size: 11px; font-weight: 600;
+  cursor: pointer;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 1px; line-height: 1;
+  transition: color .15s;
+}
+.podcast-skip:hover { color: #fff; }
+.podcast-skip svg { width: 18px; height: 18px; fill: currentColor; }
+.podcast-meta {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.podcast-meta-label {
+  font-size: 11px;
+  font-style: italic;
+  color: var(--accent);
+  letter-spacing: .04em;
+}
+.podcast-meta-title {
+  font-size: 12px;
+  color: rgba(255,255,255,.65);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.podcast-time {
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255,255,255,.5);
+  letter-spacing: .04em;
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .podcast-controls { padding: 8px 16px 10px; gap: 10px; }
+  .podcast-meta-title { font-size: 11px; }
+  .podcast-skip { display: none; }
+}
+</style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
   <script>
@@ -403,5 +493,84 @@
   }, { passive: true });
 </script>
 
+<!-- Floating podcast player -->
+<div class="podcast-player" id="podcast-player">
+  <audio id="podcast-audio" preload="metadata">
+    <source src="2026-04-09-podcast.mp3" type="audio/mpeg">
+  </audio>
+  <div class="podcast-progress-wrap" id="podcast-progress-wrap">
+    <div class="podcast-progress-fill" id="podcast-progress-fill"></div>
+  </div>
+  <div class="podcast-controls">
+    <button class="podcast-skip" id="podcast-back" aria-label="後退 15 秒">
+      <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+      <span>15</span>
+    </button>
+    <button class="podcast-play-btn" id="podcast-play" aria-label="播放">
+      <svg viewBox="0 0 24 24" id="podcast-play-icon"><polygon points="6,3 20,12 6,21"/></svg>
+    </button>
+    <button class="podcast-skip" id="podcast-fwd" aria-label="快進 30 秒">
+      <svg viewBox="0 0 24 24"><path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z"/></svg>
+      <span>30</span>
+    </button>
+    <div class="podcast-meta">
+      <span class="podcast-meta-label">Today's Podcast</span>
+      <span class="podcast-meta-title">Daily Briefing — 2026-04-09</span>
+    </div>
+    <span class="podcast-time" id="podcast-time">0:00 / 0:00</span>
+  </div>
+</div>
+<script>
+(function() {
+  var audio = document.getElementById('podcast-audio');
+  var player = document.getElementById('podcast-player');
+  var playBtn = document.getElementById('podcast-play');
+  var playIcon = document.getElementById('podcast-play-icon');
+  var timeEl = document.getElementById('podcast-time');
+  var progressFill = document.getElementById('podcast-progress-fill');
+  var progressWrap = document.getElementById('podcast-progress-wrap');
+  var backBtn = document.getElementById('podcast-back');
+  var fwdBtn = document.getElementById('podcast-fwd');
+  if (!audio || !player) return;
+
+  var pauseSVG = '<rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/>';
+  var playSVG = '<polygon points="6,3 20,12 6,21"/>';
+
+  function fmt(s) {
+    if (!s || !isFinite(s)) return '0:00';
+    var m = Math.floor(s / 60), sec = Math.floor(s % 60);
+    return m + ':' + (sec < 10 ? '0' : '') + sec;
+  }
+
+  audio.addEventListener('loadedmetadata', function() {
+    player.style.display = 'flex';
+    document.body.style.paddingBottom = '80px';
+    timeEl.textContent = '0:00 / ' + fmt(audio.duration);
+  });
+
+  audio.addEventListener('timeupdate', function() {
+    timeEl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+    if (audio.duration) progressFill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+  });
+
+  audio.addEventListener('ended', function() {
+    playIcon.innerHTML = playSVG;
+  });
+
+  playBtn.addEventListener('click', function() {
+    if (audio.paused) { audio.play(); playIcon.innerHTML = pauseSVG; }
+    else { audio.pause(); playIcon.innerHTML = playSVG; }
+  });
+
+  backBtn.addEventListener('click', function() { audio.currentTime = Math.max(0, audio.currentTime - 15); });
+  fwdBtn.addEventListener('click', function() { audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 30); });
+
+  progressWrap.addEventListener('click', function(e) {
+    if (!audio.duration) return;
+    var pct = e.offsetX / progressWrap.offsetWidth;
+    audio.currentTime = pct * audio.duration;
+  });
+})();
+</script>
 </body>
 </html>
