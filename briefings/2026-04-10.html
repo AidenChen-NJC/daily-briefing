@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-04-10</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:           #fafaf8;
+  --surface:      #ffffff;
+  --ink:          #111111;
+  --ink-body:     #2a2a2a;
+  --ink-muted:    #6b6b6b;
+  --ink-faint:    #a0a0a0;
+  --rule:         #e0e0e0;
+  --rule-light:   #eeeeee;
+  --accent:       #c4841d;
+  --accent-soft:  #f5ead6;
+  --accent-text:  #8a5c10;
+  --insight-bg:   #f7f5f0;
+  --insight-rule: #c4841d;
+  --thought-bg:   #f0f4f8;
+  --thought-accent: #4a6fa5;
+  --thought-text: #2c3e5a;
+  --tag-ai:       #1a7a4c;
+  --tag-ai-bg:    #e6f4ed;
+  --tag-web3:     #4a5ba8;
+  --tag-web3-bg:  #e8eaf6;
+  --tag-vc:       #a84a4a;
+  --tag-vc-bg:    #f6e8e8;
+  --signal-bg:    #fffbf0;
+  --signal-border:#e8c862;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:           #0e0e0c;
+    --surface:      #1a1a18;
+    --ink:          #ececec;
+    --ink-body:     #c8c8c0;
+    --ink-muted:    #808078;
+    --ink-faint:    #505050;
+    --rule:         #2a2a28;
+    --rule-light:   #1f1f1d;
+    --accent:       #d4a03a;
+    --accent-soft:  #2a2418;
+    --accent-text:  #d4a03a;
+    --insight-bg:   #16150f;
+    --insight-rule: #d4a03a;
+    --thought-bg:   #12161c;
+    --thought-accent: #6a8ec8;
+    --thought-text: #8aaccf;
+    --tag-ai:       #5cb88a;
+    --tag-ai-bg:    #14241c;
+    --tag-web3:     #7a8ad8;
+    --tag-web3-bg:  #181a28;
+    --tag-vc:       #d87a7a;
+    --tag-vc-bg:    #281818;
+    --signal-bg:    #1c1a10;
+    --signal-border:#8a7530;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 32px 120px;
+  font-family: 'Noto Sans TC', -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+#progress-bar {
+  position: fixed; top: 0; left: 0;
+  height: 2px; width: 0%;
+  background: var(--accent);
+  z-index: 100;
+  transition: width .08s linear;
+}
+
+#back-top {
+  position: fixed; bottom: 32px; right: 32px;
+  width: 40px; height: 40px;
+  background: var(--ink);
+  border: none; border-radius: 50%;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s, transform .2s;
+  color: var(--bg);
+  font-size: 16px; font-weight: 500;
+  z-index: 99;
+  box-shadow: 0 2px 12px rgba(0,0,0,.15);
+}
+#back-top.visible { opacity: 1; pointer-events: auto; }
+#back-top:hover { transform: translateY(-2px); }
+
+.header {
+  padding: 72px 0 48px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 48px;
+}
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.header-date {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.header-count {
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--accent-text);
+  background: var(--accent-soft);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+.header h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(28px, 5vw, 38px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+  letter-spacing: -.02em;
+  margin-bottom: 16px;
+}
+.header-lede {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  color: var(--ink-muted);
+  line-height: 1.85;
+  max-width: 600px;
+}
+
+.toc {
+  margin-bottom: 56px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.toc-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 16px;
+}
+.toc-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+}
+.toc-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toc-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+.toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+.toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+.toc-list a {
+  font-size: 13px;
+  color: var(--ink-body);
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color .15s;
+}
+.toc-list a:hover { color: var(--accent); }
+
+.section-block { margin-bottom: 72px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.section-label {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink-faint);
+  letter-spacing: .04em;
+}
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.section-count {
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: .06em;
+}
+
+.article {
+  margin-bottom: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--rule-light);
+  scroll-margin-top: 24px;
+}
+.article:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.article-source {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.article-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+.article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+.article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+.article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+.article h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(20px, 3.5vw, 24px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.4;
+  letter-spacing: -.01em;
+  margin-bottom: 20px;
+}
+
+.key-signal {
+  background: var(--signal-bg);
+  border: 1px solid var(--signal-border);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.key-signal-icon {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  background: var(--signal-border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px;
+  margin-top: 1px;
+}
+.key-signal-text {
+  font-size: 13px;
+  color: var(--accent-text);
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+.context-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+}
+.factual-context {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  color: var(--ink-body);
+  line-height: 1.9;
+  margin-bottom: 28px;
+}
+
+.insight {
+  background: var(--insight-bg);
+  border-left: 3px solid var(--insight-rule);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  border-radius: 0 6px 6px 0;
+}
+.insight-label {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--accent);
+  letter-spacing: .04em;
+  margin-bottom: 12px;
+}
+.insight-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15.5px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.95;
+}
+
+.thought {
+  background: var(--thought-bg);
+  border-radius: 8px;
+  padding: 20px 24px;
+}
+.thought-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--thought-accent);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.thought-label::before {
+  content: '';
+  display: inline-block;
+  width: 14px; height: 14px;
+  border: 2px solid var(--thought-accent);
+  border-radius: 50%;
+  opacity: .5;
+}
+.thought ol {
+  list-style: none;
+  counter-reset: q;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.thought ol li {
+  font-size: 13.5px;
+  color: var(--thought-text);
+  line-height: 1.75;
+  padding-left: 28px;
+  position: relative;
+  counter-increment: q;
+}
+.thought ol li::before {
+  content: counter(q);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px; height: 20px;
+  background: var(--thought-accent);
+  color: var(--thought-bg);
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  opacity: .3;
+  line-height: 1;
+}
+
+.podcast-player {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 98;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 0;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 -4px 24px rgba(0,0,0,.25);
+}
+.podcast-progress-wrap {
+  width: 100%;
+  height: 3px;
+  background: rgba(255,255,255,.15);
+  cursor: pointer;
+  position: relative;
+}
+.podcast-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--accent);
+  transition: width .1s linear;
+  pointer-events: none;
+}
+.podcast-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 24px 12px;
+  max-width: 720px;
+  margin: 0 auto;
+  width: 100%;
+}
+.podcast-play-btn {
+  flex-shrink: 0;
+  width: 40px; height: 40px;
+  background: #fff;
+  border: none; border-radius: 50%;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .15s;
+}
+.podcast-play-btn:hover { transform: scale(1.08); }
+.podcast-play-btn svg { width: 18px; height: 18px; fill: var(--ink); }
+.podcast-skip {
+  background: none; border: none;
+  color: rgba(255,255,255,.6);
+  font-size: 11px; font-weight: 600;
+  cursor: pointer;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 1px; line-height: 1;
+  transition: color .15s;
+}
+.podcast-skip:hover { color: #fff; }
+.podcast-skip svg { width: 18px; height: 18px; fill: currentColor; }
+.podcast-meta {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.podcast-meta-label {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 11px;
+  font-style: italic;
+  color: var(--accent);
+  letter-spacing: .04em;
+}
+.podcast-meta-title {
+  font-size: 12px;
+  color: rgba(255,255,255,.65);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.podcast-time {
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: rgba(255,255,255,.5);
+  letter-spacing: .04em;
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .podcast-controls { padding: 8px 16px 10px; gap: 10px; }
+  .podcast-meta-title { font-size: 11px; }
+  .podcast-skip { display: none; }
+}
+
+.footer {
+  margin-top: 72px;
+  padding-top: 24px;
+  border-top: 2px solid var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-brand {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+.footer-date {
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 600px) {
+  body { padding: 0 20px 80px; }
+  .header { padding: 48px 0 32px; }
+  .toc-list { grid-template-columns: 1fr; }
+  .insight { padding: 20px 20px; }
+  .thought { padding: 16px 18px; }
+  #back-top { bottom: 20px; right: 20px; }
+}
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 4 月 10 日　星期四</span>
+    <span class="header-count">9 篇</span>
+  </div>
+  <h1>誰在暗中付錢？</h1>
+  <p class="header-lede">當科技和金融最有錢的玩家開始隱瞞交易結構，市場就會產生新的定價權力。今天的三個故事，都圍繞一個問題旋轉：為什麼明亮的成長數字，藏著暗處的依賴關係。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic">Anthropic 的 $300 億 ARR，有 $290 億來源沒人說清楚</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-meta">Meta 花 $143 億買的不是模型，是殺掉競爭對手的工具</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-xai">xAI 在沒有任何商業數據的情況下燒掉 $15 億訓練一個無人要的模型</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-perplexity">Perplexity 的 50% 月增長可能只是換了一種算法</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-prometheus">Prometheus 想複製 Palantir，但沒有 Palantir 最難複製的那個東西</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-tether">Tether 要你在審計出爐前先把錢交出來</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-eth">ETH 不是輸給 USDT，是輸給機構系統性出逃</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-eclipse">Eclipse 的閉環生態可能讓 LP 的退出估值打折</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-dragonfly">Dragonfly 轉向「現實金融」，DeFi 創辦人的融資窗口正在關閉</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">5 篇</span>
+  </div>
+
+  <article class="article" id="ai-anthropic">
+    <div class="article-meta">
+      <span class="article-source">SaaStr · TechCrunch · Anthropic Blog</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 的 $300 億 ARR，有 $290 億來源沒人說清楚</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">訂閱企業客戶最多貢獻 $10 億，$290 億落差指向隱形的單一買家依賴</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 宣布年化營收跑率（ARR，Annual Recurring Revenue，訂閱制業務的標準衡量指標）突破 $300 億，一年前這個數字是 $10 億，OpenAI 同期為 $250 億。成長主因官方歸因於企業客戶爆發：年花費超 $100 萬的企業數在不到兩個月內從 500 家增至逾 1,000 家。同日，Anthropic 發布 Managed Agents（全託管 agent 平台，開發者定義任務與權限，平台處理沙箱執行、長時間自主 session 與多 agent 協調），定價為標準 API token 費加 $0.08/session-hour，早期採用者包括 Notion、Rakuten、Asana 與 Sentry。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">1,000 家年消費 $100 萬客戶最多貢獻 $10 億，剩下 $290 億的來源沒有被解釋。Amazon 是 Anthropic 最大股東兼雲端合作夥伴，AWS Bedrock 的轉售消費極可能佔大頭；如果是這樣，Anthropic 的「企業多元化」本質上是 Amazon 採購意志的延伸，而非真正的買方分散。更大的問題在於，Amazon 同時在推自家 Nova 模型的 agent 能力，Bedrock 對 Anthropic 既是分發管道，也是潛在壓價槓桿。用 ARR 數字推算 Anthropic 定價能力的投資人，正在看一個被精心裁剪過的數字。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 AWS Bedrock 佔 Anthropic ARR 超過 50%，那 Anthropic 和一個有漂亮 logo 的 AWS 子服務差在哪裡？</li>
+        <li>如果 Amazon 某天決定把 Nova 定價壓到 Claude 以下，Anthropic 有多少直銷客戶可以接住？</li>
+        <li>$0.08/session-hour 在 Rakuten 五個部門並發跑 agent 的情境下，Anthropic 的 GPU 成本結構撐得住嗎？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-meta">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI · TechCrunch · Axios</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Meta 花 $143 億買的不是模型，是殺掉競爭對手的工具</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Meta Superintelligence Labs 於 2026 年 4 月 8 日發布首款多模態推理模型 Muse Spark，可處理語音、文字與圖像，內建「contemplating mode」讓多個 agent 對抗辯論困難問題。在推理基準上與 Anthropic Opus 4.6、OpenAI GPT 5.4 有競爭力，但在 coding 和 ARC-AGI 2（測試 AI 泛化推理能力的高門檻基準）上明確落後。該模型走閉源路線，Meta 表示「希望」未來開源但未承諾時間表。負責人 Alexandr Wang 於 9 個月前 Zuckerberg 以 $143 億收購 Scale AI 後接管該部門，聲稱「從零重建了 AI 堆疊」。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">$143 億買來一個在 coding 與 ARC-AGI 2 上落後對手的模型，這筆錢的真實標的不是 Muse Spark，而是 Scale AI 的數據標註基礎設施，也就是對 RLHF（Reinforcement Learning from Human Feedback，用人類反饋訓練模型的核心流程）管道的控制權。Scale AI 此前同時服務 Anthropic、OpenAI 與 Meta，Meta 的收購讓這個關鍵供應商從獨立公司變成內部資產，Anthropic 與 OpenAI 失去了最重要的數據標註外包管道。Meta 花 $143 億買到的護城河，不在模型排行榜上，而在上游數據管線的獨佔控制。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 Anthropic 和 OpenAI 需要替代 Scale AI 的標註能力，市場上還有誰能填這個缺口？</li>
+        <li>Meta 閉源 Muse Spark 同時，Llama 系列的開源策略會走到哪一步？純粹是非核心模型的陪跑還是另有分工邏輯？</li>
+        <li>Alexandr Wang 在 Meta 內部的真實角色是「建模型的人」還是「管數據管線的人」？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-xai">
+    <div class="article-meta">
+      <span class="article-source">Elon Musk X 貼文 · EONMSK News · NextBigFuture</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>xAI 在沒有任何商業數據的情況下燒掉 $15 億訓練一個無人要的模型</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">xAI CEO Elon Musk 於 4 月 8 日透露，xAI 正在 Colossus 2 超級電腦上同時訓練 7 款模型：2 個 1T 參數、2 個 1.5T 參數、1 個 6T 參數、1 個 10T 參數（10 兆個可學習數值權重），以及影片生成器 Imagine V2。Colossus 2 部署超過 700,000 顆 GPU，設施功率突破 1 GW，目標 4 月升至 1.5 GW。業界估算 10T 模型算力成本超過 $15 億，整體訓練支出主要由 2025 年底 $60 億融資支撐。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">xAI 至今沒有公開任何 Grok 的商業數據，訂閱用戶數、企業 API 客戶數、X Premium 中 Grok 的實際使用率全部缺席。在沒有可驗證商業牽引力的前提下，$15 億以上的訓練成本只能靠「大模型出來後市場自然會要」的假設支撐，而這個假設在 Anthropic 已建立企業鎖定、Managed Agents 已上線的 2026 年比 2024 年更難成立。唯一確定的贏家是 NVIDIA，無論 10T 模型最終有沒有企業客戶買單，GPU 的費用已經收了。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>xAI 的企業通路只有 X 平台內嵌和 Tesla 端側，這兩條路都不是傳統企業 IT 採購的入口──10T 模型出來之後，誰來買？</li>
+        <li>如果 Grok 商業數據持續不公開，xAI 的下一輪融資估值要怎麼錨定？</li>
+        <li>Musk 公開混淆 xAI 與 Tesla AI 團隊的邊界，對企業 CIO 的採購決策是什麼信號？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-perplexity">
+    <div class="article-meta">
+      <span class="article-source">Financial Times · TechCrunch · PYMNTS</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Perplexity 的 50% 月增長可能只是換了一種算法</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Perplexity AI 截至 2026 年 3 月的年化營收跑率（ARR）突破 $4.5 億，較前月成長約 50%，用戶數超過 1 億，管理層目標是 2026 年底達 $6.56 億。增長官方歸因於兩點：agent 產品「Computer」的推出（讓 AI 自主在用戶電腦上執行任務），以及從固定訂閱制轉向 usage-based pricing（按使用量計費）。定價調整前 ARR 約為 $3.05 億，兩年前為 $1,600 萬。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">ARR 從 $3.05 億跳到 $4.5 億的時間點與 usage-based pricing 切換高度重合，但 Perplexity 沒有公開月活用戶數是否同步成長。若用戶數持平而 ARPU（每用戶平均收入）上升，這 50% 增長主要是重新計費方式，而非真實消費擴張，持續性極低。更根本的問題是，Perplexity 的底層依賴 Claude 和 GPT API，而 Anthropic 的 Managed Agents 和 OpenAI 的 Operator 正在直接進入相同的「代替用戶執行任務」市場，供應商即競爭者，Perplexity 既無自有模型做成本護城河，也無企業 IT 通路做分發護城河。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 Anthropic 對 Perplexity 的 API 調用設定用途限制或差異定價，Perplexity 的毛利結構還剩什麼？</li>
+        <li>usage-based 定價切換是真實增長的開始，還是一次性的計費重估？沒有月活拆分就無法判斷。</li>
+        <li>Perplexity 的出路是自研模型、被收購，還是成為 Anthropic 生態的一個垂直 UI 層？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-prometheus">
+    <div class="article-meta">
+      <span class="article-source">Financial Times · TechCrunch · Inc.</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Prometheus 想複製 Palantir，但沒有 Palantir 最難複製的那個東西</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Jeff Bezos 旗下隱身 AI 新創 Project Prometheus 聘請 Kyle Kosic 擔任基礎設施負責人，Kosic 曾共同創立 xAI 並在 120 天內主導建成 Memphis 的 Colossus 超級算力叢集，後轉投 OpenAI，現跳槽 Prometheus。公司由 Bezos 與前 Google X 負責人 Vikram Bajaj 共同領導，於 2025 年底成立，已獲約 $62 億融資。核心策略是先收購航太、製造與工程企業取得專有營運數據，再訓練產業專用模型。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Prometheus 的策略卡點不在資金或算力，而在數據工程能力。航太和製造業的感測器時序數據、CAD 檔案與品管影像格式差異極大，統一成可訓練格式的 pipeline 複雜度遠超 Kosic（算力叢集）或 Bajaj（Google X 實驗專案）的核心能力範圍，而 Palantir 花了 15 年才建好這套能力，目前 Prometheus 的公開團隊構成裡看不到對應的產業數據工程人才。更有歷史先例：GE Digital 和 Siemens MindSphere 都曾以「拿數據」為核心邏輯收購工業公司，最終拿到數據但失去懂數據語義的人，剩下一堆無上下文的原始紀錄。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>$62 億若分散到 6-8 家工業企業收購，每家整合複雜度都足以消耗一個管理團隊，Prometheus 的整合執行人才在哪裡？</li>
+        <li>Bezos 真正的差異化資產是 AWS 的企業客戶關係，Prometheus 有沒有辦法把 AWS 通路轉化成工業 AI 的商業化入口？</li>
+        <li>如果 Prometheus 複製了 GE Digital 的失敗路徑，$62 億之後還有多少容錯空間？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="web3-tether">
+    <div class="article-meta">
+      <span class="article-source">The Coin Republic · Bloomberg</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Tether 要你在審計出爐前先把錢交出來</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Tether 正以 $5,000 億估值進行私人融資，計畫出售約 3% 股權募集 $150 至 $200 億，並設下 14 天投資者決定截止期。目前 USDT（Tether 發行的美元穩定幣）流通量為 $1,840 億，穩定幣市場總值達 $3,170 億。Tether 在 2026 年 3 月宣布聘請四大會計師事務所（Big Four：Deloitte、PwC、EY、KPMG 其中之一）進行公司史上首次完整審計（此前多年僅提供第三方認證），審計結果尚未出爐。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Tether 設 14 天截止期，但審計結果要數月後才出爐，投資者實際上是在「估值先鎖定、透明度後補齊」的條件下下注。這個賽局結構對現有股東極度有利：若審計乾淨，Tether 可以在 IPO 前以更高估值再融一輪，稀釋本輪投資者的意義；若審計揭露儲備品質問題，本輪投資者面臨的是無法退出的道德風險。$5,000 億對應的隱含倍數約為 38 倍年利潤，這個估值錨定的是今日利率環境，但若穩定幣監管（如 GENIUS Act）強制備付金分散，Tether 的套利空間將被系統性壓縮，本輪投資者將直接承擔利率和監管的雙重尾部風險。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果審計揭露儲備組成和外界預期有差距，14 天截止期是否讓投資者失去了重新議價的籌碼？</li>
+        <li>GENIUS Act 若通過並要求穩定幣發行商分散備付金，$5,000 億估值的利潤假設會怎麼重算？</li>
+        <li>Tether 的真實意圖是 IPO 前的最後一輪私募，還是借助「四大審計」敘事拉高估值後套現？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-eth">
+    <div class="article-meta">
+      <span class="article-source">Coin Bureau · Cointelegraph · CoinGape</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>ETH 不是輸給 USDT，是輸給機構系統性出逃</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Polymarket 數據顯示，Ethereum 在 2026 年失去市值第二名的機率已從年初 17% 飆升至 60%。目前 ETH 市值約 $2,470 億，USDT 市值 $1,840 億，ETH 僅需再跌約 27%（至 $1,500 左右）即被翻轉，ETH 已從 2025 年 8 月歷史高點 $4,946 下跌超過 60%。Spot ETH ETF（直接持有 ETH 現貨的交易所交易基金，2024 年獲 SEC 批准）的 AUM（管理資產規模）從 2025 年 10 月的 $318.6 億暴跌至約 $117.6 億，蒸發 65%。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Spot ETH ETF 的 AUM 蒸發 65% 不是散戶恐慌，ETF 贖回需要機構主動操作，代表 BlackRock、Fidelity 等發行商的機構客戶正在系統性減持 ETH 敞口。ETH 失去 #2 地位本身對 DeFi 實際運作影響有限，但真正的受害者是 Optimism、Arbitrum 等 L2 基金會，這些組織大量持有 ETH 作為金庫儲備，敘事崩潰將同時打擊資產價值與募資能力。Tether 和 Circle 是這個對比中被強化的贏家，「功能性貨幣工具」取代「智能合約平台」佔市值第二，將是加密貨幣歷史上第一次。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果機構撤離 ETH 的邏輯是「缺乏明確的現金流故事」，Ethereum 基金會有什麼敘事可以重新吸引機構？</li>
+        <li>L2 基金會的 ETH 金庫若被迫減持，會對 Arbitrum、Optimism 的生態激勵預算產生多大衝擊？</li>
+        <li>穩定幣市值超越智能合約平台，對整個 Web3 的「價值捕獲層在哪裡」這個問題，意味著什麼？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="vc-eclipse">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch · Bloomberg</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Eclipse 的閉環生態可能讓 LP 的退出估值打折</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Eclipse Ventures 於 2026 年 4 月 7 日宣布完成 $13 億新基金募資，為公司成立 11 年來最大單次募集，超越 2023 年 $12.3 億紀錄。資金分為兩個基金：Fund VI（$7.2 億，聚焦成長期）與 Early Growth Fund III（$5.91 億，聚焦早期孵化），管理資產規模達約 $100 億。投資組合包含電池回收公司 Redwood Materials、自動駕駛工地車輛 Bedrock Robotics、自駕技術公司 Wayve 與工業機器人實驗室 Mind Robotics。Eclipse 不僅投資，還在內部孵化新創，並主動推動投組公司互為客戶與合作夥伴。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Eclipse 的「投組互為客戶」模式對早期公司有真實好處，可以跳過冷啟動直接拿到 Redwood Materials 或 Wayve 的採購合約。但這個模式對 LP 是一把雙面刃：若生態系內的關聯方交易佔各公司營收比例過高，退出時 PE 買家或戰略收購方會把這部分視為不可持續收入，直接折扣估值。Eclipse 在用「產業系統整合者」的邏輯做 VC，但如果它的被投公司最終只能在 Eclipse 生態內存活，外部退出的流動性就會被嚴重限制。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 Bedrock Robotics 的客戶有 60% 來自 Eclipse 投組，這家公司的獨立市場定價能力要怎麼評估？</li>
+        <li>Eclipse 的孵化和投資基金分開設立，利益衝突怎麼管？LP 的出資在兩個基金間的分配邏輯是什麼？</li>
+        <li>「物理 AI」的退出路徑是 IPO 還是被 GE、Honeywell、Lockheed 這類產業巨頭收購？這兩條路對估值的含義差很遠。</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-dragonfly">
+    <div class="article-meta">
+      <span class="article-source">Cointelegraph · Blockchainreporter</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Dragonfly 轉向「現實金融」，DeFi 創辦人的融資窗口正在關閉</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">加密原生 VC Dragonfly 於 2026 年 2 月完成 Fund IV 募集，規模 $6.5 億，超出原定 $5 億目標，管理資產規模約 $40 億。投資主題從純 DeFi 協議轉向穩定幣、去中心化預測市場、RWA（Real World Assets，將房地產、國債等現實資產代幣化後放上鏈交易）、類信用卡服務與貨幣市場基金。前一期 Fund III 代表性投資包括 Polymarket、Rain 與 Ethena。鏈上數據顯示，Dragonfly 於 4 月 5 日將 $212 萬 MNT（Mantle Network 原生代幣）轉入 Bybit，為 2 個月來首次資金流出。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Dragonfly 的主題轉向不是前瞻性的主動選擇，而是 DeFi 協議代幣普遍跌 80% 以上之後被迫重新定義「可退出資產」的範疇。贏家是已在 Fund III 佈局的 Ethena 和 Polymarket，頭部加密 VC 的敘事升級直接為這些標的帶來估值支撐。輸家是純鏈上 DeFi 協議的創辦人，當 Dragonfly 這個加密原生 VC 的旗手都把資金轉向更接近傳統金融的資產，這個類別的融資窗口正在系統性收窄，不是暫時的市場低潮。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果頭部加密 VC 都在轉向 RWA 和穩定幣基建，下一個週期還會有人給純鏈上 DeFi 創新提供早期資金嗎？</li>
+        <li>Dragonfly 的鏈上 $212 萬 MNT 流出發生在 Fund IV 剛完成募集之後，這是投組再平衡信號還是有更多後續操作？</li>
+        <li>RWA 代幣化需要監管許可，這和 DeFi「無需許可」的核心敘事是根本衝突，Dragonfly 怎麼跟 LP 解釋這個策略轉身的邏輯自洽性？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-04-10</span>
+</footer>
+
+<div class="podcast-player" id="podcast-player">
+  <audio id="podcast-audio" preload="metadata">
+    <source src="2026-04-10-podcast.mp3" type="audio/mpeg">
+  </audio>
+  <div class="podcast-progress-wrap" id="podcast-progress-wrap">
+    <div class="podcast-progress-fill" id="podcast-progress-fill"></div>
+  </div>
+  <div class="podcast-controls">
+    <button class="podcast-skip" id="podcast-back" aria-label="後退 15 秒">
+      <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+      <span>15</span>
+    </button>
+    <button class="podcast-play-btn" id="podcast-play" aria-label="播放">
+      <svg viewBox="0 0 24 24" id="podcast-play-icon"><polygon points="6,3 20,12 6,21"/></svg>
+    </button>
+    <button class="podcast-skip" id="podcast-fwd" aria-label="快進 30 秒">
+      <svg viewBox="0 0 24 24"><path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z"/></svg>
+      <span>30</span>
+    </button>
+    <div class="podcast-meta">
+      <span class="podcast-meta-label">Today's Podcast</span>
+      <span class="podcast-meta-title">Your Daily Dose of News — 2026-04-10</span>
+    </div>
+    <span class="podcast-time" id="podcast-time">0:00 / 0:00</span>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+
+  (function() {
+    const audio = document.getElementById('podcast-audio');
+    const player = document.getElementById('podcast-player');
+    const playBtn = document.getElementById('podcast-play');
+    const playIcon = document.getElementById('podcast-play-icon');
+    const timeEl = document.getElementById('podcast-time');
+    const progressFill = document.getElementById('podcast-progress-fill');
+    const progressWrap = document.getElementById('podcast-progress-wrap');
+    const backBtn = document.getElementById('podcast-back');
+    const fwdBtn = document.getElementById('podcast-fwd');
+    if (!audio || !player) return;
+
+    const pauseSVG = '<rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/>';
+    const playSVG = '<polygon points="6,3 20,12 6,21"/>';
+
+    function fmt(s) {
+      if (!s || !isFinite(s)) return '0:00';
+      const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+      return m + ':' + (sec < 10 ? '0' : '') + sec;
+    }
+
+    audio.addEventListener('loadedmetadata', function() {
+      player.style.display = 'flex';
+      document.body.style.paddingBottom = '80px';
+      timeEl.textContent = '0:00 / ' + fmt(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', function() {
+      timeEl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+      if (audio.duration) progressFill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+    });
+
+    audio.addEventListener('ended', function() {
+      playIcon.innerHTML = playSVG;
+    });
+
+    playBtn.addEventListener('click', function() {
+      if (audio.paused) { audio.play(); playIcon.innerHTML = pauseSVG; }
+      else { audio.pause(); playIcon.innerHTML = playSVG; }
+    });
+
+    backBtn.addEventListener('click', function() { audio.currentTime = Math.max(0, audio.currentTime - 15); });
+    fwdBtn.addEventListener('click', function() { audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 30); });
+
+    progressWrap.addEventListener('click', function(e) {
+      if (!audio.duration) return;
+      const pct = e.offsetX / progressWrap.offsetWidth;
+      audio.currentTime = pct * audio.duration;
+    });
+  })();
+</script>
+</body>
+</html>
