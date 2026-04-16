@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-04-16</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .podcast-player {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 98;
+      background: var(--ink);
+      color: var(--bg);
+      padding: 0;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 -4px 24px rgba(0,0,0,.25);
+    }
+    .podcast-progress-wrap {
+      width: 100%;
+      height: 3px;
+      background: rgba(255,255,255,.15);
+      cursor: pointer;
+      position: relative;
+    }
+    .podcast-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width .1s linear;
+      pointer-events: none;
+    }
+    .podcast-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 24px 12px;
+      max-width: 720px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .podcast-play-btn {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      background: #fff;
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .15s;
+    }
+    .podcast-play-btn:hover { transform: scale(1.08); }
+    .podcast-play-btn svg { width: 18px; height: 18px; fill: var(--ink); }
+    .podcast-skip {
+      background: none; border: none;
+      color: rgba(255,255,255,.6);
+      font-size: 11px; font-weight: 600;
+      cursor: pointer;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 1px; line-height: 1;
+      transition: color .15s;
+    }
+    .podcast-skip:hover { color: #fff; }
+    .podcast-skip svg { width: 18px; height: 18px; fill: currentColor; }
+    .podcast-meta {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .podcast-meta-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 11px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+    }
+    .podcast-meta-title {
+      font-size: 12px;
+      color: rgba(255,255,255,.65);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .podcast-time {
+      font-size: 11px;
+      font-variant-numeric: tabular-nums;
+      color: rgba(255,255,255,.5);
+      letter-spacing: .04em;
+      flex-shrink: 0;
+    }
+    @media (max-width: 600px) {
+      .podcast-controls { padding: 8px 16px 10px; gap: 10px; }
+      .podcast-meta-title { font-size: 11px; }
+      .podcast-skip { display: none; }
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 4 月 16 日　星期四</span>
+    <span class="header-count">9 篇</span>
+  </div>
+  <h1>當規則都還沒寫好，有人已經在動了</h1>
+  <p class="header-lede">這一期的共同線索是：生態都還沒正式啟動，內部的權力博弈就已經開始定形了。從 OpenAI 對 Anthropic 的防禦工具開放戰，到伊朗的比特幣收費站，再到 Kevin Warsh 的加密持倉衝擊，每個事件都指向同一個問題——最先定義規則的人，會贏。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-gpt5">OpenAI 的開放策略讓「防禦」與「擴散」只剩法律條款</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-mythos-test">Mythos 攻破無守門員的球場，贏的是公關部門</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-nvidia-ising">Nvidia Ising 量子 AI 目前只有意向書</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-hormuz-btc">霍爾木茲比特幣收費站建立在未驗證假設</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-etoro-zengo">eToro 買 Zengo 買的是工程師不是用戶</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-warsh-crypto">Warsh 的加密持倉暴露 Fed 職位的結構缺陷</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="ai-openai-gpt5">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / Axios / OpenAI Blog</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 的開放策略讓「防禦工具」和「攻擊能力擴散」只剩一份法律條款的距離</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OpenAI 於 4 月 14 日發布 GPT-5.4-Cyber，這是 GPT-5.4 旗艦模型的網路安全特別版，新增二進位逆向工程（binary reverse engineering，在沒有原始程式碼的情況下分析已編譯軟體以檢測惡意程式或漏洞）能力，並透過 Trusted Access for Cyber（TAC）計畫向數千名通過身份驗證的個人防禦者與數百個團隊開放。Anthropic 則在一週前推出 Claude Mythos，限制在約 40 個受信任合作夥伴。OpenAI 研究員 Fouad Matin 稱這是「沒有人應該扮演挑選贏家和輸家的角色」，直接批評 Anthropic 的白名單策略。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">TAC 計畫在數千人規模下，沒有任何基於憑證驗證的身份系統能抵擋 nation-state 級別的社交工程，技術邊界在對抗性環境下實質上只靠法律條款維持。Anthropic 的 40 個組織是可以做人工背景調查的規模，OpenAI 的數千人規模不是。真正的輸家是相信「降低拒絕閾值」背後有精確分類器支撐的企業買家，贏家是能通過驗證的紅隊研究者。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 OpenAI 的法律條款是唯一的技術邊界，那「開放防禦」和「攻擊能力擴散」在工程層面是同一件事嗎？</li>
+        <li>如果 Anthropic 拿下財政部或 CISA 的獨家供應商合約，它的白名單策略在估值上會比 OpenAI 的開放策略更有價值嗎？</li>
+        <li>中型企業資安團隊既進不了 Anthropic 白名單、又要排 OpenAI 驗證隊列，他們實際上被兩套策略同時排除在外，這個空缺誰會填？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-mythos-test">
+    <div class="article-meta">
+      <span class="article-source">UK AI Security Institute</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Mythos 攻破了一個沒有守門員的球場，AISI 測試報告的最大受益者是 Anthropic 的公關部門</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">英國 AI 安全研究所（AISI）對 Claude Mythos Preview 進行評估，建構了名為「The Last Ones」（TLO）的 32 步企業網路攻擊模擬，涵蓋從初始偵察到完全網路接管，估計人類需約 20 小時完成。Mythos 在 10 次嘗試中有 3 次完整完成全部 32 步，平均完成 22/32 步，次佳模型 Claude Opus 4.6 平均僅完成 16 步。在專家級 CTF（Capture the Flag，資安攻防競賽）挑戰中達到 73% 成功率。AISI 明確指出：測試環境無即時防禦者、無端點偵測、無即時事件回應。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">AISI 的測試環境等同於測量「無守門員時的射門精度」，Mythos 產生的攻擊行為特徵從未經過 CrowdStrike Falcon 或 SentinelOne 偵測模型的對照測試。這份基準測試證明了 AI 的自主規劃能力，但不能作為真實威脅等級的依據。以此作為採購依據的政府機構採購官是輸家，他們付的溢價有相當比例建立在一個刻意脆弱的測試設計上。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果失敗案例集中在需要即時適應性決策的橫向移動步驟，那瓶頸是規劃能力不足，還是工具調用的工程問題？這兩個診斷對防禦優先級的意義完全不同。</li>
+        <li>AISI 不公開 70% 失敗案例的步驟分布，是技術限制還是刻意選擇？如果是刻意選擇，誰有動機讓這份資訊缺失？</li>
+        <li>如果真實企業環境有 EDR 和即時事件回應，Mythos 的完成率會是多少？這個問題有沒有辦法被獨立驗證？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-nvidia-ising">
+    <div class="article-meta">
+      <span class="article-source">Nvidia Newsroom / Tom's Hardware</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Nvidia 的量子 AI 策略目前只有意向書生態，沒有一家機構公開量化數據</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Nvidia 於 4 月 14 日發布 Ising，全球首個專為量子電腦設計的開源 AI 模型家族，包含 Ising Calibration（視覺語言模型，將量子處理器校準從數天縮短至數小時）和 Ising Decoding（3D 卷積神經網路，量子錯誤校正解碼速度達現有最佳開源方案的 2.5 倍、精確度達 3 倍）。模型以 Apache-2.0 授權發布，首批 20 個採用機構包括 Harvard、Cornell、Fermilab、IonQ、UC Santa Barbara 等。Jensen Huang 稱其為「量子機器的作業系統」，IonQ 股價當日上漲逾 20%。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">20 個採用機構中目前可確認進入實測的只有學術實驗室，無一家揭露量化生產數據，所有第三方聲明均停留在「合作夥伴」層級。這與 CUDA 當年的關鍵差異在於：CUDA 有即時可跑的應用，Ising 的應用本身（商業量子硬體）尚不存在，目前整個生態更接近意向書的集合。更大的風險是 Google（Willow）和 IBM（Heron）都有自有工具鏈且封閉 API，Ising 的開放生態實際上只能覆蓋 IonQ 和學術硬體。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 Google 和 IBM 維持封閉策略，Nvidia 的開放生態能否在量子市場規模化之前形成足夠大的學術慣性，讓商業採購無法繞開它？</li>
+        <li>IonQ 漲超 20% 是因為市場真的相信 Ising 的生產價值，還是因為這是今年量子計算最具象徵意義的公告，本質上是一次流動性事件？</li>
+        <li>學術實驗室是否真的是商業量子採購的先行指標，還是這個假設本身就需要被驗證？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="web3-hormuz-btc">
+    <div class="article-meta">
+      <span class="article-source">All-In Podcast / CoinDesk / Bitcoin Magazine</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>霍爾木茲「比特幣收費站」的真實日結算量可能是數百萬美元，BTC 的 12% 漲幅建立在未被驗證的假設上</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">今日最重要訊號：2,100 萬美元的日結算假設尚未被鏈上數據支撐，多頭的倉位建立在未驗證的敘事上。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">伊朗於 2026 年 3 月 30-31 日通過「霍爾木茲海峽管理計畫」，正式將對過境油輪徵收通行費的制度法制化，費率約每桶 1 美元，接受 BTC、USDT 或人民幣（透過昆侖銀行經 CIPS 路由，繞過 SWIFT）支付。伊斯蘭革命衛隊（IRGC）對個別船舶最高收費 200 萬美元。以每日約 2,100 萬桶的通行量計算，潛在日收入約 2,100 萬美元、年化約 76 億美元。BTC 在衝突期間上漲約 12%，交易價格約 74,000 至 75,000 美元。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">比特幣 L1 的 10 分鐘區塊確認時間和費用波動性與航運即時通行需求根本不相容，最可能的實際架構是 IRGC 控制的 OTC 帳外記帳系統，定期做鏈上淨額結算，而非真正的區塊鏈交易。已有 CIPS 接入的中國國企船隊走人民幣結算的動機壓倒性地高於 BTC，BTC 最可能只服務於無法使用 CIPS 的非中國船東，真實日結算量可能是數百萬美元量級而非 2,100 萬美元。把這 12% 漲幅歸因於「BTC 從數位黃金轉向結算基礎設施敘事」而加倉的多頭，是建立在一個尚未被鏈上數據支撐的假設上。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 TRM Labs 公開鏈上實際 BTC 流量數據，並顯示與 2,100 萬美元有數量級差距，這個「結算基礎設施」敘事會如何影響目前持有 BTC 的多頭？</li>
+        <li>IRGC 的帳外記帳系統如果是主要架構，那這件事對 BTC 的意義是「被用作計價單位」而非「被用作結算工具」，這兩個角色的估值邏輯有沒有本質差異？</li>
+        <li>如果伊朗可以把 BTC 嵌入主權貿易計價，下一個有類似制裁壓力的國家會是誰，他們的規模是否足以真正移動結算量？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-etoro-zengo">
+    <div class="article-meta">
+      <span class="article-source">Messari / CoinDesk / Bloomberg</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>eToro 花 7,000 萬美元買了 200 萬用戶，但如果月活只有 30 萬，它買的是 MPC 工程師不是用戶</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">eToro 於 4 月 15 日宣布以約 7,000 萬美元（以現金為主）收購自託管加密錢包供應商 Zengo。Zengo 成立於 2018 年，以 MPC（Multi-Party Computation，多方計算，將私鑰分割為多個片段分散儲存以消除單點失敗風險）無鑰匙錢包架構著稱，公開用戶數超過 200 萬。收購後，Zengo 的錢包將保持獨立於 eToro 的受監管服務，用戶可直接與第三方協議互動。eToro 計畫透過此收購擴展至代幣化資產、預測市場、永續合約和收益產品等領域。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Zengo 公開的是累計下載量，非月活或資產管理規模，MPC 錢包的殭屍帳號比例在同類自託管錢包通常超過 60%。如果真實月活只有 30 至 40 萬，每用戶成本從 35 美元跳升至 175 至 230 美元，eToro 實際上買的是 Zengo 的 MPC 工程團隊而不是用戶基礎。真正受益的是 Zengo 的創辦人和早期投資人，以為這次收購能帶來分發效益的 eToro 股東才是輸家。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>eToro 若把 Zengo 定位成「KYC-native 自託管」給自己現有的 2,500 萬 CeFi 用戶，而不是去搶 DeFi 原生用戶，這套邏輯對 Coinbase Wallet 的威脅是真實的嗎？</li>
+        <li>Zengo 的錢包「保持獨立」這個設計，究竟是為了維持 Zengo 的品牌，還是 eToro 的法律合規部門要求隔離責任？</li>
+        <li>如果 eToro 即將 IPO，這筆收購的時間點是真的看好自託管趨勢，還是在上市前拉高科技屬性估值？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="vc-warsh-crypto">
+    <div class="article-meta">
+      <span class="article-source">Messari / Decrypt / CoinDesk</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Warsh 的加密持倉暴露了一個 Fed 主席職位的結構性缺陷：迴避在技術上不可能執行</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">今日最重要訊號：這不是一般的利益衝突案例，而是第一次有人把鏈上資產帶進貨幣政策核心，標準的「出售持倉」解法在技術上可能也無效。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Kevin Warsh 是 Trump 提名接替 Jerome Powell 的 Fed 主席人選，向美國政府倫理辦公室提交的 69 頁財務揭露文件顯示，與妻子合計資產至少達 1.92 億美元。透過 DCM Investments 10 LLC，Warsh 持有 Solana、Polymarket、Blast、Optimism、dYdX、Dapper Labs 等超過 20 個加密相關實體的股份，涵蓋 DeFi 協議、L1 鏈、NFT 平台與加密基礎設施。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Fed 主席的每一次公開發言，從利率決策到穩定幣監管框架，都會直接移動 Solana 和 dYdX 的價格，「迴避特定議題」在貨幣政策這個全局性職位上的技術可行性為零，這與「迴避某公司的監管決定」的傳統利益衝突結構有根本差異。更複雜的是，DCM Investments 10 LLC 底下的代幣可能處於鎖倉期或受 DAO 治理限制，「放入盲信託」對鏈上資產的法律意義本身就不明確，因為密鑰控制和治理參與在技術上無法分割。相信「出售持倉等於解決問題」的參議員是輸家，能以此為由要求 Warsh 在確認前完全退出加密部位的反對派是贏家。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>參議院確認委員會是否意識到這次利益衝突與傳統案例的結構差異，還是他們準備用「賣掉就好」的邏輯通過確認？</li>
+        <li>如果代幣確實在鎖倉期無法清算，Warsh 在擔任 Fed 主席期間的每一個貨幣政策決定是否都將帶著無法消除的衝突標籤？</li>
+        <li>這件事對後續想進入監管職位的加密原生投資人釋放了什麼訊號，會讓下一個有加密持倉的人主動放棄提名還是更刻意規避揭露？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-04-16</span>
+</footer>
+
+<div class="podcast-player" id="podcast-player">
+  <audio id="podcast-audio" preload="metadata">
+    <source src="2026-04-16-podcast.mp3" type="audio/mpeg">
+  </audio>
+  <div class="podcast-progress-wrap" id="podcast-progress-wrap">
+    <div class="podcast-progress-fill" id="podcast-progress-fill"></div>
+  </div>
+  <div class="podcast-controls">
+    <button class="podcast-skip" id="podcast-back" aria-label="後退 15 秒">
+      <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+      <span>15</span>
+    </button>
+    <button class="podcast-play-btn" id="podcast-play" aria-label="播放">
+      <svg viewBox="0 0 24 24" id="podcast-play-icon"><polygon points="6,3 20,12 6,21"/></svg>
+    </button>
+    <button class="podcast-skip" id="podcast-fwd" aria-label="快進 30 秒">
+      <svg viewBox="0 0 24 24"><path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z"/></svg>
+      <span>30</span>
+    </button>
+    <div class="podcast-meta">
+      <span class="podcast-meta-label">Today's Podcast</span>
+      <span class="podcast-meta-title">Your Daily Dose of News — 2026-04-16</span>
+    </div>
+    <span class="podcast-time" id="podcast-time">0:00 / 0:00</span>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+
+  (function() {
+    const audio = document.getElementById('podcast-audio');
+    const player = document.getElementById('podcast-player');
+    const playBtn = document.getElementById('podcast-play');
+    const playIcon = document.getElementById('podcast-play-icon');
+    const timeEl = document.getElementById('podcast-time');
+    const progressFill = document.getElementById('podcast-progress-fill');
+    const progressWrap = document.getElementById('podcast-progress-wrap');
+    const backBtn = document.getElementById('podcast-back');
+    const fwdBtn = document.getElementById('podcast-fwd');
+    if (!audio || !player) return;
+
+    const pauseSVG = '<rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/>';
+    const playSVG = '<polygon points="6,3 20,12 6,21"/>';
+
+    function fmt(s) {
+      if (!s || !isFinite(s)) return '0:00';
+      const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+      return m + ':' + (sec < 10 ? '0' : '') + sec;
+    }
+
+    audio.addEventListener('loadedmetadata', function() {
+      player.style.display = 'flex';
+      document.body.style.paddingBottom = '80px';
+      timeEl.textContent = '0:00 / ' + fmt(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', function() {
+      timeEl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+      if (audio.duration) progressFill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+    });
+
+    audio.addEventListener('ended', function() {
+      playIcon.innerHTML = playSVG;
+    });
+
+    playBtn.addEventListener('click', function() {
+      if (audio.paused) { audio.play(); playIcon.innerHTML = pauseSVG; }
+      else { audio.pause(); playIcon.innerHTML = playSVG; }
+    });
+
+    backBtn.addEventListener('click', function() { audio.currentTime = Math.max(0, audio.currentTime - 15); });
+    fwdBtn.addEventListener('click', function() { audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 30); });
+
+    progressWrap.addEventListener('click', function(e) {
+      if (!audio.duration) return;
+      const pct = e.offsetX / progressWrap.offsetWidth;
+      audio.currentTime = pct * audio.duration;
+    });
+  })();
+</script>
+</body>
+</html>
