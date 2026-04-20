@@ -282,8 +282,6 @@
       display: flex; align-items: center; justify-content: center;
       font-size: 10px;
       margin-top: 1px;
-      color: var(--ink);
-      font-weight: 700;
     }
     .key-signal-text {
       font-size: 13px;
@@ -522,22 +520,22 @@
 <header class="header">
   <div class="header-meta">
     <span class="header-date">2026 年 4 月 20 日　星期一</span>
-    <span class="header-count">8 篇</span>
+    <span class="header-count">7 篇</span>
   </div>
   <h1>你以為的安全，正在被重新定義</h1>
-  <p class="header-lede">從 Anthropic 的「安全治理」到 LayerZero 的「責任切割」，今日看到的是一個共同模式：當監管不夠明朗、技術足夠複雜時，安全與責任的定義權就落到敘事能力最強的一方手中。</p>
+  <p class="header-lede">Anthropic 用費率機制做政治保險、LayerZero 用合約設計切割責任、Kalshi 把法律戰當成市場邊界。今天有三個不同領域都在玩同一個遊戲：用系統設計替敗局製造掩護。</p>
 </header>
 
 <nav class="toc" aria-label="文章目錄">
   <div class="toc-label">Today's Agenda</div>
   <ol class="toc-list">
-    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-safety">Anthropic 的「安全治理」是一套 enterprise sales 漏斗</a></li>
-    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-tbpn">OpenAI 收購 TBPN 是一筆政治保險費</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic">Anthropic 的「安全治理」是一套 enterprise sales 漏斗</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai">OpenAI 收購 TBPN 是一筆政治保險費</a></li>
     <li><span class="toc-tag ai">AI</span><a href="#ai-schwab">Schwab 0.75% 費率打的是 Robinhood</a></li>
-    <li><span class="toc-tag ai">AI</span><a href="#ai-cursor">Cursor $50B 估值的真正風險</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-cursor">Cursor $50B 融資的炸彈：Anthropic 估值的空洞</a></li>
     <li><span class="toc-tag web3">Web3</span><a href="#web3-layerzero">LayerZero 的「責任在 Kelp」是政治陳述</a></li>
-    <li><span class="toc-tag vc">VC</span><a href="#vc-pantera">Pantera Spotlight 是 LP marketing 文件</a></li>
-    <li><span class="toc-tag web3">Web3</span><a href="#web3-kalshi">Kalshi 最高法院之戰的真正賭注</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-pantera">Pantera April Spotlight 是 LP marketing 文件</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-kalshi">Kalshi 最高法院之戰的真實賭注</a></li>
   </ol>
 </nav>
 
@@ -548,21 +546,18 @@
     <span class="section-count">4 篇</span>
   </div>
 
-  <article class="article" id="ai-anthropic-safety">
+  <article class="article" id="ai-anthropic">
     <div class="article-meta">
       <span class="article-source">Anthropic 官方 / Help Net Security / CNBC</span>
       <span class="article-tag ai">AI</span>
     </div>
     <h3>Anthropic 的「安全治理」是一套 enterprise sales 漏斗，不是安全政策</h3>
-
     <div class="context-label">事實背景</div>
     <p class="factual-context">Anthropic 在 4 月 16 日發布 Claude Opus 4.7，CyberGym（漏洞重現基準測試）成績 73.1%，介於 Mythos Preview（83.1%）與 GPT-5.4（66.3%）之間，視覺任務較上一版提升 13%。同步上線的 Cyber Verification Program（CVP）讓合法資安研究者可在 2 個工作天內取得豁免，繞過 4.7 的自動封鎖。頂層 Mythos Preview 則維持只對 Project Glasswing 的 50 家機構開放，搭配超過 1 億美元使用點數。</p>
-
     <div class="insight">
       <div class="insight-label">So What?</div>
       <p class="insight-text">研究指出，$100M usage credits 在會計上是行銷費用，不應計入 Anthropic 宣稱的 $30B ARR；若 Goldman/JPM 在 IPO 路演中被迫還原這個數字，估值倍數將下調。更關鍵的是：成為「trusted gatekeeper」的 50 家機構，是 Anthropic 最高 ARPU 客戶的候補名單，這套四層分發架構的真實功能是 enterprise sales 篩選，不是安全政策。Anthropic 的真正護城河是「拒發頂層模型」這個決策本身製造的 safety brand，而 OpenAI 同週用 GPT-Rosalind 複製了相同架構，差異化窗口最多 3 到 6 個月。</p>
     </div>
-
     <div class="thought">
       <div class="thought-label">值得追問</div>
       <ol>
@@ -573,21 +568,18 @@
     </div>
   </article>
 
-  <article class="article" id="ai-openai-tbpn">
+  <article class="article" id="ai-openai">
     <div class="article-meta">
       <span class="article-source">TechCrunch / CNBC / Slate</span>
       <span class="article-tag ai">AI</span>
     </div>
     <h3>OpenAI 收購 TBPN 不是媒體投資，是一筆政治保險費</h3>
-
     <div class="context-label">事實背景</div>
     <p class="factual-context">OpenAI 在 4 月 2 日宣布收購每日科技直播節目 TBPN，Financial Times 報導金額為「低三位數百萬美金」。TBPN 由 John Coogan 與 Jordi Hays 於 2024 年創辦，YouTube 訂閱不到 6 萬、X 有 34.5 萬 followers，但 Sam Altman、Satya Nadella、Mark Zuckerberg 均曾上節目。併入後，TBPN 直屬 OpenAI 政治長 Chris Lehane，而非任何產品線。</p>
-
     <div class="insight">
       <div class="insight-label">So What?</div>
       <p class="insight-text">研究清楚指出，TBPN 的價值不在觸及率，在於它是一個「看似獨立的矽谷對話舞台」。Chris Lehane 的身份是加密 super PAC Fairshake 的幕後操盤手，OpenAI 買的是在矽谷製造敘事的能力，邏輯與政治 super PAC 一致。真正的風險不是 ROI，而是當 TBPN 日後報導 Anthropic 或 Google 時，FTC 原生廣告揭露規則與 SEC 關聯方交易要求，可能讓這個安排在 IPO 前變成法律地雷。</p>
     </div>
-
     <div class="thought">
       <div class="thought-label">值得追問</div>
       <ol>
@@ -604,15 +596,12 @@
       <span class="article-tag ai">AI</span>
     </div>
     <h3>Schwab 0.75% 費率打的不是 Coinbase，打的是 Robinhood</h3>
-
     <div class="context-label">事實背景</div>
     <p class="factual-context">Charles Schwab 在 4 月 16 日公告 Schwab Crypto，提供現貨比特幣與以太坊交易，固定費率每筆 0.75%，可在 Schwab.com、Schwab Mobile 與 thinkorswim 平台操作。對比：Fidelity Crypto 收 1%、Coinbase 散戶最高可達 4%、Robinhood 區間 0.03% 至 0.95%。公告當天 COIN 與 HOOD 各下跌約 3%，Schwab 管理資產超過 10 兆美元。</p>
-
     <div class="insight">
       <div class="insight-label">So What?</div>
       <p class="insight-text">研究指出，Schwab 真正的競爭對象不是 Coinbase，原因很直接：Coinbase 的核心利潤來自 USDC 利息收入（2024 年超過 10 億美元）、Base sequencer revenue 以及機構託管費，這三條線加起來已超過散戶交易手續費貢獻，Schwab 0.75% 碰不到這些。被打到的是 Robinhood，因為兩者的客群 profile 高度重疊，都是習慣在同一個帳戶管理股票與資產的被動投資者，而 Robinhood 的加密費率溢價空間比 Coinbase 更薄。COIN 當日 -3% 很可能是過度反應，HOOD 的長期壓力才是還沒被定價的部分。</p>
     </div>
-
     <div class="thought">
       <div class="thought-label">值得追問</div>
       <ol>
@@ -629,15 +618,12 @@
       <span class="article-tag ai">AI</span>
     </div>
     <h3>Cursor $50B 融資的真正炸彈：Anthropic IPO 估值裡有一個空洞</h3>
-
     <div class="context-label">事實背景</div>
     <p class="factual-context">Cursor 母公司 Anysphere 正在洽談超過 20 億美元融資，估值達 500 億美元（部分報導上限 600 億）。Cursor 當前 ARR 達 20 億美元，企業客戶佔 60%，Fortune 500 採用率超過五成；2025 年 1 月 ARR 還只有 1 億美元，今年 2 月已達 20 億，年底目標 60 億。毛利剛靠自研 Composer 模型加上中國 Kimi（月之暗面 Moonshot AI 旗下模型）做成本組合才轉正。</p>
-
     <div class="insight">
       <div class="insight-label">So What?</div>
       <p class="insight-text">研究指出 Anthropic IPO 估值裡有一個結構性問題：Claude Code 的 25 億美元 ARR 是直接對開發者收費（高黏性），但相當比例的 enterprise ARR 是透過 Cursor 等 application layer 流出的 pass-through token（可被 Composer 替換，低黏性），兩者的估值倍數理應差距 2 到 3 倍。Kimi 的替代上限受 CFIUS 和出口管制限制，對 Anthropic 的真正威脅反而是 Cursor 自研 Composer 的持續進化，這個風險沒有地緣政治的監管阻力。如果 Anthropic 在 IPO 路演中選擇不主動拆分「直接 ARR vs pass-through ARR」，沉默本身就是信號。</p>
     </div>
-
     <div class="thought">
       <div class="thought-label">值得追問</div>
       <ol>
@@ -654,7 +640,7 @@
   <div class="section-header">
     <span class="section-label">Web3 &middot; Crypto</span>
     <span class="section-rule"></span>
-    <span class="section-count">2 篇</span>
+    <span class="section-count">3 篇</span>
   </div>
 
   <article class="article" id="web3-layerzero">
@@ -663,20 +649,16 @@
       <span class="article-tag web3">Web3</span>
     </div>
     <h3>LayerZero 的「責任在 Kelp」是政治陳述，不是技術事實</h3>
-
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">2026 年 4 月 18 日 17:35 UTC，攻擊者透過 Kelp DAO 的 LayerZero 跨鏈橋取走 116,500 顆 rsETH（Kelp DAO 發行的流動性再質押代幣，代表用戶把 stETH 再質押給 EigenLayer 取得的多重收益憑證），約佔流通供應的 18%，市值約 2.92 億美元。攻擊手法是先入侵 DVN（去中心化驗證網路）的兩個 RPC 節點，再對乾淨節點發動 DDoS，偽造跨鏈訊息通過 Kelp 的 1-of-1 單一驗證者配置。Aave TVL 從 264 億美元跌至約 200 億美元，協議承擔約 1.96 億美元壞帳。4 月 20 日 LayerZero 公開把責任指向 Kelp 的單驗證者架構，並稱早已多次書面警告。</p>
     <div class="key-signal">
       <span class="key-signal-icon">!</span>
       <span class="key-signal-text">Lazarus Group 在 18 天內用兩種完全不同手法打走 DeFi 5.75 億美元。這不是「智能合約又被駭」，而是 DeFi 的攻擊面已從合約層升級到整條跨鏈基礎設施供應鏈，且對手是國家級行為者。</span>
     </div>
-
-    <div class="context-label">事實背景</div>
-    <p class="factual-context">2026 年 4 月 18 日 17:35 UTC，攻擊者透過 Kelp DAO 的 LayerZero 跨鏈橋取走 116,500 顆 rsETH（Kelp DAO 發行的流動性再質押代幣，代表用戶把 stETH 再質押給 EigenLayer 取得的多重收益憑證），約佔流通供應的 18%，市值約 2.92 億美元。攻擊手法是先入侵 DVN（去中心化驗證網路）的兩個 RPC 節點，再對乾淨節點發動 DDoS，偽造跨鏈訊息通過 Kelp 的 1-of-1 單一驗證者配置。Aave TVL 從 264 億美元跌至約 200 億美元，協議承擔約 1.96 億美元壞帳。4 月 20 日 LayerZero 公開把責任指向 Kelp 的單驗證者架構，並稱早已多次書面警告。</p>
-
     <div class="insight">
       <div class="insight-label">So What?</div>
       <p class="insight-text">研究指出，LayerZero 的 Endpoint 合約在技術上完全可以設計「強制拒絕單一 DVN 簽章」的門檻，但選擇不實作，因此「責任在應用層」的說法是政治陳述而非技術事實。LayerZero 是短期贏家，因為成功切割法律責任；Kelp DAO 與 Aave 是明確輸家；但真正的隱性曝險持有人，是那些目前仍在跑 single-DVN 配置的其他協議，而 LayerZero 從未公開這個比例。對 VC 做 DeFi due diligence 的實際意義是：LayerZero/Wormhole/CCIP 的驗證者配置從今天起是一個可量化的必填盡職調查欄位。</p>
     </div>
-
     <div class="thought">
       <div class="thought-label">值得追問</div>
       <ol>
@@ -687,61 +669,46 @@
     </div>
   </article>
 
-  <article class="article" id="web3-kalshi">
-    <div class="article-meta">
-      <span class="article-source">Fortune / Washington Post / Bloomberg</span>
-      <span class="article-tag web3">Web3</span>
-    </div>
-    <h3>Kalshi 的最高法院之戰，真正在賭聯邦法能不能繞過所有州的賭博法</h3>
-
-    <div class="context-label">事實背景</div>
-    <p class="factual-context">Kalshi 是 CFTC 認可的 Designated Contract Market（DCM，聯邦商品法規範的合約市場），估值 220 億美元；Polymarket 估值 200 億美元，以境外架構、USDC 結算、匿名帳號運作。Kalshi 與多州監管機構就體育賽事預測合約的合法性爭議已走到指向最高法院的節點，Bernstein 預估預測市場全球規模到 2030 年達 1 兆美元，Cantor Fitzgerald 將 HOOD 和 COIN 列為主要分發受益標的。</p>
-
-    <div class="insight">
-      <div class="insight-label">So What?</div>
-      <p class="insight-text">研究指出，Kalshi 的真正法律挑戰是說服保守派主導的最高法院採用「功能性測試」（這個合約是否等同賭博行為），而非「本質測試」（底層事件是否屬於競技博弈）。Nadex 體育合約案就是用「本質測試」被擋下的先例，Kalshi 的論述基礎需要大量法庭之友支持才能翻轉這個邏輯。就算 Kalshi 勝訴，DraftKings 申請 DCM 牌照的邏輯成本極低，窗口期只有 12 到 24 個月，而且 Kalshi 最難被複製的護城河不是牌照，是流動性飛輪，DraftKings 的 3,000 萬用戶不會自動變成流動性提供者。</p>
-    </div>
-
-    <div class="thought">
-      <div class="thought-label">值得追問</div>
-      <ol>
-        <li>如果 Kalshi 勝訴，DraftKings 是直接申請 DCM 牌照、還是用 3,000 萬用戶的分發優勢收購一個競品，哪個對 Kalshi 更危險？</li>
-        <li>「預測市場提供價格發現功能」這個論述，保守派大法官聽起來像金融工具還是像賭場業者的包裝說法？</li>
-        <li>Polymarket 如果在美國監管收緊後把成長集中在東南亞和拉美，這條路徑對 crypto-native prediction market 是機會還是規模天花板？</li>
-      </ol>
-    </div>
-  </article>
-
-</section>
-
-<section class="section-block">
-  <div class="section-header">
-    <span class="section-label">VC &middot; 投資動態</span>
-    <span class="section-rule"></span>
-    <span class="section-count">1 篇</span>
-  </div>
-
-  <article class="article" id="vc-pantera">
+  <article class="article" id="web3-pantera">
     <div class="article-meta">
       <span class="article-source">Pantera Capital / Fortune</span>
       <span class="article-tag vc">VC</span>
     </div>
     <h3>Pantera 的 April Spotlight 是一份 LP marketing 文件，不是組合更新</h3>
-
     <div class="context-label">事實背景</div>
     <p class="factual-context">Pantera Capital 在 2026 年 4 月發布 Portfolio Spotlight，點名四家公司：Figure（2025 年 9 月以 7.87 億美元規模在 Nasdaq 掛牌）、Ondo（機構級鏈上交易）、Surf（加密 AI 研究工具，ARR 200 萬美元，月增長 50%，目標年底達 1,000 萬美元）、M0（白牌穩定幣基建，MetaMask mUSD 與 PayPal PYUSDx 均為其案例）。時間點恰好與 Fortune 4 月 16 日報導「Paradigm 與 a16z 組合縮水」同步。</p>
-
     <div class="insight">
       <div class="insight-label">So What?</div>
       <p class="insight-text">研究清楚指出，這份 Spotlight 的編排邏輯是把 Figure 的已實現 IPO 回報，替其他三個流動性極差、尚未驗證留存的持倉做隱性背書。Pantera 在同一份文件中不揭露持倉成本與當前 mark，Surf 的 $2M ARR 種子期估值和 M0 的 pre-revenue 狀態根本沒有可比市場定價基準。這是 LP marketing，贏家是 Pantera 的 IR 團隊，在 a16z 組合縮水的負面語境中成功切換敘事；輸家是不仔細拆讀 Spotlight 的 LP。</p>
     </div>
-
     <div class="thought">
       <div class="thought-label">值得追問</div>
       <ol>
         <li>Surf 宣稱月增長 50%，但如果這指的是免費用戶而非 ARR 增長，兩個數字可以同時成立卻指向完全不同的商業健康度，你怎麼問出這個差別？</li>
         <li>Pantera 把「有 cashflow 的組合」當成對 LP 的核心訴求，如果 Surf 年底沒有達到 $10M ARR，這個敘事怎麼維持？</li>
         <li>「把已實現 return 和未驗證持倉放在同一份文件」是 crypto VC 的標準操作，LP 有沒有辦法系統性地要求分開揭露？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-kalshi">
+    <div class="article-meta">
+      <span class="article-source">Fortune / Washington Post / Bloomberg</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Kalshi 最高法院之戰，真正在賭聯邦法能不能繞過所有州的賭博法</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Kalshi 是 CFTC 認可的 Designated Contract Market（DCM，聯邦商品法規範的合約市場），估值 220 億美元；Polymarket 估值 200 億美元，以境外架構、USDC 結算、匿名帳號運作。Kalshi 與多州監管機構就體育賽事預測合約的合法性爭議已走到指向最高法院的節點，Bernstein 預估預測市場全球規模到 2030 年達 1 兆美元，Cantor Fitzgerald 將 HOOD 和 COIN 列為主要分發受益標的。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指出，Kalshi 的真正法律挑戰是說服保守派主導的最高法院採用「功能性測試」（這個合約是否等同賭博行為），而非「本質測試」（底層事件是否屬於競技博弈）。Nadex 體育合約案就是用「本質測試」被擋下的先例，Kalshi 的論述基礎需要大量法庭之友支持才能翻轉這個邏輯。就算 Kalshi 勝訴，DraftKings 申請 DCM 牌照的邏輯成本極低，窗口期只有 12 到 24 個月，而且 Kalshi 最難被複製的護城河不是牌照，是流動性飛輪，DraftKings 的 3,000 萬用戶不會自動變成流動性提供者。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 Kalshi 勝訴，DraftKings 是直接申請 DCM 牌照、還是用 3,000 萬用戶的分發優勢收購一個競品，哪個對 Kalshi 更危險？</li>
+        <li>「預測市場提供價格發現功能」這個論述，保守派大法官聽起來像金融工具還是像賭場業者的包裝說法？</li>
+        <li>Polymarket 如果在美國監管收緊後把成長集中在東南亞和拉美，這條路徑對 crypto-native prediction market 是機會還是規模天花板？</li>
       </ol>
     </div>
   </article>
