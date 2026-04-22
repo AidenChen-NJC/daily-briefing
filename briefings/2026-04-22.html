@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-04-22</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .podcast-player {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 98;
+      background: var(--ink);
+      color: var(--bg);
+      padding: 0;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 -4px 24px rgba(0,0,0,.25);
+    }
+    .podcast-progress-wrap {
+      width: 100%;
+      height: 3px;
+      background: rgba(255,255,255,.15);
+      cursor: pointer;
+      position: relative;
+    }
+    .podcast-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width .1s linear;
+      pointer-events: none;
+    }
+    .podcast-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 24px 12px;
+      max-width: 720px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .podcast-play-btn {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      background: #fff;
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .15s;
+    }
+    .podcast-play-btn:hover { transform: scale(1.08); }
+    .podcast-play-btn svg { width: 18px; height: 18px; fill: var(--ink); }
+    .podcast-skip {
+      background: none; border: none;
+      color: rgba(255,255,255,.6);
+      font-size: 11px; font-weight: 600;
+      cursor: pointer;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 1px; line-height: 1;
+      transition: color .15s;
+    }
+    .podcast-skip:hover { color: #fff; }
+    .podcast-skip svg { width: 18px; height: 18px; fill: currentColor; }
+    .podcast-meta {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .podcast-meta-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 11px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+    }
+    .podcast-meta-title {
+      font-size: 12px;
+      color: rgba(255,255,255,.65);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .podcast-time {
+      font-size: 11px;
+      font-variant-numeric: tabular-nums;
+      color: rgba(255,255,255,.5);
+      letter-spacing: .04em;
+      flex-shrink: 0;
+    }
+    @media (max-width: 600px) {
+      .podcast-controls { padding: 8px 16px 10px; gap: 10px; }
+      .podcast-meta-title { font-size: 11px; }
+      .podcast-skip { display: none; }
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 4 月 22 日　星期三</span>
+    <span class="header-count">13 篇</span>
+  </div>
+  <h1>當北韓、Musk、Warsh 同週出手</h1>
+  <p class="header-lede">這一週三個不同陣營的決定，幾乎同時重新定義了 AI agent 的商業與政治邊界，以及機構資本對 stablecoin 和加密資產的風險評估。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-spacex-cursor">SpaceX $60B Cursor 選擇權</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-meta-keystroke">Meta 員工鍵盤動作蒐集</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-neocognition">NeoCognition $40M world model</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-codex">OpenAI Codex 桌面主介面</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-arbitrum-freeze">Arbitrum 凍結駭客資產</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-layerzero">LayerZero 強制升級</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-warsh-stablecoin">Warsh 反對 CBDC</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-uk-agent">UK AI agent payment</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-xrpl-quantum">XRPL 量子抗性</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-strategy-bitcoin">Strategy 超車 BlackRock</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-tempo-tether">Tempo 和 Tether</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-humanoid">中國 humanoid 出貨</a></li>
+  </ol>
+</nav>
+
+<!-- AI · 科技 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <article class="article" id="ai-spacex-cursor">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch / Bloomberg / CNBC</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>SpaceX 用 $10B「合作費」把 Cursor 從 Anthropic 生態拉走，這才是真正的損失</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Anthropic 在 Fortune 1000 最大的 reference account 被 Musk 三合一結構（收購選擇權、合作費、Colossus 接入）截胡，這是一次 distribution channel 的劫掠。</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">SpaceX 揭露與 Cursor（正式公司名 Anysphere）的新合作結構：SpaceX 可在 2026 年底前以 $60B 收購 Cursor，或支付 $10B 作為合作費，核心是把 Cursor 的 coding agent 接入 xAI 的 Colossus 超算（Musk 在 Memphis 建置的訓練中心，10 萬 H100 級 GPU 起跳）。同期 Cursor 正接近完成 $2B 融資、估值 $50B，由 a16z、Thrive Capital、Nvidia 共同領投。Cursor 的 ARR 從 0 到 $2B 僅 3 年，Fortune 1000 中 70% 已是客戶。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Musk 的 $10B 本質上是「不可被 Anthropic 搶走的優先合作費」，這個結構讓 Anthropic 失去的不是 $1B 收入，而是自己在 Fortune 1000 最關鍵的一塊 reference account。Cursor 原本是 Claude Code 的重度客戶，SpaceX 這個三合一結構（收購選擇權、合作費、Colossus 接入）一旦執行，等同 Anthropic 最大的 enterprise 分銷通路被 xAI 截胡。Nvidia 同時領投這一筆，再次確認 AI coding agent 是下一個計算需求爆發點的判斷，而不只是財務配置。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 Cursor 接入 Colossus 後真的把底層模型從 Claude 換成 Grok，Anthropic 在 Fortune 1000 的續約率會怎麼變？</li>
+        <li>SpaceX 觸發 $60B 收購選擇權後，a16z、Thrive、Nvidia 這三個剛進場的股東，退出價格會怎麼算？</li>
+        <li>Codex Computer Use 和 Cursor forward-deployed agent 在客戶端會直接重疊，OpenAI 是在幫 Cursor 做市場教育還是在搶它的客戶？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-meta-keystroke">
+    <div class="article-meta">
+      <span class="article-source">Fortune / TechCrunch / Gizmodo</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Meta 先把員工的鍵盤動作學下來，裁員後 agent 才有東西可以模仿</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Meta 於 4/21 在 Meta Superintelligence Labs（Alexandr Wang 領導）的內部 channel 宣布啟動 Model Capability Initiative（MCI），在美國員工工作電腦上擷取 keystroke、cursor movement、click 和部分 screenshot，餵入 AI 訓練 pipeline，目標是訓練可自主執行 white-collar 任務的 AI agent。同期 Meta 宣布 2026 AI capex 上看 $135B，並將裁員最多 20%（首輪 5 月執行）。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Anthropic 和 OpenAI 有 consumer privacy 承諾，無法在用戶端廣泛採集這類行為資料，Meta 用「員工屬於內部勞動力契約」繞過了這個限制，在 agent 訓練資料的採集上取得了結構性優勢。三件事疊在一起，Zuckerberg 等同公開宣告「agent 會在 18 到 24 個月內取代 20% 的 Meta white-collar 工作，而在那之前，我需要先把他們的動作記錄下來」，這是一個 CEO 層級的 calibrated prediction，不是模糊的願景聲明。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 MCI 被證明能縮短 agent 訓練週期，Google 和 Microsoft 會怎麼修改員工的數據使用條款？</li>
+        <li>一個員工的 keystroke dataset 在離職後能否被繼續用於訓練，這個問題在現有勞動法框架下有答案嗎？</li>
+        <li>台灣外商在地分公司的員工，和美國總部員工會適用同一套 MCI 規則嗎？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-neocognition">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch / PR Newswire</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>NeoCognition $40M seed 的真正信號是顧問名單，不是估值</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">NeoCognition 於 4/21 宣布 $40M seed、從隱身模式現身。Cambium Capital 與 Walden Catalyst Ventures 共同領投，Vista Equity Partners 跟投。創辦人 Yu Su 是 Ohio State University 助理教授、Sloan Research Fellow（頂尖年輕學者聲望獎項），長期經營美國規模最大的 AI agent 研究 lab 之一。顧問陣容：Intel CEO Lip-Bu Tan、Databricks 共同創辦人 Ion Stoica、Dawn Song、Ruslan Salakhutdinov、Luke Zettlemoyer。產品定位是「specialized intelligence」，agent 會持續學習特定工作環境的結構與約束條件，公司稱之為「world model of work」（模型內化被模擬環境的狀態遷移函數，用於 model-based planning）。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">seed 輪同時拿到 Lip-Bu Tan、Ion Stoica、Dawn Song、Zettlemoyer 背書，這種「產業 CEO 加上學術重量級人馬」的顧問密度通常要等到 Series B 才會出現。這個組合的信號是：研究型 AI 新創在 2026 仍能吃到 $40M seed 級別的資金，而這條「specialization via world model」的路線被產業頂尖人物同時認可，是一個相對稀缺的 thesis 共識訊號。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>「持續從特定 vertical 學 world model」的 agent，比 general LLM fine-tune 在什麼類型的任務上真的會有可量化的優勢？</li>
+        <li>如果 NeoCognition 的 expert agent 需要 5 到 7 年才能超越通用 LLM，Cambium 和 Walden 的退出視窗怎麼設計？</li>
+        <li>Intel Lip-Bu Tan 私下投資 agent 新創，和 Intel 自己的 edge AI 晶片路線有沒有直接的商業連動？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-openai-codex">
+    <div class="article-meta">
+      <span class="article-source">OpenAI 官方 / MindwiredAI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 把 Codex 升為桌面主介面，ChatGPT 的中心地位正在被架空</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OpenAI 於 4/17 推出 Codex 原生桌面 app（macOS 和 Windows），4/21 進入新聞週期高峰。三個新能力：Computer Use（讀取螢幕、控制滑鼠、在任何桌面 app 操作，Anthropic 2024-10 先發的功能）、In-app Browsing（app 內直接啟動 web 瀏覽）、Memory（跨 session 記住 coding 風格和專案偏好）。Codex 從 ChatGPT 的一個功能模組升級為獨立桌面 app。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">這個 IA（資訊架構）轉向的真正含意是：ChatGPT 2022 到 2025 年的中心地位正在被重新定錨，OpenAI 自己把 coding agent 推到桌面主介面，意味著未來 ChatGPT 可能成為「Codex 的一個聊天入口」，而不是 Codex 是 ChatGPT 的功能。壓力最大的不是 Anthropic，而是 Microsoft Copilot，因為 Codex 的 Computer Use 幾乎完全取代 Windows Copilot 的跨 app agent 定位，OpenAI 等同在 Microsoft 的產品線內部放了一個直接競爭對手。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 Codex Computer Use 可以直接「開一個 SaaS 然後用滑鼠幫用戶做完任務」，垂直 SaaS 的 API 整合策略還剩下什麼護城河？</li>
+        <li>Microsoft 和 OpenAI 的合約結構有沒有禁止 OpenAI 推出直接與 Copilot 競爭的產品？</li>
+        <li>ChatGPT 的月活用戶數如果在 Codex 獨立後開始下滑，OpenAI 的廣告和訂閱收入模型會怎麼調整？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<!-- Web3 · Crypto -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">7 篇</span>
+  </div>
+
+  <article class="article" id="web3-arbitrum-freeze">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / TheDefiant / Chainalysis</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Arbitrum 凍結 $71M 讓「L2 不可審查」變成一句過時的 pitch</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Arbitrum 投票凍結駭客資產，公開證明 L2 可以單方面鎖定任何地址。這個事實重新定義了所有 L2 對機構的風險揭露義務。</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">4/18，攻擊者對 KelpDAO（rsETH，即 Kelp DAO 發行的以太坊流動性重質押代幣，持有者同時享有 staking 收益與 EigenLayer restaking 積分）的 LayerZero 跨鏈 bridge 偽造訊息，觸發釋出 116,500 rsETH（約 $292M，佔流通供應 18%），隨即在 Aave V3 抵押借出 $196M WETH 並跨鏈出逃。Aave TVL 從 $26.4B 掉到 $18.6B，整體 DeFi TVL 兩日內從 $99.5B 跌至 $86.3B。4/21，Arbitrum Security Council（12 人多簽治理層）以 9 票對 12 票同意，凍結攻擊者在 Arbitrum One 持有的 30,766 ETH（約 $71M），轉入 protocol-controlled address。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">這次凍結公開證偽了「L2 不可能單方面凍結用戶資產」的假設，L2Beat 的 Stage 1 rollup 分類在機制上已站不穩，因為 fraud proof 機制和 multisig 凍結是兩個獨立的權力層，後者的存在讓前者的去中心化承諾變成部分空話。輸家是那些把 Arbitrum 當作「不可審查 L2」來設計風險模型的協議，例如 GMX 和 Radiant，它們的風險模型需要重寫。贏家是機構 RWA 業務，「有緊急凍結能力的 L2」反而更符合機構合規要求。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 Arbitrum Security Council 可以凍結駭客資產，它有沒有同樣的機制可以凍結普通用戶的資產？邊界在哪裡？</li>
+        <li>GMX、Radiant 這類深度依賴 Arbitrum 的協議，在重新評估風險後，有沒有可能遷移到其他 L2？</li>
+        <li>「有緊急凍結能力」這個特性，會不會成為 L2 在機構 RWA 招商時的標準 feature 而非 bug？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-layerzero">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / TheDefiant / LayerZero 官方</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>LayerZero 強制升級把 40% 客戶推進遷移視窗，這是 Wormhole 和 Hyperlane 的機會</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">LayerZero 在 KelpDAO 事件的 postmortem 中以 preliminary confidence 將攻擊歸因於北韓 Lazarus Group 的 TraderTraitor 子組，攻擊手法是同時控制兩個為 Kelp 提供資料的 RPC 節點，並 DDoS 合法節點以強迫 verifier 讀取中毒資料。LayerZero 宣布「今後不再為任何單一 DVN（Decentralized Verifier Network，LayerZero 用來驗證跨鏈訊息的驗證器組合）配置的協議簽訊息」，但 KelpDAO 反嗆 LayerZero 的 quickstart 文件和 GitHub 預設就是 1/1 DVN 配置，且目前約 40% 的 LayerZero 接入協議仍在使用同樣配置。同期，加上 4/1 Drift Protocol $285M，Lazarus 近三週戰績接近 $580M。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">LayerZero 把責任部分推給「1/1 DVN 是 Kelp 自己的配置選擇」，真正的擔憂是這 40% 的客戶會在強制升級窗口期流失給 Wormhole 和 Hyperlane，因為對規模較小、沒有大型技術團隊的 DeFi 協議來說，「重新招標」和「原地升級」的摩擦成本差距正在縮小。LayerZero 這次 postmortem 的公關策略，同時是一場搶在競爭對手卡位之前把客戶釘住的防禦行動，成效要在未來三個月的客戶遷移率上才能觀察到。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>那 40% 仍在用 1/1 DVN 的協議，有沒有理由在升級時選擇留在 LayerZero 而非切換到 Wormhole 或 Hyperlane？</li>
+        <li>如果 Lazarus 近三週拿走了 $580M，這個數字對 DeFi 的「保險費」定價會有什麼影響？</li>
+        <li>機構做 bridge risk due diligence 時，「DVN 配置、RPC 冗餘、Security Council threshold」這三個問題，哪一家審計公司目前有能力做完整評估？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-warsh-stablecoin">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / CNBC / The Block</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Warsh 反對 CBDC 讓 Circle 面對的真正威脅是銀行自己發 stablecoin</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Kevin Warsh 於 4/21 出席參議院銀行委員會聽證，個人財產清單顯示持有 $100M 以上加密相關部位，具名包含 Bitwise Asset Management、Solana、dYdX、Polymarket、Bitcoin Lightning 新創 Flashnet。他把 BTC 定位為「under-40 的新黃金」，並公開反對 CBDC（央行數位貨幣），稱其為「a bad policy choice」。聽證當日 BTC 下探 $75,000 附近，主因是伊朗停火談判 4/22 deadline 的宏觀不確定性。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Warsh 反對 CBDC 被市場解讀為 Tether 和 Circle 的政策紅利，但 Circle 面對銀行自發 stablecoin 的競爭比面對 CBDC 更危險。在「Fed 不做 CBDC」的環境下，JPMorgan JPM Coin 和大型銀行的 tokenized deposit（由銀行代幣化的商業銀行存款，享有存款保險保護）反而有更強的動機擴張，而這些產品有存款保險加持，在合規能力上直接壓過 Circle。短期贏家是 Tether、Circle、Ripple RLUSD、PayPal PYUSD，但 Circle 的護城河並不因此穩固。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 JPMorgan JPM Coin 和 Circle USDC 同時接受 Genius Act 規範，存款保險這個差異點會怎麼影響機構客戶的選擇？</li>
+        <li>Warsh 就任後持倉進入 blind trust，政策仍然利好他剛賣掉的資產，現有 Fed ethics framework 有沒有辦法處理這個結構性漏洞？</li>
+        <li>台灣金融機構如果要選 stablecoin 結算對手方，在「美國不做 CBDC」的政策環境下，合規盡職調查的標準會怎麼改寫？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-uk-agent">
+    <div class="article-meta">
+      <span class="article-source">The Block / Cointelegraph / Bank of England</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>UK 把 AI agent payment 寫進監管文件，但目前是願景聲明不是可執行條文</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">UK Treasury 於 4/21 UK Fintech Week 發布新規則書，把 conventional payments、stablecoin payments、tokenized bank deposit（由合規銀行以鏈上技術代幣化的商業銀行存款，享有存款保險保護）合併為單一監管框架。配套：£1M 撥款給 Centre for Finance, Innovation and Technology，任命 Chris Woolard CBE 為 Wholesale Digital Markets Champion，授權申請 2026-09-30 開放，正式生效日 2027-10-25。文件首次提及 AI agent-initiated payment（由 AI agent 基於用戶授權自動發起的支付）的規範需求。同日 Coinbase 在英國上線 USDC 借貸（以 BTC、ETH、cbETH 抵押，最高 $5M USDC，由 Morpho on Base 提供底層流動性）。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">UK Treasury 文件中 AI agent payment 的規範語言目前是 aspirational framework，不是可執行條文。2027-10-25 生效的是 stablecoin 和 tokenized deposit 的授權框架，agent payment 的具體規則仍在諮詢階段。與 EU MiCA「完全沒提 agent」的差距，目前只是「有提到」對「沒提到」，而不是「有規則」對「沒規則」，真正的制度優勢要等到 2027 諮詢結束後才能確認。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 agent payment 的具體條文要到 2028 年才落地，現在卡位的 Stripe Tempo 和 Coinbase 在這個窗口期的優勢是什麼？</li>
+        <li>UK 把 agent payment 寫進「aspirational framework」這個動作，會不會讓 EU 在 MiCA 修訂時被迫跟進？</li>
+        <li>台灣金管會如果要參考 UK 框架寫 agent payment 規則，目前可以拿去用的只有「問題清單」，還是已經有足夠的內容？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-xrpl-quantum">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / Ripple 官方 / 24/7 Wall St</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>XRPL 量子路線圖是給機構 CIO 看的文件，但 80% validator 投票門檻是 Ripple 說了算</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Ripple 於 4/21 公開 XRPL 量子抗性四階段路線圖，目標 2028 全面過渡。Phase 1 是 Q-day 緊急模式（允許強制遷移到 quantum-safe accounts，並以 zero-knowledge proof 讓資金持有者在不暴露私鑰的情況下完成資產回復）、Phase 2 是全網弱點評估（2026 年內，與 Project Eleven 合作）、Phase 3 是 testnet 整合（2026 H2）、Phase 4 是 mainnet 全面過渡（2028，透過 XRPL amendment 需 80% validator 投票通過）。BTC 和 ETH 目前尚無公開的量子過渡時程。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">XRPL 的預設 UNL（Unique Node List，validator 的可信清單）由 Ripple 維護，Ripple 關聯節點歷史上佔預設 UNL 超過 50%，且多數獨立 validator 跟隨 Ripple 推薦清單，Phase 4 的「去中心化投票」在實際操作上接近 Ripple 願意推就能過的機制。這與 Ripple 對機構的 RWA pitch 中「去中心化公鏈」的定位形成明確矛盾，機構客戶買到的是 Ripple 公司的技術承諾，而非真正去中心化網路的集體決策。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 XRPL Phase 4 實際上是 Ripple 單方面可執行的升級，機構在 RWA 合約中應該如何描述這個公鏈的「去中心化程度」？</li>
+        <li>BTC core developers 看到 XRPL 這份路線圖後，有多大壓力在 6 到 12 個月內提出對應的 PQC 研究時程？</li>
+        <li>台灣法規對「去中心化公鏈」的定義，有沒有辦法在 XRPL 這個案例中畫出清楚的邊界？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-strategy-bitcoin">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / 24/7 Wall St / Strategy 官方</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Strategy 超車 BlackRock，但 S&P 500 納入卡在「它更像 closed-end fund」這個分類問題</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Strategy 於 4/20 揭露加倉 34,164 BTC，成本約 $2.54B（均價 $74,395），累計持倉達 815,061 BTC，超越 BlackRock iShares Bitcoin Trust（IBIT，美國最大 spot BTC ETF）成為全球最大 BTC 持有者。融資工具是 Strategy 2025 推出的 STRC preferred stock（優先股型 ATM，按市價連續發行優先股並用所得買 BTC）。2026 YTD 透過 STRC 已累積約 80,000 BTC，是 IBIT 同期 $8.4B 淨流入對應加倉量的約三倍。持倉 815,061 BTC 約占全球 BTC 流通供應的 3.9%。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">S&P 納入要求連續四季 GAAP 正收益，Strategy 的 GAAP 收益完全是 BTC 市值重估的函數，這本身不是問題，黃金礦商已被納入 S&P 500。真正的問題是 Strategy 不是「挖 BTC」而是「持有 BTC」，這更接近 closed-end fund 的結構，而 closed-end fund 通常被排除在 S&P 500 之外。這個分類爭議比「商品曝險」本身更難繞過，Index Committee 的裁量空間讓結果難以預測。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 S&P Index Committee 把 Strategy 歸類為 closed-end fund 並排除，Strategy 的股價溢價結構會怎麼重估？</li>
+        <li>STRC 優先股的股息義務，在 BTC 跌到 $55K 附近時有多大機率觸發飛輪停轉？</li>
+        <li>其他上市公司（Metaplanet、Semler Scientific）如果跟進類似的 STRC 結構，這個模型在資本市場被接受的上限在哪裡？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-tempo-tether">
+    <div class="article-meta">
+      <span class="article-source">Fortune / CoinDesk / The Block</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Tempo 的真實動機可能是監管套利，Tether-Kaio 更像 UAE 分銷卡位而非進入 BlackRock 結算</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Tempo（Stripe 和 Paradigm 2025 合資的 EVM L1，估值 $5B）於 4/21 推出 Stablecoin Advisory 業務，派駐 forward-deployed engineer（駐客戶現場深入其 IT 流程做整合的工程師，Palantir 用語）進入客戶技術棧協助整合 stablecoin。DoorDash 將讓配送員選擇以 stablecoin 領薪，Visa、Fifth Third Bank、Howard Hughes Holdings 加入 Tempo 生態。同日 Tether 以 $8M 領投 UAE 阿布達比持牌 tokenization 公司 Kaio（累計代幣化 $100M 以上資產，合作方含 BlackRock、Brevan Howard、Hamilton Lane），USDT 流通量達 $188B 歷史新高。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Stripe 成立獨立 Tempo 而非內部開 stablecoin 部門，最可能的原因是監管套利，Stripe 作為持牌支付處理商在美國、EU、UK 直接跑 stablecoin settlement 會觸發資本計提和合規義務，獨立實體可以在新規則書生效前爭取監管沙盒處理。Patrick Collison 同時擔任 Stripe CEO 和 Tempo 投資人的利益衝突目前沒有公開的獨立監督機制。Tether 透過 Kaio 接入 BlackRock 基金結算的最大障礙在 fund administrator 層，State Street 和 BNY Mellon 的 AML/KYC 規則明確排除 USDT 作為結算媒介，Kaio 最可能用 USDT 作為「中間轉換流動性層」而非基金的最終結算幣種，這讓 Tether 的 $8M 更像是 UAE 市場的分銷渠道卡位。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 Tempo 的主要價值是「監管套利工具」而非技術平台，Paradigm 的投資邏輯在 UK 和 EU 規則書正式生效後還成立嗎？</li>
+        <li>DoorDash 讓配送員選擇以 stablecoin 領薪，這個場景需要什麼樣的 FX 對沖和流動性機制才能大規模運作？</li>
+        <li>如果 BNY Mellon 和 State Street 永遠不接受 USDT 作為結算幣種，Tether 的「機構化」敘事最終能走到哪裡？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<!-- VC · 投資動態 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="vc-humanoid">
+    <div class="article-meta">
+      <span class="article-source">CNBC / TechCrunch / IBTimes</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Figure $39B 對 AI2 $2.93B 的 13x 差距，反映的是稀缺性溢價而不是高估</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">CNBC 在旗艦 The China Connection newsletter 公開 Omdia 2025 全球 humanoid robot 出貨排名，前 6 全為中國廠：Unitree、Agibot/AI2 Robotics、UBTECH、Fourier、XPeng Robot、Leju。美國的 Figure（估值 $39B，已在 BMW Spartanburg 實際生產，1,250 運作小時以上）和 Apptronik（估值 $5B）出貨量落後。AI2 Robotics 估值約 $2.93B（20B CNY），已部署於中國機場、半導體廠、醫療廠。Tesla Optimus 在 4/19 和 4/20 仍只是在 Boston Marathon 展示現場做靜態展示，尚未量產。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">13x 估值差距背後的邏輯並非「美國高估或中國低估」，而是兩種不同的市場結構溢價。Figure 的 $39B 反映「美國市場只有 Figure 加 Apptronik 兩個候選人」的稀缺性，AI2 的 $2.93B 反映「中國 30 家以上同質競爭」的內捲折價，兩個數字都是各自市場下的合理定價邏輯。對台灣供應鏈的含意是不對稱的，中國 humanoid 的量化 ROI 已在出貨規模上勝出，把零件客戶從「美國 2 到 3 家」切換到「中國 30 到 50 家」，可以立即拿到更大的 volume order。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果中國 humanoid 廠商中有一家突破 $10B 估值，美國的 $39B 和 $5B 定價會怎麼重新校準？</li>
+        <li>Figure 在 BMW Spartanburg 的 1,250 運作小時，距離讓 $39B 估值說得通需要多少合約收入？</li>
+        <li>台灣精密減速器廠如果要同時服務中美兩邊的 humanoid 供應鏈，地緣政治合規風險的邊界怎麼畫？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-04-22</span>
+</footer>
+
+<div class="podcast-player" id="podcast-player">
+  <audio id="podcast-audio" preload="metadata">
+    <source src="2026-04-22-podcast.mp3" type="audio/mpeg">
+  </audio>
+  <div class="podcast-progress-wrap" id="podcast-progress-wrap">
+    <div class="podcast-progress-fill" id="podcast-progress-fill"></div>
+  </div>
+  <div class="podcast-controls">
+    <button class="podcast-skip" id="podcast-back" aria-label="後退 15 秒">
+      <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+      <span>15</span>
+    </button>
+    <button class="podcast-play-btn" id="podcast-play" aria-label="播放">
+      <svg viewBox="0 0 24 24" id="podcast-play-icon"><polygon points="6,3 20,12 6,21"/></svg>
+    </button>
+    <button class="podcast-skip" id="podcast-fwd" aria-label="快進 30 秒">
+      <svg viewBox="0 0 24 24"><path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z"/></svg>
+      <span>30</span>
+    </button>
+    <div class="podcast-meta">
+      <span class="podcast-meta-label">Today's Podcast</span>
+      <span class="podcast-meta-title">Your Daily Dose of News — 2026-04-22</span>
+    </div>
+    <span class="podcast-time" id="podcast-time">0:00 / 0:00</span>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+
+  (function() {
+    const audio = document.getElementById('podcast-audio');
+    const player = document.getElementById('podcast-player');
+    const playBtn = document.getElementById('podcast-play');
+    const playIcon = document.getElementById('podcast-play-icon');
+    const timeEl = document.getElementById('podcast-time');
+    const progressFill = document.getElementById('podcast-progress-fill');
+    const progressWrap = document.getElementById('podcast-progress-wrap');
+    const backBtn = document.getElementById('podcast-back');
+    const fwdBtn = document.getElementById('podcast-fwd');
+    if (!audio || !player) return;
+
+    const pauseSVG = '<rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/>';
+    const playSVG = '<polygon points="6,3 20,12 6,21"/>';
+
+    function fmt(s) {
+      if (!s || !isFinite(s)) return '0:00';
+      const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+      return m + ':' + (sec < 10 ? '0' : '') + sec;
+    }
+
+    audio.addEventListener('loadedmetadata', function() {
+      player.style.display = 'flex';
+      document.body.style.paddingBottom = '80px';
+      timeEl.textContent = '0:00 / ' + fmt(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', function() {
+      timeEl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+      if (audio.duration) progressFill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+    });
+
+    audio.addEventListener('ended', function() {
+      playIcon.innerHTML = playSVG;
+    });
+
+    playBtn.addEventListener('click', function() {
+      if (audio.paused) { audio.play(); playIcon.innerHTML = pauseSVG; }
+      else { audio.pause(); playIcon.innerHTML = playSVG; }
+    });
+
+    backBtn.addEventListener('click', function() { audio.currentTime = Math.max(0, audio.currentTime - 15); });
+    fwdBtn.addEventListener('click', function() { audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 30); });
+
+    progressWrap.addEventListener('click', function(e) {
+      if (!audio.duration) return;
+      const pct = e.offsetX / progressWrap.offsetWidth;
+      audio.currentTime = pct * audio.duration;
+    });
+  })();
+</script>
+
+</body>
+</html>
