@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-04-24</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .podcast-player {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 98;
+      background: var(--ink);
+      color: var(--bg);
+      padding: 0;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 -4px 24px rgba(0,0,0,.25);
+    }
+    .podcast-progress-wrap {
+      width: 100%;
+      height: 3px;
+      background: rgba(255,255,255,.15);
+      cursor: pointer;
+      position: relative;
+    }
+    .podcast-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width .1s linear;
+      pointer-events: none;
+    }
+    .podcast-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 24px 12px;
+      max-width: 720px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .podcast-play-btn {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      background: #fff;
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .15s;
+    }
+    .podcast-play-btn:hover { transform: scale(1.08); }
+    .podcast-play-btn svg { width: 18px; height: 18px; fill: var(--ink); }
+    .podcast-skip {
+      background: none; border: none;
+      color: rgba(255,255,255,.6);
+      font-size: 11px; font-weight: 600;
+      cursor: pointer;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 1px; line-height: 1;
+      transition: color .15s;
+    }
+    .podcast-skip:hover { color: #fff; }
+    .podcast-skip svg { width: 18px; height: 18px; fill: currentColor; }
+    .podcast-meta {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .podcast-meta-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 11px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+    }
+    .podcast-meta-title {
+      font-size: 12px;
+      color: rgba(255,255,255,.65);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .podcast-time {
+      font-size: 11px;
+      font-variant-numeric: tabular-nums;
+      color: rgba(255,255,255,.5);
+      letter-spacing: .04em;
+      flex-shrink: 0;
+    }
+    @media (max-width: 600px) {
+      .podcast-controls { padding: 8px 16px 10px; gap: 10px; }
+      .podcast-meta-title { font-size: 11px; }
+      .podcast-skip { display: none; }
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 4 月 24 日　星期五</span>
+    <span class="header-count">9 篇</span>
+  </div>
+  <h1>你以為在看 AI 競爭，其實在看一場清倉拍賣</h1>
+  <p class="header-lede">次級市場的流動性溢價正在分化，API 定價天花板在崩裂，核心基礎設施的信任邊界在重繪。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-valuation">Anthropic 的 $1T 估值，真正在賣的其實是 OpenAI 的退出焦慮</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-pricing">OpenAI 把 API 翻倍定價，最快跑的是正在 agentic 轉型的中型企業</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-security">Anthropic 最危險的漏洞不是 Mythos，而是它的 URL 命名規則</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-tether-freeze">Tether 當了執法工具，但沒有人知道那個凍結決定是怎麼做成的</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-pornhub-usdc">Pornhub 換用 USDC 是 Circle 的里程碑，但護城河可能只剩 12 個月</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-chainlink-rwa">Chainlink 上鏈了 $11B 商品資產，信任問題只是換了個地址</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-sec-exemption">Atkins 的「創新豁免」是善意，但下一任 SEC 主席明天就能撤銷它</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-coinmarketcap-agent">CoinMarketCap 讓 AI agent 自動刷卡，但沒人設支出上限</a></li>
+  </ol>
+</nav>
+
+<!-- AI · 科技 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <article class="article" id="ai-anthropic-valuation">
+    <div class="article-meta">
+      <span class="article-source">Tom's Hardware / The Next Web / TechFundingNews</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 的 $1T 估值，真正在賣的其實是 OpenAI 的退出焦慮</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 在私人股市交易所 Forge Global（允許員工和早期投資人出售持股的次級市場）的隱含估值（implied valuation，由成交股價乘以全股本反推的名義市值）達到 $1T，超越 OpenAI 的 $880B。這個數字距離 Anthropic 今年 2 月完成的 $380B Series G 僅三個月，倍數為 2.6x。背後的驅動因素：Anthropic 年化營收（ARR）單季從 $9B 跳至 $30B，增幅 +233%，主要來自 Claude Code 企業採用與 API 擴張；同時願意出售的員工股份遠少於買方需求，競標推高成交價。對比 OpenAI：Q1 賣方對買方比達 5:1，Forge 員工形容買家情緒「tepid」。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Forge Global 的次級市場成交量極稀缺，$1T 是由少量邊際成交乘以全股本反推的名義數字，不是市場共識，GIC 和 Coatue 的帳面 unrealized gain 通常仍按一級估值標記而非次級成交價。真正重要的訊號在 OpenAI 那一側：5:1 的賣方對買方比意味著 OpenAI 的員工和早期投資人正在想離場，卻找不到熱情買家。私人市場的「流動性溢價」正在 Anthropic 單邊集中，任何今天按 $1T 入場的次級市場買方，承擔了流動性正常化時最大的重新定價風險。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 $30B ARR 有相當比例來自 AWS 或 GCP 的最低保證承諾，而非第三方企業的月度消費遞增，這個增長曲線在 12 個月後還成立嗎？</li>
+        <li>Anthropic 的 Mythos 洩漏事件若導致政府合約延後，$30B ARR 有多大比例會跟著消失？</li>
+        <li>SpaceX 和 Stripe 次級溢價之後都進行了一級輪重新定價，Anthropic 的下一輪融資會以什麼估值出場，還是直接走 IPO？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-openai-pricing">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch / OpenAI / MarkTechPost</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 把 API 翻倍定價，最快跑的是正在 agentic 轉型的中型企業</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OpenAI 發佈 GPT-5.5，定位為完全重新訓練的 agentic 模型（可自動切換工具完成複雜任務），綜合 benchmark 分數 98.2，領先 Claude Opus 4.5（95.1）與 Gemini 3.1 Pro（94.7）。API 定價從 GPT-5.4 翻倍至 $5/$30 per 1M input/output tokens，context window 翻倍至 1M tokens。OpenAI 同步宣告「超級應用」策略，將 ChatGPT、Codex、AI 瀏覽器合併成單一企業工作流服務。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">API 翻倍是明確的寡占定價動作，前提是 Anthropic 的企業訂價紀律已為頂級模型拉高全市場天花板。但 agentic workflow 的 token 消耗量是對話式的 10 到 50 倍，月帳單從 $200K 跳到 $400K 以上的中型企業客戶，是最可能加速遷移到 Claude Haiku/Sonnet 或開源微調模型（Llama 4、Mistral Large）的群體。贏家是 Anthropic 的中低階模型層，輸家是正在 agentic 轉型的 OpenAI 中型企業客戶。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 agentic 用量讓帳單翻倍，中型企業客戶的採購週期重談時，OpenAI 有什麼理由不被 Anthropic 的 Sonnet 層替換掉？</li>
+        <li>「超級應用」策略要求 ChatGPT、Codex、AI 瀏覽器共用 session，但長任務和即時聊天的生命週期根本衝突，OpenAI 的歷史執行紀錄（GPT Store 的表現）能支撐這個承諾嗎？</li>
+        <li>98.2 vs 95.1 的 benchmark 差距在企業採購中的實際權重有多低，如果答案是「幾乎沒有」，那 OpenAI 靠什麼維持頂端溢價？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-anthropic-security">
+    <div class="article-meta">
+      <span class="article-source">Fortune / TechCrunch / CBS News</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 最危險的漏洞不是 Mythos，而是它的 URL 命名規則</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Anthropic 以「AI Safety」為核心敘事的公司，被一個猜 URL 的 Discord 群組打穿了部署層安全，而當時白宮正準備基於這個模型制定產業部署計畫。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 的 Claude Mythos Preview 遭未授權訪問，Mythos 屬於 Project Glasswing（一項僅向 40 家受信任企業，包括 Amazon、Google、Microsoft、Apple、Cisco，提前釋出高風險模型的封閉測試計畫）。攻擊方式是：一群透過私人 Discord 頻道通訊的用戶，根據 Anthropic 其他模型的 URL 命名規則推測出 Mythos 的測試端點，再透過第三方承包商員工取得憑證。洩漏發生在模型宣佈當日，Anthropic 確認正在調查，但強調「無證據顯示我們自己的系統被入侵」。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">這次攻擊同時命中兩個基本安全失敗：可預測的 URL 命名 schema（沒有做 slug 隨機化或 IP 白名單）加上第三方承包商憑證沒有做最小權限與短時效 rotation。對一個以 AI Safety 為核心敘事的公司，infra security 的 threat model 顯然只考慮了模型輸出風險，系統性忽略了部署層的傳統漏洞。輸家是 Anthropic 的安全敘事，贏家是有機會接管政府 AI 安全合約的競爭對手，包括 OpenAI 和 Palantir。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Project Glasswing 的設計讓 40 家企業都有下游承包商鏈，這個攻擊面的根本解法是 air-gapped 隔離環境，但那會讓測試速度慢到沒有商業價值，Anthropic 要怎麼同時維護安全性和 Glasswing 的存在意義？</li>
+        <li>如果政府合約因此延後，哪些競爭對手最有條件在六個月內填補這個缺口？</li>
+        <li>「無證據顯示我們自己的系統被入侵」這個說法，對下週就要基於 Mythos 做採購決策的企業，夠用嗎？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-coinmarketcap-agent">
+    <div class="article-meta">
+      <span class="article-source">CoinMarketCap 官方 / MCP Market</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>CoinMarketCap 讓 AI agent 自動刷卡，但沒人設支出上限</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">CoinMarketCap 推出「AI Agent Hub」，透過 MCP（Model Context Protocol，Anthropic 制定的讓 AI 模型存取外部工具和資料的開放協議）、x402（HTTP 402 狀態碼的加密微支付擴充，由 Coinbase 推動，讓 AI agent 自動付款呼叫 API）、CLI 與 IDE 整合四條管道，向 AI agent 開放 12 項加密資料工具，涵蓋 48M+ 加密貨幣的價格、技術分析、鏈上指標、衍生品與敘事趨勢。支援直接嵌入 Cursor、Claude Code、Windsurf 編碼環境。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">x402 允許 AI agent 自動觸發付費請求，但當 agentic loop 因 hallucination 或 retry logic 錯誤在一小時內發出數千次付費呼叫時，現行 x402 spec 將支出控制責任推給伺服器端 rate limit，沒有 agent-side 預算管理機制。沒有 agent-side 支出上限，企業採購部門不會批准在生產環境部署。CMC 是第一個規模級釋出這個 stack 的資料商，同時也是第一個需要解決這個問題的人。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 x402 失控消費的責任在伺服器端 rate limit，哪一方（CMC、Coinbase 還是 agent 框架開發者）最有動機先做出 agent-side 預算管理標準？</li>
+        <li>48M+ 加密貨幣裡絕大多數是低流動性或死亡代幣，MCP response 如果不含數據可信度元資料，AI agent 要怎麼區分真實交易量和 wash trading？</li>
+        <li>CoinGecko 和 Messari 隨時可以包一個 MCP server，CMC 的真正差異化是什麼，夠撐過三個月的競爭嗎？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<!-- Web3 · Crypto -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <article class="article" id="web3-tether-freeze">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / The Block / Decrypt</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Tether 當了執法工具，但沒有人知道那個凍結決定是怎麼做成的</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Tether 與 OFAC（美財政部海外資產控制辦公室，執行金融制裁的機構）及其他美執法機構協同，在 Tron 鏈上對兩個錢包執行黑名單封鎖，合計凍結 $344M USDT（$213M 加 $131M），為 Tether 歷來規模最大的單次凍結，案由為制裁規避與犯罪網絡活動。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Tether 在沒有公開司法令狀程序的情況下單方面凍結 $344M，驗證這筆凍結對應合法執法請求的機制僅靠事後公告，沒有鏈上或鏈下的獨立確認流程。在 USDT 佔 Tron 鏈上活動超過 50% 的環境下，Tether 同時兼具發行方和凍結執行方身分，其操作性決定與執法請求之間的邊界對外部觀察者完全不透明。贏家是 Circle，它可以用這個論點強化 USDC 的透明度敘事；輸家是需要 USDT 可審查性的機構用戶。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 Tether 凍結機制沒有可驗證的獨立確認流程，機構用戶要怎麼評估「我的餘額在什麼條件下會被凍結」這個風險？</li>
+        <li>Tether 同步推進的 USAT（聯邦合規版）和老 USDT 是否構成雙軌策略，受 MiCA 管轄的歐洲交易所需要選邊嗎？</li>
+        <li>這次凍結讓 Tether 更像銀行，還是更像政府的鏈上執法工具？這兩個身分對它的用戶基礎意味著什麼？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-pornhub-usdc">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / Protos / Simply Wall St</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Pornhub 換用 USDC 是 Circle 的里程碑，但護城河可能只剩 12 個月</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Pornhub（成人內容平台，隸屬 Aylo）宣布停止以 USDT 發放創作者款項，全面改用 Circle 的 USDC，截止日為 2026-06-01。明確理由是 EU MiCA 合規（Circle 持有法國 EMI 牌照，Tether 不符合 MiCA 標準）、儲備透明度與支付可靠度。背景：Pornhub 在 2020 年遭 Visa、Mastercard、PayPal 切斷後才大量採用 USDT，如今市值 $188B 的 USDT 遠超 USDC 的 $78.25B，卻在 MiCA 管轄範圍內被結構性替換。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Circle 的 EMI 牌照先發優勢在時間維度上極其脆弱：若 Tether 在 6 到 12 個月內透過歐盟成員國取得牌照或併購合規外殼，Pornhub 此類平台幾乎沒有理由不切回 USDT，因為 $188B 對 $78B 的流動性優勢壓倒一切。Circle 在技術或產品層面目前沒有結構性鎖定，唯一的護城河是先發整合的切換成本，而這個成本對平台級客戶而言極低。長期輸家是 Circle，若 Tether 成功合規化。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Tether 如果在 12 個月內取得 MiCA 合規身分，現在正在切換到 USDC 的平台會回頭嗎？</li>
+        <li>Circle 已停止在 Tron 上鑄造 USDC，切換到 Ethereum/Base/Solana 對每筆收款只有幾十美元的長尾創作者來說 gas 成本是真實問題，這批人會去哪？</li>
+        <li>這件事是穩定幣競爭「合規身分取代市值」的分水嶺，還是一個只在 MiCA 適用範圍內有效的局部現象？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-chainlink-rwa">
+    <div class="article-meta">
+      <span class="article-source">Chainlink 官方 / Crypto News</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Chainlink 上鏈了 $11B 商品資產，信任問題只是換了個地址</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Chainlink 宣布機構平台 Bridgetower 採用其 CCIP（Cross-Chain Interoperability Protocol，跨鏈訊息與資產傳輸協議）、Proof of Reserve（儲備證明，鏈上驗證發行方鏈下資產支持的機制）、NAVLink（淨值預言機，把基金/資產 NAV 推送上鏈）三件套，將 $11B 的自然資源、能源、金屬類證券化資產上鏈發行與管理，是 2026 年截至目前最大規模的 RWA（Real-World Asset，現實世界資產代幣化）批次之一。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Proof of Reserve 和 NAVLink 能驗證的最遠邊界止於託管方提供的 API feed，無法偵測實物雙重質押（同一批金屬同時用於鏈上代幣化和傳統倉單融資）。這 $11B 的鏈上代幣轉移目前不等同於法律所有權轉移，Bridgetower 仍是中心化對手方，鏈上基礎設施是流動性管理工具而非清算替代。決定真實競爭邊界的問題是誰控制了 offchain 資產的法律確權和清算流程，Canton Network、Ondo、Securitize 和 Bridgetower 的真正競爭在那裡發生，不在 oracle 層。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 Proof of Reserve 的信任邊界止於 API feed，「鏈上驗證」對這 $11B 的實際保障和傳統託管機構的審計有什麼本質差異？</li>
+        <li>法律所有權轉移的問題在哪個司法管轄區最有機會先被解決，那個答案會讓誰佔到先機？</li>
+        <li>商品/能源/自然資源的資產持有方採用公鏈，是因為真的省了摩擦成本，還是因為鏈上代幣更容易向零售投資人銷售？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-sec-exemption">
+    <div class="article-meta">
+      <span class="article-source">Mondovisione / The Block / Perkins Coie</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Atkins 的「創新豁免」是善意，但下一任 SEC 主席明天就能撤銷它</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">SEC 主席 Paul Atkins 在 Economic Club of Washington 表示「即將發佈」名為「Innovation Exemption」（創新豁免）的框架，為代幣化證券（將股票/債券以鏈上代幣表示，可實現 24/7 結算）提供合規上鏈交易的過渡規則。他直接批評前任 Gensler 政府「創新者發現與 SEC 對話往往演變為被 SEC 調查」，並宣布執法重心轉向「詐欺與對投資人造成實際傷害」的案件。SEC 同步公布加密代幣五類分類法，其中四類明確不屬於證券。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">若「Innovation Exemption」以 staff guidance 形式發佈（而非經過 APA notice-and-comment 的正式 rulemaking，即行政法規定的公告徵詢程序），可被下一任 SEC 主席當日撤銷，與 Gensler 時代的 enforcement 方針同等脆弱。tZERO、Securitize、Backed Finance 等今天基於此豁免建構業務的公司，真正的護城河是在政策窗口期搶跑建立客戶關係與技術整合，而非拿到不可撤回的牌照。2028 年政黨輪替是這個賭注的最大尾部風險。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果豁免只是 staff guidance，現在就決定基於此框架投入資源的傳統券商，怎麼計算這個政治風險的對沖成本？</li>
+        <li>五類分類法刻意把 UNI、AAVE 這類 DeFi 治理代幣留在模糊地帶，這是善意留白還是保留未來執法空間？</li>
+        <li>下一次政黨輪替讓新 SEC 主席上任的第一天，哪些已建立的代幣化業務有足夠護城河撐過執法方針翻轉？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<!-- VC · 投資動態 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <!-- VC articles go here if any -->
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-04-24</span>
+</footer>
+
+<!-- Floating podcast player -->
+<div class="podcast-player" id="podcast-player">
+  <audio id="podcast-audio" preload="metadata">
+    <source src="2026-04-24-podcast.mp3" type="audio/mpeg">
+  </audio>
+  <div class="podcast-progress-wrap" id="podcast-progress-wrap">
+    <div class="podcast-progress-fill" id="podcast-progress-fill"></div>
+  </div>
+  <div class="podcast-controls">
+    <button class="podcast-skip" id="podcast-back" aria-label="後退 15 秒">
+      <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+      <span>15</span>
+    </button>
+    <button class="podcast-play-btn" id="podcast-play" aria-label="播放">
+      <svg viewBox="0 0 24 24" id="podcast-play-icon"><polygon points="6,3 20,12 6,21"/></svg>
+    </button>
+    <button class="podcast-skip" id="podcast-fwd" aria-label="快進 30 秒">
+      <svg viewBox="0 0 24 24"><path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z"/></svg>
+      <span>30</span>
+    </button>
+    <div class="podcast-meta">
+      <span class="podcast-meta-label">Today's Podcast</span>
+      <span class="podcast-meta-title">Your Daily Dose of News — 2026-04-24</span>
+    </div>
+    <span class="podcast-time" id="podcast-time">0:00 / 0:00</span>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+
+  (function() {
+    const audio = document.getElementById('podcast-audio');
+    const player = document.getElementById('podcast-player');
+    const playBtn = document.getElementById('podcast-play');
+    const playIcon = document.getElementById('podcast-play-icon');
+    const timeEl = document.getElementById('podcast-time');
+    const progressFill = document.getElementById('podcast-progress-fill');
+    const progressWrap = document.getElementById('podcast-progress-wrap');
+    const backBtn = document.getElementById('podcast-back');
+    const fwdBtn = document.getElementById('podcast-fwd');
+    if (!audio || !player) return;
+
+    const pauseSVG = '<rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/>';
+    const playSVG = '<polygon points="6,3 20,12 6,21"/>';
+
+    function fmt(s) {
+      if (!s || !isFinite(s)) return '0:00';
+      const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+      return m + ':' + (sec < 10 ? '0' : '') + sec;
+    }
+
+    audio.addEventListener('loadedmetadata', function() {
+      player.style.display = 'flex';
+      document.body.style.paddingBottom = '80px';
+      timeEl.textContent = '0:00 / ' + fmt(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', function() {
+      timeEl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+      if (audio.duration) progressFill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+    });
+
+    audio.addEventListener('ended', function() {
+      playIcon.innerHTML = playSVG;
+    });
+
+    playBtn.addEventListener('click', function() {
+      if (audio.paused) { audio.play(); playIcon.innerHTML = pauseSVG; }
+      else { audio.pause(); playIcon.innerHTML = playSVG; }
+    });
+
+    backBtn.addEventListener('click', function() { audio.currentTime = Math.max(0, audio.currentTime - 15); });
+    fwdBtn.addEventListener('click', function() { audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 30); });
+
+    progressWrap.addEventListener('click', function(e) {
+      if (!audio.duration) return;
+      const pct = e.offsetX / progressWrap.offsetWidth;
+      audio.currentTime = pct * audio.duration;
+    });
+  })();
+</script>
+
+</body>
+</html>
