@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-05-06</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fafaf8;
+      --surface: #ffffff;
+      --ink: #111111;
+      --ink-body: #2a2a2a;
+      --ink-muted: #6b6b6b;
+      --ink-faint: #a0a0a0;
+      --rule: #e0e0e0;
+      --rule-light: #eeeeee;
+      --accent: #c4841d;
+      --accent-soft: #f5ead6;
+      --accent-text: #8a5c10;
+      --insight-bg: #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg: #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai: #1a7a4c;
+      --tag-ai-bg: #e6f4ed;
+      --tag-web3: #4a5ba8;
+      --tag-web3-bg: #e8eaf6;
+      --tag-vc: #a84a4a;
+      --tag-vc-bg: #f6e8e8;
+      --signal-bg: #fffbf0;
+      --signal-border: #e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0e0e0c;
+        --surface: #1a1a18;
+        --ink: #ececec;
+        --ink-body: #c8c8c0;
+        --ink-muted: #808078;
+        --ink-faint: #505050;
+        --rule: #2a2a28;
+        --rule-light: #1f1f1d;
+        --accent: #d4a03a;
+        --accent-soft: #2a2418;
+        --accent-text: #d4a03a;
+        --insight-bg: #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg: #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai: #5cb88a;
+        --tag-ai-bg: #14241c;
+        --tag-web3: #7a8ad8;
+        --tag-web3-bg: #181a28;
+        --tag-vc: #d87a7a;
+        --tag-vc-bg: #281818;
+        --signal-bg: #1c1a10;
+        --signal-border: #8a7530;
+      }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width 0.08s linear;
+    }
+
+    #back-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 40px;
+      height: 40px;
+      background: var(--ink);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.2s;
+      color: var(--bg);
+      font-size: 16px;
+      font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    #back-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #back-top:hover {
+      transform: translateY(-2px);
+    }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .header-count {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .toc-tag.ai {
+      background: var(--tag-ai-bg);
+      color: var(--tag-ai);
+    }
+
+    .toc-tag.web3 {
+      background: var(--tag-web3-bg);
+      color: var(--tag-web3);
+    }
+
+    .toc-tag.vc {
+      background: var(--tag-vc-bg);
+      color: var(--tag-vc);
+    }
+
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color 0.15s;
+    }
+
+    .toc-list a:hover {
+      color: var(--accent);
+    }
+
+    .section-block {
+      margin-bottom: 72px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: 0.04em;
+    }
+
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: 0.06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+
+    .article-tag.ai {
+      background: var(--tag-ai-bg);
+      color: var(--tag-ai);
+    }
+
+    .article-tag.web3 {
+      background: var(--tag-web3-bg);
+      color: var(--tag-web3);
+    }
+
+    .article-tag.vc {
+      background: var(--tag-vc-bg);
+      color: var(--tag-vc);
+    }
+
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+    }
+
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: 0.5;
+    }
+
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.3;
+      line-height: 1;
+    }
+
+    .podcast-player {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 98;
+      background: var(--ink);
+      color: var(--bg);
+      padding: 0;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .podcast-progress-wrap {
+      width: 100%;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .podcast-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.1s linear;
+      pointer-events: none;
+    }
+
+    .podcast-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 24px 12px;
+      max-width: 720px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .podcast-play-btn {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: #fff;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s;
+    }
+
+    .podcast-play-btn:hover {
+      transform: scale(1.08);
+    }
+
+    .podcast-play-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--ink);
+    }
+
+    .podcast-skip {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1px;
+      line-height: 1;
+      transition: color 0.15s;
+    }
+
+    .podcast-skip:hover {
+      color: #fff;
+    }
+
+    .podcast-skip svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .podcast-meta {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .podcast-meta-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 11px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+
+    .podcast-meta-title {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.65);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .podcast-time {
+      font-size: 11px;
+      font-variant-numeric: tabular-nums;
+      color: rgba(255, 255, 255, 0.5);
+      letter-spacing: 0.04em;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 600px) {
+      .podcast-controls {
+        padding: 8px 16px 10px;
+        gap: 10px;
+      }
+      .podcast-meta-title {
+        font-size: 11px;
+      }
+      .podcast-skip {
+        display: none;
+      }
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 0 20px 80px;
+      }
+      .header {
+        padding: 48px 0 32px;
+      }
+      .toc-list {
+        grid-template-columns: 1fr;
+      }
+      .insight {
+        padding: 20px 20px;
+      }
+      .thought {
+        padding: 16px 18px;
+      }
+      #back-top {
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 5 月 6 日　星期三</span>
+    <span class="header-count">9 篇</span>
+  </div>
+  <h1>今天的錢，押在不同的時間軸上</h1>
+  <p class="header-lede">Anthropic 和 OpenAI 同時搶 Palantir 的定位，Sierra 要用保險業季節性檢驗成長真偽，a16z 把 Fund 5 押在被監管砍掉的飛輪，BTC 價格已 price-in 立法成功但風險極度集中。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-palantir">兩大 AI 實驗室同時往 Palantir 的方向走</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-sierra">Sierra 的 105x 估值倍數需要淡季數字驗證</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-clark">Clark 用公開資料喊 AI 自訓，真實動作是搶政策時間窗</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-panthalassa">Panthalassa 的核心護城河是主權外計算法律地位</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-tesla">Tesla 里程數敘事每挪一次門檻就少一次市場信用</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-a16z">a16z Fund 5 押在被監管砍掉的 stablecoin 飛輪</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-btc">BTC $80K 已 price-in 立法成功，槓桿動量最先爆</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-token">Token-maxxing 省掉的是 junior，省不掉的是 senior judgment</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-gamestop">GameStop 的 $56B 要約，退出路徑是賣 eBay 持股</a></li>
+  </ol>
+</nav>
+
+<!-- AI · 科技 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">5 篇</span>
+  </div>
+
+  <article class="article" id="ai-anthropic-palantir">
+    <div class="article-meta">
+      <span class="article-source">Anthropic 官方公告 / CNBC / Fortune</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>兩大 AI 實驗室同時往 Palantir 的方向走，不是往 Accenture</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 5 月 4 日宣布與 Blackstone、Hellman & Friedman、Goldman Sachs 共同成立企業 AI 服務合資公司，總規模約 15 億美元，三家主力錨定投資人各出 3 億美元、Goldman 出 1.5 億美元，General Atlantic、Apollo、GIC、Sequoia 等機構也加入。新公司是獨立法人，Anthropic 工程師會直接嵌入客戶端團隊，協助中型企業客製化 Claude（Anthropic 的大型語言模型）工作流，明確對標 Palantir 的 forward-deployed engineer（派駐客戶現場與其工程師共建系統）模式。同日 OpenAI 傳出募資 40 億美元的對標實體「Deployment Company」，估值 100 億美元，含 19 位投資人包括 TPG、Brookfield、Bain Capital、SoftBank。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向一個結論：這兩個合資公司最大的差異化挑戰不是模型能力，而是有沒有辦法像 Palantir 一樣用資料層把客戶鎖死。Palantir 的護城河是 Ontology 層（客戶資料本體論框架），客戶離開等同重建整個資料架構；Anthropic JV 用的是可替換的 Claude API，第二年續約時 OpenAI JV 只需要報低一成 token 費就能平替。更結構性的問題是：PE 旗下的 portfolio 公司是被「推薦」使用 Claude 而非自選，這讓 ARR 數字的品質先天低於市場驅動的競爭者，比如 Sierra。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Palantir 花十年才讓 forward-deployed engineer 模式跑出正毛利，Anthropic 和 OpenAI 同時起跑等於互相壓價。如果你今天做獨立 AI 部署服務，PE 們的排他條款到底鎖多死？</li>
+        <li>PE portfolio 公司被「推薦」用 Claude 而非自選，這跟 Accenture 綁 SAP 的 channel stuffing 有什麼本質區別？客戶續約率反映的會是真需求，還是 PE 母公司的行政命令？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-sierra">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch / Axios / SiliconANGLE</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Sierra 的 105x 估值倍數，需要淡季數字才能驗證是不是季節性偽信號</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Bret Taylor 創辦的企業 AI agent 公司 Sierra 完成 9.5 億美元融資，post-money 估值達 158 億美元，由 Tiger Global、GV 領投。Sierra 自稱已服務 Fortune 50 中 40% 以上，客戶包括 Prudential、Cigna、Blue Cross Blue Shield、Rocket Mortgage 等。ARR（年化經常性收入）從 2025 年 11 月的 1 億美元在三個月內成長至 2026 年 2 月的 1.5 億美元，收費模式為每次 agent 互動計費，而非傳統 SaaS 按席次收費。158 億美元除以 1.5 億美元 ARR，約等於 105 倍營收倍數。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向一個直接的法律瓶頸，而非模型能力問題：在 Prudential、Cigna 等受州級監管的保險場景中，agent 給出錯誤理賠承諾就構成法律約束力，hallucination（大型語言模型產生錯誤輸出）的責任若推回客戶，Sierra 只是「工具廠商」但喪失定價議價力；若 Sierra 自承，毛利率必須計提大規模法律準備金。這條責任邊界，而非 ARR 成長速度，才是 Sierra 能否從 1.5 億衝到 10 億 ARR 的真正上限，並且是 IBM、Accenture 這類有成熟合約框架的傳統系統整合商的結構性優勢所在。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>ARR 從 1 億到 1.5 億裡面有多少是 Prudential、Cigna 這些早期客戶的用量擴張，而不是新客戶。如果是同一批客戶在灌量，一旦他們自建 agent 團隊，NRR（淨收入留存率）會斷崖嗎？</li>
+        <li>保險客服有極強季節性，open enrollment（保險開放投保期）結束後 usage-based 曲線會不會直接腰斬，讓「類 Twilio 計費模型」在這個 vertical 根本跑不出穩態？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-clark">
+    <div class="article-meta">
+      <span class="article-source">Import AI（Jack Clark Substack）/ The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Clark 用公開 benchmark 喊 AI 自訓，但真正的動作是替 Anthropic 搶政策窗口</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 共同創辦人、政策主管 Jack Clark 在個人 Substack「Import AI」發文，押 60% 以上機率「AI 在 2029 年前能訓練自己的下一代」。論據全部來自公開資料：METR（Model Evaluation and Threat Research，獨立評估 AI 能力的非營利組織）資料顯示，AI 在無監督下能持續完成的任務時間從 2022 年的 30 秒成長至 2026 年的 12 小時，預計 2026 年底達 100 小時；SWE-Bench（真實 GitHub 程式碼修補任務的 AI 評測基準）從 Claude 2 的 2% 衝到 Mythos Preview 的 93.9%，歷時不到三年。OpenAI 也表示計畫於 2026 年 9 月推出自動化研究 intern。文章發表同日，白宮正建立 AI 模型部署前的審查流程。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Clark 的論證在一個關鍵環節發生了能力偷換：SWE-Bench 93.9% 衡量的是「在已知 codebase 中修補已定義 bug」，需要的是 pattern matching 加局部推理；AI 訓練自身下一代需要的是「提出新訓練目標、設計新架構、驗證結果是否優於前代」，後者是 SWE-Bench 完全不衡量的能力維度。更重要的是，Clark 完全用公開資料論證、完全不引內部數據，且時機點恰好在白宮建立 AI 審查流程的同一天，這個姿態的真實功能是把 self-improving AI 的監管討論從「未來主義」拉進「三年內政策窗口」，讓 Anthropic 的 safety 品牌成為監管框架制定期的 GTM（市場進入）資產。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Clark 用公開 benchmark 論證卻不引內部數據，這到底是在推動監管議程讓 Anthropic 的 safety 品牌變成 GTM 優勢，還是真的在示警？這兩個解釋對你的判斷有什麼不同的含義？</li>
+        <li>如果 AI 自我訓練三年內成真，現在所有賣 AI deployment 服務的公司，包括 Anthropic 自己的合資，客戶價值會直接歸零。他們內部怎麼同時賣這兩個互相矛盾的故事？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-panthalassa">
+    <div class="article-meta">
+      <span class="article-source">Business Wire / GeekWire</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Panthalassa 的核心壁壘是主權外計算，不是能源套利</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Oregon 新創 Panthalassa 完成 Peter Thiel 領投的 1.4 億美元 Series B，估值近 10 億美元。每個 85 公尺鋼製浮體節點靠海浪轉電供應 AI chips、以海水自然冷卻、透過 Starlink（SpaceX 的低軌道衛星寬頻網路）回傳運算結果。計畫於 2026 年部署 Ocean-3 試點節點群於北太平洋，2027 年商業化。投資人陣容包括 John Doerr、Marc Benioff 的 TIME Ventures、Max Levchin 的 SciFi Ventures、Hanwha（USA）、Super Micro Computer、Dylan Field 等。背景：Meta 在 El Paso 的 1GW 資料中心用 130 億美元債才推得動，Amazon AWS 中東三節點剛被伊朗無人機襲擊。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Equinix 在冰島已有綠電加自然冷卻優勢，純能源成本套利的敘事有更快的競爭者。研究指向 Panthalassa 最難被複製的部分是「在任何單一主權管轄之外運算」的法律地位，這對需要跨境資料避開監管、或身處多主權衝突場景的特定客戶有結構性價值。Thiel 長期支持 seasteading（在公海建立自治社群的概念）的 thesis 貫穿整個投資邏輯，真正的目標客戶不是一般企業，而是需要主權外計算的金融、情報或去中心化組織。問題是，這類客戶的市場規模能否撐起 10 億美元估值，目前沒有任何公開付費客戶資料。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>海上節點靠 Starlink 回傳，延遲和頻寬根本不夠跑即時推論。真正的客戶是誰，是離線批次訓練的大廠，還是根本還沒有付費客戶只有 LOI（意向書）？</li>
+        <li>如果我是 Equinix，只要在冰島複製同樣的冷卻加綠電優勢且不用造船。Panthalassa 最難被複製的到底是什麼？管轄權套利在商業合約上真的成立嗎？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-tesla">
+    <div class="article-meta">
+      <span class="article-source">The Verge / Tesla 安全頁</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Tesla 的里程數敘事，每挪一次門檻就少一次市場信用</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Tesla 更新安全頁面顯示 FSD Supervised（Full Self-Driving 全自動駕駛，仍需人類監督）累計里程突破 100 億英里，正好對應 Musk 1 月設下的「safe unsupervised」門檻，他當時把這個數字從 60 億上調至 100 億英里。Tesla 在 2025 年底達 70 億英里、2026 年 2 月達 80 億英里。Tesla 系統仍要求人類監督，監管機構未授權其無監督商業化。對照 Waymo 已在 10 個城市執行無人載客，目標 2026 年底每週 100 萬趟。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指出 Tesla 的資料量優勢在最關鍵的維度上可能根本不存在：Tesla 100 億英里的構成大比例是通勤高速公路直線路段，Waymo 在舊金山密集城區的每百萬英里 edge case（邊緣情境）密度遠高於 Tesla 平均路況，而真正決定無監督安全的指標是「城區每百萬英里的 disengagement 率（系統失效需人類接管的頻率）」，不是總里程數。Musk 已把門檻從 60 億挪到 100 億一次，若再挪到 150 億，市場對里程數敘事的信用將快速折損，Waymo 才是今天唯一實際產生乘客付費現金流的玩家。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Musk 已經把無監督門檻從 60 億挪到 100 億一次。如果他在 100 億達標後再挪到 150 億，你的 Tesla 估值模型裡 robotaxi 營收線要延後幾季？</li>
+        <li>Waymo 已在 10 個城市無人載客收錢，Tesla 仍是 supervised 且零趟商業載客。如果你今天要做 robotaxi 調度平台，接 Waymo 的 API 還是賭 Tesla 開放，哪邊的客戶獲取成本更可預測？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<!-- Web3 · Crypto -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="web3-a16z">
+    <div class="article-meta">
+      <span class="article-source">a16z 官方公告 / Fortune / TechCrunch</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>a16z 把 Fund 5 押在 stablecoin 成長，但 GENIUS Act 剛砍掉推動這個成長的核心飛輪</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z crypto 5 月 5 日宣布完成 Fund 5，規模 22 億美元，累計總管理規模達 98 億美元。CTO Eddy Lazzarin 升任 GP（普通合夥人，負責投資決策），加入 Chris Dixon、Ali Yahya、Guy Wuollet。對比 2022 年 Fund 4 的 45 億美元，本輪規模腰斬，但 Fortune 早在 2026 年 3 月就報過目標 20 億美元，提前約兩個月超募完成。Dixon 的三大論點包括：stablecoin 在熊市仍在成長、perp futures（沒有到期日的期貨合約，加密原生衍生品）和 prediction market（用市場價格預測事件機率的協議）開始接管傳統金融功能、GENIUS Act（2025 年通過的美國穩定幣聯邦監管法案）是好的監管範本。同日 Pantera 也發出新基金投資人邀請。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向一個直接的內部矛盾：GENIUS Act 禁止 stablecoin 提供類似銀行存款的利率，這直接砍掉了 DeFi lending protocol（鏈上借貸協議）用 stablecoin yield 飛輪吸引 TVL（總鎖倉價值）的核心機制。a16z portfolio 中靠 yield 吸引用戶的項目，包括 Aave、Morpho 等，單位經濟全部要重算。Dixon 把 Fund 5 thesis 壓在 stablecoin 成長上，但 GENIUS Act 同時砍掉了推動 stablecoin 成長的核心飛輪之一，贏家是純合規通道型 stablecoin 如 Circle USDC，輸家是所有以 yield 差為核心的 DeFi 協議，而這些恰好是 a16z 大量持倉的 portfolio。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>GENIUS Act 明確禁止 stablecoin 付存款利率，這代表 a16z portfolio 裡靠 yield 吸引用戶的 stablecoin 項目的單位經濟全部要重算。這條法律對 Aave 和 Morpho 的影響是暫時的還是結構性永久的？</li>
+        <li>Fund 4 的 45 億美元在 2022 年高點部署，Dixon 到現在都沒公開 Fund 4 的 DPI（已實現分配倍數）。LP 在什麼 realized return 數字下還願意再寫 22 億美元的支票？這個問題的答案影響你怎麼看這次 LP 的「信心」。</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-btc">
+    <div class="article-meta">
+      <span class="article-source">DL News / CoinDesk / Fortune</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>BTC $80K 是市場 price-in 立法成功，槓桿動量資金是最先暴露的位置</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">BTC 5 月 4 日突破 80,000 美元，月漲 19%。三條主軸同步推進：美國現貨 BTC ETF（直接持有 BTC 的現貨型指數基金）在 5 月 1 日單日淨流入 6.3 億美元，2026 年 4 月是自 2025 年 10 月來最強單月；Senate Banking Committee 主席 Tim Scott 預告 CLARITY Act（數位資產市場結構法案，劃分 SEC 與 CFTC 管轄範圍）5 月 bipartisan markup（兩黨共同逐條修訂）後進行 floor vote，Tillis-Alsobrooks 妥協版禁止 stablecoin 給類存款利率；Kevin Warsh 被視為 broadly pro-crypto 的 Fed 主席提名人選，但提名尚未通過 Senate。Coinbase 同日宣布整合 DFlow，Kraken 母公司完成 5.5 億美元收購 Bitnomial，鎖定完整的 CFTC 監管美國衍生品基礎設施。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Warsh 提名未過、CLARITY Act 未 floor vote，但 BTC 已在 80,000 美元，意味著市場已完全 price-in 立法成功。研究指出若 Tillis-Alsobrooks 妥協條款在 markup 階段被翻案，最先爆倉的是使用槓桿做多的短期動量資金，其次是押 stablecoin 監管利多的 DeFi 協議 token 持有者；結構性多頭（ETF 長期持有者、機構配置）受衝擊較小，但流動性抽乾後 BTC spot 可能快速回測 65,000 美元支撐。至於 ETF 的 6.3 億美元流入是否代表真實新買盤，需要交叉驗證 GBTC 同期流出數字才能確認，原文未提供這個數據。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>現貨 ETF 單日 6.3 億美元流入聽起來很猛，但 GBTC 同期淨流出多少。BlackRock 和 Fidelity 是在吸新錢，還是只是在搬 Grayscale 的舊錢？這個問題的答案決定了持有結構是否比 2024 年更健康。</li>
+        <li>CLARITY Act 妥協版的 stablecoin yield 禁令條款在 markup 階段被改掉的機率有多高？如果妥協條款被翻案，你的 DeFi 協議持倉裡，哪個部位會最先被市場定價反映？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<!-- VC · 投資動態 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="vc-token">
+    <div class="article-meta">
+      <span class="article-source">a16z Speedrun Substack</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Token-maxxing 省掉的永遠是 junior headcount，省不掉的是 senior judgment</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z Speedrun 5 月 5 日 newsletter 探討種子期新創該把資金花在 LLM API tokens 還是工程師 headcount。資料點：單名工程師年使用 tokens 成本約 30 萬美元，對應 5 至 10 倍生產力提升；Cursor 年帳單高於工程師年薪。但 a16z 觀察到 portfolio 公司 token spend 漲、headcount 也在同步成長。Panorama 創辦人 Jackie Lunger 分享：最初派 100 個 agent 同時執行，結果「寫得快但決策爛」，後來把預算花在 planning，「single agent with clear instructions can one-shot（一次完成任務）」，結論是「more tokens signal less precision」。Safeworld 的 Simo Rachidi 自稱「failure-mode-maxxers」，核心 KPI 是部署前的信心值，不是 token 使用量。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Panorama 的案例直接推導出一個結論：「single agent with clear instructions can one-shot」的前提是 planning 能力夠高，但具備這種 planning 能力的恰好是資深工程師。這套建議實際上的意思是「只有強團隊才能用好 AI」，省掉的是 junior headcount 而非 senior judgment。對種子期創辦人的真實含義是：token-maxxing 不是 headcount 的替代品，而是 headcount quality 的放大器，沒有資深工程師的種子團隊灑 token 只會更快產生更多技術債。贏家是已有強 senior engineer 的精小團隊，輸家是把 AI 當作「跳過 hire senior」捷徑的創辦人。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Panorama 說「single agent with clear instructions can one-shot」，但這個 planning 能力本身就是資深工程師才有的。省掉的到底是 junior headcount，還是這整套說法在告訴你「只有強團隊才能用好 AI」？</li>
+        <li>種子期公司把核心系統架構交給 agent 生成，等到 Series A 要做安全審計或 SOC 2 時，誰能讀懂那些 AI 寫的 codebase？這個技術債的清算成本有沒有人算過，還是所有人都在賭模型進步會自動償還？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-gamestop">
+    <div class="article-meta">
+      <span class="article-source">CNBC / WSJ</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>GameStop 的 $56B 要約是免費看漲期權，Cohen 的真實退出路徑是賣 eBay 持股</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">GameStop 5 月 4 日對 eBay 提出 560 億美元不請自來收購要約，每股 125 美元（現金加股票組合），溢價約 20%。GameStop CEO Ryan Cohen 已建立 5% eBay 持股。GameStop 市值約 120 億美元，約為收購標的的四分之一。市場反應極冷：eBay 股價只到 109 美元，套利價差（merger arbitrage spread，反映市場預估交易完成機率的指標）達 14%，遠高於正常並購的 2 至 4%；GameStop 自家股價跌 10%，市值蒸發約 12 億美元。Cohen 未公布任何融資結構。eBay 月活買家 1.3 億人。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">14% 的套利價差在正常並購中代表完成機率趨近於零。研究指出這整件事最合理的解讀是 activist investor（維權投資人）的標準劇本：Cohen 建了 5% eBay 持股後用收購要約逼 eBay 董事會啟動策略審查，推高 eBay 股價短期溢價後出售持股，真正的退出路徑是賣 5% 持股，不是完成並購。GameStop 自家股票當天跌 10%、紙面損失約 12 億美元，這可能就是 Cohen 為買入 eBay 5% 持股所支付的「期權費」，整個結構從未需要任何 committed financing letter（承諾融資函）。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Ryan Cohen 建了 5% eBay 持股再丟要約，這整套動作更像是逼 eBay 董事會啟動策略審查好讓股價短期拉升然後出貨。真正的退出路徑是併購還是賣持股？兩個答案對你的判斷有什麼不同的投資含義？</li>
+        <li>GameStop 實體店客群跟 eBay 用戶重疊度到底多少。如果你做二手收藏品垂直平台，該怕的是這個合併，還是 Whatnot 已經建立的社群飛輪？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-05-06</span>
+</footer>
+
+<div class="podcast-player" id="podcast-player">
+  <audio id="podcast-audio" preload="metadata">
+    <source src="2026-05-06-podcast.mp3" type="audio/mpeg">
+  </audio>
+  <div class="podcast-progress-wrap" id="podcast-progress-wrap">
+    <div class="podcast-progress-fill" id="podcast-progress-fill"></div>
+  </div>
+  <div class="podcast-controls">
+    <button class="podcast-skip" id="podcast-back" aria-label="後退 15 秒">
+      <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+      <span>15</span>
+    </button>
+    <button class="podcast-play-btn" id="podcast-play" aria-label="播放">
+      <svg viewBox="0 0 24 24" id="podcast-play-icon"><polygon points="6,3 20,12 6,21"/></svg>
+    </button>
+    <button class="podcast-skip" id="podcast-fwd" aria-label="快進 30 秒">
+      <svg viewBox="0 0 24 24"><path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z"/></svg>
+      <span>30</span>
+    </button>
+    <div class="podcast-meta">
+      <span class="podcast-meta-label">Today's Podcast</span>
+      <span class="podcast-meta-title">Your Daily Dose of News — 2026-05-06</span>
+    </div>
+    <span class="podcast-time" id="podcast-time">0:00 / 0:00</span>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+
+  (function() {
+    const audio = document.getElementById('podcast-audio');
+    const player = document.getElementById('podcast-player');
+    const playBtn = document.getElementById('podcast-play');
+    const playIcon = document.getElementById('podcast-play-icon');
+    const timeEl = document.getElementById('podcast-time');
+    const progressFill = document.getElementById('podcast-progress-fill');
+    const progressWrap = document.getElementById('podcast-progress-wrap');
+    const backBtn = document.getElementById('podcast-back');
+    const fwdBtn = document.getElementById('podcast-fwd');
+    if (!audio || !player) return;
+
+    const pauseSVG = '<rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/>';
+    const playSVG = '<polygon points="6,3 20,12 6,21"/>';
+
+    function fmt(s) {
+      if (!s || !isFinite(s)) return '0:00';
+      const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+      return m + ':' + (sec < 10 ? '0' : '') + sec;
+    }
+
+    audio.addEventListener('loadedmetadata', function() {
+      player.style.display = 'flex';
+      document.body.style.paddingBottom = '80px';
+      timeEl.textContent = '0:00 / ' + fmt(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', function() {
+      timeEl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+      if (audio.duration) progressFill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+    });
+
+    audio.addEventListener('ended', function() {
+      playIcon.innerHTML = playSVG;
+    });
+
+    playBtn.addEventListener('click', function() {
+      if (audio.paused) { audio.play(); playIcon.innerHTML = pauseSVG; }
+      else { audio.pause(); playIcon.innerHTML = playSVG; }
+    });
+
+    backBtn.addEventListener('click', function() { audio.currentTime = Math.max(0, audio.currentTime - 15); });
+    fwdBtn.addEventListener('click', function() { audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 30); });
+
+    progressWrap.addEventListener('click', function(e) {
+      if (!audio.duration) return;
+      const pct = e.offsetX / progressWrap.offsetWidth;
+      audio.currentTime = pct * audio.duration;
+    });
+  })();
+</script>
+
+</body>
+</html>
