@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-05-08</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+      color: var(--ink);
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .podcast-player {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 98;
+      background: var(--ink);
+      color: var(--bg);
+      padding: 0;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 -4px 24px rgba(0,0,0,.25);
+    }
+    .podcast-progress-wrap {
+      width: 100%;
+      height: 3px;
+      background: rgba(255,255,255,.15);
+      cursor: pointer;
+      position: relative;
+    }
+    .podcast-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width .1s linear;
+      pointer-events: none;
+    }
+    .podcast-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 24px 12px;
+      max-width: 720px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .podcast-play-btn {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      background: #fff;
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .15s;
+    }
+    .podcast-play-btn:hover { transform: scale(1.08); }
+    .podcast-play-btn svg { width: 18px; height: 18px; fill: var(--ink); }
+    .podcast-skip {
+      background: none; border: none;
+      color: rgba(255,255,255,.6);
+      font-size: 11px; font-weight: 600;
+      cursor: pointer;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 1px; line-height: 1;
+      transition: color .15s;
+    }
+    .podcast-skip:hover { color: #fff; }
+    .podcast-skip svg { width: 18px; height: 18px; fill: currentColor; }
+    .podcast-meta {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .podcast-meta-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 11px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+    }
+    .podcast-meta-title {
+      font-size: 12px;
+      color: rgba(255,255,255,.65);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .podcast-time {
+      font-size: 11px;
+      font-variant-numeric: tabular-nums;
+      color: rgba(255,255,255,.5);
+      letter-spacing: .04em;
+      flex-shrink: 0;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+      .podcast-controls { padding: 8px 16px 10px; gap: 10px; }
+      .podcast-meta-title { font-size: 11px; }
+      .podcast-skip { display: none; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 5 月 8 日　星期五</span>
+    <span class="header-count">8 篇</span>
+  </div>
+  <h1>今天，算力已經是地緣政治</h1>
+  <p class="header-lede">Anthropic 租下 Colossus 1、Google 鎖定 Anthropic 的 TPU 路線圖、DeepSeek 被國家大基金領投，這三件事的共同線索是：算力儲量現在決定企業選擇權。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-colossus">Musk 把 Colossus 1 整座租給死對頭</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-google-tpu">Google 用 2000 億美元把 Anthropic 鎖進 TPU</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-genesis">Genesis 的全棧賭注成立，但飛輪還沒轉</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-aurora">無人卡車商業化了，輸的是司機</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-deepseek">DeepSeek 拿了國家的錢</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-a16z">a16z 說 AI 法案不會過</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-murati">Murati 作證之後</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">5 篇</span>
+  </div>
+
+  <article class="article" id="ai-colossus">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / CNBC / Bloomberg</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Musk 把 Colossus 1 整座租給死對頭，等於公開承認 Grok 放棄 frontier race</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">xAI 將最大算力集群整座出租給競爭對手，是「AI 算力公司」與「AI 模型公司」分層的首個 industrial-scale 訊號，比任何一家模型的能力發布更值得追蹤。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 5 月 6 日宣布租下 xAI 母公司 SpaceX 位於 Memphis 的 Colossus 1（xAI 在 Memphis 的 GPU 超級集群）全部算力，超過 300 MW、220K 張 Nvidia GPU，並計劃與 SpaceX 共同開發「多 gigawatt 太空算力」。背景：Anthropic CEO Dario Amodei 坦承公司一直面臨算力供給缺口，原本規劃 2026 年 10 倍營收成長，Q1 實際達到年化 80 倍。對開發者的直接影響是 Claude Code 在所有付費層的 5 小時用量上限翻倍，並取消尖峰時段限制。Musk 今年 2 月才公開稱 Anthropic 應改名「Misanthropic」、「仇恨西方文明」。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向一個結論：Musk 把 Colossus 1 整座租出去，等於公開放棄「用獨佔算力拉開 Grok 訓練優勢」這條路線。輸家是 xAI 上一輪 18B 美元估值中「自有算力護城河」這個前提，贏家是 SpaceX 作為算力房東（neocloud landlord，專為 AI 訓練或推理服務的算力出租商）的現金流模型。Claude Code 用量上限翻倍，研究提示這更可能是「閒置 220K 張 GPU 需要填負載」的包裝，而非單純的用戶福利。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Musk 願意把 Colossus 1 整座租出去，是不是等於告訴市場 Grok 的企業端 GTM（市場進入策略）已經失敗、算力出租才是止血方案？</li>
+        <li>Anthropic 聲稱 Q1 年化營收成長 80 倍，那隱含的 ARR 是多少、對應的毛利率是多少，還是這 80 倍裡大部分其實是 Anthropic 自己燒錢補貼的 API credit 在左手倒右手？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-google-tpu">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI 引述 The Information / CNBC</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Google 用「先投 40 億、再賣回 2000 億」把 Anthropic 的模型路線圖鎖死</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">The Information 5 月 5 日報導，Anthropic 對 Google Cloud 簽下 5 年、2000 億美元的算力與 TPU（Google 自研 AI 加速器）承諾，預計 2027 年起上線。CNBC 推算這單筆承諾占 Alphabet 對投資人揭露的合約積壓（backlog，已簽約但尚未認列的合約金額）超過 40%。背景：Alphabet 已對 Anthropic 投資 400 億美元；AWS、Azure、GCP 三大雲合計 2 兆美元 backlog 中，Anthropic 與 OpenAI 兩家就占過半。Anthropic 同月另與 Google 和 Broadcom（TPU 製造夥伴）簽下多 gigawatt TPU 容量合約。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Google 投 Anthropic 400 億，Anthropic 承諾買回 2000 億 TPU，研究指向的結論是：這個閉環真正鎖定的不是資金，而是 Anthropic 未來五年的模型架構演進。Anthropic 一旦把訓練基礎設施綁在 TPU 路線圖上，若 Google 在 TPU v7 後更改指令集，Anthropic 的退出成本將是整個算子層（模型底層計算單元）重寫。贏家是 Broadcom（TPU 製造夥伴）和 Alphabet 作為隱性垂直整合者，輸家是 Anthropic 未來與 Google 談任何條件時的議價能力。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Anthropic 同時鎖定 SpaceX Nvidia GPU 和 Google TPU 兩條算力，實際推理負載會怎麼分，還是其中一條只是談判籌碼，根本不會跑滿？</li>
+        <li>如果 Anthropic 加 OpenAI 占了 AWS、Azure、GCP 合計 2 兆美元 backlog 的過半，那其他所有企業雲客戶加起來的成長是不是已經停滯，hyperscaler 投資人該重新評估的是集中度風險而非成長故事？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-genesis">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Robotics / PRNewswire</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Genesis 的全棧賭注成立，但飛輪還沒轉，現在談護城河是條件句</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">法美雙籍新創 Genesis AI 5 月 7 日一次發布三件事：基礎模型 GENE-26.5、靈巧機械手，以及具觸覺電子皮膚的資料蒐集手套。手套形成「人手，手套，機械手」的 1:1:1 對應（teleoperation 遠端操作介面），模型訓練前先在物理模擬環境跑 43 萬倍實時速度。共同創辦人 Théophile Gervet 來自 Mistral，投資人包括前 Google CEO Eric Schmidt。Genesis 目前與「處理變動、易碎任務」的客戶進入「深入洽談」，直接競爭對手是中國機械手獨角獸 Linkerbot，後者正在募資衝 60 億美元估值。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指出，Genesis 最難被 Physical Intelligence 或 Skild AI 複製的不是觸覺資料集規模，而是「手套到人手到機械手 1:1:1 遠端操作管線」與模型訓練閉環組成的端對端資料飛輪。一旦規模啟動，這個管線產生的配對資料（感測器、動作、結果）是純軟體公司用公開資料無法複製的。但 Genesis 目前還沒有客戶出貨，這個飛輪尚未啟動。現在談護城河是條件句，不是現實。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>煎蛋切番茄彈鋼琴都是 demo，Genesis 說的「深入洽談」客戶到底是誰？如果是工廠產線，Linkerbot 已經在出貨了，Genesis 的首張訂單在哪？</li>
+        <li>430K 倍實時模擬速度幾乎必然以犧牲物理精度換取速度，煎蛋和切番茄這類食材形變任務的 sim-to-real（虛擬到現實的遷移）失敗率，在哪一層物理近似上會暴增？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-aurora">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Robotics / CNBC / TechCrunch</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Aurora 和 McLane 跑通了，但中段運輸職缺的消失比自駕本身更值得盯</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Aurora Innovation 與 Berkshire Hathaway 旗下配送巨頭 McLane 5 月 6 日宣布，在德州 Dallas–Houston 路線正式啟動全美首個無安全駕駛的長途無人卡車商業運輸。試點期間（2023 年起）累積 28 萬自動駕駛英里、1,400 趟貨運、100% 準時率。現行協議中，駕駛座仍坐一名「不操作的人類觀察員」，但技術上屬於無安全駕駛的 L4 自駕（在特定條件範圍內完全自主、不需人類接管）。McLane 繼續用人類司機處理最後一哩到速食客戶的配送。雙方規劃 2026 年底前擴展至 Sun Belt 其他 McLane 配送中心。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指出，這個案例真正重要的不是「自駕卡車進入商業化」，而是 McLane 的勞動分工設計給出了一個具體藍圖：人類司機留在最後一哩的市內配送，中段高速公路路線整層交給機器。未來貨運就業流失將集中在固定路線、高速公路為主的中段，而非市內配送員。這是第一個 industrial-scale 案例把這個切割點明確化。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>McLane 付的是按趟計費還是固定月費？如果 Aurora 的獲利結構要靠車上那個「不操作的觀察員」才能拿到保險，這個毛利結構撐得住 Kodiak 來殺價嗎？</li>
+        <li>McLane 只在 Dallas-Houston 單一路線跑通，擴展到 Sun Belt 其他路線時每條都要重新做 ODD（自駕系統明定可運行的條件範圍）mapping，這個擴張速度夠快到在 Torc 和 Kodiak 簽下其他大型配送商之前鎖住通路嗎？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">0 篇</span>
+  </div>
+  <p style="text-align: center; color: var(--ink-muted); padding: 40px 0; font-style: italic;">本日無符合洞察門檻的文章。</p>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="vc-deepseek">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI Quick Hits 引述 FT / TechCrunch / Bloomberg</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>DeepSeek 拿了國家的錢，API 對海外開發者的開放性從此打折</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">FT 報導中國國家集成電路產業投資基金（俗稱「大基金」，國家級半導體投資工具）正洽談領投 DeepSeek 首輪外部融資，估值約 45 億美元，Tencent 與 Alibaba 亦在洽談跟投。DeepSeek 此前從未對外募資，創辦人 Liang Wenfeng（量化對沖基金 High-Flyer 創辦人）持股近 90%。估值在數週內從 20 億美元升至 45 億美元。據報，觸發融資的直接原因是競爭對手開始挖角 DeepSeek 研究員，流向主要是字節跳動和阿里巴巴。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指出，國家大基金領投後，DeepSeek API 對海外客戶的實質開放性將面臨收縮壓力，不一定是立即封鎖，而是合規審計要求會拖慢版本更新速度、出口管制灰區擴大，讓歐洲與東南亞企業客戶的採購決策陷入法律不確定性。輸家是正在 DeepSeek API 上建產品的東南亞 B2B 新創，贏家是 Mistral 和 Cohere，他們獲得「去中國化替代方案」的定位論述。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>國家大基金領投後 DeepSeek 的 API 還能自由賣給海外客戶嗎？這對它在東南亞和歐洲正在跑的開發者市場進入策略是助力還是毒藥？</li>
+        <li>說融資是為了留人，但研究顯示被挖走的研究員主要流向字節和阿里，留人靠的到底是股權現金，還是 High-Flyer 體系下的算力自主配額？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-a16z">
+    <div class="article-meta">
+      <span class="article-source">a16z News</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>a16z 說 AI 法案不會過，這既是分析，也是給 portfolio 公司的暗示信號</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z 政策合夥人團隊（含前眾議院多數黨領袖 Steve Scalise 的議事總監 Ben）5 月 7 日發布聯邦 AI 立法分析。118 屆國會（2023-2025）共提案 19,297 件，僅 274 件成為法律，通過率 1.5%。過去兩年超過 100 件 AI 相關法案中，僅有 Take It Down Act 以獨立形式成法。a16z 指出結構性障礙包括：AI 跨多個委員會管轄（商業、消費者保護、國安、IP、勞工）、眾議院 218 票門檻、參議院 60 票 cloture（結束辯論所需票數）、Hastert Rule（議長不排上分裂多數黨法案的慣例）。最可能的通過路徑是搭 NDAA（國防授權法案，美國國會 64 年連續通過的「必過」法案，FY2025 版本達 794 頁）或預算和解程序。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指出，a16z 的程序性事實描述可被公開資料驗證，分析本身並非偽造。但這篇文章同時是兩件事：對立法路徑的客觀分析，以及給 a16z 投資組合公司的暗示信號，也就是「別把合規路線圖綁在獨立 AI 法案，去盯 NDAA 修正版」。兩件事並不互斥，LP 要定價的不是 a16z 是否說謊，而是其 portfolio（Waymo、Anduril、Scale AI）在監管真空期能累積多少不可逆的市場份額。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>a16z 自己的 portfolio 公司是不是已經在按「AI 條文藏在 NDAA 裡」這個劇本做合規準備，還是這篇文章本身就是替被投公司爭取緩衝時間的公關動作？</li>
+        <li>如果 AI 條文夾帶進 NDAA，執行細則落到 DoD（國防部）與 NIST 的行政規則制定，哪一層的合規介面會成為沒有專職政府合規團隊的 Series B 以下 AI infra 公司最大的不確定性來源？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-murati">
+    <div class="article-meta">
+      <span class="article-source">The Verge / NY Post</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Murati 作證之後，企業採購法務部門的風險旗標比估值重定價更快來</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">前 OpenAI CTO Mira Murati 5 月 6 日在 Musk 對 OpenAI 訴訟中以錄影 deposition（可用於審判的庭前書面或錄影證詞）作證，具體指控：Altman 告訴她法務團隊已批准某模型跳過安全審查，她事後向法務 Jason Kwon 求證，確認為偽。同日，前 OpenAI 董事會成員 Helen Toner 也出庭作證，反過來批評 Murati「害怕承擔後果」。Murati 在 2023 年 Altman 短暫被解職期間曾擔任臨時 CEO。Musk 訴訟的核心主張是 Altman 與 Brockman 在 2017 年「偷走一個慈善組織」。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指出，Murati 證詞對 OpenAI 300 億美元估值的最直接下行壓力，不是二級市場重新定價（Thrive 等二級基金持有的是已鎖定的非流動倉位，短期無法退出），而是企業客戶採購決策延遲，因為法務合規部門會把這場訴訟標記為風險旗標。Murati、Toner、Altman 三方互相指控，說明 2023 年政變留下的治理裂痕至今尚未收斂，這不是單一事件，是還沒結束的信任崩塌。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>OpenAI 的企業客戶現在最怕的不是模型能力而是治理風險。有沒有大客戶已經因為這場訴訟開始把工作負載分散到 Anthropic 或 Google，實際的企業端流失信號是什麼？</li>
+        <li>如果 Murati 的「跳過安全審查」指控屬實，OpenAI 內部的模型發布關卡機制到底是軟性 checklist 還是有技術強制卡點，紅隊評估結果有沒有硬綁在部署流水線的自動化測試裡，還是純粹靠人簽字就能繞過？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-05-08</span>
+</footer>
+
+<div class="podcast-player" id="podcast-player">
+  <audio id="podcast-audio" preload="metadata">
+    <source src="2026-05-08-podcast.mp3" type="audio/mpeg">
+  </audio>
+  <div class="podcast-progress-wrap" id="podcast-progress-wrap">
+    <div class="podcast-progress-fill" id="podcast-progress-fill"></div>
+  </div>
+  <div class="podcast-controls">
+    <button class="podcast-skip" id="podcast-back" aria-label="後退 15 秒">
+      <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+      <span>15</span>
+    </button>
+    <button class="podcast-play-btn" id="podcast-play" aria-label="播放">
+      <svg viewBox="0 0 24 24" id="podcast-play-icon"><polygon points="6,3 20,12 6,21"/></svg>
+    </button>
+    <button class="podcast-skip" id="podcast-fwd" aria-label="快進 30 秒">
+      <svg viewBox="0 0 24 24"><path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z"/></svg>
+      <span>30</span>
+    </button>
+    <div class="podcast-meta">
+      <span class="podcast-meta-label">Today's Podcast</span>
+      <span class="podcast-meta-title">Your Daily Dose of News — 2026-05-08</span>
+    </div>
+    <span class="podcast-time" id="podcast-time">0:00 / 0:00</span>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+
+  (function() {
+    const audio = document.getElementById('podcast-audio');
+    const player = document.getElementById('podcast-player');
+    const playBtn = document.getElementById('podcast-play');
+    const playIcon = document.getElementById('podcast-play-icon');
+    const timeEl = document.getElementById('podcast-time');
+    const progressFill = document.getElementById('podcast-progress-fill');
+    const progressWrap = document.getElementById('podcast-progress-wrap');
+    const backBtn = document.getElementById('podcast-back');
+    const fwdBtn = document.getElementById('podcast-fwd');
+    if (!audio || !player) return;
+
+    const pauseSVG = '<rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/>';
+    const playSVG = '<polygon points="6,3 20,12 6,21"/>';
+
+    function fmt(s) {
+      if (!s || !isFinite(s)) return '0:00';
+      const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+      return m + ':' + (sec < 10 ? '0' : '') + sec;
+    }
+
+    audio.addEventListener('loadedmetadata', function() {
+      player.style.display = 'flex';
+      document.body.style.paddingBottom = '80px';
+      timeEl.textContent = '0:00 / ' + fmt(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', function() {
+      timeEl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+      if (audio.duration) progressFill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+    });
+
+    audio.addEventListener('ended', function() {
+      playIcon.innerHTML = playSVG;
+    });
+
+    playBtn.addEventListener('click', function() {
+      if (audio.paused) { audio.play(); playIcon.innerHTML = pauseSVG; }
+      else { audio.pause(); playIcon.innerHTML = playSVG; }
+    });
+
+    backBtn.addEventListener('click', function() { audio.currentTime = Math.max(0, audio.currentTime - 15); });
+    fwdBtn.addEventListener('click', function() { audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 30); });
+
+    progressWrap.addEventListener('click', function(e) {
+      if (!audio.duration) return;
+      const pct = e.offsetX / progressWrap.offsetWidth;
+      audio.currentTime = pct * audio.duration;
+    });
+  })();
+</script>
+
+</body>
+</html>
