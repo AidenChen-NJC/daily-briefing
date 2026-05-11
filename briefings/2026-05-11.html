@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-05-11</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .podcast-player {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      z-index: 98;
+      background: var(--ink);
+      color: var(--bg);
+      padding: 0;
+      display: none;
+      flex-direction: column;
+      box-shadow: 0 -4px 24px rgba(0,0,0,.25);
+    }
+    .podcast-progress-wrap {
+      width: 100%;
+      height: 3px;
+      background: rgba(255,255,255,.15);
+      cursor: pointer;
+      position: relative;
+    }
+    .podcast-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width .1s linear;
+      pointer-events: none;
+    }
+    .podcast-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 24px 12px;
+      max-width: 720px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .podcast-play-btn {
+      flex-shrink: 0;
+      width: 40px; height: 40px;
+      background: #fff;
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .15s;
+    }
+    .podcast-play-btn:hover { transform: scale(1.08); }
+    .podcast-play-btn svg { width: 18px; height: 18px; fill: var(--ink); }
+    .podcast-skip {
+      background: none; border: none;
+      color: rgba(255,255,255,.6);
+      font-size: 11px; font-weight: 600;
+      cursor: pointer;
+      display: flex; flex-direction: column; align-items: center;
+      gap: 1px; line-height: 1;
+      transition: color .15s;
+    }
+    .podcast-skip:hover { color: #fff; }
+    .podcast-skip svg { width: 18px; height: 18px; fill: currentColor; }
+    .podcast-meta {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .podcast-meta-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 11px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+    }
+    .podcast-meta-title {
+      font-size: 12px;
+      color: rgba(255,255,255,.65);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .podcast-time {
+      font-size: 11px;
+      font-variant-numeric: tabular-nums;
+      color: rgba(255,255,255,.5);
+      letter-spacing: .04em;
+      flex-shrink: 0;
+    }
+    @media (max-width: 600px) {
+      .podcast-controls { padding: 8px 16px 10px; gap: 10px; }
+      .podcast-meta-title { font-size: 11px; }
+      .podcast-skip { display: none; }
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 5 月 11 日　星期一</span>
+    <span class="header-count">11 篇</span>
+  </div>
+  <h1>機器人靠中國手、藥廠靠 Google 錢、鏈上穩定幣無法繞過</h1>
+  <p class="header-lede">今天的世界裡，Nvidia 投自己、Visa 接九條鏈、Anthropic 逼近 OpenAI——資本循環與監管妥協決定誰活得長。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-genesis">機器人硬體的中國困境</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-alphabet">Alphabet 的 $460B 泡沫</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-isomorphic">藥廠給 DeepMind 的錢到底買什麼</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic">Google 同時投兩匹馬</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-visa">Visa 的鏈接遊戲</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-doordash">DoorDash 的跨境成本密室</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-wu">Western Union 砍自己還是砍 agent</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-clarity">Clarity Act 的真正輸家</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-nvidia">Nvidia 的 $40B 左口袋進右口袋</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-ramp">Ramp 為什麼不急著上市</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <article class="article" id="ai-genesis">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch / Genesis AI / Humanoids Daily</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Eric Schmidt 押注的 Robotics 公司，核心硬體其實在中國人手上</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Genesis AI 是一家主張「全棧」robotics 的新創，同時做 AI brain（基礎模型）和手部硬體。2026-05-06，公司發布首款機器人基礎模型 GENE-26.5（命名對應 2026 年 5 月），搭配 Genesis Hand 1.0 機器手，採 1:1 人類比例、back-drivable（背向驅動，馬達可被外力反向推動，讓機器手具備安全抓握能力）設計。種子輪 $105M，由 Eclipse、Khosla Ventures、Bpifrance、HSG 領投，個人投資人包含前 Google CEO Eric Schmidt、MIT 教授 Daniela Rus。硬體由中國公司 Wuji Tech 依 Genesis 規格製造。Demo 場景涵蓋多步驟烹飪、解 Rubik's Cube、實驗室操作、彈鋼琴，無付費客戶或 LOI（意向書）資訊揭露。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Eric Schmidt 是前白宮 AI 安全顧問，現在卻替一家把核心硬體設計外包給中國 Wuji Tech 的公司背書。這不是疏忽，是「知道 humanoid 供應鏈去中國化要五年以上」的現實主義押注。更大的問題是：Genesis 的「全棧」主張依賴 Wuji Tech 回傳馬達公差與關節校準數據做模型微調，這條數據管線在 CFIUS（美國外國投資審查委員會）框架下的合法性從未被任何監管文件確認，一旦被要求切斷，Genesis 立即降級為純軟體公司。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Demo 包含煮菜、彈鋼琴、解魔術方塊，有任何一個場景已經有付費客戶簽 LOI，還是全部都還在「展示用」階段？</li>
+        <li>Figure AI、1X 都喊過全棧但最後都回去專注軟體或硬體單邊，Genesis 把硬體規格外包給 Wuji Tech 代工後，客戶要換手就得換模型，這個鎖定效果是真護城河還是只會逼大客戶自己開發？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-alphabet">
+    <div class="article-meta">
+      <span class="article-source">CNBC / 24/7 Wall St / Yahoo Finance</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Alphabet 賣給市場的是 $460B backlog，但沒說有多少可以撕毀</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">$460B 積壓訂單中只有 20-40% 是強制履約，其餘可隨時縮減，這個定價假設的失效邊界極近。</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Alphabet（Google 母公司）於 2026-05-07 收盤市值達 $4.81T，2026-05-10 盤後交易一度超越 Nvidia。驅動力是 Q1 FY2026 財報：總營收 $109.90B（年增 21.8%），Google Cloud 單季營收 $20.03B（年增 63%），Cloud 積壓訂單（backlog，已簽約但未交付的合約價值）達 $460B，資本支出翻倍至 $35.67B，但營業利益率仍維持 36.1%。同期 Nvidia 市值從 $5.05T 降至 $4.9T 以下，主因 OpenAI 內部營收未達目標的消息外流。Polymarket（去中心化預測市場）顯示 Alphabet 在 2026-05-31 成為全球市值第一的隱含概率為 23.5%。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">市場把 $460B backlog 定價為「準應收帳款」，給了 capex 翻倍的 Alphabet +13.77% 漲幅，但這個假設有一個明確的失效條件：雲端合約慣例是 20-40% 為強制履約條款，其餘為彈性條款，若 GCP 比照，真正的硬承諾金額約 $90-180B，而非 $460B 全額。這個 capex 赦免邏輯依賴 Cloud 增速持續，一旦未來兩季增速從 63% 回落至 40% 以下，市場會把同一筆 $35B capex 重新讀成「防禦性軍備競賽」。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Google Cloud $460B 積壓訂單裡，有多少是「use-or-lose」的硬承諾合約、多少是可隨時縮減的彈性條款，這個數字決定了 backlog 是真牽引力還是灌水的虛榮指標。</li>
+        <li>Cloud +63% YoY 的增量客戶到底是從 AWS/Azure 搶來的 workload 遷移，還是全新的 AI-native 公司直接落地 GCP，哪一種佔比更高決定了 Alphabet 的 GTM 是進攻還是撿漏。</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-isomorphic">
+    <div class="article-meta">
+      <span class="article-source">Bloomberg</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Isomorphic Labs 拿了 $2B+，但三家藥廠付的是什麼還沒人說清楚</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Isomorphic Labs 是 Google DeepMind 於 2021 年 spin-out 的 AI 藥物發現公司，以 AlphaFold（蛋白質結構預測 AI 模型，2024 諾貝爾化學獎背景）為技術基礎，延伸至藥物設計。Bloomberg 2026-05-08 報導其正進行 $2B+ 新一輪融資，Thrive Capital 連續第二輪領投，Alphabet 跟投。資金用於強化 drug design engine（利用 AI 設計與目標蛋白結合的小分子藥物候選）與全球擴張。製藥合作夥伴包含 Johnson &amp; Johnson、Eli Lilly、Novartis，輪次與估值均未公開。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Thrive 連續兩輪領投、Alphabet 只跟投，最可能的解釋是 Alphabet 刻意壓低自持比例，避免 Isomorphic 被迫並表為子公司，觸發會計與反壟斷審查。Thrive 是工具，真正得利的是 Alphabet 的資產負債表管理。但更大的風險在製藥合約：J&amp;J、Lilly、Novartis 三家的合作條款未公開，若屬「技術評估與資料接入」而非「臨床候選分子里程碑付款」，$2B+ 輪的獨立營收基礎將極薄，對照 Recursion、Insilico 等同類公司，合約預付款通常支撐估值的 15-30%，Isomorphic 的真實比例有多低，現在沒有人知道。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>J&amp;J、Lilly、Novartis 三家藥廠合作的實際狀態是「付費使用 drug design engine 產出進入臨床的候選分子」，還是仍停在「技術評估與資料接入」階段？</li>
+        <li>Recursion、Insitro、Insilico 都在搶同一批藥廠的同一筆 AI 預算，Isomorphic 真正讓客戶不換供應商的黏性是 AlphaFold 獨有的蛋白質資料飛輪，還是只是 Google 品牌背書？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-anthropic">
+    <div class="article-meta">
+      <span class="article-source">PYMNTS / Fortune / digitalcommerce360</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 估值將超越 OpenAI，但 Google 同時資助兩匹互相踐踏的馬</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 正洽談 $50B 新一輪融資，估值上看 $900B，對照 OpenAI 2026-03 估值 $852B，若成交將是首次超越。基本面：Anthropic 2026 年 run-rate 營收（年化跑率）已超 $30B，較 2025 年底 $9B 成長約 3.3 倍。Google 已承諾投資 $40B（$10B 立即到位，$30B 視績效里程碑）。Anthropic 同時與 Google 和 Broadcom 合作開發客製 AI 加速器，以分散對 Nvidia 的依賴。PS ratio（市值與營收比）約 30x。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">$30B run-rate 中 Google 的 committed spend 與 TPU 代管費用佔比估計 30-50%，扣除關聯方收入，獨立第三方營收約 $15-21B，對應 $900B 估值的獨立 PS 倍數是 43-60x，高於 OpenAI 的隱含倍數。以 $900B 估值進場的新 LP 承擔的不只是高倍數風險，還有關聯方收入風險敞口。更詭異的結構是：Google 持有 Anthropic 約 15% 股權，帳面價值約 $135B，Anthropic 估值每上升一格，Gemini 部門的戰略必要性就被削弱一格，Alphabet 董事會讓這兩個資產同時存在的唯一自洽邏輯，是相信 AI frontier 市場夠大，押兩匹馬的尾部風險覆蓋優於押一匹。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>$30B run-rate 裡有多少是 Google Cloud 的 committed spend 和轉售，如果拿掉 Google 體系內的量，Anthropic 的獨立商業牽引力到底長什麼樣？</li>
+        <li>Google 同時投 Anthropic $40B 又自己推 Gemini，Anthropic 的企業客戶在簽約時最常問的是不是「如果 Google 決定只推 Gemini 你們怎麼辦」，這個風險的真正防禦是 Broadcom 客製晶片，還是根本還沒有？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <article class="article" id="web3-visa">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / The Block / Visa 官方 IR</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Visa 接 9 條鏈不是在擁抱 Web3，是在確保自己無法被繞過</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">$7B 年化穩定幣結算只佔 Visa 全網 0.05%，但 Visa 選擇零費率補貼的目標是成為各鏈無法繞過的協議層。</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Visa 於 2026-04-29 公告：穩定幣結算達 $7B 年化規模（annualized run rate），較上季成長 50%。支援鏈從原本 4 條（Ethereum、Solana、Avalanche、Stellar）擴增至 9 條，新增 Base（Coinbase 的 Layer 2）、Polygon、Canton Network（Digital Asset 主導的機構隱私鏈，Goldman、JPMorgan 已接入）、Arc、Tempo（Stripe 和 Paradigm 共建的支付專用區塊鏈）。Visa 目前部署 130+ 個穩定幣關聯卡計畫，覆蓋 50 個以上國家。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">$7B 年化對照 Visa $14T 全網結算量是 0.05%，數字本身不重要。Visa 在傳統結算的 take rate 約 0.1-0.2%，stablecoin 結算目前極可能是補貼定價（接近零費率），目的是鎖定鏈接入標準，成為各鏈無法繞過的協議層。這與 Visa 歷史上處理 ACH 和 RTP 的策略完全一致：不擁有軌道，但成為軌道間的協議層。直接贏家是 Base（Coinbase）和 Tempo（Stripe），被 Visa 接入等於獲得機構背書。輸家是 Circle 的直接結算產品，Visa 的存在壓低了整個賽道的議價空間。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>$7B 年化 run rate 裡有多少是 Visa 內部跨行結算的自我消化量、多少是外部商戶主動選擇穩定幣結算，這個比例決定了這是真實 PMF 還是 pilot 灌量。</li>
+        <li>Visa 同時接 Base、Polygon、Canton、Tempo 四條互相競爭的鏈，看起來像對沖但實際上是不是在等哪條鏈先跑出交易量再 all-in，真正的獨佔通路優勢到底是什麼？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-doordash">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / The Block / Decrypt</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>DoorDash 做穩定幣 payout 不是因為想做 crypto，省下的錢也不會給外送員</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">DoorDash 宣布與 Stripe 和 Paradigm 合資的 Tempo 區塊鏈合作，在 40 個以上國家試點穩定幣支付。第一階段針對商戶 payout（B 端對 C 端的單向轉帳），後續延伸至 Dasher（外送員）。傳統跨境 payout 需要等待數天，Tempo 結算達秒級。技術選擇 Tempo 而非公鏈（Solana / Base）的考量是 Stripe 已有風控與合規層整合。DoorDash 表示「處於早期、會審慎驗證可靠性、合規與體驗」。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">跨境 payout 的傳統外匯利差加中介費約 2-5%，Stripe Tempo 合理 take rate 估計 0.3-0.8%，省下來的差價主要流入 DoorDash 利潤表，而非 Dasher 到手金額，目前無任何公開承諾顯示 DoorDash 會讓利給外送員。更關鍵的是：DoorDash 對 Stripe Tempo 而言只是「真實商業場景驗證」，Uber、Grab、Deliveroo 面對完全相同的跨境 payout 成本結構，一旦 Tempo 在 DoorDash 跑通合規，這些平台的採用成本趨近於零。DoorDash 沒有先行者優勢，它的實際角色是 Stripe 的免費 PMF（產品市場契合）驗證器。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>DoorDash 選 Tempo 而不選 Solana 或 Base，對外說是合規整合，但真正原因是不是 Stripe 把 payout 費率綁在一起談，Dasher 端的實際到手匯率比傳統管道好多少，有沒有公開數字？</li>
+        <li>Uber、Grab、Deliveroo 全都有同樣的跨境 payout 痛點，如果 Stripe Tempo 拿到 DoorDash 就能拿到所有人，那 DoorDash 在這件事上到底有什麼先行者優勢，還是只是幫 Stripe 做免費市場驗證？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-wu">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / Decrypt / The Block / Western Union 官方 IR</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Western Union 發 USDPT 是在砍自己的內部成本，C 端費率不會動</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Western Union 於 2026-05-04 在 Solana 上線 USDPT（U.S. Dollar Payment Token），由 Anchorage Digital Bank N.A.（美國首家獲 OCC 國家信託牌照的 crypto 銀行）發行，Fireblocks（機構級加密資產託管基礎設施）提供技術支援。四種應用場景：持牌交易所可購買 USDPT；WU 全球流動性網絡接入；消費級 app「Stable by Western Union」2026 年內上線覆蓋 40 個以上國家；以及總部對全球 agent 的近即時結算。WU 年匯款流量約 $200B，全球擁有 70 萬實體 agent，手續費率約 5-10%。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">WU 四種使用場景中，「Treasury and Agent Settlement」（總部對 agent 的鏈上結算）才是真正的策略意圖，蠶食的是資金週轉成本而非 C 端費率。C 端 app 若維持高費率，USDPT 對 C 端收入影響近乎為零。WU 董事會最可能批准的正是這個版本：降低內部結算成本、對外費率不動。但這個策略有時限，WU 在這條價值鏈中真正不可替代的只有兩樣東西：70 萬實體 agent 的最後一哩提現網絡，以及 200 個國家的匯款牌照組合。Circle 正在逐國申請牌照，每拿到一個國家，WU 的護城河就縮小一格。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>WU 七十萬實體 agent 的核心收入是 5-10% 匯款手續費，USDPT 如果真讓 C 端用戶直接鏈上轉帳繞過 agent，WU 準備怎麼不自我蠶食，還是「Stable by WU」app 其實會內建跟傳統匯款一樣高的費率？</li>
+        <li>PYUSD 上線一年多流通量始終沒突破主流，Circle USDC 已經有網絡效應，WU 的 USDPT 要靠什麼讓收款方願意持有而不是秒換回 USDC，是靠 agent 網路的最後一哩提現，還是根本沒想過這個問題？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-clarity">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / Decrypt / Yahoo Finance / FinanceFeeds</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Clarity Act 的 yield 妥協條款，最直接打擊的是 Ondo 和 Sky</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">白宮加密顧問 Patrick Witt 於 2026-05-06 表示，行政部門目標於 2026-07-04 前完成 Clarity Act（Digital Asset Market Clarity Act，旨在劃清 SEC 和 CFTC 對加密資產的管轄）眾議院通過。時程：5 月 Senate Banking 委員會逐條修改（markup）、6 月 Senate floor 投票、7/4 前眾議院通過。關鍵進展：Sen. Thom Tillis（R-NC）和 Sen. Angela Alsobrooks（D-MD）就穩定幣 yield 條款達成妥協，禁止「銀行存款等值收益」，允許「基於消費的活動獎勵」。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">妥協條款的具體邊界未定義，但 Ondo USDY 和 Sky（前 MakerDAO）的 savings rate 產品底層是 T-bill yield 直接穿透給持有者，在字面上最接近「存款等值收益」，是被打擊風險最高的產品。Coinbase 和 Circle 的 rewards program（消費返現）是最安全的形式。DeFi yield 協議的 $20B+ TVL（總鎖倉量）若被重新定性，最直接的輸家是 Ondo Finance 和 Sky，這個結果還沒被市場充分定價。此外，白宮明確反對「針對特定政治人物家族」的利益衝突條款，意味著 Trump 家族的 crypto 業務（World Liberty Financial、TRUMP meme coin）在法案通過後獲得監管豁免而非加強監管。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Tillis-Alsobrooks 妥協禁止「存款等值收益」但允許「消費獎勵」，Ondo USDY 和 Sky 的 savings rate 產品現在是直接被歸類為非法，還是會有灰色地帶讓他們重新包裝成「消費獎勵」繼續活？</li>
+        <li>如果我現在要發一個 yield-bearing stablecoin 產品，真正該害怕的是這條法案本身，還是法案通過後 Circle 和 Coinbase 會拿著合規武器去遊說監管機構逐一狙殺小玩家？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="vc-nvidia">
+    <div class="article-meta">
+      <span class="article-source">CNBC</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Nvidia 的 $40B 投資組合，本質是一張預付給自己的循環支票</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">CNBC 2026-05-09 報導 Nvidia 2026 年 AI 股權投資承諾已超過 $40B。本週新增：資料中心營運商 IREN $2.1B、光纖玻璃巨頭 Corning $3.2B，合計一週投出 $5.3B。最大宗是 OpenAI 的 $30B。同期市場「AI 晶片」偏好外溢：自 2026-04-27 起 Intel、AMD、Micron 各漲 30% 以上，Nvidia 持平。Micron 首次突破 $800B 市值，過去 12 個月漲幅 750%，由 AI HBM（高頻寬記憶體，AI GPU 旁邊堆疊的關鍵記憶體）需求及一般 DRAM 供需緊張共同推動。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">$40B 投資中 $30B 是 OpenAI，若 OpenAI 把這筆資金的主要部分用於購買 Nvidia GPU（OpenAI 是 Nvidia 最大單一客戶之一），reflexive booking（反身性記帳，投資方先給客戶錢、客戶再回購投資方產品，形成左口袋進右口袋的營收風險）是真實存在的。IREN 作為資料中心營運商，GPU 採購回流比例可能超過 70%。同期 Intel、AMD、Micron 各漲 30% 而 Nvidia 持平，最可能的機制是大型基金在 Nvidia 達到持倉上限後開始做「AI 算力分散配置」，持有 Nvidia 過度集中倉位的散戶是這波機構 rebalancing 的流動性提供方。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Nvidia 投 $2.1B 給 IREN、$30B 給 OpenAI，這些被投公司回頭採購 Nvidia 晶片的金額佔其投資額的比例是多少，如果超過五成，這跟左手賣右手的 channel stuffing 差別在哪？</li>
+        <li>Intel、AMD、Micron 同期各漲 30% 而 Nvidia 持平，如果今天要建 AI 資料中心，客戶真正開始認真評估非 Nvidia 方案的轉換成本到底卡在 CUDA 生態還是純粹供貨排隊？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-ramp">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch / PYMNTS</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Ramp 估值 $40B 不上市，因為公開市場會要求驗證「AI-native」是不是真的</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Ramp 的「AI-native」敘事在私募市場獲得 40x PS，但在公開市場對照 Bill.com（約 10x PS）會被打三到四折。</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Ramp 正洽談 $750M 新一輪，pre-money 估值（投資前估值，不含新資金）$40B 以上，距 2025-11 的 $32B 估值僅 6 個月，距 2025-07 的 $16B 估值僅 10 個月。共同領投：Iconiq Capital、GIC（新加坡主權基金）。CEO Eric Glyman 於去年 11 月公告年化營收 $1B、過去一年翻倍。Ramp 的 spend management（企業支出管理）產品內嵌 AI agent，可自動攔截超出政策的消費、偵測舞弊。公司要求每位員工必須「AI-native」（以 AI 工具完成所有工作流程，而非傳統流程加 AI 輔助）。目標 2026 年底前 IPO ready。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Glyman 設定「2026 年底 IPO ready」而非立刻上市，最合理的解釋是：公開市場要求揭露 GAAP 毛利率與 NRR（淨營收留存率），「AI-native」敘事在私募市場獲得 40x PS，但在公開市場對照 Bill.com（約 10x PS）會被打三到四折。Iconiq 和 GIC 的 $40B 估值賭的是「在公開市場定價前把故事講完」，IPO 定價甚至可能低於本輪，這個路徑 Instacart 和 Klarna 都走過。「AI-native」連續出現在兩輪融資 pitch 中，但 Ramp 未公開任何可驗證的每員工營收或客服處理量數字，最可能的原因是毛利率或 NRR 中有一個不夠漂亮。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>「每個員工都必須 AI-native」這個說法已經被講了兩輪融資，實際反映在哪個可量化的營運指標上，每員工營收、客服 ticket 處理量，還是純粹是 pitch deck 裡的文化宣言？</li>
+        <li>Glyman 說 2026 年底 IPO ready 但不立刻上市，是因為一旦揭露毛利率和每員工營收，「AI-native culture」的估值故事會在公開市場被打幾折？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-05-11</span>
+</footer>
+
+<div class="podcast-player" id="podcast-player">
+  <audio id="podcast-audio" preload="metadata">
+    <source src="2026-05-11-podcast.mp3" type="audio/mpeg">
+  </audio>
+  <div class="podcast-progress-wrap" id="podcast-progress-wrap">
+    <div class="podcast-progress-fill" id="podcast-progress-fill"></div>
+  </div>
+  <div class="podcast-controls">
+    <button class="podcast-skip" id="podcast-back" aria-label="後退 15 秒">
+      <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
+      <span>15</span>
+    </button>
+    <button class="podcast-play-btn" id="podcast-play" aria-label="播放">
+      <svg viewBox="0 0 24 24" id="podcast-play-icon"><polygon points="6,3 20,12 6,21"/></svg>
+    </button>
+    <button class="podcast-skip" id="podcast-fwd" aria-label="快進 30 秒">
+      <svg viewBox="0 0 24 24"><path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z"/></svg>
+      <span>30</span>
+    </button>
+    <div class="podcast-meta">
+      <span class="podcast-meta-label">Today's Podcast</span>
+      <span class="podcast-meta-title">Your Daily Dose of News — 2026-05-11</span>
+    </div>
+    <span class="podcast-time" id="podcast-time">0:00 / 0:00</span>
+  </div>
+</div>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+
+  (function() {
+    const audio = document.getElementById('podcast-audio');
+    const player = document.getElementById('podcast-player');
+    const playBtn = document.getElementById('podcast-play');
+    const playIcon = document.getElementById('podcast-play-icon');
+    const timeEl = document.getElementById('podcast-time');
+    const progressFill = document.getElementById('podcast-progress-fill');
+    const progressWrap = document.getElementById('podcast-progress-wrap');
+    const backBtn = document.getElementById('podcast-back');
+    const fwdBtn = document.getElementById('podcast-fwd');
+    if (!audio || !player) return;
+
+    const pauseSVG = '<rect x="5" y="3" width="4" height="18"/><rect x="15" y="3" width="4" height="18"/>';
+    const playSVG = '<polygon points="6,3 20,12 6,21"/>';
+
+    function fmt(s) {
+      if (!s || !isFinite(s)) return '0:00';
+      const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+      return m + ':' + (sec < 10 ? '0' : '') + sec;
+    }
+
+    audio.addEventListener('loadedmetadata', function() {
+      player.style.display = 'flex';
+      document.body.style.paddingBottom = '80px';
+      timeEl.textContent = '0:00 / ' + fmt(audio.duration);
+    });
+
+    audio.addEventListener('timeupdate', function() {
+      timeEl.textContent = fmt(audio.currentTime) + ' / ' + fmt(audio.duration);
+      if (audio.duration) progressFill.style.width = (audio.currentTime / audio.duration * 100) + '%';
+    });
+
+    audio.addEventListener('ended', function() {
+      playIcon.innerHTML = playSVG;
+    });
+
+    playBtn.addEventListener('click', function() {
+      if (audio.paused) { audio.play(); playIcon.innerHTML = pauseSVG; }
+      else { audio.pause(); playIcon.innerHTML = playSVG; }
+    });
+
+    backBtn.addEventListener('click', function() { audio.currentTime = Math.max(0, audio.currentTime - 15); });
+    fwdBtn.addEventListener('click', function() { audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + 30); });
+
+    progressWrap.addEventListener('click', function(e) {
+      if (!audio.duration) return;
+      const pct = e.offsetX / progressWrap.offsetWidth;
+      audio.currentTime = pct * audio.duration;
+    });
+  })();
+</script>
+</body>
+</html>
