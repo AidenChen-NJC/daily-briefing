@@ -416,6 +416,9 @@
     }
   
 /* ═══ FLOATING PODCAST PLAYER ═══ */
+
+/* PODCAST_PLAYER_CSS:START */
+/* ═══ FLOATING PODCAST PLAYER ═══ */
 .podcast-player {
   position: fixed;
   bottom: 0; left: 0; right: 0;
@@ -564,6 +567,7 @@
     font-size: 12px;
   }
 }
+/* PODCAST_PLAYER_CSS:END */
 </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
@@ -827,25 +831,6 @@
   <span class="footer-brand">Your Daily Dose of News</span>
   <span class="footer-date">2026-05-12</span>
 </footer>
-  <div class="podcast-controls">
-    <button class="podcast-skip" id="podcast-back" aria-label="後退 15 秒">
-      <svg viewBox="0 0 24 24"><path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>
-      <span>15</span>
-    </button>
-    <button class="podcast-play-btn" id="podcast-play" aria-label="播放">
-      <svg viewBox="0 0 24 24" id="podcast-play-icon"><polygon points="6,3 20,12 6,21"/></svg>
-    </button>
-    <button class="podcast-skip" id="podcast-fwd" aria-label="快進 30 秒">
-      <svg viewBox="0 0 24 24"><path d="M12 5V1l5 5-5 5V7c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6h2c0 4.42-3.58 8-8 8s-8-3.58-8-8 3.58-8 8-8z"/></svg>
-      <span>30</span>
-    </button>
-    <div class="podcast-meta">
-      <span class="podcast-meta-label">Today's Podcast</span>
-      <span class="podcast-meta-title">Your Daily Dose of News — 2026-05-12</span>
-    </div>
-    <span class="podcast-time" id="podcast-time">0:00 / 0:00</span>
-  </div>
-</div>
 
 <script>
   const bar = document.getElementById('progress-bar');
@@ -855,12 +840,13 @@
     bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
     btn.classList.toggle('visible', window.scrollY > 300);
   }, { passive: true });
+</script><script>
 </script>
-
+<!-- PODCAST_PLAYER_HTML:START -->
 <!-- Floating podcast player -->
 <div class="podcast-player" id="podcast-player">
   <audio id="podcast-audio" preload="metadata">
-    <source src="2026-05-12-podcast.mp3" type="audio/mpeg">
+    <source src="2026-05-12-podcast.mp3">
   </audio>
   <div class="podcast-progress-wrap" id="podcast-progress-wrap">
     <div class="podcast-progress-track"></div>
@@ -886,6 +872,8 @@
     <span class="podcast-time" id="podcast-time">0:00 / 0:00</span>
   </div>
 </div>
+<!-- PODCAST_PLAYER_HTML:END -->
+<!-- PODCAST_PLAYER_JS:START -->
 <script>
 (function() {
   var audio = document.getElementById('podcast-audio');
@@ -978,5 +966,6 @@
   window.addEventListener('pointercancel', endDrag);
 })();
 </script>
+<!-- PODCAST_PLAYER_JS:END -->
 </body>
 </html>
