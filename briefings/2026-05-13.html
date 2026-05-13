@@ -563,6 +563,26 @@
     font-size: 12px;
   }
 }
+@media (prefers-color-scheme: dark) {
+  /* Player surface becomes Bone off-white (#ebe6d9) — descendant white text/icons
+     flip to dark so they remain readable. Light mode unchanged. */
+  .podcast-player {
+    background: #ebe6d9;
+    color: #1a1a18;
+    box-shadow: 0 -6px 28px rgba(0,0,0,.5);
+  }
+  .podcast-progress-track { background: rgba(0,0,0,.12); }
+  .podcast-progress-thumb {
+    background: #1a1a18;
+    box-shadow: 0 2px 6px rgba(0,0,0,.25);
+  }
+  .podcast-play-btn { background: #1a1a18; }
+  .podcast-play-btn svg { fill: #ebe6d9; }
+  .podcast-skip { color: rgba(0,0,0,.6); }
+  .podcast-skip:hover { color: rgba(0,0,0,.88); }
+  .podcast-meta-title { color: rgba(0,0,0,.62); }
+  .podcast-time { color: rgba(0,0,0,.5); }
+}
 /* PODCAST_PLAYER_CSS:END */
 </style>
   <!-- Google tag (gtag.js) -->
