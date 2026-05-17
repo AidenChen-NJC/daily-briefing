@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-05-18</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 5 月 18 日　星期一</span>
+    <span class="header-count">3 篇</span>
+  </div>
+  <h1>債券殺回來了</h1>
+  <p class="header-lede">當美債殖利率衝上 12 個月新高，加密幣的去槓桿連鎖反應已經在中心化交易所全面展開。誰在被迫平倉，誰在抄底，一切都指向 Fed 的下一步劇本。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-bonds">債券把加密幣拖下水</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-jltxx">JPMorgan 的 JLTXX 目標客戶</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-fasset">Fasset 的 $32B 數字</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">0 篇</span>
+  </div>
+  <p style="color: var(--ink-muted); font-style: italic; margin: 32px 0;">本日無符合品質門檻的 AI 類新聞。</p>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="web3-bonds">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>債券把加密幣拖下水，禍首不在鏈上，在 Fed 劇本翻轉</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">過去 24 小時 $360M 清算全部集中在 CEX 永續合約，鏈上尚無系統性溢出，但 ETF 贖回壓力才是第二波砸盤的真正威脅。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">比特幣 5 月 15 至 17 日跌約 3% 至 $78,000，Solana、以太幣（ETH）、XRP 等主流幣種同步下跌約 5%。美國 10 年期公債殖利率（debt yield，債券被拋售時上升）升至 4.58%，為 12 個月新高；英國同期殖利率衝上 5.2%，為 2008 年以來最高。過去 24 小時逾 $360M 看多部位遭清算（liquidation，槓桿部位因保證金不足被強制平倉），加密多頭累計損失約 $500M。CME FedWatch（芝商所根據利率期貨反推的 Fed 政策機率工具）顯示 12 月升息機率從一週前的 22.5% 跳升至 44%。ETH/BTC 比值（以太幣相對比特幣強弱的指標）跌至 0.02835，為 2025 年 7 月以來最低。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">這波 $360M 清算壓倒性集中在 Binance、Bybit、OKX 的中心化交易所永續合約，鏈上協議未出現系統性溢出。真正值得關注的是時序問題：強制去槓桿在數小時內完成，但 ETF 的 T+1 贖回壓力才是潛在的第二波砸盤，而這波資金輪動方向明確，持有 ETH 敞口的鏈上 DeFi 基金被雙重夾殺（ETH/BTC 跌至十個月新低，TVL 以美元計同步縮水），相對贏家是純比特幣持倉者。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>那些在「流動性寬鬆」劇本上建倉的加密基金，真正害怕的是被迫去槓桿後流動性枯竭到無法出貨，還是敘事翻轉後散戶申贖潮才是致命的？</li>
+        <li>過去 24 小時的清算集中在 CEX，如果換成 Hyperliquid 或 dYdX 等鏈上撮合器承接，其排序器在極端波動下的吞吐瓶頸是否才是真正的系統性風險放大器？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-jltxx">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>JPMorgan 的 JLTXX 真正的目標客戶不是 Tether，而是還沒長大的發行商</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">JPMorgan 於 5 月 12 日向 SEC 申報第二檔代幣化（tokenization，把傳統資產所有權記錄搬上區塊鏈）貨幣市場基金（money market fund，投資超短期低風險工具的基金），代號 JLTXX，全名 JPMorgan OnChain Liquidity-Token Money Market Fund。基金投資標的為短期美國公債、現金與以政府證券擔保的隔夜附買回協議（repo，以證券為抵押的超短期借貸），在以太坊上維護代幣餘額，允許獲准用戶在鏈上提交申購與贖回請求。其結構刻意對齊 GENIUS Act（要求美國合規穩定幣發行商以高流動性資產 1:1 背書代幣的聯邦立法），意在成為穩定幣發行商的合規孳息儲備工具。JPMorgan 首檔代幣化貨幣市場基金 MONY 於 2025 年底上線。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Tether 的商業模式核心就是自持美債吃全部利差，Paolo Ardoino 沒有動機把利差分給 JPMorgan，JLTXX 的真正目標客戶是尚未建立直接國庫券管道的新進小型穩定幣發行商，以及需要鏈上可組合儲備工具的 DeFi 協議，直接競爭對手是 BlackRock BUIDL。JPMorgan 真正不可替代的護城河是傳統機構的合規通路，保險公司和退休基金等無法直接操作鏈上協議的機構，可透過 JLTXX 間接取得鏈上美債曝險，這個客群 Circle 和 Tether 搶不走。但 MONY 上線半年至今無公開 AUM 數據，這本身是一個信號。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Circle 自己做 Arc 鏈、Tether 直接持有美債，如果我是穩定幣發行商，為什麼要多一層 JPMorgan 當中介而不是自己管儲備？JPMorgan 真正不可替代的通路卡位到底是什麼？</li>
+        <li>穩定幣發行商若將儲備從直接持有短期國庫券改為持有 JLTXX 代幣，等於在儲備棧中新增 JPMorgan 作為單點對手方風險，這使 Circle 或 Tether 在 GENIUS Act 的「儲備隔離」要求下反而喪失結構性獨立，誰真正得利？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="vc-fasset">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Fasset 的 $32B 數字可能是少數大額交易商在撐場</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">穩定幣新型銀行（neobank）Fasset 完成 $51M 募資，投資方包含日本 SBI Group。Fasset 以穩定幣（與美元等法幣 1:1 掛鉤的代幣）在逾 50 條支付走廊（payment corridor，兩個國家或貨幣之間的固定匯款路徑）間移動資金，覆蓋 125 個國家、服務逾 1,000 家中小企業（SMB），年化交易量逾 $32B，用途集中在跨境供應商付款、企業內部資金調撥與流動性管理。此前跨境匯款依賴代理行體系（傳統跨境匯款須經多家中介銀行轉手，速度慢且成本高），穩定幣作為結算層可繞過這一路徑。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">$32B 年化交易量跑在 1,000 家 SMB 上，算出來每家平均年交易量 $3,200 萬，這不像中小企業，更像中型貿易商或外匯中介在貢獻大部分 GMV。若 take rate 為 10 至 20 bps，對應淨營收僅 $3,200 萬至 $6,400 萬，SBI Group 押注的估值區間隱含 5 至 10 倍 revenue multiple，買的是進入東南亞與中東走廊的戰略選擇權，不是當下的 unit economics。最可能先斷的環節是奈及利亞和巴基斯坦的法幣出入金，兩地近年都有外匯管制收緊紀錄，而 125 個國家的覆蓋廣度幾乎確定依賴第三方本地夥伴而非自建牌照。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>年化 $32B 交易量跑在 1,000 家 SMB 上，這是真的中小企業黏性客戶，還是少數大額外匯經紀商灌出來的虛胖 GMV？</li>
+        <li>125 個國家、50 條走廊，Fasset 真正有本地牌照和銀行出入金通道的有幾個國家？如果明天要複製，最難拿下的是牌照還是本地收單夥伴？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-05-18</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
