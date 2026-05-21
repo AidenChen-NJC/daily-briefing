@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-05-21</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 5 月 21 日　星期四</span>
+    <span class="header-count">14 篇</span>
+  </div>
+  <h1>當模型開始訓練自己，誰最先燒完錢？</h1>
+  <p class="header-lede">本期涵蓋 Gemini 3.5 Flash 的平價戰爭、Karpathy 加入 Anthropic 的加速假設、Agent 能跑整週任務卻沒讓 R&D 加速，以及 METR 最新報告揭露的真實瓶頸。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-gemini-3-5-flash">Gemini 3.5 Flash 省錢故事的基線</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-karpathy">Karpathy 加入 Anthropic 的加速假設</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-google-blackstone">Google + Blackstone $5B：電力問題</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-agents">Anthropic Agents 加 sandbox 的盲區</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-metr">METR 報告：能力與生產力的裂縫</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-synthid">OpenAI 採用 SynthID 的政治計算</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-exa">Exa $2.2B：a16z 押的敘事</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-trump">Trump 的 crypto EO：政治支票</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-canton">Canton Network 150+ 應用的秘密</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-dunamu">Dunamu $669M：銀行買交易所</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-ai-employees">Mac Mini 跑 5 個 AI 員工的 ROI</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">8 篇</span>
+  </div>
+
+  <article class="article" id="ai-gemini-3-5-flash">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / Google Cloud Blog / VentureBeat</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Gemini 3.5 Flash 省錢故事的基線，是 Google 自己的帳單</h3>
+    
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">$1B 省錢數字的比較基線是 Google 自家定價，不是客戶付給 OpenAI 或 Anthropic 的成本。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Google 在 I/O 2026 推出 Gemini 3.5 Flash，在 coding、agentic（模型主動執行多步任務）、multimodal 基準測試上超越自家 Gemini 3.1 Pro，速度比 frontier 對手快 4 倍、價格砍半，同時對標 Opus 4.7 和 GPT-5.5 的分數。配套發布 Gemini Omni（任意輸入轉影片輸出）、Gemini Spark（24 小時個人 agent，跨 Workspace/Chrome/Email 執行動作）。Google 宣稱企業改用 Flash 一年可省 $1B 以上。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向一個結論：$1B 省錢數字的比較基線是 Google 自家 Vertex AI Pro 定價，不是客戶付給 OpenAI 或 Anthropic 的帳單。這是把 Pro 流量往 Flash 遷移的內部定價操作，對外競爭的殺傷力要看真實遷移率才能確認。最立即的輸家是已簽 Vertex Pro 承諾用量的企業採購，最大受益者是剛開始評估、還沒被綁住的新客戶。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Flash 在 agentic benchmark 贏 Pro，但超過 15 步的長鏈工具呼叫，錯誤累積率是否仍維持優勢，還是速度換來的是 shallow evaluation？</li>
+        <li>Spark 需要 Workspace 全權限，Google 真正的 GTM 是走 IT admin 強推，還是 bottom-up 個人訂閱？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-karpathy">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / TechCrunch / CNBC</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Karpathy 加入 Anthropic，但 agent 尚未讓 Anthropic 自己加速</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Andrej Karpathy（OpenAI 共同創辦人、前 Tesla Autopilot 主管）宣布加入 Anthropic，本週上工。職位在 pre-training（模型最昂貴的大規模初始訓練階段）團隊，負責人是 Nick Joseph，同時帶一個新 group 專責「用 Claude 自動化 Anthropic 自身的訓練 pipeline」。Karpathy 表示未來幾年 frontier LLM 特別關鍵，並暗示之後仍會回去做教育工作（Eureka Labs）。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向的核心張力是：Anthropic 自承 AI R&D 自動化至今未帶來 2 倍加速，花頂薪請 Karpathy 來做「用 Claude 訓 Claude」的 ROI 假設，必須建立在 Claude 能在 2026 到 2027 年內壓縮 pre-training 週期至少 30%。若這條曲線不成立，這筆支出的合理化只剩招募品牌效益，而非模型效率。Pre-training 是 Anthropic 最大的 compute 燒錢點，任何週期縮短直接影響 $12B 以上年化燒錢率的回收期。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Anthropic 自承 AI R&D 自動化還沒帶來 2 倍加速，花頂薪請 Karpathy 帶「用 Claude 訓 Claude」團隊的 ROI 假設建立在什麼時間表上？</li>
+        <li>Karpathy 在 Tesla 做的是視覺優先 pipeline，Anthropic pre-training 是 text-dominant 架構，這個 domain transfer 在哪個具體工程環節最可能產生盲區？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-google-blackstone">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / CNBC / Google Blog / WSJ</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Google + Blackstone $5B 合資：電力問題，不是晶片問題</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Blackstone 宣布與 Google 合資成立美國公司，提供資料中心容量、運維、網路與 Google TPU（Tensor Processing Unit，Google 自研 AI 晶片，非 NVIDIA GPU）算力服務。Blackstone 初期承諾 $5B 股權，首期 500 MW（約等於一座中型發電廠）容量預計 2027 年上線。CEO 由 Google 老將 Benjamin Sloss 出任。Google 的意圖是把 TPU 從自家內部使用推向公開雲市場，挑戰 NVIDIA 壟斷。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">選 Blackstone 而非 Equinix 或 Digital Realty，核心是電力和用地取得能力，不是技術協同。Blackstone 透過 QTS 已持有大量資料中心用地與電網連接，$5B 買的是土地、電力合約和融資能力。但 TPU 商品化最大的工程障礙仍在軟體：JAX/XLA 以外的 PyTorch 原生支援殘缺，18 個月空窗期內 NVIDIA GB200 持續吃下新工作負載，Google 鎖定的實際上只有「原本就跑 JAX 和 TensorFlow 的 Google 生態用戶」，不是通用 ML 市場。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>500 MW 到 2027 才上線，CoreWeave、Lambda、Oracle 現在就能交機櫃，這段空窗期 Google 怎麼防止客戶鎖定在別家？</li>
+        <li>TPU 對外商品化，JAX/XLA 之外的 PyTorch 原生支援仍殘缺，這個合資公司靠什麼讓非 Google 客戶不被迫重寫訓練程式碼？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-anthropic-agents">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic Managed Agents 加 sandbox，但 prompt injection 沒擋住</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 為 Claude Managed Agents（自家託管的 agent 平台）新增 sandboxes（隔離執行環境，防工具呼叫互相污染）與 MCP tunnels（MCP，Model Context Protocol，Anthropic 推的工具連接協議；tunnels 讓 agent 連接企業內部伺服器，不對公網開放）。功能定位是讓企業客戶補齊兩個生產級需求：工具呼叫安全隔離，以及企業內網資源的安全連接。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Sandbox 只能限制工具呼叫的副作用範圍，無法阻擋發生在模型推論層的 prompt injection（惡意輸入劫持 agent 行為）。更具體的問題是，MCP tunnel 的 session 認證與 token rotation 在協議規格層本就沒定義，生產環境的安全責任實質落在企業側，Anthropic 對外宣傳的合規敘事存在一個已知空白。做「模型無關 agent platform」的新創（LangChain、CrewAI）是輸家，Anthropic 親自下場堵路；但若 Claude 模型的工具呼叫差異被 Google Flash 縮小，這個平台的 lock-in 就只剩整合便利性。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>MCP tunnel 讓 agent 連進企業內網，一旦 agent 被 prompt injection 劫持，sandbox 的隔離邊界能擋到哪一層？</li>
+        <li>Anthropic 自己做 hosting 的真正護城河是 Claude 模型綁定，還是其實誰接都一樣？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-metr">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / METR 官方部落格</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>METR 報告揭示：agent 能力和生產力之間有一條真實的裂縫</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Claude 能跑 14.5 小時的工程任務，但整體 R&D 加速還沒到 2 倍——瓶頸是人類驗證，不是模型。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">METR（Model Evaluation &amp; Threat Research 非營利研究組織）公開首份 Frontier Risk Report，涵蓋 2026 年 2 到 3 月，參與廠商為 Anthropic、Google、Meta、OpenAI。核心觀察：四家廠商內部已把 agent 當員工用，permissions 和 oversight 與人類員工相近，可獨立執行數小時等級的工程任務。Claude Opus 4.6 的 task horizon（agent 能自主完成的最長任務時長）已達 14.5 小時，每 123 天翻倍，預估 2026 年底進入整週級任務。但 Anthropic 自承，截至 2026 年 4 月，AI R&D 自動化尚未帶來 2 倍進度加速。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Anthropic 自己說出來的才是最關鍵的數字：agent 能跑完 14.5 小時的工程任務，但整體 R&D 加速還沒到 2 倍。瓶頸不是模型能力，而是人類驗證 agent 輸出的速度，code review、測試覆蓋確認、部署決策這些「人在迴路」環節沒有等比例加快。對 frontier lab 以外的企業更悲觀：如果連 Anthropic 自己都還沒 2 倍加速，客戶對「agent 幫你省人力」的投資回收期估算，應該至少乘以 2。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>四家 frontier lab 都把 agent 當員工用卻沒產出加速，過去一年 VC 投進 agent infra 的幾十億美金，誰的 LP 該第一個要求 markdown？</li>
+        <li>Task horizon 每 123 天翻倍的曲線，若任務集由廠商自選，selection bias 會讓這條曲線在需要跨系統 debug 的真實 infra 任務時直接斷裂嗎？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-synthid">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 採用 SynthID，Adobe 的 C2PA 標準安靜輸掉了</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OpenAI 宣布採用 Google DeepMind 開發的 SynthID（AI 生成內容浮水印技術，肉眼不可見、可程式偵測）為 ChatGPT 圖像生成加浮水印，同步推出公開驗證工具，使用者上傳圖片可確認是否來自 OpenAI 模型。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">OpenAI 採用 SynthID 的真實受眾是監管機構，特別是 EU AI Act 第 50 條（AI 生成內容標示義務）的合規稽核官員，以及美國相關立法者。兩家最大的 frontier lab 聯合採用同一標準，等於預先建立「業界已自律」的抗辯材料，降低被強制採用政府指定標準的風險。真正的輸家是 Adobe Content Credentials（C2PA）標準，SynthID 成為事實標準後，Adobe 的 CAI 生態系統面臨被邊緣化，媒體平台將被迫選邊。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>SynthID 成為事實標準後，Stability AI 和 Midjourney 不跟進，在監管談判桌上的籌碼就少一張，這對他們的持倉估值有多大影響？</li>
+        <li>對終端用戶浮水印根本不影響使用決策，這個動作真正要說服的是企業法務、媒體平台，還是監管機構？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-exa">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / a16z newsletter / Bloomberg / SiliconANGLE</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Exa $2.2B：a16z 押的是「agentic search 超越 Google ads」這句話</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Exa（前身 Metaphor）完成 Series C，募資 $250M，a16z 領投，估值 $2.2B，較 2025 年秋天的 $85M 募資、$700M 估值在不到一年內翻超過 3 倍。產品定位：為 AI agent 設計的搜尋，自建爬蟲、GPU cluster 訓練 embedding model（將文字嵌入向量空間以進行語意搜尋的模型）、自研 vector database（高速語意搜尋資料庫），搜尋延遲低於 200ms。客戶包含 Cursor、Cognition、HubSpot、Monday.com。CEO Will Bryk 預測 2030 年代初 agentic search（AI agent 主動發起的搜尋）規模將超過 Google search ads 今天的規模。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">九個月 3 倍估值跳升，但 Exa 未公布 ARR 是否同步 3 倍，研究指向 a16z 押的是 TAM 敘事而非當期財務。Exa 的客戶集中在高增長 AI 原生公司，API 呼叫量增速快，但這代表集中風險，不是分散的企業 ARR。真正的替代威脅不是客戶自建，而是 Google 降低 Bing Search API 定價，Exa 的語意品質和低延遲護城河屆時需要重新測試。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>九個月內從 $700M 跳到 $2.2B，Exa 的 ARR 是否同步 3 倍，還是 a16z 純粹在押「agentic search 超越 Google ads」這句話的 TAM 倍數？</li>
+        <li>Cursor 和 Cognition 是最懂 embedding 的客戶，他們自建 search infra 的成本有多高，Exa 的留存靠的是懶還是真的不可替代？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="web3-trump">
+    <div class="article-meta">
+      <span class="article-source">Messari Unqualified Opinions / CoinDesk</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Trump 的 crypto EO：政治支票，Fed 沒有義務兌現</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Trump 於 2026 年 5 月 19 日簽署行政命令「Integrating Financial Technology Innovation into Regulatory Frameworks」，要求 Fed 在 120 天內評估給非銀行機構（含 crypto 公司）直接存取 master account（Fed 直接提供的清算帳戶，傳統上只給銀行）和 payment rails（Fedwire、ACH 等清算結算基礎管道）的可能性；監管機構 3 個月內檢視現行法規，6 個月內提出具體行動。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Fed 是獨立機構，EO 只能要求評估，不能命令 Fed 核准 master account。Custodia Bank 的前例清楚：2024 年聯邦法院支持 Fed 有完全裁量權拒絕申請。120 天評估報告不等於政策改變，真正落地需要國會修法或 Fed 主動修改准入規則，兩者都不在 EO 授權範圍。USDC（Circle）和 PYUSD（PayPal）的真實受益時間表比市場現在定價的遠得多，最能有效施壓的管道是 JPMorgan、BNY、Citibank 法務團隊在評估期間透過 OCC 和 FDIC 技術評論流程提交「系統性風險」反對意見，善於監管參與的 Circle 是贏家，沒有遊說資源的小型 stablecoin 發行商是輸家。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>120 天評估加 6 個月行動橫跨中期選舉，Fed 有任何義務在政治時間表內給出結論嗎，還是這張 EO 就是選舉支票？</li>
+        <li>若 stablecoin 商真的拿到 master account，拿到 master account 的業者必須接受 Fed 的準備金與流動性要求，這對 Circle 的 USDC reserve 結構是強化護城河，還是反而讓銀行系 stablecoin 取得結構性優勢？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-canton">
+    <div class="article-meta">
+      <span class="article-source">Messari research / Jake Koch-Gallup</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Canton Network 150+ 應用，但沒有人公布 TVL</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Messari 發布 Canton Network 研究報告。Canton 定位為可配置隱私（configurable privacy，每筆交易參與者可指定哪些對手看哪些欄位）的公網，支援 atomic composability（多個 dApp 在一筆交易中互相呼叫，全成功或全失敗）。2024 年公網主網上線，目前宣稱 150 個以上 live or emerging 應用，50 個以上 Super Validator（負責共識與治理的驗證人，有牌照要求），採 2/3 supermajority 治理門檻。機構採用方包含 Broadridge、DTCC、J.P. Morgan，應用場景涵蓋 repo、抵押品管理、tokenized treasuries（代幣化國債）、tokenized 銀行存款與支付。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Canton Foundation 至今未公布鏈上 TVL（Total Value Locked，鏈上資產總鎖倉量）或日均結算量。150 個應用的數字混合了 live 和 emerging，對比 DTCC 每日結算量超過 $2 兆，Canton 若有顯著 production 量早就會有公開宣告。這個選擇本身就是答案：150 個應用更可能是 50 個 PoC、80 個宣布意向、20 個真實跑量的組合，而非公告所呈現的規模。JPM 同時押 Onyx、Canton、Kinexys、Partior 四條軌道，Canton 對 JPM 而言是 portfolio 試驗之一，不是主押的未來軌道，外界從 JPM 背書獲得的信用背書比表面看起來稀薄。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>150+ 應用聽起來多，其中有多少在跑真實結算量、日均交易額超過 $1B，Canton Foundation 敢公布鏈上 TVL 嗎？</li>
+        <li>JPM 同時押 Onyx、Canton 還有 Partior，Canton 會不會只是 JPM 的備案而非主力？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="vc-dunamu">
+    <div class="article-meta">
+      <span class="article-source">Messari Unqualified Opinions</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Dunamu $669M：南韓大銀行直接買交易所，比做 stablecoin 更激進</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Messari 整理 5 月中 crypto 大型融資。Dunamu（南韓 Upbit 交易所母公司）獲 Hana Financial Group（南韓四大商業銀行之一）投資 $669M，misc 階段。同期其他融資：Sorted Wallet seed $4.4M（Tether、Gnosis、Movement Labs）；Gemini 交易所 post-public equity（上市後增資輪）$100M，由 Winklevoss Capital 自家投入；Fasset early-stage venture $51M（SBI Holding、Investcorp、Arz Portfoy）。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Hana Financial 直接買 Dunamu 大額股權，比傳統銀行「做 stablecoin」或「設 crypto 子公司」更激進，等於是一家受監管的系統性重要銀行把命押在 crypto 交易所的成長上。Gemini 上市後又由 Winklevoss Capital 自家注資 $100M，是 founder 用 family office 把上市公司股權回收的訊號，外部機構投資人不跟進本身就是市場對這個估值的表態。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Gemini 上市後又拿自家 Winklevoss Capital 的 $100M，外部機構投資人不跟，這是信心訊號還是沒人要接的警訊？</li>
+        <li>Hana Financial 砸 $669M 進 Dunamu，是要拿韓國交易所牌照價值還是真的要整合進銀行產品線，Upbit 用戶會因此多留還是根本無感？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-ai-employees">
+    <div class="article-meta">
+      <span class="article-source">billhsu Substack — Vibe VC #5</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>在 Mac Mini 跑 5 個 AI 員工：最大瓶頸是 founder 自己，不是模型</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Bill Hsu 在 Mac Mini 上用 Claude Code 和 Telegram 跑 5 個 AI 員工：Jared（助理）、Bobby（投資分析師）、Taylor（on-chain PM）、Steve（PM）、Samantha（內容）。訂閱 Claude Max $200/月。每 4 小時觸發一次 heartbeat（定時訊息喚醒 agent 掃任務），Notion 作為共享 dashboard，每個 agent 每晚 8 點根據當日反饋更新自己的 CLAUDE.md（Claude Code 的 per-role config 檔）。作者自述 agent 曾反饋給他：「all the work progress is bottlenecked on you」。一篇文章 Samantha 改了 7 版才上線。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">名目成本是 $200/月 Claude Max 加 Mac Mini 攤提，但作者自己的機會成本才是真正的全成本。Debug OAuth 過期、session drop、Notion API 衝突、盯著 agent 改七版文章，以 founder 機會成本保守估計 $200 到 $500/hr，實際系統成本可能是名目成本的 10 到 20 倍。更結構性的問題是這套 stack 高度依賴 Anthropic Claude Max 定價，一旦改為計量計費或漲價，「便宜」假設立刻崩潰，遷移所有 CLAUDE.md 加 skill repo 加 heartbeat 邏輯到新平台，保守估計一到兩週全職工程時間。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>五個 AI 員工月成本是 Claude Max $200 加 Mac Mini 攤提，但 founder 自己的時間成本算進去後，這套系統的 ROI 到底是正還是負？</li>
+        <li>如果 Anthropic 下個月把 Claude Max 漲到 $400 或砍掉無限用量，整個 stack 的遷移成本是什麼？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-05-21</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
