@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-05-23</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:           #fafaf8;
+  --surface:      #ffffff;
+  --ink:          #111111;
+  --ink-body:     #2a2a2a;
+  --ink-muted:    #6b6b6b;
+  --ink-faint:    #a0a0a0;
+  --rule:         #e0e0e0;
+  --rule-light:   #eeeeee;
+  --accent:       #c4841d;
+  --accent-soft:  #f5ead6;
+  --accent-text:  #8a5c10;
+  --insight-bg:   #f7f5f0;
+  --insight-rule: #c4841d;
+  --thought-bg:   #f0f4f8;
+  --thought-accent: #4a6fa5;
+  --thought-text: #2c3e5a;
+  --tag-ai:       #1a7a4c;
+  --tag-ai-bg:    #e6f4ed;
+  --tag-web3:     #4a5ba8;
+  --tag-web3-bg:  #e8eaf6;
+  --tag-vc:       #a84a4a;
+  --tag-vc-bg:    #f6e8e8;
+  --signal-bg:    #fffbf0;
+  --signal-border:#e8c862;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:           #0e0e0c;
+    --surface:      #1a1a18;
+    --ink:          #ececec;
+    --ink-body:     #c8c8c0;
+    --ink-muted:    #808078;
+    --ink-faint:    #505050;
+    --rule:         #2a2a28;
+    --rule-light:   #1f1f1d;
+    --accent:       #d4a03a;
+    --accent-soft:  #2a2418;
+    --accent-text:  #d4a03a;
+    --insight-bg:   #16150f;
+    --insight-rule: #d4a03a;
+    --thought-bg:   #12161c;
+    --thought-accent: #6a8ec8;
+    --thought-text: #8aaccf;
+    --tag-ai:       #5cb88a;
+    --tag-ai-bg:    #14241c;
+    --tag-web3:     #7a8ad8;
+    --tag-web3-bg:  #181a28;
+    --tag-vc:       #d87a7a;
+    --tag-vc-bg:    #281818;
+    --signal-bg:    #1c1a10;
+    --signal-border:#8a7530;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 32px 120px;
+  font-family: 'Noto Sans TC', -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+#progress-bar {
+  position: fixed; top: 0; left: 0;
+  height: 2px; width: 0%;
+  background: var(--accent);
+  z-index: 100;
+  transition: width .08s linear;
+}
+
+#back-top {
+  position: fixed; bottom: 32px; right: 32px;
+  width: 40px; height: 40px;
+  background: var(--ink);
+  border: none; border-radius: 50%;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s, transform .2s;
+  color: var(--bg);
+  font-size: 16px; font-weight: 500;
+  z-index: 99;
+  box-shadow: 0 2px 12px rgba(0,0,0,.15);
+}
+#back-top.visible { opacity: 1; pointer-events: auto; }
+#back-top:hover { transform: translateY(-2px); }
+
+.header {
+  padding: 72px 0 48px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 48px;
+}
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.header-date {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.header-count {
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--accent-text);
+  background: var(--accent-soft);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+.header h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(28px, 5vw, 38px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+  letter-spacing: -.02em;
+  margin-bottom: 16px;
+}
+.header-lede {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  color: var(--ink-muted);
+  line-height: 1.85;
+  max-width: 600px;
+}
+
+.toc {
+  margin-bottom: 56px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.toc-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 16px;
+}
+.toc-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+}
+.toc-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toc-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+.toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+.toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+.toc-list a {
+  font-size: 13px;
+  color: var(--ink-body);
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color .15s;
+}
+.toc-list a:hover { color: var(--accent); }
+
+.section-block { margin-bottom: 72px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.section-label {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink-faint);
+  letter-spacing: .04em;
+}
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.section-count {
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: .06em;
+}
+
+.article {
+  margin-bottom: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--rule-light);
+  scroll-margin-top: 24px;
+}
+.article:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.article-source {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.article-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+.article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+.article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+.article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+.article h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(20px, 3.5vw, 24px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.4;
+  letter-spacing: -.01em;
+  margin-bottom: 20px;
+}
+
+.key-signal {
+  background: var(--signal-bg);
+  border: 1px solid var(--signal-border);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.key-signal-icon {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  background: var(--signal-border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px;
+  margin-top: 1px;
+  color: var(--signal-bg);
+}
+.key-signal-text {
+  font-size: 13px;
+  color: var(--accent-text);
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+.context-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+}
+.factual-context {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  color: var(--ink-body);
+  line-height: 1.9;
+  margin-bottom: 28px;
+}
+
+.insight {
+  background: var(--insight-bg);
+  border-left: 3px solid var(--insight-rule);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  border-radius: 0 6px 6px 0;
+}
+.insight-label {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--accent);
+  letter-spacing: .04em;
+  margin-bottom: 12px;
+}
+.insight-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15.5px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.95;
+}
+
+.thought {
+  background: var(--thought-bg);
+  border-radius: 8px;
+  padding: 20px 24px;
+}
+.thought-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--thought-accent);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.thought-label::before {
+  content: '';
+  display: inline-block;
+  width: 14px; height: 14px;
+  border: 2px solid var(--thought-accent);
+  border-radius: 50%;
+  opacity: .5;
+}
+.thought ol {
+  list-style: none;
+  counter-reset: q;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.thought ol li {
+  font-size: 13.5px;
+  color: var(--thought-text);
+  line-height: 1.75;
+  padding-left: 28px;
+  position: relative;
+  counter-increment: q;
+}
+.thought ol li::before {
+  content: counter(q);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px; height: 20px;
+  background: var(--thought-accent);
+  color: var(--thought-bg);
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  opacity: .3;
+  line-height: 1;
+}
+
+.footer {
+  margin-top: 72px;
+  padding-top: 24px;
+  border-top: 2px solid var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-brand {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+.footer-date {
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 600px) {
+  body { padding: 0 20px 80px; }
+  .header { padding: 48px 0 32px; }
+  .toc-list { grid-template-columns: 1fr; }
+  .insight { padding: 20px 20px; }
+  .thought { padding: 16px 18px; }
+  #back-top { bottom: 20px; right: 20px; }
+}
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 5 月 23 日　星期六</span>
+    <span class="header-count">10 篇</span>
+  </div>
+  <h1>破壞性訊號在浮出水面</h1>
+  <p class="header-lede">SpaceX IPO 的投票權結構、中國 NDRC 對已完成併購的逆向否決，以及每條 token 上攤分的成本——今天的三個信號都指向一個共通點：過去那套「以增長隱蓋結構問題」的劇本正在失效。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-spacex-ipo">SpaceX 的 IPO 不是讓你投資 Musk</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-40b">Anthropic 把 $40B 鎖給 Musk</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-pichai-token">Pichai 的 3.2 千兆 token</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-microsoft-ey">Microsoft 和 EY 在複製失敗</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-codex">OpenAI Codex 的新功能</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-korea-tax">韓國加密稅又要延了</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-canton">Canton 的機構部署</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-hark-6b">Hark 的 $6B 估值</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-manus-buyback">Manus 回購案重定了折扣</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">5 篇</span>
+  </div>
+
+  <article class="article" id="ai-spacex-ipo">
+    <div class="article-meta">
+      <span class="article-source">Rundown Tech / Fortune / CNBC / TechCrunch</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>SpaceX 的 IPO 不是讓你投資 Musk，是讓你永遠無法干涉他</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">SpaceX 5 月提交的 S-1 揭露，Elon Musk 透過 Class B 超級投票股（每股擁有 Class A 十倍投票權）保有約 85% 投票權，掌控包括全體董事選任在內的所有股東決議。Class B 股可放入信託且仍保有超級投票權，等同為跨代繼承控制權預留法律通道。公司以「SPCX」代號準備在 Nasdaq 及 Musk 主導設立的 Nasdaq Texas 雙掛牌，目標募資 $75-80B，估值介於 $1.7T 至 $2T。SpaceX 已遷至德州，適用比 Delaware 更寬鬆的公司法，有效封堵 Tesla 式薪酬包訴訟的重演。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">低軌衛星寬頻市場目前無可替代競爭者，Boeing Starliner 失敗後 NASA 更深度依賴 SpaceX，Amazon Kuiper 要到 2025 年底才開始商業部署。在這個供給壟斷的結構下，Starlink 的企業和國防客戶採購的是「唯一可用的服務」，而非「治理優良的供應商」，這讓 85% 投票權對採購決策的實際影響接近零。試圖以「治理風險」說服企業換供應商的競爭對手，這個論點在 Starlink 還是唯一選擇時沒有市場。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>$1.7-2T 估值隱含 Starlink 未來十年的營收年複合成長率必須達到多少，才能讓這個數字不是純粹在為 Musk 的 85% 投票權溢價買單？</li>
+        <li>Class B 超級投票股放入信託後，信託受託人的投票指令鏈在 Musk 失能或死亡時如何保證不觸發德州公司法的受信義務審查，這個「王朝式」架構在跨代繼承的第一個法律壓力測試點會斷在哪？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-anthropic-40b">
+    <div class="article-meta">
+      <span class="article-source">Rundown AI / Axios / TechCrunch / The Information</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 把 $40B 鎖給 Musk，卻是他自己最大的談判籌碼</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 將每月支付 SpaceX $1.25B 算力費用至 2029 年 5 月，前兩個月有折扣，總額上看 $40B。合約對象是 SpaceX 而非 xAI，買下位於田納西 Memphis 的 Colossus 1 資料中心全部 300MW 產出，並已宣布擴展至 Colossus 2，合約允許任一方以 90 天通知終止。Anthropic Q2 預估營收 $10.9B，意味這筆 $15B 年支出超過其一個季度的全部營收。合約細節首次出現是因為 SpaceX S-1 的客戶集中度揭露義務。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">護城河不在 SpaceX 這邊，在 Anthropic。90 天終止條款對 SpaceX 是雙面刃，一旦 Anthropic 行使終止權，S-1 裡最大的單一收入項目立即消失，直接打擊 IPO 後的股價，損害 Musk 的持股價值。Anthropic 的談判籌碼是「我一走，你的收入故事就垮」，SpaceX 需要這份合約維持上市後的營收敘事，Anthropic 需要的是算力而算力可以替換，兩者的依賴深度根本不對等。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Anthropic 同時跟 Google TPU、Amazon Trainium、SpaceX Colossus 三邊簽長約，但實際推論流量分配比例是多少？如果 Colossus 只是備援容量而非主力，這筆 $15B/年根本不是算力採購，而是「不讓 Musk 賣給別人」的防禦性鎖倉？</li>
+        <li>SpaceX 把 xAI 的 Colossus 算力轉售給 Anthropic 然後列為自己的 S-1 營收，這筆關聯方交易的轉移定價是按市場價還是按 Musk 內部需要的數字？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-pichai-token">
+    <div class="article-meta">
+      <span class="article-source">Rundown AI / a16z Charts of the Week / Fortune / CNBC</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Pichai 的 3.2 千兆 token 裡，有七成是用戶從未要求的</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Google 在 I/O 2026 公布每月處理 3.2 千兆（quadrillion）token，一年前為 480 兆，年增 6.67 倍。Gemini app 月活躍用戶 900M，AI Overviews（搜尋自動觸發的 AI 摘要）覆蓋用戶達 2.5B。2026 年資本支出預估 $180-190B，相比 2022 年僅 $31B。Silicon Data 資料顯示 token 花費指數年初至今上升 38%，但同期 B200 GPU 非超大雲商租金僅漲 20%，即 token 花費的複合速度約是 GPU 租金的兩倍。Epoch AI 計算每 token 成本年內已降約 40%。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">3.2 千兆 token 中，AI Overviews 估計佔總量 60-70%，用戶從未主動選擇這些 token 的生成，是成本中心而非變現路徑。若剔除被動生成的部分，Gemini app 的真實「用戶拉動型」消耗可能只有整體的 20-30%。Pichai 混報數字不是疏失，是刻意設計，拆開來看 Gemini 的用戶深度遠不如那個 3.2 千兆顯示得壯觀。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>3.2 千兆 token 裡面有多少是 AI Overviews 自動觸發的「用戶沒主動要求的 token」？如果把被動生成的 token 拆掉，Gemini app 的真實 DAU 留存和每用戶主動 session 數是什麼？</li>
+        <li>Pichai 把 capex 從 2022 年 $31B 推到 2026 年 $180-190B，但每 token 成本同期降 40%，Alphabet 股東要問的是：這 $150B 增量 capex 的邊際回報是多少，還是 Pichai 在用 Jevons 悖論（效率提升反而增加總消費）當藉口掩蓋一場無法計算回報的軍備競賽？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-microsoft-ey">
+    <div class="article-meta">
+      <span class="article-source">Rundown AI / Bloomberg</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Microsoft 和 EY 在複製的，可能正是一個失敗模式</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Microsoft 與 EY 宣布 $1B 以上全球合作，目標配對 Microsoft AI 能力與 EY 旗下 40 萬顧問，把企業 AI 從概念驗證（pilot）推向大規模生產部署。雙方明確使用「超越實驗階段」框架，承認多數生成式 AI POC 案仍未進入量產。Microsoft 2023 年已與 KPMG 簽訂 $2B 類似合作，本次 EY 為相同模式的延伸。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向一個結論：真正的 GTM 瓶頸是 Azure 和 Copilot 無法靠直銷穿透 Fortune 500 的核心 ERP 和流程層，所以 Microsoft 在花錢購買 Big 4 的「最後一哩實施通道」。KPMG 那筆 $2B 先例說明 Microsoft 的 playbook 是對的，但若第一棒（KPMG）轉化率偏低，EY 這第二棒複製的是一個尚未被驗證成功的模式。輸家是 Accenture，它既沒有 Microsoft 專屬合作的深度，也缺乏 AWS 或 Google 的同等綁定，正被大平台和 Big 4 兩邊夾擠。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Microsoft 跟 KPMG 2023 年那筆 $2B AI 合作到現在，實際從 pilot 轉到 production 的企業客戶數是多少？如果第一棒的轉化率很低，EY 這第二棒到底是在複製成功模式還是在複製失敗模式？</li>
+        <li>EY 40 萬顧問裡有多少 junior analyst 的計費小時會在三年內被 Copilot 自己取代，EY 到底是在買未來的部署通道，還是在付錢加速淘汰自己的利潤中心？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-openai-codex">
+    <div class="article-meta">
+      <span class="article-source">Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>OpenAI Codex 最新功能的重點不是寫 code，是改變 agent 在哪裡跑</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OpenAI 為 Codex 推出四項升級：Appshots（按 Command-Command 把任何 Mac 視窗的截圖與內容附加到 Codex 對話）、Goal Mode（設定目標後 agent 自主執行數小時至數天，已開放至 Codex app、IDE 擴充、CLI 三個介面）、locked computer use（從第二台裝置觸發，即使 Mac 鎖屏、螢幕關閉後仍可操作桌面應用）、advanced annotation（在網頁上直接指點描述編輯需求並即時預覽）。此新聞目前僅有 Rundown AI 一家來源，尚待 Tier 1 媒體確認，信心度為中。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">「鎖屏後第二裝置觸發 computer use」（agent 直接控制桌面 GUI，包括滑鼠、鍵盤、螢幕）把部署模型從「開發者身邊的副駕」變成「headless worker machine」，這個拓樸改變比任何單一功能都重要。Cursor 的核心優勢是 IDE 深度整合，在開發者坐在電腦前時最強，但若工作流轉向「派任務給閒置機器然後去睡覺」，Cursor 的 IDE-first 設計反而成為摩擦。OpenAI 透過這個功能把 Codex 的觸達從「IDE 用戶」擴大到「任何有一台閒置 Mac 的人」，這才是這輪更新的真正動作。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>「鎖屏後第二裝置觸發 agent」聽起來像殺手功能，但企業 IT 部門會讓一台 headless Mac 跑無人監督的 agent 嗎？真正的 GTM 是個人開發者還是企業，如果是企業，SOC 2 和合規審計怎麼過？</li>
+        <li>鎖屏後 agent 操作桌面 GUI 意味著錯誤操作沒有即時人類視覺回饋，當 agent 在 headless 模式下誤觸系統級設定或刪除檔案時，OpenAI 用什麼沙箱或快照機制做原子性還原，還是目前根本沒有？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="web3-korea-tax">
+    <div class="article-meta">
+      <span class="article-source">Messari Unqualified Opinions / The Block / Cointelegraph</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>韓國加密稅又要延了，而且這次有法定程序保證</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">南韓公民請願要求廢除預定 2027 年 1 月生效的 22% 加密資本利得稅（對投資增值課稅），2026 年 5 月 21 日在提交後第 8 天突破 5 萬簽名門檻。依據南韓國家請願制度，30 天內達 5 萬簽名可強制啟動立法委員會正式審查，而非僅作為民意參考。韓國加密稅自 2021 年首次提出已延後三次，主要理由為公平性爭議與基礎設施未到位。同期，The Block 另有報導指出韓國政府正同時收緊加密資金海外移轉監管。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">五萬簽名觸發的不是「民意施壓」，而是法定程序，委員會「必須」正式審查。韓國過去三次延後的共同點是：每次進入委員會審查，執政黨都選擇延後而非對抗散戶選票，第四次延後是高概率結果。真正的輸家是 National Tax Service 官僚體系，每次延後都侵蝕其政策執行公信力；贏家是韓國本土交易所 Upbit 和 Bithumb，稅制不確定性延續，用戶暫不外流。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>已經延後三次了，每次延後後韓國交易所的交易量和新開戶數有沒有實際跳升？如果歷史數據顯示「延稅」對用戶成長根本沒有持續性拉動，這次的真正受益者是誰？</li>
+        <li>同一個政府一手考慮廢稅、一手堵資金外流，如果我是要進韓國市場的交易所，真正的 GTM 障礙到底是稅率還是資金出入境管制？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-canton">
+    <div class="article-meta">
+      <span class="article-source">Messari Research</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Canton 的機構部署是真的，但離「主軌」還差關鍵一跳</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Canton Network 是一個設計給多方機密金融工作流的智能合約網路，核心差異化是「可配置隱私加可組合性」，每位參與者只看到被授權的部分，但應用之間仍可原子性互動（atomic composability，智能合約可跨應用即時互呼叫）。2024 年公開主網上線後現承載 150 個以上應用，由 50 個以上 Super Validator 以三分之二多數決治理，包含 DTCC、J.P. Morgan、Broadridge，在 repo（銀行間短期擔保借貸）、擔保品管理、代幣化美債及付款上均有生產部署。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">DTCC 和 J.P. Morgan 的生產部署是真實的，但目前跑在 Canton 上的工作流是與現有 T+1 結算系統平行的副軌，不是主軌替換。Canton 真正的考驗點是 2027-2028 年 T+1 以外的結算基礎設施是否開始遷移主軌，那才是從「pilot 生產」到「系統性生產」的跳躍，現在的 150 個應用和 30 萬事件距離這個門檻仍有距離。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>150 個應用裡面有多少是「生產級日常跑交易」vs「上線了但沒有持續交易量」？DTCC 和 J.P. Morgan 實際在 Canton 上跑的日均交易筆數和名目金額是多少？</li>
+        <li>如果我明天要做一條競爭的機構隱私鏈，最難複製的到底是技術（可配置隱私）還是 DTCC 這種 Super Validator 的關係網，Canton 的真正護城河是程式碼還是董事會電話簿？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="vc-hark-6b">
+    <div class="article-meta">
+      <span class="article-source">Rundown AI / Bloomberg / TechCrunch</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Hark 的 $6B 估值，四家晶片廠各自在買不同的保險</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Figure AI 和 Archer 電動飛機創辦人 Brett Adcock 的新公司 Hark 完成 $700M Series A，估值 $6B，由 Parkway Venture Capital 領投。Adcock 於 2025 年底自掏 $100M 啟動，目前團隊僅 45 名工程師與設計師，多來自前 Meta AI 研究員、Apple 與 Tesla。跟投陣容包含 Nvidia、AMD Ventures、Intel Capital、Qualcomm Ventures、Salesforce Ventures、ARK Invest、Brookfield 等。Hark 的產品定位是「端到端 personal intelligence」，主張自有模型、自有硬體、自有介面三層垂直整合，但目前無公開產品。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Nvidia、AMD、Intel、Qualcomm 四家晶片廠同時跟投，最合理的解釋不是四家都看好 Hark，而是每家各自在確保 personal AI 硬體層不被單一競爭者鎖定。Qualcomm 投入是為了確保晶片供應商地位，Nvidia 的持股金額估計只有 $10-30M 量級，是情報投資而非押注。真正在賭 Hark 成功的是 Parkway VC 和 ARK Invest，其餘晶片廠買的是選擇權，不是信仰。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Nvidia、AMD、Intel、Qualcomm 四家晶片廠同時投一家說要做「自有硬體」的公司，這四家各自的策略投資部門到底是在買下游出貨量的選擇權，還是在付保護費確保 Hark 不自己造晶片？</li>
+        <li>「Personal intelligence」跟 Humane Pin、Rabbit R1 的失敗敘事有什麼結構性不同？Adcock 團隊裡有誰真正出過消費硬體並且做到過百萬台留存？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-manus-buyback">
+    <div class="article-meta">
+      <span class="article-source">Rundown AI / Bloomberg / CNBC / TechCrunch / Fortune</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Manus 回購案重定了每一家中國 AI 新創的退出折扣</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">北京第一次逆向拆解已完成的跨境 AI 併購，為所有中國 AI 新創的美元退出估值設下永久性折價因子。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Manus 是在新加坡註冊但核心在中國的 agentic AI（自主多步驟任務執行 AI）新創。Meta 於 2025 年 12 月宣布以超過 $2B 收購，中國 NDRC（國家發改委）於 2026 年 4 月調查後正式否決。Bloomberg 報導顯示主要工程團隊已被 Meta 整合，留下的是品牌與用戶基礎。三位創辦人 Xiao Hong、Ji Yichao、Zhang Tao 現正探索籌 $1B 從外部投資人買回公司，可能設為中國合資企業（JV，外資不可單獨持有的中國公司形式），然後赴香港 IPO。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">北京執行的不只是「阻擋新案」，而是「逆轉已完成交易」，這在跨境 AI 併購史上是罕見的逆向操作。NDRC 否決設立了一條新的隱性規則：中國根源的 AI 公司即使在新加坡註冊，若核心技術和團隊在中國，仍被視為受管轄資產。這直接影響 Moonshot AI、Zhipu AI、MiniMax 等所有中國 AI 新創的美元退出定價，每一家都必須在估值中加入「北京否決折扣」，研究估計幅度為 20-35%。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>北京否決已完成的併購然後要求回流香港 IPO，每一個持有中國 AI 新創股權的美元 LP 現在是否該把「NDRC 追溯否決權」定價為永久性折價因子？</li>
+        <li>「中國 JV 到香港 IPO」這條路如果變成 Beijing 偏好的範本，下一個被 NDRC 逆轉的是誰，MiniMax、月之暗面、還是已經拿了美資的哪一家？他們現在有在做什麼防禦動作？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-05-23</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
