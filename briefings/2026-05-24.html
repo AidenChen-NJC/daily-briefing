@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-05-24</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 5 月 24 日　星期日</span>
+    <span class="header-count">3 篇</span>
+  </div>
+  <h1>機構在賣、敘事在撐，看誰先破</h1>
+  <p class="header-lede">本週見證三個信念被用真錢打破：Anthropic 的估值一個季度翻倍，背後買的並非信心；RWA 市場宣稱的 composability 在大廠產品設計中已被堵死；BTC 的 digital gold 論述在淨流出面前首次失效。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic">Anthropic 的 $900B 估值背後，買的是期權組合</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-rwa">RWA 市場「composability」根本上被堵死了</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-btc">BTC 的 digital gold 論述被機構用真錢否決</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="ai-anthropic">
+    <div class="article-meta">
+      <span class="article-source">Bloomberg / TechCrunch / The Information / CNBC</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 的 $900B 估值背後，Sequoia 買的是期權組合，不是信念</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 是由前 OpenAI 研究員 Dario Amodei 創辦的 frontier 模型公司，旗下產品為 Claude 系列。2026 年 2 月，Anthropic 以 $380B 估值完成 Series G，融資 $30B。三個月後，Bloomberg 報導 Anthropic 即將關閉新一輪融資：規模 $30B+，pre-money 估值 $900B，由 Sequoia、Dragoneer、Altimeter、Greenoaks 四家各約 $2B 共同領投，Founders Fund 與 General Catalyst 跟投。此估值正式超越 OpenAI 最新的 $850B，讓 Anthropic 成為全球估值最高的 AI 公司。公司公告 annualized revenue 已達 $30B，消息源指出 run rate 接近 $40B，隱含 Q1 到 Q2 仍有約 30% 加速。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Sequoia 同時持有 OpenAI、xAI、Anthropic 三家直接競爭者，每家投入約 $2B，相對各家天文數字估值是極小 stake。這在結構上不是「押注誰會贏」，而是買了一個「frontier 模型賽道必有一家達到 $3–5T」的期權組合，損失上限已知但上行不對稱。真正受壓的是中型 VC 基金，他們沒有 Sequoia 的 co-invest 管道，卻要向 LP 解釋為何自己的 AI portfolio 跑輸 Anthropic 三個月 2.4x。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>那個被這個決定傷害最深的中型 VC，他的 LP 現在在問什麼問題？</li>
+        <li>Dario 三個月前才以 $380B 關了 Series G，現在 $900B 再拿 $30B，如果 run rate $40B 明年沒翻倍到 $80B，哪家領投方的 DPI 會先被 LP 質疑？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="web3-rwa">
+    <div class="article-meta">
+      <span class="article-source">a16z crypto Newsletter</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>RWA 市場的「composability」是行銷詞，機構大廠的產品設計從根本上堵死了它</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">RWA（Real-World Assets，鏈上化的真實世界資產，涵蓋債券、商品、股票、私募信貸等）市場規模今年 5 月突破 $30B，目前約 $34B，相比 2024 年中的 $3B 以下，不到兩年成長超過 10 倍。a16z crypto 用 7 張圖表拆解這個數字：Treasurys 加商品約佔整體市場的三分之二，商品板塊 $5.1B 中黃金佔 $5B（約 97.8%）。鏈分布上 Ethereum 持有 $15.7B，超過 50%。最關鍵的數字：債券板塊 $15.2B 中只有約 $800M（5%）真正部署在 DeFi 協議內，而 reinsurance token $362M 卻有 84% 在 DeFi 運作，private credit 為 33%。Pantera Capital 自製的 token presence index 將超過 75% 的 RWA 列在最低 tier，即鏈上只是一張收據。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">BlackRock 的 BUIDL 和 Franklin Templeton 的 BENJI 都內建 transfer whitelist，任何非許可地址無法接收代幣，這從根本上封死了無許可 DeFi composability 的可能。換言之，這兩家公司行銷的「composable RWA」在產品架構上就是矛盾的，輸家正是它們自己的行銷說法。真正的 composability 只在 Nexus Mutual、Maple Finance 這類原生 onchain 的小池子裡成立，它們的小規模反而是真實護城河。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>McKinsey 的 $2–4T 只算傳統金融資產，BCG+Ripple 的 $9.4T 把存款和 stablecoin 算進去，兩者定義差了 4–5 倍。當 Pantera 自己的指標說 75% 連真正 tokenization 都不算，這些預測到底哪一個在說謊？</li>
+        <li>如果我今天要做一個 natively onchain 的 specialty finance 產品，BlackRock 和 Franklin Templeton 的真正防禦到底是什麼，是分銷通路、合規牌照，還是純粹品牌慣性？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-btc">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / The Block</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>BTC 的「digital gold」論述第一次被機構用真錢否決，但真正的大賣盤還沒開始</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Spot ETF 通過 18 個月後，第一次有機構級個體公開清倉並說出「BTC 沒有避險功能」，這個前提一旦被定價，養老金和保險資金的 BTC 配置邏輯需要從頭算。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Spot ETF（直接持有底層資產的交易所交易基金）是 2024 年 1 月美國 SEC 批准比特幣現貨 ETF 後誕生的主流投資工具，以 BlackRock IBIT 和 Fidelity FBTC 為代表。過去兩週，美國掛牌的 spot BTC ETF 累計淨流出 $2.26B，其中截至 5 月 19 日結束週單週 -$979.7M，為 2026 年 1 月以來最差單週紀錄，前一週約 -$1.26B。同期 BTC 價格從 5 月高點回落超過 10% 至約 $74,300，CoinDesk 補充 BTC 在 200 日均線翻轉向下。觸發因素是全球債券殖利率上升，壓縮了 BTC 這類 zero-yield asset 的相對吸引力。一位未具名 billionaire investor 公開表示，他在近期地緣動盪加美元走弱期間觀察到 BTC 沒有扮演對沖角色，因此清倉絕大多數 BTC 持倉。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">根據 13F 揭露與 ETF 資金流動模式，spot BTC ETF 中養老金和保險資金的戰略持倉估計不超過 AUM 的 15–20%，其餘主要是對沖基金戰術部位與散戶。這意味著當前 $2.26B 兩週流出仍屬戰術性減配，若真正的養老金和保險資金啟動退出，規模將是現在的 5–10 倍。最危險的路徑不是「現在正在發生的賣盤」，而是「digital gold 敘事瓦解，養老金決定永遠不進場」，這個從未到來的流入才是 BlackRock 和 Fidelity 最怕的結局。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>BlackRock 和 Fidelity 的 spot BTC ETF 持有人中，真正設定戰略配置鎖倉的養老金和保險資金佔比到底有多少，還是大部分就是散戶和對沖基金在用 ETF 殼做短線交易？</li>
+        <li>如果「digital gold」敘事被市場否決，ETF 發行商下一步真正的客戶獲取話術會變成什麼，他們內部現在最害怕的是費率戰打到零，還是根本沒有新的機構買方進場？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-05-24</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
