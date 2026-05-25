@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-05-25</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 5 月 25 日　星期一</span>
+    <span class="header-count">3 篇</span>
+  </div>
+  <h1>有些事週末才看得清楚</h1>
+  <p class="header-lede">MSTR 的飛輪複製本身就漏氣，合規穩定幣的護城河在 DeFi 裡瓦解，而機構貨幣產品根本不需要跟 Tether 競爭。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-bitmineflywhe">BitMine 複製 Saylor 劇本，但 ETH staking yield 讓飛輪漏氣</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-hkdap">香港 HKDAP 進不了 DeFi，只能活在 CeFi 圍牆內</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-jpmmf">JPMorgan 的 tokenized MMF 不跟 Tether 競爭</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="web3-bitmineflywhe">
+    <div class="article-meta">
+      <span class="article-source">CryptoSlate · CoinGape · Decrypt</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>BitMine 複製了 Saylor 的劇本，但 ETH 的 staking yield 讓飛輪從一開始就漏氣</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">BitMine（BMNR），由 Fundstrat 共同創辦人 Tom Lee 擔任主席的上市公司，於 5 月 22 日從托管方 BitGo 與交易所 Kraken 提取 60,000 ETH（約 $126M，均價 $2,100），將總持倉推升至約 528 萬 ETH（市值約 $111 億），佔以太坊總供給 4.4%。其中 470 萬 ETH（市值逾 $100 億）透過自家 MAVAN 平台進行 staking（質押給驗證者賺取網路發行收益），年化質押收益達 $2.89 億。BMNR 已被列入 2026 年 Russell 1000 指數（追蹤美國市值前 1000 大企業、被動追蹤資產 $12.2 兆）預備清單，最終名單於 6 月底確定，另一檔 ETH treasury 公司 SBET 則已先行入選 Russell 3000。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向一個被市場忽略的結構性問題：MSTR 飛輪的前提是 BTC 沒有原生收益，投資人願意對股票支付溢價，因為這是唯一取得槓桿 BTC 曝險的管道。BitMine 的 ETH 有約 3.5% staking yield，理性投資人可以直接買 ETH 現貨或 ETH ETF 同樣收息，BMNR 股票的溢價存在理由被壓縮。更關鍵的是：SBET 等後進者可以直接複製持倉結構，BitMine 的先發護城河幾乎只剩「指數先納入」這個時間窗口，一旦 SBET 也入 Russell，飛輪的可複製性讓護城河歸零。用 MSTR 估值模型直接套在 BMNR 上的機構分析師，是這輪裡最可能算錯的人。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果護城河只剩「先進指數」這一個月的時間差，BMNR 現有持股人的溢價邏輯在 SBET 入選 Russell 後還剩什麼？</li>
+        <li>Tom Lee 同時經營 Fundstrat 賣研究報告喊 ETH 目標價、又當 BMNR 主席靠市值膨脹觸發指數納入，這個正反饋裡誰付費、誰套現？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-hkdap">
+    <div class="article-meta">
+      <span class="article-source">MEXC News · Crypto Times · Live Bitcoin News</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>香港 HKDAP 拿到主網測試通過證書，但它的合規函數讓它永遠進不了 Aave 和 Curve</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">香港金融管理局（HKMA，相當於香港的中央銀行）首批核准的港幣穩定幣 HKDAP（Hong Kong Dollar Anchor Protocol，與港幣 1:1 錨定）於 5 月 22 日完成以太坊主網端到端實測，包含 mint（鑄造）、redeem（贖回）、on-chain transfer（鏈上轉帳）全流程。參與機構為三家持牌機構：Anchorpoint Financial（HKMA 4 月發出首批穩定幣牌照之一）、OSL Group（持牌虛擬資產交易平台）、PantherTrade（富途 Futu 旗下持牌平台）。HKDAP 預計於 Q2 末（2026 年 6 月）分階段啟動對外發行，選用以太坊主網而非私有鏈，是亞洲首個「央行牌照加公鏈」雙軌制的嘗試。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">HKMA 持牌要求必然內建凍結與黑名單函數（AML/CFT 合規工具），意味 HKDAP 的 ERC-20 合約含有發行商可凍結任意地址的權限。Aave、Maker、Curve 等主流 DeFi 協議的核心設計假設代幣是無許可可轉移的，含凍結函數的代幣面臨「壞帳無法清算」的設計風險，治理社群幾乎必然拒絕納入為抵押品。HKDAP 真正能落地的場域只有 CeFi，也就是 OSL 和 PantherTrade 自家的閉環生態，這讓「香港公鏈穩定幣」的敘事在技術上成立、在 DeFi 可組合性上等同於零。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>HKDAP 若內建 HKMA 要求的凍結函數，哪些主流 DeFi 協議的智能合約會因此無法整合，它實際上是否只能活在 CeFi 圍牆內？</li>
+        <li>USDT 和 USDC 在亞洲交易所的流動性深度和 DeFi 整合已根深蒂固，HKDAP 靠什麼通路讓第一批用戶放棄 USDT 切換過來，是監管強制還是真有分銷協議？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="vc-jpmmf">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk · JPMorgan Asset Management</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>JPMorgan 出報告說 tokenized MMF 天花板 15%，因為它根本沒打算跟 Tether 競爭</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">JPMorgan 於 5 月 21 日發布研究指出，tokenized money market funds（代幣化貨幣市場基金，持有國庫券等短期資產並向代幣持有人分派利息，BlackRock 的 BUIDL 是代表產品）目前僅佔整體 stablecoin 市場約 5%。即使這類產品提供 4-5% 年化收益，相對 USDT/USDC 無息有絕對利差，市占仍未顯著成長。JPMorgan 指出原因為 stablecoin 的核心競爭優勢是跨交易所流通深度、DeFi 可組合性（可無摩擦嵌入其他協議）、即時結算，而非收益率；預估現行監管不變下天花板約 10-15%。值得注意的時間點是 JPMorgan 資產管理部門 5 月 12 日才剛在以太坊上申請發行第二檔 tokenized MMF。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">JPMorgan 自出報告劃天花板、自家業務又繼續推，表面矛盾的解法是：這兩件事的目標客戶根本不同。報告描述的「stablecoin 市場」是 DeFi 散戶加離岸交易需求，JPM 第二檔 tokenized MMF 的目標客戶是私銀客戶、企業資金池、機構法人，這些客戶不需要進 DEX，要的是比 T+1 貨幣基金更快贖回、鏈上可審計、監管合規的包裝。USDT 和 USDC 根本不在 JPMorgan 的競爭對手名單上，它搶的是自家貨幣市場基金裡閒置的機構流動性，順便收 tokenization 服務費。以為 JPMorgan 在正面挑戰 Tether 的分析師，是讀錯了這份報告的主語。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>這 5% 市占裡 BlackRock BUIDL 佔多少、JPMorgan 自家佔多少，如果扣掉兩家自營 seed capital，真正外部有機需求是否根本趨近於零？</li>
+        <li>如果 SEC 某天允許 tokenized MMF 直接上 DEX 流通，BlackRock BUIDL 搶到的第一口市佔會從誰嘴裡拿，是 USDC 的機構端還是 USDT 的離岸端？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-05-25</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
