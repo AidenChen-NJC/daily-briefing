@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-05-26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 5 月 26 日　星期二</span>
+    <span class="header-count">10 篇</span>
+  </div>
+  <h1>今天合規路線和毀滅工具同時登場</h1>
+  <p class="header-lede">從 DeepMind 的數學證明到 Glasswing 的漏洞獵人，再到 Starbucks 砍掉 AI，每個故事都在說同一件事：能力和信任的鴻溝正在擴大。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-deepmind">DeepMind 用 9 題把 OpenAI 壓進塵埃</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-glasswing">Anthropic Glasswing：漏洞獵人</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-deepseek">DeepSeek 永久定價</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-waymo">Waymo 的天候安全上限</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-starbucks">Starbucks 砍掉 AI 庫存工具</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-ice">ICE 下海賣 perp</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-binance">Binance 沉默的訊號</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-1inch">1inch BNB Chain 成長</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-hugging">Hugging Face 人形機器人</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-gigaai">GigaAI 武漢試點</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">5 篇</span>
+  </div>
+
+  <article class="article" id="ai-deepmind">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>DeepMind 用 9 題把 OpenAI 壓進塵埃，但這不是你想的那個故事</h3>
+    
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">形式化證明系統的訓練語料才是護城河，不是模型本身</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Google DeepMind 的 AlphaProof Nexus 系統將大型語言模型與 Lean（形式化數學定理機器可驗證證明系統）配對，在一個月內為 9 個 Erdős 開放問題（匈牙利數學家 Erdős 提出的數百個長期懸念問題集合）自動生成機器可驗證的證明，其中 2 題已開放 56 年。每題求解成本約幾百美元。同系統額外證明了 44 個來自 OEIS（線上整數序列百科）的開放猜想。作法是：模型提出證明草稿，Lean 驗證，通過則收、未通過則迭代。時間點刻意選在 OpenAI 上週宣布「破解 1 個 80 年老 Erdős 猜想」的隔天。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">AlphaProof Nexus 真正難複製的不是 Lean verifier（開源），也不是 propose-verify 架構（論文公開），而是把自然語言數學問題轉成 Lean 可驗證格式的形式化訓練語料。這批語料需要大量人工前處理，短期內開源模型能搭出 demo，但在語料深度上差距明顯。輸家是依賴 GPT-4o 直接輸出數學證明（不過 Lean 驗證）的商業化 math tutor 產品，因為這條新聞讓「沒有 Lean 驗證的 AI 數學」可信度直接下降。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果我明天用同樣的 Lean verifier 加開源模型搭一個「數學證明即服務」，DeepMind 真正難複製的到底是模型權重、Lean 訓練語料、還是只是算力預算？</li>
+        <li>DeepMind 這套 propose-verify-loop 現在有任何付費客戶或內部產品線在用，還是純粹是研究部門的展示品，最終的目的地是 Gemini 的 benchmark 成績？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-glasswing">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI + Anthropic</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic Glasswing：找漏洞的速度已經遠超修漏洞的速度</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 公布 Project Glasswing 首月成果：Claude Mythos Preview 與約 50 個合作夥伴（含 AWS、Apple、Cloudflare、CrowdStrike、Google、JPMorgan、Microsoft、Nvidia）在一個月內找出超過 10,000 個高或嚴重等級漏洞。Cloudflare 單獨找出 2,000 個 bug，誤判率低於人類測試員。Anthropic 自掃 1,000 個以上開源專案，Mythos 標出 6,202 個高/嚴重案例，獨立 triage（資安術語，指對回報漏洞分等級與驗證）後 62% 約 3,900 件成立。Mozilla Firefox 4 月份 shipped 423 個 bug fix，去年同期只有 31 個，等於 13.6 倍修復速率。另發現一個塵封 27 年的 OpenBSD bug，並有一家合作銀行用 Mythos 即時擋下 150 萬美元電匯詐騙。Mythos 仍維持 gated，Anthropic 表示沒有任何公司的 safeguard 強到能防誤用。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">62% 確認率意味著 38% 是誤報，在大量絕對數字湧入的情況下，triage 工程師的注意力資源先被噪音消耗，真正高危漏洞的平均修復時間反而可能拉長。輸家是中等規模安全團隊，他們無法快速擴人來消化這個隊列；贏家是已有成熟 triage 自動化流程的 Cloudflare 和 Google，他們能把 Mythos 速度轉化成實際修復速度，而不是積壓。「找洞容易、修洞跟不上」這個不對稱才是 Glasswing 最值得關注的結構性問題。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>38% 誤報率在什麼規模下會讓人類 triage 隊列本身變成瓶頸，反而拖慢真正關鍵漏洞的修復速度？</li>
+        <li>Anthropic 用 gated access 綁住 Mythos，真正在賣的是模型能力還是「合規護照」，一旦 OpenAI GPT-5.5 cyber access 拿到同等政府背書，Glasswing 的鎖定效果還剩什麼？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-deepseek">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI + Bloomberg</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>DeepSeek 永久定價：輸家不是 OpenAI，是把 API 硬編碼進產品的 builder</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">DeepSeek 宣布將 V4-Pro 旗艦模型的 75% 折扣由原定 5 月底到期改為永久維持，定價為每百萬 input tokens 0.435 美元、每百萬 output tokens 0.87 美元，原價較此高約 4 倍。背景：DeepSeek 4 月 24 日發布 V4，Bloomberg 評估其「未縮短與美國領先差距」；4 月 27 日先打出折扣，5 月 23 日把折扣轉為永久。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">V4 被 Bloomberg 評為未縮短與美國差距，意味著能力天花板問題是真實的。當下游應用碰到這個天花板要遷移到 frontier model，最大摩擦點不是 API 呼叫本身，而是 system prompt 架構和 few-shot example 的格式差異。選擇 DeepSeek 且未抽象化 LLM 層（如用 LangChain 或 LiteLLM）的 agentic builder，每次遷移等於重寫核心推理邏輯。贏家是提供 model-agnostic 抽象層的中間件廠商；輸家是為了省成本把 DeepSeek API 直接硬編碼進產品的 AI wrapper SaaS。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果我是一個 AI wrapper SaaS 創辦人今天把 backend 全切到 DeepSeek，最該怕的是哪一天他們突然把免費額度砍掉，還是品質靜默下降，他們的 SLA 和 model deprecation 政策到底存不存在？</li>
+        <li>$0.435 input 這個價格鎖定在硬體迭代受阻的情境下，serving margin 會在什麼推理負載量級下轉負，這個承諾能否在不依賴政府補貼的情況下撐過兩三年？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-waymo">
+    <div class="article-meta">
+      <span class="article-source">Robotics Rundown + TechCrunch / Bloomberg / CNBC</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Waymo 的天候安全上限被外包給氣象局了</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Waymo 5 月 21 日暫停 Atlanta、San Antonio、Dallas、Houston 4 座城市的 robotaxi 服務，因為車輛仍會駛入積水路面。背景：5 月 12 日 Waymo 已對 3,791 輛配備第 5、6 代自駕系統的車輛發出軟體召回（software recall，軟體召回，硬體不動但需向 NHTSA 報備並推送 OTA），原因是 4 月底德州洪水事件，包括一輛無人車在 San Antonio 被沖入溪流卡了 4 天。5 月 21 日 Atlanta 那次，無人車卡在淹水街道 1 小時，公司部分歸咎於暴雨速度快過 National Weather Service 警報。NHTSA（National Highway Traffic Safety Administration，美國汽車安全主管機關）已啟動觀察。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">LiDAR 和攝影機在技術上可以偵測路面反射率和水面特徵，問題不在感知硬體本身，而在訓練資料。積水場景在德州之前的資料集裡是稀缺事件，感知模型從未被餵過足夠多樣化的積水樣本（不同深度、不同光線、不同路面材質）。把安全上限外包給 National Weather Service 是工程捷徑，不是架構限制。如果是訓練資料問題，修復週期是月級別；如果是架構問題，修復週期是年級別，這個區別決定了 Waymo 擴張時程的受損程度。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Waymo 把積水偵測綁定在 National Weather Service alert 而非 onboard sensing，這代表任何競爭者只要自建 onboard 水位感測就能在惡劣天候可用性上超過 Waymo，Zoox 或其他 AV 廠商有人在做嗎？</li>
+        <li>召回後的軟體補丁只在氣象警報已發布的高風險區加 geofence 限制，當 NHTSA 開始要求 AV 廠商證明 ODD（Operational Design Domain，自駕系統設計運作範圍）由車端自主判定，Waymo 現有架構要改到什麼程度？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-starbucks">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI + CNBC / Reuters</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Starbucks 砍掉 AI 庫存工具：CEO 親自背書、9 個月、仍過不了牛奶辨識</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Starbucks 本週終止了一項面向員工的 AI 庫存自動盤點工具，距離北美全面部署僅 9 個月。這項工具由 CEO Brian Niccol 推動，旨在解決公司持續性商品缺貨問題。終止原因：自動盤點 App 頻繁誤盤與誤標，例如把相似牛奶品項搞混或整批漏盤。Starbucks 表示將改用標準化人工盤點加更頻繁的每日配送補貨。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">在 SKU 數有限但視覺高度相似（不同脂肪含量牛奶）的場景，RFID 或條碼掃描是確定性方案，準確率接近 100%，技術成熟度和成本均低於電腦視覺系統。選擇 CV 而非確定性方案反映的不是技術判斷，而是「AI 盤點」比「RFID 盤點」更容易作為 turnaround 敘事賣給投資人和董事會。贏家是提供 RFID 和確定性盤點方案的傳統供應鏈廠商，他們可以用這個案例重新進場；輸家是所有以「CEO 親自背書」作為核心銷售論述的 enterprise AI SaaS，因為這條邏輯鏈現在多了一個高知名度的反例。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Starbucks 這個工具背後的 vendor 是誰，如果是外包，那家廠商現在還在賣同一套給其他零售客戶嗎？</li>
+        <li>在 Starbucks 這種 SKU 數有限但品項視覺高度相似的場景，RFID 或條碼掃描這種確定性方案為什麼一開始沒被選為架構基底，而是直接跳到電腦視覺？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="web3-ice">
+    <div class="article-meta">
+      <span class="article-source">Messari Unqualified Opinions + Bloomberg / Coindesk / Decrypt / The Block</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>ICE 下海賣 perp：這是防禦性動作，不是進攻</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OKX 與 ICE（Intercontinental Exchange，NYSE 母公司，全球最大商品加金融期貨交易所之一）合作推出 regulated perpetual futures（永續期貨，沒有到期日的衍生品，靠 funding rate 機制讓價格貼近現貨），標的為 ICE 的 Brent 與 WTI 原油 benchmark（兩大國際原油定價基準，分別來自北海和美國西德州）。僅在 OKX 已取得永續合約執照的非美國地區開放，包含 UAE、歐洲、澳洲、新加坡。OKX 約有 1.2 億零售用戶。這次合作被定位為對抗 Hyperliquid（鏈上 perp DEX，過去一年快速崛起）。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">ICE 主動把 Brent/WTI benchmark 授權給 crypto perp 結構，是因為 Hyperliquid 在過去一年已在鏈上建立了足夠的商品 perp open interest，讓 ICE 無法再用「perp 不正規」的論述繼續遊說監管。這次合作的真實目標是透過「regulated perp」框架把 ICE 插入 CFTC 監管議題的對話，爭取在「perp 應如何監管」這個問題上成為標準制定者而非被規範對象。贏家是 ICE（拿回監管敘事制高點）和 OKX（獲得合規外衣）；輸家是 Hyperliquid，因為「regulated vs 非 regulated」的框架一旦成型，去中心化平台就自動被歸類成風險較高的選項。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>ICE 過去花了多年遊說監管機構打壓 offshore perp，現在自己下場賣 perp，OKX 那 1.2 億用戶裡真正會交易原油的有多少，還是這只是 ICE 拿來跟 CFTC 談「regulated perp 框架」的政治道具？</li>
+        <li>原油 perp 的 funding rate 機制需要套利者在 perp 和期貨之間搬運價差來維持錨定，OKX 的零售用戶結構天然偏多頭且沒有能力做 commodity basis trade，在沒有成熟做市商生態前，這個 perp 的價格偏離會不會系統性地比成熟 crypto perp 更嚴重？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-binance">
+    <div class="article-meta">
+      <span class="article-source">Messari Unqualified Opinions + The Block / Coindesk / Fortune</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Binance 沉默本身就是訊號</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">WSJ 報導 Iran 金融操盤手 Babak Zanjani 透過 Binance 經營一個 2 年內 8.5 億美元的隱密支付網絡，為伊朗軍方融資。Binance CEO Richard Teng 在 X 強烈否認，稱報導「fundamentally inaccurate」，並表示交易發生時相關人物尚未被列入制裁名單。背景：Binance 從 2 月起密集對 Dow Jones 提誹謗訴訟，連續報導包括 Binance 內部曾有 17 億美元流向 Iran 相關實體，以及 Binance 解雇舉報合規問題員工的指控。DOJ（U.S. Department of Justice，美國司法部）已正式調查 Binance 是否協助 Iran 規避制裁。OFAC（Office of Foreign Assets Control，美國財政部制裁名單管理單位）另指 Zanjani 透過多個 Iranian 加密交易所為 IRGC（伊朗伊斯蘭革命衛隊）移動資金。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Binance 辯稱「交易發生時相關人物尚未被列入制裁名單」，但 OFAC 的 SDN 名單更新和鏈上交易時間戳都是公開可驗證的，Binance 完全可以公布具體鏈上地址和對應 OFAC listing 時間線來一次性反駁。不這樣做，最可能的原因是公布 Zanjani 地址的同時會暴露其他關聯地址叢集，等於自行提交調查線索。這個沉默本身是有信息量的訊號，輸家是相信「fundamentally inaccurate」聲明的 BNB 持有人。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Binance 一邊告 WSJ 誹謗一邊被 DOJ 調查，這兩條線的實際目的是什麼，是真的相信自己清白要打到底，還是在用訴訟拖時間等跟 DOJ 談出第二次和解協議？</li>
+        <li>如果 DOJ 最終認定 Iran 資金流屬實，Binance 2023 年跟 DOJ 的 43 億美元和解條款是否自動觸發加重條款，持有 BNB 的人有沒有算過這個尾部風險？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-1inch">
+    <div class="article-meta">
+      <span class="article-source">Messari Unqualified Opinions</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>1inch BNB Chain 成長故事幾乎全靠 Ondo 一個客戶撐</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Messari 的〈State of 1inch Q1 2026〉報告顯示，1inch Limit Order Protocol（限價單協議）在 BNB Chain 的日均量從 Q4 2025 的 1,580 萬美元增至 2,400 萬美元，季增 52.7%。動能來自 2025 年 12 月 Ondo Finance（代幣化美債和股票 ETF 的領先 issuer）與 1inch 的合作，Ondo 透過 1inch Swap API 在 BNB Chain 上 route 代幣化股票與 ETF。1inch native execution 日均量 1,450 萬美元，季增 44.4%，躍升為第 3 大執行目的地。然而 Fusion Protocol（1inch 的 intent-based swap 協議，使用者只表達 intent 由 resolver 競價加 Dutch auction MEV protection 執行）日均量 6,080 萬美元，季減 26.5%。3 月 1inch DAO 通過 40 萬美元基金資助外部團隊。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Fusion 日均量季減 26.5%（1inch 的核心 intent-based 產品在流失動能），而 Limit Order 季增 52.7% 的成長幾乎完全由 Ondo 合作驅動。如果 Ondo 明天換 aggregator，BNB Chain Limit Order 的增量就消失，整個成長故事只剩下 1inch native execution 的 44.4% 成長（1,450 萬美元）。這是結構性的單一客戶風險，不是 traction。贏家是有能力替代 1inch 的 aggregator 競爭者；輸家是用 Q1 2026 成長數字做估值的 1inch 代幣持有人。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Ondo 選 1inch 做 RWA routing 是因為 1inch 的聚合流動性真的最深，還是只是需要一個非 Uniswap 的中立品牌來避免被綁死，如果 Uniswap 明天原生支援 RWA token pair，1inch 這條增量還在嗎？</li>
+        <li>Fusion 日均量季減 26.5% 而 Limit Order 季增 52.7%，這代表 1inch 的核心 intent-based 產品在流失用戶而成長全靠 Ondo 一個合作夥伴撐，這是 traction 還是 dependency？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="vc-hugging">
+    <div class="article-meta">
+      <span class="article-source">Robotics Rundown</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Hugging Face $2,500 人形機器人：3D 列印件在雙足步態下會裂</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Hugging Face 旗下 LeRobot 團隊發布全 3D 列印雙足人形機器人，採用現成 actuator（致動器，驅動關節的馬達或伺服機），估計成本約 2,500 美元。發布內容包含硬體設計、模擬工具、真實世界校正、sim-to-real（仿真環境訓練策略轉到真實機器人）identification pipeline、locomotion（足式機器人運動控制策略）訓練。目前 release 只覆蓋腿部組裝，上半身整合仍在 roadmap。這次發布跟在 Hugging Face 收購 Pollen Robotics 及釋出子 3,000 美元的 HOPEJr 之後。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">PLA/PETG 等常見 3D 列印材料的疲勞壽命在雙足步態的反覆衝擊載荷下（每步約 1-3 倍體重的衝擊力）顯著低於鋁合金，關節連接處在幾百到幾千個步態週期後出現裂紋是已知的材料工程問題。更嚴重的是，每台機器人的列印品質和材料不同，導致 sim-to-real 的 domain gap（仿真和現實之間的差異）在台間差異這個維度大幅增加，system identification（系統辨識，對單台機器人校正機械參數的流程）需要逐台進行。如果 time-to-walk 超過三個月，這個平台就只有設備齊全的大學實驗室能用，「個人 builder 能跑起來」的生態擴張敘事就撐不住。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>3D 列印結構件在雙足步態的反覆衝擊載荷下預期多少個行走週期後會出現結構性失效，這對 sim-to-real transfer 的 domain gap 又加了多少不確定性？</li>
+        <li>Hugging Face 在軟體開源靠 Hub 的 hosting 和 enterprise 訂閱變現，但硬體開源的商業模式到底是什麼，他們賣 actuator kit、賣 sim 平台授權、還是純粹用這個養 robotics model 的資料壟斷？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-gigaai">
+    <div class="article-meta">
+      <span class="article-source">Robotics Rundown</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>GigaAI 武漢試點：累積的資料不代表你擁有這些資料</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">中國新創 GigaAI 與湖北兩個國家級研究中心合作，把 SeeLight S1（雙臂、輪式底盤人形機器人）投入武漢真實員工住宅試點。demo 涵蓋切菜、煎蛋、放洗衣、鋪床。第一批 100 台 5 月開始在員工宿舍測試，2027 年目標售價降到人民幣 10 萬元以下（約 1.47 萬美元），約為當前成本的一半。戰略背景：北京將人形機器人推向高齡照護，2035 年中國 60 歲以上人口將達 4 億。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">100 台試點與「湖北兩個國家級研究中心」合作，資料所有權沒有明確說明。在中國 AI 政策框架下，國家級研究中心取得的居家操作資料可依《數據安全法》和《網絡安全法》要求訪問。GigaAI 作為私人公司，若核心訓練資產（真實家庭操作資料）不在自己控制範圍內，對 VC 的資產估值就從「AI 公司」降為「政府 AI 計畫的硬體承包商」。贏家是國家級研究中心；輸家是假設 GigaAI 擁有完整資料飛輪的國際投資人。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>100 台放進員工宿舍收集的是「真實家庭」資料還是「年輕單身員工宿舍」資料，如果目標市場是 2035 年四億老人，這批訓練資料的 distribution mismatch 有多嚴重？</li>
+        <li>100 台試點產生的居家操作資料歸誰所有，GigaAI 還是湖北那兩個國家級研究中心，這個資料所有權結構決定了這家公司對 VC 來說是資產還是外包商？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-05-26</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
