@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日簡報 — 2026-05-28</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 5 月 28 日　星期四</span>
+    <span class="header-count">6 篇</span>
+  </div>
+  <h1>今天有一個假設被打破了</h1>
+  <p class="header-lede">Google 投資 OpenRouter 換情報、小米降價只對一種工程師有意義、DeepMind 列出問題卻沒給里程碑，三件事都指向同一個邏輯：競爭已經從「能力」轉向「獲取與集中度」。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openrouter">Google 的情報協議</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-mimo">小米降價的有效範圍</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-hassabis">Hassabis 的四個問題</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-a16z">活動量 ≠ 結果</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-stanford">AI 招聘的集中度風險</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-china">人才管制的結構性後果</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <article class="article" id="ai-openrouter">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI · TechCrunch</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>OpenRouter 拿到的不只是錢，是 Google 的情報協議</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">CapitalG 領投一個讓開發者繞過 Gemini 的平台，Google 用投資換跨競品推理流量數據，這是今天最值得追的地緣政治信號。</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OpenRouter 是 2023 年成立的 LLM API 聚合與路由平台（路由層，routing layer，根據成本、品質、延遲動態挑選模型）。5 月 26 日完成 Google CapitalG 領投的 1.13 億美元 B 輪融資，估值升至 13 億美元，較上輪翻倍。平台目前月處理 100 兆個 tokens（token throughput，LLM 流量的標準計量單位），對比六個月前的每週 5 兆，半年成長五倍。共同投資人包含 Nvidia、ServiceNow、MongoDB、Snowflake、Databricks，以及既有投資人 a16z，覆蓋 400 個以上模型，橫跨 Anthropic、Google、OpenAI、xAI、DeepSeek。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">CapitalG 領投一個讓開發者跳過 Gemini 去選 DeepSeek 的平台，不是慈善。OpenRouter 每週 25 兆 tokens 的跨模型流量，是市場上最完整的「哪個 workload 跑哪個模型」行為數據集，Google 用投資換取這份競品情報，代價遠低於自建。輸家是 Anthropic 和 OpenAI，他們的推理流量流過 OpenRouter 時，競爭情報等於對 Google 透明化。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>CapitalG 領投一個讓開發者繞過 Google 自家模型去選 DeepSeek 和 Anthropic 的平台，Google 到底是在對沖自己輸，還是在用投資換取跨競品的推理流量數據？</li>
+        <li>如果 Databricks、Snowflake、ServiceNow 同時是投資人又是潛在競品，他們各自在自家平台內建模型路由的那天，OpenRouter 的企業客戶留存靠什麼擋？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-mimo">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI · GIGAZINE</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>小米 99% 降價只對一種工程師有意義</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">5 月 27 日零點起，小米對 MiMo-V2.5 系列 API 實施永久性降價，最高降幅 99%。新定價每百萬 tokens：MiMo-V2.5 cache hit input（prompt caching，把重複的 prompt 前綴緩存可大幅降價）0.0028 美元、cache miss input 0.14 美元、output 0.28 美元；Pro 版分別為 0.0036、0.435、0.87 美元。同步取消 context length 分級，所有長度同價。訂閱制 Token Plan（API 額度包）credits 提升五到八倍，未用完額度全數重置。對標陣營為 DeepSeek、Qwen、Kimi 等中國模型廠。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">0.0028 美元的 cache hit 吸引力完全依賴高命中率，但多租戶環境下 KV cache 駐留需要可預測的 prompt 前綴重疊，通用 API 場景中很難穩定維持。若命中率低於 60%，有效定價會向 0.14 美元的 cache miss 靠攏，「99% 降價」的行銷敘事就只對高重複度的 batch workload（如文件摘要流水線）成立，低重複度的互動式 chatbot 幾乎感受不到差異。真正受益的工程師很具體：跑大量重複前綴的批次任務、對延遲容忍度高、且願意換 SDK 的那群人。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Cache hit 壓到 0.0028 美元每百萬 tokens 意味著 KV cache 必須長期駐留記憶體，小米在多租戶環境下的 cache eviction 策略能否在高併發下維持這個命中率？</li>
+        <li>小米做這個定價的真正恐懼是不是 DeepSeek 和 Qwen 已經鎖住了中國開發者的預設 SDK，所以只能用負毛利買通路入口？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-hassabis">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI · Axios</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Hassabis 列出 4 個問題，卻沒給任何一個里程碑</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Google DeepMind CEO Demis Hassabis 在 Google I/O 後接受 Rundown 獨家視訊訪談，把 AGI（Artificial General Intelligence，通用人工智慧）到達時間定在 2030 年正負一年，並明確列出四個未解問題：world physics（模型對物理世界的內建理解）、memory（長期記憶缺失）、consistency（相同輸入不產生相同輸出）、continual learning（部署後無法持續更新權重）。DeepMind 計劃先聚焦腫瘤學與免疫學的藥物研發應用。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Hassabis 列出的四個未解問題，沒有一個附帶可外部驗證的 benchmark 或時間節點。這與 AlphaFold 的情況形成對比，蛋白質結構預測有 CASP 競賽作為客觀里程碑，而 AGI 的四個維度目前沒有等效的產業標準測試集。對 Alphabet 股東而言，這等於批准了一張沒有交付條件的資本支出授權，DeepMind 的資本效率辯護只能靠 Gemini 的商業表現撐，而不是 AGI 進度。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Hassabis 每次把 AGI 時間表往前拉一年，Google 給 DeepMind 的資本支出預算就多拿一輪批准。Alphabet 的股東該問的是：這四個「未解問題」中哪一個有可驗證的里程碑，還是這只是一張無限期的空白支票？</li>
+        <li>Memory 和 continual learning 這兩項如果被任何一家 lab 先突破，現有所有賣 RAG pipeline 和 context management 的公司是不是一夜歸零？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">0 篇</span>
+  </div>
+  <p style="color: var(--ink-muted); font-style: italic; margin-top: 24px;">今日無 Web3 來源發送郵件。</p>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="vc-a16z">
+    <div class="article-meta">
+      <span class="article-source">a16z newsletter</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>a16z 用活動量指標替 portfolio 公司撐估值</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z partner Jennifer Li 團隊發表文章，核心論點是：AI 應用層不會被 lab 全部吃光，但會分裂為「黃磚路」（Yellow Brick Road，labs 直接搶佔的水平通用 agent 市場）和「Oz 其他地方」（垂直、多步驟、需人工審核的 workflow，labs 結構性進不來）。文章舉出 portfolio 公司 11x（AI sales 工具）的成果：客戶 reply rate 提升四倍，「為 F1000 機構一天產生比整個業務部門一個月更多的 sales opportunities」。另一個案例是 FurtherAI，負責保險核保 workflow 自動化。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">「一天產生比業務部門一個月更多的 pipeline」是活動量指標（activity metric），不是結果指標（revenue metric）。若 close rate 因大量低品質 outreach 從正常 B2B 水位的 15 到 20% 下滑到 3 到 5%，銷售效率可能沒有提升甚至倒退。a16z 沒有公開 11x 客戶的 qualified pipeline rate 或實際成交收入數字，這個案例目前只能算作「活動量放大」的證明，而非「revenue impact」的證明。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>11x 說客戶 reply rate 提升四倍，但那些 reply 的成交轉換率和 ACV（Annual Contract Value，年度合約金額）是多少？還是只是幫客戶製造更多低品質 pipeline 讓銷售團隊更忙？</li>
+        <li>a16z 一邊跟投 OpenRouter 押注模型路由層，一邊告訴 LP 垂直 AI 才是安全地帶。這兩個論點的資本配置邏輯互相矛盾，到底哪一個才是 a16z 真正在加碼的方向？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-stanford">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI · Fortune · Stanford HAI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>AI 招聘工具的真正風險不是偏見，是集中度</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Stanford 主導、Chapman 與 Northeastern 共同完成的研究，分析 2018 至 2022 年間 156 個雇主、1,700 個職缺、3.4 百萬申請者的 400 萬份申請，全部經由 Pymetrics（被 Harver 收購的 AI 招聘平台，用神經科學迷你遊戲評估候選人）篩選。結果顯示 10.62% 的職位對黑人申請者有 adverse impact（不利影響，美國 EEOC 的招聘歧視法律術語），5.32% 對亞裔，26% 的黑人候選人實際受影響。更關鍵的發現：42 個模型在不同雇主間共用，4% 申請 10 個職位的人全數被拒，顯著高於各雇主獨立決策應有的機率。論文「Algorithmic Monocultures in Hiring」（演算法單一文化，借自生物學單一種植的脆弱性概念）將於 ACM FAccT 發表。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">42 個共用模型的 Pymetrics monoculture，和現在所有招聘 AI 平台共用 OpenAI text-embedding-3 或 Anthropic embedding 的情況相比，集中度是指數級放大而非縮小。2018 至 2022 年是 42 個專用模型跨 156 家雇主，現在可能是兩到三個底層 embedding 模型跨數千家雇主。任何存在於 OpenAI embedding 層的性別或種族偏差，會以 Pymetrics 案例中 monoculture 乘數的方式放大到整個就業市場。這是研究本身沒有說出來、但最重要的結論。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>42 個共用模型造成 monoculture 效應，但這個機制跟當前 LLM-based 招聘工具共用同一個 OpenAI embedding 層的集中度比起來，風險是更小還是指數級放大？</li>
+        <li>現在賣 AI 招聘工具的 HireVue、Eightfold 可以用「那是舊產品的問題」擋掉這份研究，但他們自己的 adverse impact 數據敢公開嗎？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-china">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI · Bloomberg</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>中國鎖住 AI 人才，歐洲和東南亞市場拱手相讓</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Bloomberg 5 月 26 日獨家報導：中國政府要求 Alibaba、DeepSeek 等私營 AI 企業的部分核心人員（含創辦人、研究員、資深高管）出國前須取得政府核准。此舉被描述為「擴大管制」，因為 2025 年 12 月已對部分 DeepSeek 高層實施，更早有 Manus（中國通用 agent 產品）兩位共同創辦人被禁止出境的先例。中國政府已把頂級 AI 人才定位為「國家安全資產」，套用過去保留給核子科學家與國有企業高管的限制框架。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">無法派 senior engineer 做 forward-deployed（客戶現場部署）工作，直接切斷中國 AI 公司在歐洲和東南亞企業市場的進入能力。企業級 AI 部署通常需要三到十二個月現場整合，遠端支援幾乎不可行。結構性受益者是在 AWS、Azure、GCP 上跑 OpenAI 或 Anthropic 的美國系系統整合商，以及有本地 forward-deployed 能力的 Palantir 和 ServiceNow。DeepSeek 的開源模型可以繞過這個限制，但閉源中國模型的企業銷售等於被切斷海外落地能力。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>人才管制讓中國 AI 公司無法在海外部署 senior engineer，那些靠中國模型降價邏輯建立的全球推理成本模型，是不是少算了「技術支援斷供」這層隱性成本？</li>
+        <li>如果我是一家在新加坡設點、專門挖中國 AI 人才的獵頭公司，這個政策是讓生意歸零，還是反而讓「已經在海外」的中國 AI 人才身價暴漲成為護城河？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-05-28</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
