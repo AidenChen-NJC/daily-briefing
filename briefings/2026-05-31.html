@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-05-31</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 5 月 31 日　星期日</span>
+    <span class="header-count">8 篇</span>
+  </div>
+  <h1>當 AI 的錢開始不夠用</h1>
+  <p class="header-lede">估值翻倍、融資創高、模型領先，但每一家都在焦慮下一季的燒錢規模。當市場再也不會為 「最好的技術」埋單時，商業模式就不是選項，而是懸崖。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic">Anthropic 估值反超 OpenAI，但分發劣勢隱形</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-cursor">Cursor 報告是精美虛榮指標</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-finops">AI FinOps 工具的市場缺口</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-gpu">GPU 抵押貸款風險定價是猜的</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-hyperscaler">AI 系統性風險移入債市</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-meta">Meta One 訂閱數學不成立</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-retail">散戶變成單向追漲者</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="ai-anthropic">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / TechCrunch / CNBC / Fortune</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 估值反超 OpenAI，但沒有自己分發通路的「最好模型」撐不過幾個產品週期</h3>
+    
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 在同一天完成了兩件事：發布 Claude Opus 4.8，並關閉 $65B 的 Series H 融資（H 輪，公司第八輪大型私募融資，輪次越後通常距 IPO 越近），投後估值（含本輪新注資後的公司總估值）$965B，正式超越 OpenAI 成為全球最有價值的 AI 實驗室。估值較三個月前的 $380B 接近三倍，run-rate 營收（以近期單月營收推估的全年數字，非實際已實現全年數字）本月突破 $47B。本輪由 Altimeter、Sequoia 等機構領投，含 $15B 既有 hyperscaler（超大規模雲端業者，如 AWS）承諾投資，其中 Amazon 出資 $5B。Opus 4.8 在 agentic coding（AI 自主規劃並連續執行多步驟編程任務）、computer use、財務分析等基準上勝過 GPT-5.5 與 Gemini 3.1 Pro，對程式碼瑕疵的漏報率約為前一版本的四分之一。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">$65B 裡的 $15B 是「既有 hyperscaler 承諾」，Amazon 的 $5B 源自 2023 年協議，極可能是算力信用額度而非可自由部署現金，也就是說 Anthropic 只能用它買 AWS 算力，不能拿去挖角工程師或並購。Anthropic 真正的結構性問題不在估值，而在分發：Google 若把 Gemini 綁進 Workspace、Microsoft 把 GPT 鎖死 Azure，企業 IT 買家看的是合規、SSO 整合與計費統一，不是 benchmark，Anthropic 在非技術買家層的滲透會持續依賴第三方。AI 模型領先窗口歷史上約 6 到 9 個月，Anthropic 唯一的自主分發護城河是 Claude Code 在開發者圈的口碑。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 Google 把 Gemini 3.1 Pro 定價再砍一半綁進 Workspace，微軟把 GPT-5.5 鎖死在 Azure 生態，Anthropic 沒有自己的分發通路，「最好的模型」這個護城河撐得過幾個產品週期？</li>
+        <li>$65B 裡有 $15B 是 hyperscaler「既有承諾」，Amazon 那 $5B 到底是新鮮現金還是把雲端算力額度重新標籤成投資，Dario 實際拿到手的可自由部署現金是多少？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-cursor">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / Cursor</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Cursor 選擇公開行數和 PR 數而非 revert 率，這個選擇本身就是答案</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Cursor 依自家產品數據發布《Developer Habits Report》，顯示開發產出 18 個月內由每人每週 3,600 行增至 8,600 行，1,000 行以上的大型 PR（程式碼合併請求）越來越常見，每 PR 新增行數年增約 2.5 倍。Agent 承擔更多端對端工作：工具呼叫（AI agent 為完成任務調用外部工具的次數）兩個月增加 30%，未經人工審查即進入 commit 的 AI 變更增加 5 倍。報告核心數字是頂尖 1%（P99）開發者產出為中位數活躍用戶的 46 倍，合併 PR 數為中位數作者的 15 倍，且差距每月擴大。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Cursor 選擇公開「行數」和「PR 數」而非「revert 率」或「bug 密度」，這個選擇本身就是答案。對任何做過大型代碼庫遷移的工程師而言，行數暴增伴隨測試覆蓋不足的結果是技術債後移、六個月後集中爆發。這份報告對 Cursor 的 GTM（市場進入）價值遠高於對工程主管的決策價值。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>P99 開發者產出是中位數的 46 倍，但這些大型 PR 的合併後 revert rate 和 production incident rate 是多少？</li>
+        <li>程式碼行數暴增如果只是把技術債推到下游，這份報告就是 Cursor 最精美的虛榮指標。</li>
+        <li>如果企業買一千個 Cursor 席位的 ROI 實質上是由十個人撐起來的，誰在補貼那 990 個幾乎不產出價值的 license？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-finops">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / Axios</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>能把模型層 token 消耗、組織層身份、業務意圖標籤三合一的工具目前不存在，這是真正的市場缺口</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">一名 AI 顧問向 Axios 透露，其某企業客戶因未對員工 Claude license（使用授權）設使用上限，單月累計約 $500M 帳單。原因是全組織無限制存取，加上工程師跑複雜 agentic workflow（AI 自主連續執行多步驟任務鏈，token 消耗遠高於單次對話）、大 context prompt、並行編程 session，每人每月產生數百至數千美元成本，無 guardrails（護欄，對 AI 使用設定的用量或預算限制）下經濟帳瞬間災難化。Microsoft 因部分工程師每人每月 $500 至 $2,000 成本，已削減內部 Claude Code license；Uber 在 4 月即燒光 2026 全年 AI 預算。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">雲端供應商看到 API 呼叫量，但不知道每個呼叫的業務意圖；Anthropic 看到 token 消耗，但不知道是哪個部門的哪個 workflow；企業 IT 知道組織結構，但沒有即時的模型層 telemetry（遙測數據）。三方都沒有足夠的跨層視角，能把「模型層 token 消耗、組織層身份、業務意圖標籤」三合一的工具目前尚不存在。任何先拿到企業 SSO（單一登入，統一身份驗證）整合的廠商，例如 Okta 或 CrowdStrike 的身份管理層，有結構性優勢卡住這個位置。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Anthropic 的 GTM 團隊在簽企業合約時，是刻意不推用量上限和階梯定價，好讓第一季帳單大到客戶不敢換供應商，還是真的沒建好 FinOps 工具？</li>
+        <li>Kubecost、Vantage、Cast AI 這些雲成本治理工具如果明天就出「AI token 用量儀表板」，最難複製的到底是跨模型的即時計量能力，還是拿到企業 SSO 後的組織層級歸因？</li>
+        <li>誰會最快卡住這個位置？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="web3-gpu">
+    <div class="article-meta">
+      <span class="article-source">decentralised.co（David Choi 訪談）</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>GPU 抵押貸款沒有統計顯著的歷史樣本，Munich Re 的保險定價目前是猜的</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">David Choi（前 Deutsche Bank，專承做難定價資產放貸）創辦 USD.AI，起因是自己的 300 台 H100 server 無法抵押貸款。GPU 有用壽命約 6 年，但新世代每約 18 個月推出，而傳統證券化（將一籃子貸款打包、分券後賣給投資人）流程可耗時長達 3 年，對存續期 30 年的房貸沒問題，對 6 年即過時的資產則跑不動，neocloud（新型雲端業者，專營 GPU 算力出租的新興資料中心營運商）因此只能找私募信用基金，付 20 至 25% 的 all-in 利率。USD.AI 把貸款生成即時折疊成單一可交易工具 sUSD.AI（類比 wrapped staked ETH，但標的是資料中心），貸款存續期間借款人不擁有晶片，若晶片被迫低於貸款額變賣，由 Munich Re 補足差額。澳洲 neocloud Sharon AI 已取得最高 $500M 的資產抵押、無追索權（違約時債權人只能取走抵押資產、不能向借款人其他財產追償）債務額度。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Munich Re 補足殘值差額的精算模型需要大量歷史違約與回收數據，但 GPU 抵押貸款根本沒有統計顯著的歷史樣本，這個風險定價目前是猜的。Sharon AI 拿到的是授信額度，實際提款量和真實違約率尚未可驗證，這個「牽引力」目前能確認的只有一張 term sheet。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Sharon AI 拿了 $500M 額度，但實際提款多少、這些 GPU 抵押貸款的違約率和回收率數據在哪裡？</li>
+        <li>沒有真實損失歷史，Munich Re 的保險定價就是猜的，這個牽引力現在是不是只有一張 term sheet？</li>
+        <li>如果 Nvidia 明天推出官方的「GPU-as-a-Service 融資計畫」直接綁定 DGX Cloud，用自己的資產負債表做殘值擔保，USD.AI 的整個中間層就被跳過，Nvidia 不做這件事的真正原因是反壟斷風險還是單純還沒想到？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="vc-hyperscaler">
+    <div class="article-meta">
+      <span class="article-source">a16z《Charts of the Week》</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>AI 系統性風險正在從股市悄悄移入債市，但目前還沒有人被迫承擔後果</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Apollo CEO Marc Rowan 直言「自鑽木取火以來的每一塊錢都流進這場 AI capex（資本支出，購建長期資產如資料中心與晶片的支出）建設，光靠股權無法全部支應」。a16z 指出，2026 年 hyperscaler 債券發行已達約 $150B，較去年同期約增 35%，且半年未過。2026 年約半數投資級（IG，信用評等較高、違約風險較低的公司債）淨發行、約 40% 高收益（HY，即垃圾債）債綁定 AI capex，「IT Capex」逼近整個 S&P 500 全部 capex 的 40%。但排除 Oracle（資本最弱的 hyperscaler）後，hyperscaler IG 信用利差（公司債相對無風險公債的額外殖利率）仍低於大盤 IG，債務與股權比也遠低於 S&P 其餘成分股。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">市場一直盯著 AI 的股票泡沫，但真正的系統性曝險正在債市悄悄堆積。當半數投資級債發行都綁在 AI capex 上，AI 若放緩，受傷的不只是科技股，而是整個信用市場。不過 hyperscaler 槓桿基期極低，這是「低基期上的借貸狂歡」而非高危槓桿，問題在於沒有任何一家 AI 應用層公司目前能證明可持續回收這些算力成本。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Hyperscaler 發債蓋資料中心，但這些 capex 真正綁定的客戶合約年限和 take-or-pay（最低採購量承諾）比例是多少？</li>
+        <li>如果像 SpaceX 與 Anthropic 那樣只有 180 天承諾，債券投資人看到的「需求能見度」是不是幻覺？</li>
+        <li>如果 AI capex 回報週期拉長到五年以上，這 $150B 債券的再融資風險由誰承擔，是 Apollo 自己的 LP，還是買了這些 IG 債的退休基金？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-meta">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech / TechCrunch / Engadget</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Meta One 訂閱收入五年內無法覆蓋 AI capex 的 20%，它的真實功能是給分析師一條非廣告收入故事線</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Meta 被迫為長年免費的社交帝國貼上價格標籤，這不是商業創新，而是 $145B AI capex 壓力倒逼出的求生動作。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Meta 全球推出 Instagram、Facebook、WhatsApp 付費階梯，統一包進品牌「Meta One」。Instagram Plus 與 Facebook Plus 各 $3.99 月、WhatsApp Plus $2.99 月，加值功能包括客製化、更深的 Stories 分析與自訂主題。Meta AI 測試兩檔付費：Meta One Plus $7.99、Premium $19.99（後者提供更快 thinking mode，即 LLM 投入更多運算做延伸推理），分別在新加坡、瓜地馬拉、玻利維亞試行；創作者與商業方案 $14.99 與 $49.99 在沙烏地、摩洛哥、泰國、孟加拉試行。背景：Meta 2025 廣告營收 $201B，2026 年 AI 基建承諾投入上看 $145B，同月裁員 8,000 人。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">訂閱數學不成立。即使取中間值 $9 月，轉化 1 億付費用戶（月活 36 億的約 2.8%），年訂閱收入約 $10.8B，僅覆蓋 AI capex 的 7.4%。要達到 capex 的 20%，需要約 2.7 億付費用戶，這個數字超過 Apple 全球 iCloud 訂閱用戶。輸家是相信 Meta One 能重構商業模式的投資人。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Meta 是在測「訂閱意願」還是在挑最不會自砍廣告營收的市場來做數字？新加坡 ARPU 高但廣告市場已成熟、瓜地馬拉與玻利維亞廣告密度極低，北美與歐洲才是金雞母，但反而沒進測試名單。</li>
+        <li>如果付費用戶看到更少廣告，廣告主的每千次曝光成本被推高，訂閱收入和廣告收入到底是互補還是互蝕？</li>
+        <li>Meta 內部有沒有一個 cannibalization model 在跑？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-retail">
+    <div class="article-meta">
+      <span class="article-source">a16z《Charts of the Week》</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>散戶從市場穩定器變成順勢追漲者，$250B 保證金是等待觸發的引信，不是可控的比率數字</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Citadel Securities 看到約 40% 美國散戶單流量（散戶買賣委託的總量），報 5 月為散戶現金股票成交量歷史最活躍月，較 2021 年 1 月迷因股高峰高約 12%。散戶選擇權日均合約量較歷史月均高約 60%；半導體選擇權散戶量為 2020 後月均的約 2.8 倍。槓桿同步攀升：三倍槓桿 S&P ETF（用衍生品放大指數每日報酬 3 倍的基金）散戶占成交量約 20%、三倍槓桿 Nasdaq ETF 約 25%。Interactive Brokers、Robinhood、Schwab 合計保證金餘額（投資人向券商借錢買股的未償還貸款總額）逾 $250B，為疫情前的 5 倍，占客戶資產約 1.7%。4 月至 5 月大半連續七週，無一日散戶單流量偏向賣出。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">散戶角色發生質變。今年大半時間散戶是逆勢買家，是市場的緩衝層；但近幾週翻轉成不論漲跌都買、用歷史級槓桿推動行情單邊上行。這種結構製造了 flow fragility（資金流脆弱性，買賣盤過度一面倒時反轉將觸發巨量單向平倉的風險），輸家是用三倍槓桿 ETF 做多的散戶本身；Citadel Securities 作為造市商，是這場單向流量的最大受益對手方，也是反轉時唯一可能有能力接盤的角色。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>保證金餘額 $250B 是疫情前的 5 倍，但占客戶資產僅 1.7%，Robinhood 和 IBKR 的風控模型是用哪個數字跟董事會報告，是讓人安心的比率還是讓人失眠的絕對值？</li>
+        <li>連續七週無一日散戶淨賣出，三倍槓桿 ETF 散戶占比達 25%，當反轉發生時，Citadel Securities 作為造市商站在這些單向流量的對手方，它的淨曝險是多少？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-05-31</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+</body>
+</html>
