@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-06-01</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+      color: var(--signal-bg);
+      font-weight: 700;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 6 月 1 日　星期一</span>
+    <span class="header-count">11 篇</span>
+  </div>
+  <h1>估值翻三倍的背後，誰在數錢？</h1>
+  <p class="header-lede">Anthropic 估值追不上營收、Meta 重新定價、Apple 把 Siri 外包給 Google——這三個信號串起來，告訴我們 AI 時代的權力重新分配才剛開始。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic">Anthropic 估值追不上營收</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-meta">Meta One 的真正目的</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-apple">Apple 把 Siri 外包給 Google</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-cursor">Cursor 的生產力報告</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-coinbase">Coinbase 進印度</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-cme">CME 比特幣波動率期貨</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-usdai">USD.AI GPU 抵押放貸</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-etf">比特幣 ETF 大失血</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-pantera">Pantera 的加密 thesis</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <article class="article" id="ai-anthropic">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / TechCrunch / Axios</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 估值追不上營收，這才是今天最重要的訊號</h3>
+    
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Anthropic 估值/營收倍數從 27× 壓縮至 20%，這是 AI 賽局從「燒錢挑戰者」演變為「機構共識股」的首個可量化訊號。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 於 2026 年 5 月 28 日同日宣布 Claude Opus 4.8 與 Series H（第八輪機構募資）融資。本輪募資金額 $65B，投後估值（含本輪新資金的估值）達 $965B，超越 OpenAI 上一輪的 $852B。營收年化 run-rate（把近期單期營收外推一年的估算值）從 2 月的 $14B 成長至 $47B，約四個月成長三倍。Opus 4.8 在 agentic coding（AI 自主多步驟寫程式）、財務分析與 Humanity's Last Exam（高難度跨領域評測）等基準上聲稱勝過 GPT-5.5 與 Gemini 3.1 Pro，Fast mode 成本較前代降三倍但定價不變。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Anthropic 估值/營收倍數從 $380B/$14B 的 27× 壓縮至 $965B/$47B 的 20×，方向罕見地是「估值追不上營收」而非反過來，這是 Anthropic 敘事從挑戰者轉為機構共識的結構性訊號，比估值翻三倍本身更重要。OpenAI 是最直接的輸家，此前「唯一機構共識 AI 股」的稀缺性溢價已被稀釋。不過 $47B run-rate 的計算基期有根本風險：若含 Amazon $5B 承諾作為使用額度預付，單季一次性認列可讓數字虛胖兩到三倍，Tier-1 媒體至今未拆解這個結構。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 $47B run-rate 主要來自大客戶預付（如 Amazon 的 $5B 承諾轉為使用額度），剔除後真正經常性營收剩多少？</li>
+        <li>Sequoia 同時重倉 Anthropic 和 OpenAI，當兩家估值加總逼近 $1.8 兆卻搶同一批企業 AI 預算時，LP 實際上是在對賭哪一個贏家通吃假設？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-meta">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech / TechCrunch / Engadget</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Meta One 的真正目的：讓廣告股重新定價成 SaaS 股</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Meta 於 2026 年 5 月 28 日在「Meta One」品牌下跨 Instagram、Facebook、WhatsApp 推出付費訂閱。消費者層：Instagram Plus / Facebook Plus 各 $3.99/月，WhatsApp Plus $2.99/月，解鎖限時動態數據、自訂主題等功能。AI 層（測試中）：Meta One Plus $7.99、Premium $19.99，後者提供更多高算力查詢與影像生成。創作者與企業層（先在沙烏地、摩洛哥、泰國、孟加拉測試）：Essential $14.99、Advanced $49.99，後者提供搜尋與動態優先曝光及進階分析。背景：Meta 2025 廣告營收達 $201B，2026 年 AI 基建承諾上看 $145B，同月裁員 8,000 人。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">$49.99 Advanced 方案若讓 Meta 在財報上建立獨立的訂閱收入線，分析師即可套用更高的 EV/Revenue 倍數，這是把廣告股重新定價為 SaaS 股的財報工程意圖，而非用戶增長賭局。廣告依存度高的媒體代理商是輸家，因為「付費買觸及」會把廣告預算截流。財報認列方式尚未確認，需等 Q2 2026 季報才能驗證。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>$49.99/月的 Advanced 方案本質是向創作者收「自然觸及贖回費」，這筆錢歸入訂閱收入還是廣告收入，直接決定 Meta 能否把營收倍數從廣告股重新定價為 SaaS 股？</li>
+        <li>Meta One Advanced 的「搜尋與動態優先曝光」，當付費權重與 engagement 預測互相衝突時，feed 品質劣化到什麼程度會觸發用戶流失的負反饋迴路？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-apple">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / Bloomberg（Mark Gurman）</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Apple 把 Siri 外包給 Google，承認自己從平台主降格為流量批發商</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">據 Bloomberg 報導，Apple 重建版 Siri 底層將改建在 Google Gemini 上，內嵌於 Dynamic Island（iPhone 動態島互動區），下滑即可執行 AI 搜尋、對話或 iOS 任務，結合裝置端資料、螢幕內容與網路搜尋，結果以 rich cards（卡片式呈現）顯示。進一步下滑可開啟獨立 Siri App，並可將查詢轉送 ChatGPT 等外部模型。Apple 付給 Google 的搜尋分潤已達約每年 $200B，新版 Siri 等於再把 AI 推理層也交給 Google。新任 CEO John Ternus 上任後，這是首個重大 AI 策略決定，若失敗將觸及 10 億以上 iPhone 用戶。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Apple 同時把搜尋入口和 AI 推理層交給 Google，Google 成為雙重贏家，同時收取搜尋分潤與 Gemini 推理租金。Apple 真正的輸家身份不在短期財報，而在 AI 時代垂直整合敘事的終結，10 億 iPhone 用戶的分發權正在被換成追趕時間。ChatGPT 已在 iPhone 月活破億且「繞過 Siri」的使用習慣已經固化，即使推出新版 Siri 也面臨搶回入口習慣的真實困難。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Apple 付給 Google 搜尋分潤已達每年約 $200B，現在再把 Siri 底層也交給 Gemini。Google 等於同時收租搜尋入口和 AI 推理層，Apple 的議價籌碼到底剩什麼？</li>
+        <li>如果在 iOS 上出一個垂直 AI agent（可自主執行任務的 AI 程式）App，Apple 用分發權綁 Gemini 之後，第三方接入的真正卡點是審核政策還是資料存取權限？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-cursor">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / Cursor / Axios</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Cursor 的生產力報告藏了一個洞：產出翻倍但缺陷率是多少？</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Cursor 發布《開發者習慣報告》，基於自家產品與工程數據：人均每週新增程式碼 18 個月內由 3.6K 行升至 8.6K 行，逾千行的 mega PR（單次改動逾千行的大型合併請求）變成常態；未經人工審查就進 commit（程式碼正式提交入庫）的 AI 變更增加五倍；頂尖 1% 開發者產出為中位數的 46 倍，且差距每月擴大。不同模型每次 agent 請求成本相差九倍，Opus 4.7 最貴。另據 Axios，某顧問客戶因未對員工 Claude 授權設使用上限，單月誤花近 $500M。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Cursor 報告揭露產出量翻倍，但刻意不揭露缺陷率或回滾率，「未經審查就 commit 的 AI 變更增五倍」與技術債累積速度高度相關。對企業 CTO 而言，行數成長若無品質數據佐證，採購依據為零。Cursor 發布此報告的真正 GTM 意圖是用「頂尖 1% 產出 46 倍」鎖定企業採購決策者，對抗 Claude Code 和 Windsurf 搶奪 power user 敘事，輸家是 GitHub Copilot，因為企業若被這套敘事說服，將從全員授權轉向精英工具差異化採購。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>人均程式碼行數翻倍，但 Cursor 有沒有同時揭露每行程式碼的缺陷率和回滾率？如果產出翻倍但維護成本也翻倍，這個「生產力」數字對企業 CTO 的採購決策毫無意義？</li>
+        <li>頂尖 1% 產出 46 倍這個數字，那些 mega PR 的 merge-after-review 率和 revert 率是多少，還是大量 AI 生成碼直接進了技術債？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <article class="article" id="web3-coinbase">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk（2026-06-01）</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Coinbase 進印度，短期贏家卻是本地競爭對手</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">自 2026 年 6 月 1 日起，Coinbase 印度用戶可透過 IMPS（印度即時支付系統，類似台灣即時轉帳）直接從銀行帳戶以盧比（INR）存提，無需經 P2P（點對點場外交易）管道。據諮詢機構 Imarc，印度加密市場 2025 年達 $3.04B，預估 2034 年成長至 $14.21B，CAGR（年均複合成長率）18.66%。過去印度用戶多靠點對點場外交易出入金，詐騙與凍卡風險高。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">WazirX、CoinDCX 已有法幣通道和存量用戶，Coinbase 缺乏本地補貼能力，真正差異化只有「Base 鏈 DeFi 原生用戶」這條窄路，但印度 DeFi（去中心化金融）滲透率極低。本地競爭者是明確的短期贏家，因為 Coinbase 進場反而替整個市場做了合法性背書，研究對回本年限的保守估計超過五年，但信心標籤為低，因合規成本和銀行整合費用未披露。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>印度 30% 資本利得稅加 1% TDS（稅款預先扣繳）讓交易量外逃到離岸平台，合規 on-ramp（法幣進入加密的通道）上線後，真正的留存行為是「買了放」還是「入金後立刻轉到 Binance」？</li>
+        <li>WazirX、CoinDCX 已有本地法幣通道和存量用戶，Coinbase 進印度真正的客戶獲取路徑是什麼？是靠 Base 鏈生態拉 DeFi 原生用戶，還是純粹砸補貼搶零售？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-cme">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk（2026-06-01）</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>CME 比特幣波動率期貨，週末 Gap Risk 讓主力做市商不敢進場</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">CME Group 計畫於 2026 年 6 月 1 日（待監管核准）推出比特幣波動率期貨，提供下注於比特幣價格擺動幅度（而非僅押漲跌方向）的衍生品工具。比特幣 24 小時全年無休交易，但 CME 僅工作日開盤。現有加密選擇權流動性九成以上集中在 Deribit 交易所，而非 CME。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">CME 僅工作日開盤，但比特幣 24/7 交易，週末 gap risk（週末價格跳空風險）在結構上無法對沖，意味著做市商持有波動率頭寸從週五收盤到週一開盤都是裸露風險。這個結構性死穴讓 Citadel、Virtu 等傳統機構做市商幾乎不可能積極報價，流動性將依賴 Cumberland、Wintermute 等加密原生做市商，而他們通常優先留在 Deribit。Deribit 是短期贏家。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Deribit 已壟斷加密選擇權流動性，CME 波動率期貨的真正客戶是誰？是已經在 Deribit 交易 vega（選擇權部位對隱含波動率的敏感度）的做市商要遷移，還是傳統 vol 基金第一次碰加密？</li>
+        <li>如果做市商終於能在 CME 對沖 vega，他們會從 Deribit 搬多少保證金過來？這對 Deribit 的資本成本和利差意味著什麼？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-usdai">
+    <div class="article-meta">
+      <span class="article-source">Decentralised.co（David Choi 專訪，2026-05-29）</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>USD.AI：GPU 抵押放貸的真正護城河是「比傳統快三年」，不是低成本</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">USD.AI（Permian Labs 開發）讓 GPU 擁有者以硬體為抵押借出穩定幣 USDai。放款瞬間折疊成可交易工具 sUSD.AI，硬體安裝驗證後才撥款，貸款存續期間借款人不擁有晶片故可被收回，並須保留數月還款準備金；若清算時抵押品變現不足，由再保機構 Munich Re 補足差額。總存款 $344M、TVL（總鎖倉價值）$282.98M、累計放貸 $225M。2025 年 8 月完成 $13M Series A，由 Framework Ventures 領投。傳統 GPU 證券化流程耗時可達三年，neocloud（專營 GPU 算力出租的新型雲端商）在私募信貸的全包利率達 20-25%。GPU 有效壽命約六年，新世代每約 18 個月推出。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">$344M 存款對比 $225M 放貸，資金利用率僅 65%，若出借方收益率為 8-12%，Permian Labs 加 Munich Re 合計吃走約 10-15 個百分點利差，這個結構更像高費率 CLO（擔保貸款憑證）而非去中心化信貸革新。真正護城河是「比傳統三年證券化流程快」，而非低成本。最大系統性風險是：若放貸期超過 18 個月且 Nvidia 發布新架構，H100 殘值可能腰斬 40-60%，超出 Munich Re 再保覆蓋設計的 stress scenario，但 Munich Re 條款細節未公開，信心為中。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>GPU 每 18 個月出新世代、有效壽命六年，USD.AI 放貸的平均久期和 LTV（貸款價值比）是多少？如果 Nvidia 明年推新架構導致 H100 殘值腰斬，Munich Re 的再保上限夠不夠覆蓋系統性清算？</li>
+        <li>$344M 存款、$225M 已放貸，出借方拿到的收益率是多少？跟 neocloud 在私募信貸付的 20-25% 之間的利差，究竟被 Permian Labs 和 Munich Re 各吃了幾個百分點？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-etf">
+    <div class="article-meta">
+      <span class="article-source">WebSearch 市場彙整（2026-06-01）</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>比特幣 ETF 大失血，打破「ETF 等於穩定買盤」的敘事</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">過去兩週比特幣現貨 ETF（直接持有比特幣的交易所交易基金）淨流出逾 $2.6B，2026 年 5 月 27 日創自 1 月底以來最大單日流出。BlackRock IBIT 單日流出約 $528M，為主要壓力來源。BTC 現價約 $72,490-$74,213，阻力區 $74,200-$75,000。分析師歸因於美伊地緣升級與整體 risk-off（市場避險、拋售風險資產的情緒）。同期 JPMorgan 執行長 Jamie Dimon 批評 Coinbase 執行長 Brian Armstrong，並警告現行 CLARITY 法案框架恐最終失敗。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">IBIT 單日 $528M 流出的主要來源更可能是 basis trade（現貨多頭加期貨空頭套利）平倉，而非散戶恐慌，basis 收窄時機構同步退出 ETF 多頭腳，不代表看空，代表套利空間消失。這使得「ETF 等於長期穩定買盤」的敘事在統計上成立不了，真正持有人結構中套利資金佔比可能超過 30%。仍用 BTC 低相關性數據說服配置委員會的財富管理顧問是最直接的輸家，Bitwise 等強調顧問通路黏性（贖回摩擦更高）的競爭對手是相對贏家。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>BlackRock 當初 pitch IBIT 給退休基金時賣的是「數位黃金、低相關性」敘事，現在一遇地緣風險就跟納斯達克同步拋售。Robbie Mitchnick 還能用什麼數據說服配置委員會這不是純 beta？</li>
+        <li>如果現在要出一個加密資產管理產品，ETF 資金證明「可逆」之後，真正的護城河是費率、流動性深度，還是像 Bitwise 那樣綁定顧問通路讓贖回摩擦變高？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="vc-pantera">
+    <div class="article-meta">
+      <span class="article-source">Pantera Capital 區塊鏈月報（Dan Morehead，2026 年 5 月）</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Pantera 的加密 thesis 有一個被 Stripe 悄悄掏空的前提</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Pantera 創辦人 Dan Morehead 在 5 月月報提出「AI×區塊鏈融合」論點：十大 AI 公司指數高於四年趨勢線約 33%，比特幣低於長期趨勢約 43%，為其觀察以來最大背離。2026 年全球 AI 支出上看 $2.5 兆（超過 195 國中 186 國的 GDP），四大科技 CEO（Alphabet/Amazon/Meta/Microsoft）合計 AI 資本支出約 $650B，但多數機構加密曝險（portfolio exposure）為零。Morehead 主張 AI agent 需自主交易，穩定幣是 M2M（機器對機器，無人類介入的機器間交易）商務的結算層，「不持有加密等於對 AI 隱性做空」。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">「AI agent 只能用穩定幣結算」這個前提正在被 Stripe 收購 Bridge 後直接把穩定幣結算嵌進現有支付 API 的動作實質弱化，鏈上結算對 agent 而言正從「必要」變成「可選」，因為 Stripe 同時提供法幣和穩定幣兩條路，開發者體驗遠優於自建錢包。Pantera 的趨勢線方法論本身也有問題：「低於趨勢 43%」若以 2021 年高點為基期重畫對數回歸，結論可能反轉，而 Pantera 持有大量加密部位，這份報告本質上是對自己投資組合做公關。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>「不持有加密等於做空 AI」假設 AI agent 只能用穩定幣結算，但如果 Visa 或 Swift 明年開放 API 讓 agent 直接走法幣軌道，Pantera 整個 thesis 的前提是否歸零？</li>
+        <li>如果要在 AI 加密交叉領域出貨，最該怕的競爭者是 Stripe 剛收購 Bridge 後把穩定幣結算嵌進現有支付 API，還是 Anthropic 和 OpenAI 自己內建支付層繞過鏈？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-06-01</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+</body>
+</html>
