@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-06-05</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 6 月 5 日　星期五</span>
+    <span class="header-count">9 篇</span>
+  </div>
+  <h1>Altman、BYD、a16z 都在說未來，但數據在問「何時」</h1>
+  <p class="header-lede">三家最有話語權的機構幾乎同時推新賭注，背後卻各自對上一份「不配合」的證據。今天的新聞不是策略，而是策略與現實的張力。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-alfred">Alfred 的估值錨點是 Altman 的人脈</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-ideogram">Ideogram 非商用授權的開源悖論</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-a16z">a16z 把 IR 改名「全球夥伴」</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-byd">BYD 2 萬台的期票沒有路徑</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-waymo">Waymo 空跑卡在 56%，問題出在商業模式</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-tesla">Tesla Austin 無監督是 PR 標題</a></li>
+  </ol>
+</nav>
+
+<!-- AI · 科技 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <article class="article" id="ai-alfred">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Alfred 的 $40M 估值，錨點是 Altman 的人脈，不是任何可驗證的合約</h3>
+    
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Alfred 是一家成立約 9 個月、位於加州 Hawthorne 的隱身期新創（stealth startup，刻意低調未公開的早期公司）。它不造機器人本體，而是替工程師打造自動化工具，目標是壓縮機器人與自駕車背後緩慢的研發週期。OpenAI CEO Sam Altman 透過個人創投 Hydrazine Capital 投資 Alfred，公司正以 $40M 估值募資，其他投資方包括 Khosla Ventures、SV Angel、Chapter One。共同創辦人 Ankit Ukil 來自 Tesla，另一位創辦人 Dömötör Gulyas 來自 Meta Reality Labs。目前 4 月實體 AI（physical AI，指能在真實世界行動的機器人或自駕系統，相對於純數位 LLM）新創整體吸金約 53 億美元。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Altman 選擇 Hydrazine 而非 OpenAI Startup Fund 出手，訊號清楚：這是個人戰略卡位，讓 OpenAI 模型未來有機會嵌入車廠和國防客戶的研發流程。Alfred 說已與車廠、國防、機器人公司「洽談銷售」，但客戶全部未具名。B2B 工業軟體的採購週期通常 12 至 24 個月，9 個月大的公司極不可能已有正式合約，「洽談中」在這個語境幾乎等同於「全部停在 POC（概念驗證）」。$40M 估值的錨點是 Altman 的人脈溢價，沒有基本面錨點。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Altman 用 Hydrazine 而非 OpenAI Startup Fund 投，這筆錢到底是買 Alfred 的未來現金流，還是買一個讓 OpenAI 模型嵌入實體 AI 工具鏈的戰略卡位？</li>
+        <li>Siemens NX 和 Dassault SIMULIA 已嵌進車廠工程流程二十年，Alfred 要客戶把哪一段工作流從既有工具拔出來交給你？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-ideogram">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Ideogram 把模型「開源」，然後把商業用途鎖在授權牆後面</h3>
+    
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Ideogram 於 2026 年 6 月 3 日開源 Ideogram 4.0（9.3B 參數），程式碼採 Apache 2.0 授權，但模型權重採 Ideogram 自家非商用授權。研究、業餘、測試用途可完整下載微調，商業用途須另購授權。同日 Reve 推出 Reve 2.0，在 Arena Text-to-Image 排行榜（眾人盲測投票的模型排行）登第 2，僅次 GPT-image-2。Ideogram 4.0 拿下開源模型第 1、整體僅次 OpenAI 和 Google 閉源模型（Design Arena）。兩者都主打「版面導向」編輯，Ideogram 用 JSON 加 bounding box（標註物件位置的邊界框）控制版面，Reve 把圖「當程式碼」做局部改寫。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">「非商用權重」的授權結構本質是：用免費研究流量做品牌曝光，同時把所有商業用途逼回付費通道。社群使用產生的基準測試和教程是免費行銷，受損者是試圖用它建立商業產品的小型開發者，他們以為拿到開源工具，實際上踩了一條授權牆。模型本身更不是護城河，Ideogram 把權重開源已自我驗證這點，若 Canva 接上開源後端，Ideogram 的差異就只剩文字渲染品質，這是可被追上的技術優勢，不是結構性壁壘。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Ideogram 權重「非商用授權」意味著任何想靠它賺錢的人都得回頭付費，那這個「開源」到底是在補貼社群研究者，還是在用免費流量替未來企業版定價做錨？</li>
+        <li>開源權重讓社群能自建微調版，那 Ideogram 的商業護城河到底是模型本身還是編輯工具的 workflow？如果是後者，Canva 加一個開源模型後端不就夠了？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<!-- VC · 投資動態 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="vc-a16z">
+    <div class="article-meta">
+      <span class="article-source">a16z 電子報 + Axios</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>a16z 把 IR 部門改名「Global Partnerships」，真正的產品是向主權基金賣地緣政治背書</h3>
+    
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z（Andreessen Horowitz）宣布多項全球計畫，核心動作是挖來前美國副國安顧問（網路與新興科技）Anne Neuberger 擔任全職 GP（General Partner，創投決策核心角色），出任公司首位 Head of Global Affairs。Neuberger 近二十年政府資歷橫跨國防、情報、量子，曾主導 70 國反勒索軟體倡議（Counter Ransomware Initiative）。同步宣布的還有：投資人關係（IR）部門改組為「Global Partnerships」，由 Managing Partner Jen Kha 領導，納入傳統 LP（Limited Partner，出資但不主導的有限合夥人）與主權財富基金。a16z 目前已在東京設辦公室，至今逾 100 筆國際投資。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Neuberger 的核心資產是她對 70 國反勒索軟體聯盟成員政府的個人信任網絡。真正的交易結構是：主權基金拿到「讓自家 AI 政策與美國盟友框架對齊」的政治背書，a16z 投組拿到政府採購與監管的快速通道。輸家是沒有同等地緣政治槓桿的同級 VC，包括 Sequoia 和 Lightspeed，它們在爭取中東與亞洲主權資金時，突然少了一張牌。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>a16z 投組裡哪些公司因為 Neuberger 的關係網「已經」拿到具體的政府合約或盟國落地許可，還是這目前只是一張尚未兌現的人脈期票？</li>
+        <li>IR 改名「Global Partnerships」並納入主權基金，這些主權 LP 帶來的地緣政治附帶條件，會不會反過來限制 a16z 投國防和情報相關標的？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<!-- 機器人 · 自駕 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 機器人 & 自駕</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="ai-byd">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Robotics</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>BYD「2 萬台」是對股東說的話，150 台到 2 萬台之間沒有工程路徑</h3>
+    
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">BYD EVP Stella Li（李柯）確認公司正自研人形機器人（humanoid），「堯-舜-禹」計畫已達第 7 代原型，目前約 150 台在自家產線試運行，計畫 2026 年於工廠部署 2 萬台。策略採開放平台，自造同時代工夥伴產品，已策略入股 PaXini、AgiBot，並使用 UBTech 的 Walker 機器人在廠內搬料。Li 表示若機器人未來能進家庭，BYD 將透過旗下汽車 4S 經銷店（銷售、零件、售後、資訊四合一門市）銷售。BYD 未提供商用時間表、技術規格、投資金額或量產目標。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">150 台試運行到 2026 年部署 2 萬台，等於 6 個月內放大 130 倍。量產爬坡史上幾乎沒有先例，Tesla Model 3 首年爬到約 10 萬台整車，而整車比人形機器人的工程複雜度低。這個數字更像是對內部工廠自動化的預算授權上限，不是真實出貨承諾。真正的受益者是能吃下 BYD 代工訂單的 AgiBot 和 PaXini，而非 BYD 自己宣稱的主導地位。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>BYD 說要用 4S 經銷網賣機器人，但經銷商賣車靠的是試駕和金融分期，一台人形機器人的銷售動作完全不同，經銷商有什麼動機幫你推？</li>
+        <li>已入股 PaXini、AgiBot 又用 UBTech 搬料，BYD 到底是要自己做品牌機器人還是當代工平台？如果兩邊都做，被投公司為什麼不怕你抄完就拋？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-waymo">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Robotics / Transport Findings</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Waymo 的空跑問題不是技術缺陷，是商業模式複製了它本來要取代的東西</h3>
+    
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">MIT Transit Lab 研究主任助理 Awad Abdelhalim 主導、發表於 Transport Findings 的研究，分析 2023 年 8 月至 2025 年 12 月加州 Waymo 約 1,400 萬趟、8,600 萬車英里資料。核心發現：僅約 54% 里程載著乘客，約 44% 為空跑（deadheading，計程車無乘客時仍在路上的里程）。起初僅 36% 載客，期末升至約 56% 後趨於持平。空跑里程中約 2/3 是車輛無客時在路上「遊蕩等單」。多數行程是短程單人，常取代大眾運輸、步行、騎車，而非私家車。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">問題不在「有沒有司機」，而在營運模式本身。自駕技術解決不了 deadheading，沒客時車照樣空跑等單，和人類司機做的事一樣。除非監管把空跑率上限綁進牌照條件，否則城市等於用高科技外衣鎖進更依賴汽車的路網。真正的輸家是已核發或計畫核發大量 robotaxi（無人駕駛計程車）牌照的城市交通局，包括舊金山和奧斯汀，它們在核照時的隱性假設已被這份資料否定。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Waymo 營運兩年多載客率卡在 56% 不再提升，這到底是演算法調度的天花板，還是需求密度不夠？哪一個問題砸錢能解？</li>
+        <li>如果城市監管真的對空跑率設上限，Waymo 和 Tesla 誰的車隊調度架構更容易合規，還是兩家都會被迫退出低密度區域？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-tesla">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Robotics</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Tesla Austin「全都會區無監督」是搶 PR 標題，不是規模化宣示</h3>
+    
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Waymo 空跑研究與 Tesla 擴張同週出現，兩件事合在一起才完整：一份數據說自駕商業模式沒有解答，一個擴張動作說「我們不管，繼續走」。</span>
+    </div>
+    
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Tesla 於 2026 年 6 月 3 日在德州 Austin 都會區推出無人監督（unsupervised，車內無安全員）robotaxi，覆蓋整個 metro zone（地理圍欄內的服務範圍）。歷程：2025 年 6 月 22 日以監督式小規模起步，約 2026 年 1 月 22 日轉無監督，此次首度讓無監督營運區與主要服務區完全對齊。目前全市約 50 台，活躍僅 13 至 20 台。Alphabet 旗下 Waymo 同區逾 250 台。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">全市 50 台 vs Waymo 250 台以上，規模差距 5 倍，這個密度下任何單位經濟數據都沒有統計意義。就在 Waymo 空跑研究出爐同週，Tesla 反而選擇擴張，時間點顯示這是監管核准時程決定的 PR 動作，不是技術成熟的主動宣示。Tesla 靠「無監督」標籤搶到敘事，用的是聲量，不是里程數。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Tesla 敢不敢公布每台車每天完成的趟數和乘客等待時間？</li>
+        <li>Tesla 選在 Waymo 空跑研究出爐同週擴張，真正的 GTM（go-to-market，市場進入）節奏是由監管核准時程決定，還是由 PR 日曆決定？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-06-05</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
