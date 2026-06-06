@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日簡報 — 2026-06-06</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 6 月 6 日　星期六</span>
+    <span class="header-count">7 篇</span>
+  </div>
+  <h1>誰在賺瓶頸租金</h1>
+  <p class="header-lede">晶片瓶頸已成過去，電力場址、DNA 監管、記憶護城河，以及年輕人的失業成因——瓶頸在哪裡，獲利就在哪裡。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-pause">Anthropic 用「暫停」宣告暫停不可能</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-dna-regulation">DNA 監管聯名信的真正目的</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-chatgpt-memory">ChatGPT 記憶升級的護城河窗口</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-switch-valuation">Switch 四倍估值的瓶頸租金</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-datacenter-capex">資料中心瓶頸移向電力</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-youth-unemployment">年輕人失業的真正元兇</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="ai-anthropic-pause">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI · Anthropic 官方報告</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 用「我們願意暫停」宣告「暫停不可能發生」</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 於 2026-06-04 發布報告「When AI builds itself」，揭露截至 2026 年 5 月，超過 80% 合併進 Anthropic 自家生產程式庫的程式碼由 Claude 撰寫，而 2025 年 2 月 Claude Code 上線時這個數字僅個位數。工程師每季出貨的程式碼量為 2021-2025 基準的 8 倍。報告同時呼籲建立全球同步暫停機制，條件是需要「多國、多個位於或接近前沿的資源充足實驗室，在相同條件下同意停止，並能互相驗證」。RSI（Recursive Self-Improvement，遞迴自我改進：AI 自主設計並打造比自己更強的下一代，形成自我加速迴圈）「尚未到來、也非必然」，但可能比多數機構準備好的時間更早出現。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Anthropic 開出的暫停條件，需要多國多個前沿實驗室同時停止且可互相驗證，現實上幾乎不可能達成。這份報告的真正受眾是監管者和競爭對手，用安全語言預先完成道德免責，再繼續跑。對 OpenAI 和 Google 的訊號是：「我們在遞迴循環上領先，且我們已建立敘事護城河。」</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>「80% 程式碼由 Claude 撰寫」是合併行數，但合併行數跟實際創造的經濟價值是兩回事。Anthropic 有沒有揭露這 80% 裡多少是 boilerplate、多少是核心模型架構？</li>
+        <li>如果 RSI 真的「比想像中更快」，Dario 下一輪估值的 DCF 裡，研發人力成本線到底是往上還是往下？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-dna-regulation">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI · Fortune</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>AI 巨頭聯名要求 DNA 監管，主要受益者是已有合規設施的既有玩家</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">2026-06-04，OpenAI、Anthropic、Google DeepMind、Microsoft 的 CEO 連同 DNA 合成產業領袖，聯名致信國會，要求強制合成 DNA（人工合成、可郵購的基因序列，是生物安全的關鍵管制節點）供應商審查每一筆買家與訂單。信中指出 AI 系統現在在高度技術性的實驗室流程上已超越 PhD 級病毒學家，並引用 2017 年以約 10 萬美元郵購 DNA 重建馬痘病毒的案例。Twist Bioscience 與 Ansa Biotechnologies 等 DNA 製造商也列名簽署。具體要求包括賣家篩檢訂單、驗證買家身分、登錄銷售紀錄。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Twist Bioscience 和 Ansa 是美國合成 DNA 市場最大的既有玩家，兩者都已有現行的買家審查流程。產業主動要求立法、強制競爭者做同樣的事，直接效果是把中國（金斯瑞、華大基因）和印度低價供應商的美國接單成本拉高，同時讓自己的既有合規投資變成定價優勢。輸家是尚未建立審查基礎設施的小型美國新創和境外低成本供應商。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>四家 AI 巨頭主動要求生物供應鏈監管，卻沒有要求 AI 模型本身的生物知識輸出受限，這個不對稱背後，他們真正害怕的是責任歸屬訴訟還是實際生物安全風險？</li>
+        <li>如果我今天做一家低成本合成 DNA 新創，Twist 和 Ansa 主動簽這封信，是不是正在為自己建一道合規護城河？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-chatgpt-memory">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI · OpenAI 官方</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>ChatGPT 記憶升級是護城河動作，但 OS 層有能力讓它在 18 個月內歸零</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OpenAI 於 2026-06-04 推出 ChatGPT 記憶更新「dreaming」，以背景合成程序取代先前手動維護的已儲存記憶清單。系統跨多年對話自動合成、分類（旅遊、嗜好、工作）並持續更新用戶畫像，用戶可檢視、修正或要求刪除特定主題。OpenAI 自評：事實回憶從 41.5% 升至 82.8%，偏好遵循從 31.4% 升至 71.3%。背景 dreaming 程序運算成本約降低 5 倍。先對美國 Plus/Pro 用戶開放，Free 和 Go 用戶數週內跟進。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">記憶是 AI 產品最強的轉換成本（switching cost，用戶更換產品須付出的代價），Anthropic Claude 和 Perplexity 是當下的明確輸家。但這個護城河有一個結構性漏洞：如果 Apple Intelligence 或 Google OS 層在未來 18 個月開放系統級用戶 context 給第三方 LLM 調用，Dreaming 的差異化瞬間從獨有護城河降為功能追平。OpenAI 押注的是「在 OS 層介入前先建立用戶習慣」的時間窗口，這個窗口比看起來短。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>有沒有任何用戶實際留存或 session 頻率的變化數據，還是這又是一個沒人會關掉、但也沒人因此多付錢的功能？</li>
+        <li>如果 Google、Apple 明天把 OS 層級的用戶畫像開放給任何 LLM 調用，Dreaming 的轉換成本護城河是不是瞬間歸零？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">0 篇</span>
+  </div>
+  <p style="color: var(--ink-muted); font-style: italic; text-align: center; padding: 24px 0;">本日無 Web3/Crypto 電子報送達</p>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="vc-switch-valuation">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech · The Information</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Switch 估值四倍漲的不是營運，是它已排隊五年的電力位置</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Switch 案例是最清晰的訊號，說明 AI 基礎設施的估值重心已從算力移向電力場址，這個邏輯將影響未來 18 個月的資本配置方向。</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">The Information 於 2026-06-04 報導，資料中心開發商 Switch 正洽談募集數十億美元，估值至少 50 億美元，Brookfield Asset Management 和 KKR 傳參與此輪，Goldman Sachs 與 JPMorgan 擔任募資顧問。Switch 於 2022 年以 110 億美元私有化（taken private，上市公司被買下轉為私人持有），現估值較當時成長逾四倍。此輪可能為最快明年的 IPO 鋪路，含債務估值上看約 600 億美元。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">從 110 億到 500 億，四倍增幅不是 Switch 的營運改善，而是「已取得電力與併網位置的場址」這類稀缺資產被整體重新定價。Switch 最難被複製的是「已在隊列中的併網申請位置」，而非資本規模。KKR 和 Brookfield 都有資本，但他們買不到已排隊五年的申請資格。新進者今天申請，三到五年後才能得電。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果我今天拿著已談好的電力購買協議和土地去蓋資料中心，Switch 最難被複製的到底是併網排隊的先發位置，還是根本只是資本規模？</li>
+        <li>Switch 的客戶是被長約鎖定還是隨時能搬去 Equinix 或 QTS，他們的淨留存率和租約加權年限到底是多少？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-datacenter-capex">
+    <div class="article-meta">
+      <span class="article-source">a16z「Charts of the Week」· Bloomberg</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>資料中心瓶頸從晶片移向電，受管制電力公司反而賺不到最肥的那塊</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z 本期數據週報引用美國普查局數據：2026 年 4 月，美國民間資料中心建設年化支出達 507 億美元，首度超越公共交通基建的 493 億美元。自 2022 年前約 100 億美元暴增約五倍。功耗端，Nvidia 最新世代 GPU 機櫃（Rubin）今年約 240kW，2027 年 Rubin Ultra 上看 600kW 以上，下一世代 Feynman 上看 1MW，約為 2018 年前整座中位數資料中心的用電量（當時整座約 1.3MW）。德州和維吉尼亞的商用電力銷售自 2020 年起顯著領先全國，a16z 指出併網時程（grid interconnection，新電力設施排隊接上電網的時間）持續延後為主要硬約束。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">真正能賺到瓶頸租金的不是 Dominion Energy 或 Oncor 這類受管制公用事業，因為它們的費率由公共事業委員會核定，無法自由漲價。Switch 和 Equinix 這類已持有電力容量的資料中心開發商才能把稀缺電力折算進租約定價，向超大規模雲端客戶收溢價。電力公司賺穩定但受管制的 capex 回收，開發商賺稀缺定價。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>瓶頸從晶片轉到電力，如果今天要出貨一個「電力即服務」產品給中型資料中心，真正的客戶獲取路徑是直接找公用事業還是繞道州政府？</li>
+        <li>Nvidia 把機櫃推到 1MW 但併網排隊要三到五年，這中間誰會被迫買單，是雲端巨頭自建發電、還是 Switch 這類開發商吃掉所有中間利潤？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-youth-unemployment">
+    <div class="article-meta">
+      <span class="article-source">a16z「Charts of the Week」· NY Fed</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>年輕人失業的元兇是遠距，AI reskilling 平台的 GTM 建立在錯誤歸因上</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z 本期週報引用多份研究分析美國勞動市場。18-28 歲失業率較 29 歲以上高出近 1 個百分點，且趨勢早於 AI 大規模普及。NY Fed 發現失業缺口集中於「可遠距職業」，即使固定 AI-exposure（職業暴露於 AI 的程度）後，年齡差距在可遠距與不可遠距工作中皆存在。另一份論文顯示，控制 WFH 變數後，AI-exposure 的預測力消失。AI 採用率數據：有雇員小企業約 26%，無雇員行號 14.3%-19%（JPMorgan Chase 支出數據），與「AI 催生單人創業潮」的預期相反。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">主流敘事「AI 搶走年輕人入門職位」在數據上站不住腳。真正機制是：企業能遠距招聘時偏好有經驗者，加上資深員工任期自 2023 年起加速拉長，堵住了出口，入門管道才斷。Coursera 和 Guild 賣的「AI 技能提升讓你不被取代」這個 GTM 故事，針對的是一個被誇大的問題。真正需要解決的是「遠距團隊如何培養入門人才」，不是 AI reskilling。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果年輕人失業的元兇是遠距而非 AI，那所有賣 AI reskilling 的新創，他們的 GTM 故事是不是建立在一個錯誤歸因上？</li>
+        <li>a16z 說「AI 單人公司」敘事出現反轉，但 JPMorgan 的支出數據只抓刷卡消費，那些用免費開源模型或自架推論的 solo founder 根本不在樣本裡，14%-19% 的採用率是不是嚴重低估？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-06-06</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
