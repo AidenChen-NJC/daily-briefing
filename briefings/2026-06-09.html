@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-06-09</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:           #fafaf8;
+  --surface:      #ffffff;
+  --ink:          #111111;
+  --ink-body:     #2a2a2a;
+  --ink-muted:    #6b6b6b;
+  --ink-faint:    #a0a0a0;
+  --rule:         #e0e0e0;
+  --rule-light:   #eeeeee;
+  --accent:       #c4841d;
+  --accent-soft:  #f5ead6;
+  --accent-text:  #8a5c10;
+  --insight-bg:   #f7f5f0;
+  --insight-rule: #c4841d;
+  --thought-bg:   #f0f4f8;
+  --thought-accent: #4a6fa5;
+  --thought-text: #2c3e5a;
+  --tag-ai:       #1a7a4c;
+  --tag-ai-bg:    #e6f4ed;
+  --tag-web3:     #4a5ba8;
+  --tag-web3-bg:  #e8eaf6;
+  --tag-vc:       #a84a4a;
+  --tag-vc-bg:    #f6e8e8;
+  --signal-bg:    #fffbf0;
+  --signal-border:#e8c862;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:           #0e0e0c;
+    --surface:      #1a1a18;
+    --ink:          #ececec;
+    --ink-body:     #c8c8c0;
+    --ink-muted:    #808078;
+    --ink-faint:    #505050;
+    --rule:         #2a2a28;
+    --rule-light:   #1f1f1d;
+    --accent:       #d4a03a;
+    --accent-soft:  #2a2418;
+    --accent-text:  #d4a03a;
+    --insight-bg:   #16150f;
+    --insight-rule: #d4a03a;
+    --thought-bg:   #12161c;
+    --thought-accent: #6a8ec8;
+    --thought-text: #8aaccf;
+    --tag-ai:       #5cb88a;
+    --tag-ai-bg:    #14241c;
+    --tag-web3:     #7a8ad8;
+    --tag-web3-bg:  #181a28;
+    --tag-vc:       #d87a7a;
+    --tag-vc-bg:    #281818;
+    --signal-bg:    #1c1a10;
+    --signal-border:#8a7530;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 32px 120px;
+  font-family: 'Noto Sans TC', -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+#progress-bar {
+  position: fixed; top: 0; left: 0;
+  height: 2px; width: 0%;
+  background: var(--accent);
+  z-index: 100;
+  transition: width .08s linear;
+}
+
+#back-top {
+  position: fixed; bottom: 32px; right: 32px;
+  width: 40px; height: 40px;
+  background: var(--ink);
+  border: none; border-radius: 50%;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s, transform .2s;
+  color: var(--bg);
+  font-size: 16px; font-weight: 500;
+  z-index: 99;
+  box-shadow: 0 2px 12px rgba(0,0,0,.15);
+}
+#back-top.visible { opacity: 1; pointer-events: auto; }
+#back-top:hover { transform: translateY(-2px); }
+
+.header {
+  padding: 72px 0 48px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 48px;
+}
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.header-date {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.header-count {
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--accent-text);
+  background: var(--accent-soft);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+.header h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(28px, 5vw, 38px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+  letter-spacing: -.02em;
+  margin-bottom: 16px;
+}
+.header-lede {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  color: var(--ink-muted);
+  line-height: 1.85;
+  max-width: 600px;
+}
+
+.toc {
+  margin-bottom: 56px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.toc-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 16px;
+}
+.toc-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+}
+.toc-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toc-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+.toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+.toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+.toc-list a {
+  font-size: 13px;
+  color: var(--ink-body);
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color .15s;
+}
+.toc-list a:hover { color: var(--accent); }
+
+.section-block { margin-bottom: 72px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.section-label {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink-faint);
+  letter-spacing: .04em;
+}
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.section-count {
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: .06em;
+}
+
+.article {
+  margin-bottom: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--rule-light);
+  scroll-margin-top: 24px;
+}
+.article:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.article-source {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.article-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+.article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+.article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+.article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+.article h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(20px, 3.5vw, 24px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.4;
+  letter-spacing: -.01em;
+  margin-bottom: 20px;
+}
+
+.key-signal {
+  background: var(--signal-bg);
+  border: 1px solid var(--signal-border);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.key-signal-icon {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  background: var(--signal-border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px;
+  margin-top: 1px;
+}
+.key-signal-text {
+  font-size: 13px;
+  color: var(--accent-text);
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+.context-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+}
+.factual-context {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  color: var(--ink-body);
+  line-height: 1.9;
+  margin-bottom: 28px;
+}
+
+.insight {
+  background: var(--insight-bg);
+  border-left: 3px solid var(--insight-rule);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  border-radius: 0 6px 6px 0;
+}
+.insight-label {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--accent);
+  letter-spacing: .04em;
+  margin-bottom: 12px;
+}
+.insight-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15.5px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.95;
+}
+
+.thought {
+  background: var(--thought-bg);
+  border-radius: 8px;
+  padding: 20px 24px;
+}
+.thought-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--thought-accent);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.thought-label::before {
+  content: '';
+  display: inline-block;
+  width: 14px; height: 14px;
+  border: 2px solid var(--thought-accent);
+  border-radius: 50%;
+  opacity: .5;
+}
+.thought ol {
+  list-style: none;
+  counter-reset: q;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.thought ol li {
+  font-size: 13.5px;
+  color: var(--thought-text);
+  line-height: 1.75;
+  padding-left: 28px;
+  position: relative;
+  counter-increment: q;
+}
+.thought ol li::before {
+  content: counter(q);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px; height: 20px;
+  background: var(--thought-accent);
+  color: var(--thought-bg);
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  opacity: .3;
+  line-height: 1;
+}
+
+.section-divider {
+  padding: 40px 0;
+  text-align: center;
+  border-bottom: 1px solid var(--rule);
+}
+
+.section-divider p {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  color: var(--ink-muted);
+  line-height: 1.8;
+}
+
+.footer {
+  margin-top: 72px;
+  padding-top: 24px;
+  border-top: 2px solid var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-brand {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+.footer-date {
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 600px) {
+  body { padding: 0 20px 80px; }
+  .header { padding: 48px 0 32px; }
+  .toc-list { grid-template-columns: 1fr; }
+  .insight { padding: 20px 20px; }
+  .thought { padding: 16px 18px; }
+  #back-top { bottom: 20px; right: 20px; }
+}
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 6 月 9 日　星期二</span>
+    <span class="header-count">5 篇</span>
+  </div>
+  <h1>今天的 AI 比你想的更政治</h1>
+  <p class="header-lede">政府入股改變了競爭格局，企業採購和融資定價都不一樣了。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-government">政府持股 OpenAI，輸家是 Anthropic 和 xAI</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-enterprise">超級應用轉型，其實在幫 Anthropic 築牆</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-amazon-jobs">Amazon 淨增就業算術：$2.9B 的人力套利</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-bezos-generalist">Bezos 投 Generalist AI 的真實邏輯</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-uber-robotaxi">Uber 才是歐洲 robotaxi 元年的贏家</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="ai-openai-government">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI · Axios · CNBC · Fortune · TechCrunch</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>政府持股 OpenAI，真正的輸家是 Anthropic 和 xAI</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OpenAI 是目前估值約 $3,000 億的非營利轉型 AI 公司，Sam Altman 早在 2025 年即向川普政府提議讓政府取得股權。白宮正與 OpenAI 商議將 1–5% 股份注入一檔「公共財富基金（Public Wealth Fund）」，讓美國人分享 AI 收益。參議員 Bernie Sanders 提出的版本更激進，主張對最大型 AI 公司課徵一次性 50% 股票稅，以股份（非現金）支付並存入公共基金，賦予一般美國人投票權與董事會席次。川普上週五公開稱此構想「幾乎是與美國公眾的合夥關係」。前美國 AI 沙皇 David Sacks 反對，稱此舉會加速政企融合。談判實際上已進行逾一年。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">政府一旦持有 OpenAI 股份，任何對 OpenAI 不利的反壟斷裁決都會直接損害政府資產淨值，聯邦採購競標對 Anthropic 和 xAI 的隱性傾斜幾乎無法被審計到。這才是真正的問題所在，不是「分紅數學夠不夠漂亮」。1–5% 股權按 $3,000 億估值約值 $30 億至 $150 億，分給三億美國人每人一次性 $10–$50，在 OpenAI 轉虧為盈前川普「讓他們變有錢」的說法是純政治修辭。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果政府同時是股東與監管者，Anthropic 和 xAI 在聯邦採購競標中會被結構性排擠，它們現在能做什麼防禦動作，還是已經來不及了？</li>
+        <li>美國政府同時成為 OpenAI、Anthropic、xAI 的股東與監管者，未來任何反壟斷裁決都直接影響自己的資產淨值，哪個 LP 敢在這種結構下繼續對這三家做 late-stage 定價？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-openai-enterprise">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI · Financial Times · Bloomberg · TechCrunch</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 的超級應用轉型，正在幫 Anthropic 在企業端築牆</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OpenAI 計劃在「未來數週」推出迄今最大規模的 ChatGPT 改版，將其重建為整合 ChatGPT、瀏覽器與 Codex（代理式編程平台，AI 自主執行多步驟開發任務）的超級應用（superapp，單一介面整合多功能）。Codex 自 2 月推出以來週活躍用戶成長 6 倍，達 500 萬以上。ChatGPT 用戶數接近十億。一名資深 OpenAI 員工告訴 Financial Times「Chat is dead」。策略是將免費用戶導向 Codex 等付費產品，在 IPO 前衝刺獲利。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Claude Code 靠終端原生整合嵌入企業 CI/CD 工作流（持續整合與部署流程），切換成本是整個工程流程重組，不是換一個 app。OpenAI 把 Codex 包進 web 容器的超級應用反而在個人用戶端有導流效果，但在企業側等於主動強化了 Anthropic 的留存護城河。研究指向一個結論：這次改版的輸家是 OpenAI 企業端，短期贏家是 Anthropic 的企業黏性。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Codex 週活 500 萬裡多少是把它當免費 debug 工具用完就走的？相比 Claude Code 已經嵌進企業 CI/CD 工作流，Codex 的 7 日留存和付費轉換率到底是多少？</li>
+        <li>Anthropic 的 Claude Code 靠終端原生整合拿下開發者工作流，OpenAI 把 Codex 塞進超級應用的 web 容器反而多了一層抽象，這是結構性劣勢還是他們有繞過的方案？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-amazon-jobs">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Robotics · CNBC</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Amazon 的「淨增就業」算術，是每年 $2.9B 的成本套利包裝</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Amazon「淨增就業」的數字掩蓋了一個每年 $2.9B 的人力套利，這才是 €100 億投資的真實 IRR 來源。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Amazon 在倫敦「Delivering the Future」活動發表新一代 Proteus 自主移動機器人（AMR，autonomous mobile robot），工人可用純口語指令直接下令，無需技術培訓或編程介面，機器人即能在倉庫導航、搬運重型推車並排定任務優先序。同步宣布投入 €100 億（約 $116 億）現代化歐洲履約（出貨倉儲作業）設施，新版 Proteus 預計 2027 年上半年起在歐洲部署。此次發表正撞上 Amazon 白領裁員，10 月一輪裁 1.4 萬人、累計約 3 萬人。Amazon 承諾此筆支出將新增 2.5 萬個歐洲物流職缺，並擴大一項 $10 億的勞工培訓計畫。Amazon 現有超過 100 萬台機器人，逼近其 156 萬名員工，機器人支撐 75% 的配送。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">3 萬白領年薪保守估 $120K，年省人力成本約 $36 億。新增 2.5 萬歐洲倉儲崗均薪約 €25K，年新增成本約 €6.25 億（約 $7.25 億）。淨年化節省約 $29 億，€100 億投資的 IRR 在 4–5 年回收期內可能超過 25%。「淨增就業」的說法是包裝，這才是 Proteus 發布會背後的真實財務邏輯。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Amazon 承諾的 2.5 萬個歐洲物流職缺，有多少是 Proteus 部署完成後就會被自動化掉的過渡期崗位？</li>
+        <li>口語指令介面的真正 GTM 目的是降低培訓成本、讓現場工人更快被替換成更便宜的工人，那 Agility 或 Figure 的通用人形機器人什麼時候會讓 Proteus 這種專用 AMR 變成過渡方案？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-divider">
+    <p>本日 crypto 電子報無新刊，Tier-1 補搜僅得價位類低信號素材，無具名公司加具體數字的單一事件，依品質篩選原則略過。</p>
+  </div>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="vc-bezos-generalist">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Robotics · Bloomberg</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Bezos 投 Generalist AI 不是對沖 Amazon，是幫 Amazon 提前卡位供應商</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">機器人新創 Generalist AI 完成 $4 億募資，投後估值（含本輪資金）達 $20 億，由 Radical Ventures（專注 AI 的創投）領投，8VC、Union Square Ventures、Norwest、Hanabi Capital 參與，既有投資人 Nvidia 與 Bezos Expeditions（Jeff Bezos 個人投資基金）跟投。公司主打 GEN-1 具身機器人基礎模型（embodied robotics foundation model，把大模型接上實體機器人軀體以學習空間與動作），用以讓機器人處理日益複雜的任務。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">這不是 Bezos 在對沖 Amazon 的內部機器人路線。Amazon 自建 Proteus 控制倉儲應用層，Bezos 個人押注通用具身基礎模型層，這是「平台層對應用層」的雙押，目的是讓 Amazon 成為 GEN-1 最大客戶而非競爭者，同時讓 Bezos 個人享有財務上漲空間。真正的風險承擔者是 Generalist AI 其他股東，因為若 Amazon 採購談判時利用股東身份壓價，他們沒有任何制衡手段。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Bezos Expeditions 投了你、Amazon 自己有百萬台機器人和內部 AI 團隊，如果 Amazon 不是付費客戶而只是股東，這個背書除了 PR 之外對客戶獲取通路到底有什麼實質幫助？</li>
+        <li>GEN-1 如果明天被拿去跑 Amazon 以外的工業場景，最難被複製的到底是模型本身還是訓練數據的獨佔來源？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-uber-robotaxi">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Robotics · TechCrunch · Bloomberg · CNBC</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>歐洲 robotaxi 元年，Uber 是唯一不用燒錢的贏家</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">全球私人 robotaxi（無人駕駛計程車）車隊去年翻倍至約 8,000 台，橫跨 20 個以上主要城市。2035 年全球 robotaxi 數量預測落在 70 萬至 600 萬台之間，差距近 10 倍。歐盟推出新的跨境「test bed」框架（允許企業在受控條件下跨境試營運）以加速審批。歐洲首個商業化形式試運營於 4 月在 Zagreb 啟動，Pony.ai 運營約 10 台 robotaxi。2026 年進駐計畫：Waymo 在倫敦部署約 100 台全電動 Jaguar I-Pace，配人類安全員（safety operator）；Uber 同時接入 Waymo、Wayve、Baidu Apollo Go（倫敦）、WeRide（馬德里）、Momenta（慕尼黑）。倫敦、馬德里付費服務最快 2027 年到位。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Uber 同時接入 Waymo、Baidu、Momenta、Wayve，這是平台策略而非技術押注。每台車含安全員的當前運營成本大概率高於 Uber 司機，等於由三家車隊補貼歐洲市場教育，Uber 坐收平台佣金、零成本等待每英里成本燒到低於有人駕駛再獨家談判。至於 Zagreb 的 Pony.ai 10 台車，10 台根本達不到任何 robotaxi 調度密度模型的盈虧平衡門檻，「歐洲首個商業化試運營」的標籤目的是卡位監管敘事、支撐下一輪融資，不是真的在驗證商業模式。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Pony.ai 在 Zagreb 放 10 台車就叫「歐洲首個商業化試運營」，這是真的有付費乘客和正單位經濟，還是純粹搶一個監管先行者的敘事位置來拿下一輪融資？</li>
+        <li>Wayve 夾在 Waymo 的規模和中國車隊的成本優勢之間，它唯一的防禦是「歐洲本土牌」，但歐盟 test bed 框架明確允許跨境，這張牌還剩多少價值？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-06-09</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
