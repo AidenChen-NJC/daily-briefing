@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日簡報 — 2026-06-12</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+      color: var(--signal-bg);
+      font-weight: 700;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 6 月 12 日　星期五</span>
+    <span class="header-count">9 篇</span>
+  </div>
+  <h1>今天的問題：誰在替未來的規則寫劇本？</h1>
+  <p class="header-lede">OpenAI 在補執行層缺口、Prometheus 在複製 Bezos 的供應鏈；日本把加密升格為金融商品、矽谷在用超級政治委員會寫監管劇本。權力正在重塑。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-ona">OpenAI 買 Ona，買到的是執行層</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-prometheus">Prometheus 的 410 億估值</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-spacex-ipo">SpaceX IPO 鏈上定價的 64%</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-bitcoin">比特幣的底部估值已到</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-japan">日本監管升格</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-a16z">a16z 的政治打法</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="ai-openai-ona">
+    <div class="article-meta">
+      <span class="article-source">CNBC</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 買 Ona，買到的是執行層，但記憶層的缺口還在</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OpenAI 於 6 月 11 日宣布收購雲端執行新創 Ona，後者提供安全、客戶自控的雲端執行環境（讓 AI agent 不依賴本機、可長時間在背景運行的沙箱）。整合後，Codex（OpenAI 的 AI 寫程式 agent，每週使用者超過 500 萬）可在使用者離線或跨裝置的情況下，於組織自有雲端內持續執行長時間任務。Ona 過去已支援約 200 萬名開發者，員工將在成交後併入 Codex 團隊，交易金額未揭露。OpenAI 同步宣布將 Codex 擴張至開發者以外，新增業務、投資銀行、股票投資等角色的 plugin。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Ona 的沙箱解決了「背景持久化」問題，但長任務真正的瓶頸是 context window，目前頂級模型在複雜代碼庫任務下有效可用深度約 2 到 10 萬 token，超過後 agent 需要外部記憶與 checkpoint 機制。OpenAI 拿到了執行層，記憶層仍是缺口。Codex 切入投行和股票的 GTM 更像是搶佔敘事、防止 Anthropic 獨占金融機構預算，而非已有清晰落地路徑，因為 Anthropic 已先與 Morgan Stanley 等大型金融機構簽署企業協議。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Codex agent 在客戶自有雲端跑數小時的長任務，state checkpoint、故障恢復和跨區一致性具體怎麼做，這在哪個執行時長閾值會撞上 token context 極限而斷掉？</li>
+        <li>投行和股票投資這些新 plugin 的 GTM 到底是走企業銷售還是自助開通，OpenAI 是在怕 Anthropic 先拿下金融機構的 agent 預算才急著擴品類？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-prometheus">
+    <div class="article-meta">
+      <span class="article-source">Axios</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Prometheus 的 410 億估值，靠的是 Bezos 的供應鏈而不是模型</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">工業 AI 新創 Prometheus 由 Jeff Bezos 與前 Google 高管 Vik Bajaj 共同領導，於 2024 年底成立，初始資金 62 億美元。公司於近日完成 120 億美元 Series B（新創第二輪機構募資），估值達 410 億美元，投資人包含 Bezos 本人、JPMorgan Chase、Goldman Sachs 與 BlackRock。目前約 150 名員工分布舊金山、倫敦、蘇黎世，並已從 OpenAI、Google DeepMind、Nvidia 挖角研究員。核心目標是打造「artificial general engineer」，一套能把噴射引擎、醫療器材等複雜實體產品從設計決策、效能建模一路帶到量產的系統，Bezos 稱要讓設計到製造的週期快 10 倍以上。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Prometheus 最難被複製的不是模型技術，而是 Bezos 透過 Amazon 與 Blue Origin 掌握的實體製造場域，這讓它能取得競爭對手無法合法取得的生產資料，這才是真正的護城河。150 人團隊在沒有量產產線合作夥伴的情況下，多物理場耦合模擬（熱、力、流體同步）的訓練資料上限被 Siemens Simcenter 和 ANSYS 的模擬品質卡死，「端到端」的說法仍停在數位模擬閉環，沒有實測回饋接回來之前是假設而非事實。Siemens 的反應最可能是防禦性收購，而非坐視，歷史類比是它收購 Altair 的邏輯。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>150 人團隊號稱要把設計到量產壓縮 10 倍，目前有任何一條產品線真正跑完從模擬到實體出貨的閉環，還是牽引力全停在數位模擬階段？</li>
+        <li>如果我今天帶一支懂 CAE 和製造的團隊進同一個賽道，Prometheus 最難被複製的到底是 Bezos 的供應鏈關係、還是某個專有資料集，Siemens 和 Dassault 會坐著被顛覆嗎？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="web3-spacex-ipo">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>SpaceX IPO 鏈上定價的 64%，是情緒錨點不是價格發現</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">SpaceX 於 6 月 11 日為週五（6 月 13 日）Nasdaq 掛牌 IPO 定價，估值約 1.77 兆美元、每股 135 美元。Hyperliquid（高效能鏈上衍生品交易所）上由 Ventuals 與 trade.xyz 提供的鏈上永續合約（在區塊鏈上交易、無到期日的衍生品，可對未上市標的下注），以及 Polymarket（去中心化預測市場）的首日收盤隱含估值，皆收斂在 1.8 到 2.1 兆美元區間。Polymarket 給出首日收盤估值突破 2 兆 64% 機率、突破 3 兆 5% 機率。背景上，Google 同意自 2026 年 10 月起每月付 SpaceX 9.2 億美元、Anthropic 每月付 12.5 億美元租用其運算。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Polymarket 的 SpaceX 相關市場總流動性估計在千萬美元級，對比 1.77 兆市值是 0.001% 量級，在這個深度下少數大戶的倉位調整就能移動賠率，64% 的機率更像是鏈上投機者的情緒錨點而非有效價格信號。真正的價格發現在機構分配訂單裡，不在 Polymarket。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Polymarket 給首日破 2 兆 64% 機率，但這個市場的總下注量如果只有幾千萬美元，憑什麼把它當 1.77 兆級 IPO 的價格發現工具而非噪音？</li>
+        <li>Google 每月付 SpaceX 9.2 億、Anthropic 付 12.5 億租運算，這些合約的年限和終止條款是什麼，如果只是一兩年短約，1.77 兆估值裡的運算營收假設就是空中樓閣？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-bitcoin">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>比特幣的底部估值已到，但底部時間還沒到，均線信號已失效</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">比特幣週四約 62,623 美元，盤中一度跌破 60,000，貼近 200 週移動均線（長期趨勢線，常被視為牛熊分界），估值落在歷史底部 10%。加密恐懼與貪婪指數（0 到 100 衡量市場情緒，低於 10 為極度恐懼）降至 9，上週 11、一個月前 48。ETH 週內跌 6.5% 至 1,651 美元，XRP 跌 7.5% 至 1.12 美元，SOL 65 美元，DOGE 0.085 美元。週四出現小幅反彈（BTC +1.9%、ETH +1.4%、SOL +0.9%），但未抹平週線跌幅，ETF 持續淨流出。美國通膨月增 0.5%、年增 4.2%，為三年最熱；Polymarket 上 Clarity Act（美國加密市場結構法案）通過機率自 62% 降至 48%。Checkonchain 分析師與 Wirex 交易主管 Yves Renno 均指出，可持續復甦不太可能，接下來是數月橫盤磨掉持有者信念。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">BlackRock IBIT、Fidelity FBTC 等機構 ETF 持有者的贖回邏輯與 2018 年散戶礦工出貨完全不同，機構 LP 有季度再平衡壓力，加上 SpaceX IPO 認購吸走風險資本是具體觸發因素，200 週均線作為底部信號的統計意義已被結構性改變，靠它抄底的勝率低於歷史基準。區分磨底結束與死貓反彈的關鍵是長期持有者（LTH，持幣超過 155 天）的 UTXO 移動比例，若 LTH 在價格橫盤期仍持續將幣轉移至交易所，代表信念崩潰仍在進行，目前 ETF 持續淨流出且情緒指數在 9，LTH 是否開始動搖才是這週最關鍵的未知數。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>200 週均線作為「熊市底部」指標的歷史樣本只有三次完整週期，在 ETF 結構性改變了持有者組成之後，這條均線的統計意義是否已經被機構資金流的新動態徹底破壞？</li>
+        <li>恐懼貪婪指數 9 加上 ETF 持續流出，但鏈上長期持有者的實際減倉比例是多少，這個「極度恐懼」有沒有可能只是散戶情緒而大戶根本沒動？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-japan">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>日本監管升格，bitFlyer 和 SBI 是贏家，Coincheck 和 DEX 是輸家</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">日本率先把加密從支付工具升格為金融商品，這是 2027 年後全球機構資金入場亞洲加密市場的最重要制度性前提。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">日本眾議院通過法案，把加密監管的法源從《支付服務法》移轉至《金融商品交易法》(FIEA，Financial Instruments and Exchange Act，日本規管證券等金融商品的核心法)，將加密資產重新分類為金融商品。具體變化包括：導入與股市完全相同的內線交易禁令（知悉未公開重大訊息者禁止買賣相關代幣）、更嚴的揭露要求、未審計代幣發行的投資上限，以及未登記經營最高可處 10 年徒刑與 1,000 萬日圓（約 62,800 美元）罰金。資本利得稅擬降至 20%，並為加密 ETF（讓投資人不持幣即可投資加密的交易所掛牌基金）上市鋪路。新規預計 2027 年生效。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">內線交易禁令與嚴格揭露要求對 bitFlyer 和 SBI VC Trade 是淨正，因為它們已有證券合規基礎設施可以複用，邊際合規成本低。Coincheck 和中小型交易所面臨從零建立監察系統的固定成本，2027 年生效前的 18 個月視同一次強制整合，日本交易所市場份額將進一步向前三大集中，這是研究對市場結構的高信心結論。DEX 的處境更糟，對 LayerZero 和 1inch 這類未在日本登記的境外服務商而言，若不下架日本前端將面臨 10 年徒刑風險，實際效果是把 DeFi 用戶推向境外 VPN 或灰色管道，監管目標與執行現實存在根本落差。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>資本利得稅砍到 20% 聽起來很甜，但內線交易禁令加嚴格揭露要求的合規成本，對 bitFlyer 和 Coincheck 這種日本交易所來說到底是淨正還是淨負？</li>
+        <li>2027 年才生效，這 18 個月的窗口期裡，真正想搶日本市場的海外交易所現在應該做什麼 GTM 動作，Binance Japan 和 Coinbase Japan 有誰已經在提前佈局合規了嗎？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="vc-a16z">
+    <div class="article-meta">
+      <span class="article-source">CNBC</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>a16z 的政治打法複製加密劇本，中型 AI 新創才是真正的輸家</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">John O'Farrell，在 Andreessen Horowitz（a16z，矽谷頂級創投）任職近 15 年、於 2025 年離開，週四在 NYT 投書批評前東家阻撓 AI 監管是「巨大錯誤」。他指出，Leading the Future PAC（super PAC，可無上限募款、獨立支持或反對候選人的政治行動委員會）已募超過 1.25 億美元，金主包含 a16z、OpenAI 共同創辦人 Greg Brockman、Palantir 共同創辦人 Joe Lonsdale、SV Angel 創辦人 Ron Conway 以及 AI 公司 Perplexity。O'Farrell 直指這筆錢的目的是「恐嚇那些認真思考如何治理 AI 的政客」，並點名這套打法直接複製加密貨幣產業靠選出友善政治人物來壓制監管的劇本。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向一個具體且有高信心的結論：若嚴監管落地，合規成本的衝擊高度不對稱，OpenAI 有微軟法務資源與企業合規基礎設施，Anthropic 有 Constitutional AI 的監管敘事優勢，兩者的護城河反而會因合規門檻而加深。直接受害的是年營收 500 萬至 5,000 萬美元的中型 AI SaaS 新創，合規固定成本佔比會高到扼殺 GTM 速度，a16z 投資組合裡的這個中間層才是真正的輸家，而不是 a16z 公開說的「整個產業」。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>a16z 投資組合裡的 AI 公司如果真迎來嚴監管，誰的護城河其實會變更深、誰會直接死掉，OpenAI 和 Perplexity 在合規成本上的承受力是同一個量級嗎？</li>
+        <li>O'Farrell 在 a16z 待了 15 年、離開才一年就公開倒戈，他手上還持有多少 a16z 基金的 carry 和 LP 份額，這篇投書到底是良心告白還是在替自己的下一個募資建立品牌？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-06-12</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
