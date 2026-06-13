@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-06-13</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 6 月 13 日　星期六</span>
+    <span class="header-count">6 篇</span>
+  </div>
+  <h1>錢在燒，敘事在飛</h1>
+  <p class="header-lede">今晚 SpaceX 上市讓馬斯克成為史上首位兆萬富翁，但 80% 的估值都來自尚未存在的業務。與此同時，Anthropic 的信任危機、Google 的搜尋零點擊率，以及資安股的「恐懼即估值」現象，都指向同一個問題：我們在給什麼故事估值？</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-fable5">Anthropic 的隱形降級踩到一條線</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-worldcup">Gemini 贊助阿根廷不會出現在廣告支出</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-spacex">SpaceX 的 $1.77T 裡，$1.4T 是尚未存在的業務</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-prometheus">貝佐斯用「我認識誰」換來 $41B</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-zeroclik">零點擊 68%：輸家是出版商，贏家是 Google</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-saas">資安股沒有護城河，只有恐懼</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="ai-fable5">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 的隱形降級踩到一條線：信任，而且是付費用戶的信任</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 於週二發布旗艦新模型 Claude Fable 5，定位為首個公開的 Mythos-class 模型，安全過濾覆蓋化學、生物、網路安全、AI 開發四個領域。問題在於：對疑似模型蒸餾（model distillation，用大模型輸出來訓練小模型）用途的查詢，Fable 5 會無聲地把回答降級，同時不通知使用者。不到兩天，Anthropic 在研究社群強烈反彈後公開道歉，改為在觸發過濾時顯示提示，並將受影響查詢回退到 Claude Opus 4.8，但底層限制仍在。曾為白宮提供 AI 建議的 Dean Ball 批評此舉「極度敵意」。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">觸發 distillation 過濾的，恰好是重度 API 用戶，也就是研究者和 AI 開發者。這群人在 Anthropic 企業合約裡貢獻的 API 用量最高，人數少但 ARR 影響不成比例。更大的問題是：AI API 的切換成本遠低於傳統 SaaS，工程團隊遷移到競爭者的週期約 4 到 8 週，不是數月。Anthropic 真正的防線比看起來薄。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>研究者反彈的真實規模是什麼？是 API 呼叫量下滑、企業合約取消，還是只是 Twitter 噪音？Anthropic 的企業客戶 pipeline 在 OpenAI 5.6 發布前的這個窗口裡，實際流失了多少？</li>
+        <li>OpenAI 如果明天用「我們不隱形降級」當 GTM 訊息直接搶 Anthropic 的研究者客群，Anthropic 除了品牌信任之外真正能防守的護城河是什麼？是資料飛輪、是合約鎖定、還是根本沒有？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-worldcup">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Gemini 贊助阿根廷不會出現在廣告支出那一行</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">2026 FIFA 世界盃於墨西哥城開幕，AI 被導入賽事幾乎每一層。光學追蹤系統（optical tracking，用多攝影機重建球員骨架位置）每場捕捉逾 1.5 億個資料點，Adidas「Trionda」官方用球內感測器每秒回報 500 次，每名球員接受 1 秒 3D 全身掃描。半自動越位（semi-automated offside，AI 加感測器測量位置與觸球瞬間，最終由裁判定奪）系統透過每座球場約 12 台高速攝影機追蹤每名球員 29 個身體點，每秒 50 次。全部 48 隊共用同一套 Football AI Pro 分析平台。Google 讓 Gemini 成為衛冕隊阿根廷的全球贊助商，男、女、青年隊訓練服均掛 Gemini，技術團隊用於傷病預防與戰術分析。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">阿根廷隊的實際使用情境，傷病預防與戰術分析，是 Vertex AI 的企業案例，不是 Gemini App 的消費者功能。這筆支出最可能歸入 Google Cloud 的行銷成本，在 Alphabet 財報上幾乎不可見，正好規避「AI 行銷費用過高」的分析師質疑。換句話說，這是 Google 用體育贊助的外殼做企業銷售。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Google 把 Gemini logo 掛上阿根廷訓練服，這筆贊助的真正 GTM 目標是什麼？是要拉消費端 Gemini App 下載，還是要用國家隊當案例賣 Vertex AI 給體育產業？轉換漏斗長什麼樣？</li>
+        <li>Football AI Pro 讓 48 隊用同一套分析工具，等於對任何單一球隊都沒有差異化價值。世界盃結束後各隊還會續用，還是回頭用 StatsBomb 和 Catapult 各自為政？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">0 篇</span>
+  </div>
+  <p style="color: var(--ink-muted); font-style: italic; text-align: center; padding: 40px 0;">本期無相關報導</p>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <article class="article" id="vc-spacex">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>SpaceX 的 $1.77T 裡，$1.4T 是尚未存在的業務</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">史上最大 IPO 的估值，有 80% 靠的是火星故事而非現有現金流。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">SpaceX 於週四晚間完成史上最大 IPO，以每股 $135 定價，發行 5.556 億股，單夜募資 $75B，估值 $1.77T，超越 Saudi Aramco 2019 年 $29.4B 紀錄逾兩倍，並超過 2026 年其餘 71 件 IPO 募資總和 $36B。週五開盤跳漲至 $150（+11%），盤中逾 $160，市值一度突破 $2T。公司 2025 年營收 $18.7B，淨虧損 $4.9B，招股書宣稱潛在市場逾 $28.5T。馬斯克持股在 IPO 定價時約值 $866.5B，加上 Tesla 約 $320B，淨值越過兆元門檻，成為紙面上首位兆萬富翁（trillionaire）。馬斯克掌握 85% 投票權（dual-class/super-voting，創辦人以少數經濟持股掌握多數控制權），散戶獲約 30% 分配，是一般 IPO 的三倍以上。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Starlink 是 SpaceX 唯一接近真實現金流的引擎，截至 2025 年底約 700 萬付費用戶，年化收入估計約 $10B，且主要依賴美軍與烏克蘭 USAID 等政府合約支撐。扣掉這些鎖定收入，可驗證自由現金流支撐的估值上限約 $300B，其餘 $1.4T 全靠軌道資料中心與火星城市這兩個在招股書裡沒有收入時間表的業務填充。85% 投票權加 30% 散戶分配的結構邏輯很明確：散戶提供流動性與 FOMO（恐懼錯過）需求，讓早期 VC 與員工持股有出場窗口，但永遠無法形成治理壓力。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>馬斯克握 85% 投票權，等於 SpaceX 永遠不會被迫換策略。如果今天做衛星通訊或發射服務，SpaceX 真正不可複製的是垂直整合的發射成本，還是靠政治關係綁定的頻譜與發射許可？</li>
+        <li>SpaceX 的 $18.7B 營收裡，有多少比例靠的是政府合約鎖定而非市場拉力？Starlink 的企業客戶續約率和 ARPU 趨勢，到底指向什麼？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-prometheus">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>貝佐斯用「我認識誰」換來 $41B，150 人零營收不是問題</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">亞馬遜創辦人 Jeff Bezos 宣布其 AI 新創 Prometheus 完成 $12B 募資，估值 $41B，從 2025 年 11 月 $6.2B 種子輪起步不到一年。公司由 Bezos 與 Vik Bajaj（協助創建 Alphabet 生命科學部門 Verily 的物理化學家）於 2024 年底共同創辦，現有約 150 名員工，分布舊金山、倫敦、蘇黎世，從 OpenAI、Google DeepMind、Nvidia 挖角。目標是打造「通用工程師 AI」（artificial general engineer），把從構想到實體產品的 dream-build loop（設計到成品的迭代循環）加速 10 倍。投資人含 JPMorgan、BlackRock、Goldman Sachs、DST Global、Arch Venture。Bezos 稱公司與 Amazon、Blue Origin 無公司層級關聯。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">150 人零營收對應 $41B 估值，隱含人均估值約 $2.73 億，超過 OpenAI 種子期人均值的五倍。JPMorgan 和 BlackRock 定價的不是現有產品，而是 Bezos 強迫 Blue Origin 與 Amazon 成為早期客戶的隱性能力。但這個邏輯本身就是問題所在：如果最大客戶最終是 Blue Origin 的引擎設計團隊，這筆 $12B 的利益迴路沒有任何外部審計機制。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>150 人團隊說要把 dream-build loop 加速 10 倍，但現在有任何一家製造商或航太客戶真的在用他們的工具跑設計迭代嗎？還是這整輪 $12B 募的是一張沒有付費用戶的期票？</li>
+        <li>Ansys、Siemens NX、達梭 CATIA 綁住的是幾十年的認證流程和工程師肌肉記憶，Prometheus 要客戶換工具鏈的真正獲客路徑是什麼？從哪個楔子切進去，才能讓人願意冒認證風險？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-zeroclik">
+    <div class="article-meta">
+      <span class="article-source">a16z Charts of the Week</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>零點擊 68%：Google 廣告沒垮，因為贏家把輸家的損失吃掉了</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z 引用 SparkToro（結合 Similarweb clickstream 數據）指出，2026 年前四個月美國 Google 搜尋約 68% 以零點擊搜尋（zero-click search，使用者看完結果頁就離開，不點任何連結）結束，高於 2024 年的 60.45%，十年前約 45%。AI Overviews（AIO，Google 在搜尋結果頂端的 AI 生成摘要）出現在逾 20% 的搜尋；出現時 CTR（click-through rate，點擊率）下降近 60%，觸發 AIO 的查詢零點擊率達 83%，未觸發者約 60%。新聞類零點擊率在美國 AIO 上線後 12 個月內由 56% 升至 69%，出版商全球每月損失逾 6 億次造訪。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Google 的搜尋廣告收入未同步崩跌，因為剩餘 32% 的點擊集中在高商業意圖查詢（購買、比較、本地服務），這類查詢的 CPC（每次點擊成本）因競爭激烈而上漲，廣告主用更高的 CPC 買更少但更精準的流量。輸家是 BuzzFeed、Dotdash Meredith 這類靠內容頁面廣告變現的出版商，高流量但低 CPC。贏家是 Google 本身，以及付得起更高 CPC 的電商廣告主。靠流量量撐廣告收入的商業模式已死，靠流量質撐付費轉換的模式仍活。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果我今天是靠 SEO 獲客的 SaaS 創辦人，那剩下 32% 還會點擊的搜尋，其轉換品質是變好了還是也在劣化？因為高意圖查詢也開始被 AIO 吃掉。</li>
+        <li>出版商每月損失 6 億次造訪，有誰成功把流量來源從 Google 搬到自有通路（電子報、社群、App）並維持 NRR 的？還是整個產業根本沒有可行的替代獲客路徑？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-saas">
+    <div class="article-meta">
+      <span class="article-source">a16z Charts of the Week</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>資安股沒有護城河，只有一個市場認定「AI 取代不了」的信念</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z 指出公開軟體股自去年 10 月以來波動放大逾一倍（以軟體 ETF IGV 衡量）。以「先跌 5% 以上、再從高點回撤反彈 25%」定義 V 型復甦來看，板塊分裂明顯：資安與可觀測性（observability，監控系統運行狀態的軟體類別）如 Zscaler，V 型淺、反彈強；非資安 SaaS 的 V 型深得多，除 Snowflake 完全收復外多被重懲，Atlassian、AppLovin、GitLab、Zeta 部分回血，其餘仍被折價。市場判斷邏輯：AI 是真實威脅，但不對所有人一視同仁，且若基本面有「AI 正向推力」實證，仍能獲謹慎樂觀；否則「SaaS 末日」假設持續壓制 terminal value（終值，估值模型中對企業長期價值的折現假設）。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">CrowdStrike ARR 增速從 35% 滑到 25%，說明市場給資安的溢價主要是「避風港」，不是「AI 不可替代」的護城河信仰。這兩個假設崩塌的後果不對稱：若市場整體重新風險偏好，CrowdStrike 只回到 SaaS 均值；若 AI-native 資安新創拿下可驗證的端點市占，整個估值體系的 terminal value 假設都要重算，跌幅更深。後者目前概率低，但尾部風險大。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>a16z 說資安免疫是因為「vibecoding 一個 CrowdStrike 不會發生」，但 CrowdStrike 和 Zscaler 的 NRR 這兩季到底是持平還是在漲？如果只是恐懼驅動的合約鎖定而非擴展，這個「免疫」撐不過明年。</li>
+        <li>Snowflake 被歸為「AI 正向推力」的代表，但它的消費制營收裡有多少是客戶跑 AI workload 的真實增量，又有多少只是資料搬遷的一次性峰值？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-06-13</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
