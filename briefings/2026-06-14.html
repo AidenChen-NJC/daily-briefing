@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-06-14</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+    
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+      color: var(--signal-bg);
+      font-weight: 700;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 6 月 14 日　星期日</span>
+    <span class="header-count">13 篇</span>
+  </div>
+  <h1>散裝知識有毒。今天一起看清楚。</h1>
+  <p class="header-lede">SpaceX 破 2 兆背後沒有客戶合約、Amazon 揭露的數字在說謊、SaaS 復甦只是紙上談兵——今天的大新聞都在測試你會不會被帳面數字騙。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-spacex-ipo">SpaceX 首日破 2 兆，但軌道資料中心沒客戶</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-prometheus">貝佐斯 Prometheus 的真正護城河是關係</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-price">OpenAI 降價打不到護城河，打到自己估值</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-fable">Anthropic Fable 的安全過濾是隱形炸彈</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-amazon-water">Amazon 揭露的水耗量在說謊</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-zero-click">零點擊 70% 對 Google 是好事，對你是壞事</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-saas-recovery">SaaS 復甦只對資安股成立</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-capex">製造業設備投資成長 9%，扣掉 AI 可能是零</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">5 篇</span>
+  </div>
+
+  <article class="article" id="ai-spacex-ipo">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>SpaceX 首日破 2 兆，但支撐估值的「軌道資料中心」目前沒有任何一張十億美元合約</h3>
+    
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">1.77 兆估值、95 倍市銷率、年虧 49 億，這個數學在 IPO 檔案裡很難自圓其說。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">SpaceX 於 6 月 12 日在 Nasdaq 掛牌（代碼 SPCX），以 5.556 億股乘以每股 135 美元募得 750 億美元，打破沙烏地阿美 2019 年 256 億美元的 IPO 紀錄。定價估值 1.77 兆美元，首日收盤 161.11 美元、市值突破 2 兆。馬斯克掌握約 82 至 85% 的投票權，其帳面身價因此首次突破 1 兆美元。公司 2025 年營收 187 億美元，淨虧 49 億美元，官方文件稱潛在市場逾 28.5 兆。散戶獲配約 30% 股份，為常態的三倍以上。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究顯示，目前沒有任何已公開的超十億美元雲端承購合約支撐「軌道資料中心」敘事。整個 AI 基建定位靠的是 Starlink 存量收入，不是新業務。1.77 兆估值對應 2025 年 187 億營收約 95 倍市銷率，若要讓折現現金流模型不是笑話，SpaceX 在 2030 年代中需要產生相當於今天 AWS 規模的自由現金流，但目前仍年虧 49 億。散戶拿走 30% 配額，機構壓低配額是最直接的解釋，不是民主化，是風險轉嫁。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>散戶獲配 30% 而非常態的不到 10%，這到底是「民主化」還是 Goldman 和 Morgan Stanley 把機構不願在這個價位接的風險轉嫁給散戶？</li>
+        <li>「軌道資料中心」這個定位讓 SpaceX 從太空股變 AI 基礎設施股，但實際簽約的雲端客戶是誰、有沒有任何一張超過十億的承購合約，還是整個敘事目前只靠 Starlink 的存量收入在撐？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-prometheus">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>貝佐斯 Prometheus 的真正護城河不是模型，是他能打電話給波音 CEO</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">貝佐斯旗下 AI 新創 Prometheus 宣布完成 120 億美元新一輪融資，估值 410 億美元，投資人包含 JPMorgan、Goldman Sachs、BlackRock。Prometheus 於 2024 年底由貝佐斯與共同 CEO Vik Bajaj（前 Verily 共同創辦人、物理化學家）創立，定位為「artificial general engineer」（通用工程師 AI），目標是自動化設計噴射引擎、藥物分子等複雜實體系統，並強調與機器人無關。Bajaj 指出設計最複雜機器的工程師仍在使用幾十年沒變的工具。公司從 2025 年 11 月首輪 62 億美元估值，到今年 4 月 380 億，再到本輪 410 億。目前無任何公開的工業客戶資訊。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Prometheus 最難被複製的不是模型，是貝佐斯能打通波音、GE、Roche 決策層的關係通路。這些企業的高保真工程資料（渦輪葉片失效模式、臨床前毒性數據）從未公開授權，合成資料在多物理場耦合場景的保真度目前仍不足以替代。Ansys、Siemens EDA 可以疊 AI，但它們是工具商心態，缺乏貝佐斯願意把軟體授權費談成「設計結果分潤」的議價姿態。輸家是沒有這條關係通路的垂直工程 AI 新創，贏家是 Prometheus 自己的 fundraising story，但目前尚無產品驗證支撐。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果「通用工程師 AI」真能把噴射引擎設計週期從十年壓到一年，價值捕獲會留在 Prometheus 的軟體授權費裡，還是全部流向波音、GE 這些擁有製造資產和認證壁壘的終端客戶？</li>
+        <li>Prometheus 目前有沒有任何一家工業客戶真的用它的輸出進到生產驗證階段，還是所有案例都還停在 demo？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-openai-price">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 降 token 打不到 Anthropic 的護城河，但打到自己 IPO 估值的時機非常差</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">據 WSJ 和 Bloomberg，OpenAI 正權衡大幅調降 token（LLM 計費單位，按輸入輸出文字量收費）價格，以對抗 Anthropic 在企業市場的領先。OpenAI CEO Sam Altman 坦承成本已成客戶的「huge issue」，考慮「drastically」降價，但內部仍在評估、尚未拍板。背景是兩家近乎同步排隊上市：OpenAI 本週秘密向 SEC 遞交 IPO（confidential filing，非公開申報），緊跟在 Anthropic 之後。Anthropic 於 5 月 28 日完成 Series H（第八輪私募）、估值 9,650 億美元，略勝 OpenAI 3 月的 8,520 億。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Anthropic 企業端的護城河更可能是合規架構與 AWS Bedrock（亞馬遜雲端 AI 服務平台）的通路預設地位，不是 token 單價。對大型企業而言，prompt 重寫工程、資料駐留合規和現有 pipeline 整合的遷移成本遠高於 token 差價，OpenAI 降價是打折促銷，不是攻破護城河。更重要的是，兩家都在排隊上市卻同時打價格戰，token 降價直接壓縮毛利率，S-1（IPO 申報文件）裡必須揭露單位經濟，公開市場投資人不像私募輪可以用成長故事定價。真正拿走這場戰爭價值的是 NVIDIA 和 Azure、GCP（算力需求不降，平台費不跟著打折）。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Anthropic 估值 9,650 億、OpenAI 8,520 億加起來 1.8 兆，但如果 token 價格被砍到接近推論成本，兩家的毛利率要壓到什麼水位，S-1 裡的單位經濟還能不能撐住這些數字？</li>
+        <li>降價搶客的真正 GTM 恐懼是什麼——是 Anthropic 在 AWS Bedrock 通路上已經變成預設選項，還是 OpenAI 發現自己的 API 客戶月活在掉？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-anthropic-fable">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic Fable 的問題不是「有安全過濾」，是「隱形」，兩者完全不同</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 就旗下 Fable 5 模型（首個公開的 Mythos-class 新一代模型家族）的安全功能道歉。該功能會在懷疑用於 AI 開發時，在使用者不知情下悄悄弱化回答（模型改道，re-routing，依風險把查詢轉給較弱模型路徑），現改為在螢幕上明確提示改道或標記。過濾範圍涵蓋化學、生物、網安、AI 開發四大領域。前白宮 AI 顧問 Dean Ball 批評此做法「shockingly hostile and a terrible look」，另有科學家反映連對模型說 hello 都被旗標。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">「螢幕標記改道」對企業 API 自動化 pipeline 的破壞是結構性的，企業客戶若在 pipeline 中途收到模型降級通知，等同 SLA（服務等級協議）違約，必須重寫 error handling 邏輯。這份傷害主要落在「正在評估是否從 OpenAI 切過來的邊緣決策者」，而非已深度整合 Claude 的企業，所以真正流失的是新客戶取得，不是存量合約。OpenAI 若能在 5.6 版上線同期明確承諾「企業研究工作流不受限」，才能把這個窗口變成真正的客戶轉換，否則開發者選模型看 benchmark 和延遲，公關印象頂多維持四到八週。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Anthropic 把 Fable 的安全過濾範圍擴到 AI 開發本身，等於逼企業客戶在研究工作流上繞過去用 OpenAI 或開源模型，這對 Anthropic 剛拿到的 9,650 億估值裡的企業 API 營收假設造成多大的下修壓力？</li>
+        <li>OpenAI 5.6 版打「使用者優先」牌的窗口是真的還是幻覺，開發者選模型看的是 benchmark 和延遲，Fable 這次公關災難到底會不會真的改變任何一張採購單？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-amazon-water">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Amazon 揭露 25 億加侖是公關錨點，排除的數字比揭露的更關鍵</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Amazon 首度公布全球資料中心 2024 年耗水量為 25 億加侖（約西雅圖都會區年用水的 5%），並宣稱冷卻效率達 0.12 公升每千瓦時（WUE，每千瓦時用水量），聲稱優於業界平均七倍，且在資料中心規模擴大的前提下年減 2%。Amazon 同時承諾 2030 年達成「water positive」（補水量大於耗水量），稱已達成 75%。但此揭露排除了 colocation（租用第三方機房，佔其 2024 年算力約 1/5）與發電用水。Amazon 是 Google、Meta、Microsoft 之後最後一個揭露用水量的主要雲端業者（其他三家自 2020 年起即公布）。西雅圖目前正評估對新建資料中心下禁建令。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Amazon 刻意排除 colocation 與發電用水，使 25 億加侖嚴重低估真實耗水，補回後真實數字可能落在 40 至 60 億加侖區間，「優於業界七倍」的 WUE 說法在這個前提下幾乎不具可比性。Amazon 是四大雲端最晚揭露的一家，這份數據是防禦性公關，不是透明度勝利，真正的目的是搶在西雅圖禁建令表決前先設定輿論錨點。輸家是相信這個數字的政策制定者；贏家是 Amazon，靠不完整的數字把自己定位成資源效率的領先者。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>排除了佔算力五分之一的 colocation 站點和全部發電用水後，Amazon 這個 25 億加侖到底低估真實耗水多少，如果補回去，「優於業界平均 7 倍」的說法還成立嗎？</li>
+        <li>Amazon 內部真正怕的是什麼，是西雅圖禁建令會擴散到維吉尼亞等核心區域，還是大型企業客戶開始把水足跡寫進雲端採購的 ESG 條款？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">0 篇</span>
+  </div>
+
+  <article class="article">
+    <p class="factual-context" style="margin-bottom: 0; font-style: italic; color: var(--ink-muted);">本日 Gmail 來源窗口（過去約 48 小時）無 Messari、Multicoin、Pantera、Decentralised 等 Web3 電子報到件。如實略過，不補抓內容。</p>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="vc-zero-click">
+    <div class="article-meta">
+      <span class="article-source">a16z Charts of the Week</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>零點擊 70% 對 Google 是好事，對你靠 SEO 養大的 SaaS 獲客預算是壞事</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">據 SparkToro 和 Similarweb 研究，零點擊搜尋（搜尋後不點任何連結即離開）已從十年前約 45% 升到現在約 70%，且近期加速，近兩年移動了 10 個百分點，而先前同幅移動需要五年。Ahrefs 數據顯示搜尋作為流量來源今年明顯下滑，直接流量也降，付費流量小升。有證據顯示 AI Overviews（AI 摘要，搜尋結果頁直接生成答案）使點閱率 CTR 降低近 60%。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">CTR 降 60% 對靠 Google 自然流量獲客的 SaaS 創辦人，現在最重要的指標只有一個：過去十二個月 organic MQL（自然搜尋引入的行銷合格潛在客戶）佔比的絕對值變化。若佔比從 40% 降到 25% 且 pipeline 金額沒有被其他渠道補回，現在就該把 SEO 預算往 Reddit、社群、直接付費轉移，等 CTR 繼續砍才反應已太晚。真正被結構性損害的是靠 Google 自然搜尋流量支撐的內容發行商估值，贏家是 Google 本身（使用者留在其宇宙內），但 Google 廣告以 CPC（按點擊計費）為主要模式，點擊稀缺化的過渡期內也有摩擦。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果我是一個靠 SEO 自然流量做客戶獲取的 SaaS 創辦人，現在真正該問的是：我的 pipeline 裡有多少百分比的 MQL 來自 Google 自然搜尋，這個數字過去十二個月掉了多少？</li>
+        <li>如果零點擊從 70% 繼續往 85% 走，靠 Google 自然流量變現的整條 adtech 中間鏈，從 Taboola 到 Raptive，的終端價值假設是不是該直接歸零？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-saas-recovery">
+    <div class="article-meta">
+      <span class="article-source">a16z Charts of the Week</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>SaaS 的「V 型復甦」只對資安股成立，Snowflake 的反彈是敘事交易，不是業績逆轉</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z 拆解 IGV（iShares 擴展科技軟體 ETF，軟體股大盤指標）成分股復甦狀況，發現市場在今年 1 月一度判定「AI 終結軟體」後，做出了明確區分。資安與可觀測性（監控系統運行狀態的軟體類別）股票如 CrowdStrike、Zscaler 幾乎未受衝擊或已完全收復。Snowflake 收復並超越前高，Atlassian、AppLovin、GitLab、Zeta 部分收復。另有一批 SaaS 跌下去後趴著沒動。IGV 的單一標準差波動自去年 10 月以來擴大逾一倍。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">資安享有估值溢價有兩個同時成立的原因：買方風險趨避加上多年綁約自動續約的採購流程壁壘，後者比前者更難打破。AI-native 資安新創需要 18 至 24 個月才能拿到真正可對比的企業合約，因為 SOC2、FedRAMP 等合規認證和 CISO 層的關係是結構性護城河，不是技術護城河。Snowflake 方面，其 NRR（客戶留存率含擴充消費）從 2022 年的 178% 一路下滑到 2025 年約 127% 區間，AI workload 帶來的需求增量尚未被財報驗證，若下季 NRR 無法回到 135% 以上，它將被打回「跌下去就趴著」的那一群。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>CrowdStrike 和 Zscaler 的護城河真的是「vibecoding 不出來」的風險趨避，還是純粹因為它們的合約結構是多年綁約加自動續約、客戶想走也走不了？如果我今天做一個 AI-native 的資安產品，最難打進去的是技術壁壘還是採購流程壁壘？</li>
+        <li>Snowflake 被歸類為「秀出 AI 需求就被歡迎回來」，但它的 NRR 從高點一路下滑的趨勢真的被 AI 工作負載逆轉了嗎，還是市場只是在交易敘事而實際用量成長還沒回來？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-capex">
+    <div class="article-meta">
+      <span class="article-source">a16z Charts of the Week</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>美國製造業設備投資成長 9%，扣掉 AI 之後真正投向「造東西的東西」的可能是零甚至負</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z 指出美國製造業出現「迷你榮景」跡象，新訂單、生產、招聘意願上升。設備投資成長近 9%，但高度集中於 AI 相關（GPU 伺服器、冷卻設備等）。核心工業設備中，約 50% 是渦輪與 HVAC（暖通空調），另半為特殊工業機械（含半導體設備等）。製造機械的營建支出自 2022 年翻倍多，從 15 億升到 39 億美元，但去半導體後，2025 年製造業營建成長僅約 3%，且多為化工（長期趨勢而非新動能）。資本支出（capex，建廠與設備的長期投資）佔 GDP 比重自 1980 年代初長期下滑，美國自約 2013 年起從機械淨出口國轉為淨進口國。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">a16z 自己的數據直接指出這個結論：去半導體後 2025 年製造業營建成長僅 3%，扣掉 AI 相關的 GPU 伺服器和冷卻設備後，真正投向「造東西的東西」的核心工業設備資本支出成長率很可能接近零甚至為負。買 GPU 和蓋 AI 資料中心的錢完全不進入傳統製造母機（machine-making machines，製造其他機器的機器）的資本存量。押注「廣義再工業化」的 American Dynamism LP 若 portfolio 集中在建設期受益的承包商，而非長期製程技術，2026 至 2027 年 CHIPS Act 脈衝退潮後將面臨真實風險。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>設備投資成長 9% 聽起來漂亮，但扣掉 AI 相關的 GPU 伺服器和冷卻設備後，真正投向「造東西的東西」的資本支出成長率是正的還是負的？</li>
+        <li>CHIPS Act 補貼催出的半導體廠房營建一旦完工，2026 至 2027 年的製造業營建支出會不會斷崖式下跌，讓押注 American Dynamism 主題的 LP 發現自己投的其實只是一次性的政策脈衝？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-06-14</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
