@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-06-15</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 6 月 15 日　星期一</span>
+    <span class="header-count">4 篇</span>
+  </div>
+  <h1>六月的戰線，比表面複雜</h1>
+  <p class="header-lede">預測市場的聯邦大戰、天王級人物的終審判決、企業配置 BTC 的天花板敲定、CEX 搶進股票市場的真實代價。今天的四張卡片，每一張都在悄悄調整市場的預期邊界。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-gensler">CFTC 想獨佔預測市場，卻連 Gensler 都站到對面</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-sbf">SBF 終審定讞：「事後沒人虧錢」這條路死了</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-spacex">SpaceX 把 BTC 當零頭放進 S-1</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-cex">加密交易所搶進股票市場，對手是盈透</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <article class="article" id="web3-gensler">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / The Block / The Defiant</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>CFTC 想獨佔預測市場，卻連 Gensler 都站到對面去了</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">CFTC（美國商品期貨交易委員會）於 2026-06-10 發布規則提案，擬將運動等「事件合約（event contract，即預測市場合約）」納入聯邦排他管轄，同時在聯邦法院起訴 New Mexico 州長 Michelle Lujan Grisham，要求永久禁止該州以州博弈法對付受 CFTC 註冊的預測市場交易所 Kalshi。關鍵反轉是前 SEC 與 CFTC 主席 Gary Gensler 向第六巡迴上訴法院提交 amicus brief（法庭之友意見書，非當事人向法院陳述立場），主張運動類預測市場不屬於 Dodd-Frank 定義的 swap（互換合約，受 CFTC 監管的衍生品類別），CFTC 無管轄權。反對陣營還包括 Indian Gaming Association、American Gaming Association 與市場改革組織 Better Markets。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Kalshi 的 Series B 融資整個命題是「一張 CFTC 牌照等於全美合法運營」。一旦第六巡迴維持州博弈法的適用性，Kalshi 面對的不是估值打折，而是商業模式整個要重寫，因為它要在 50 個州分別和 DraftKings、FanDuel 已建立的分銷護城河正面競爭。Kalshi 唯一剩餘的差異化反而是非運動類事件合約（政治、經濟指標等），而 Polymarket 的離岸鏈上架構因為從未持有 CFTC 牌照，這張票反而是它包袱最少的結構性優勢。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 CFTC 敗訴、州博弈法適用，Kalshi 的投資人對「聯邦單一牌照覆蓋全美」這個估值假設是即刻歸零，還是有辦法轉型成另一個商業模式？</li>
+        <li>Kalshi 花了這麼多力氣打聯邦管轄權的仗，但 Polymarket 靠離岸和鏈上流動性吃掉大部分真實交易量，Kalshi 的日活和留存跟 Polymarket 比，到底是在成長還是在失血？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-sbf">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / The Block</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>SBF 終審定讞：「事後沒人虧錢」這條路死了</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">2026-06-12，美國第二巡迴上訴法院三位法官組成的合議庭駁回 Sam Bankman-Fried（SBF）推翻定罪與重審的上訴，維持其因 FTX 詐欺與共謀案所判的 25 年刑期。FTX 詐欺規模約 80 億美元（$8B），SBF 於 2023 年定罪。法院明確否決其「客戶投資本屬健全，當時流動性足以讓客戶全額回本」的辯護論點。SBF 剩餘選項僅剩聲請全院庭審（en banc，由上訴法院全體法官重審）或向最高法院遞交調卷令聲請。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">這份判決對 Do Kwon 的衝擊大於 Justin Sun：Do Kwon 的核心辯護敘事是「LUNA 崩潰前系統在技術上仍在運作」，這條「事後有償付能力不等於無罪」的邏輯直接打掉他的論點空間。至於 CEX 用戶行為，這個判決幾乎不會改變散戶的選擇，FTX 崩潰後數據一致顯示用戶轉向同類 CEX 而非自託管，收益率永遠排在平台安全性前面。真正被改變的是機構合規部門的盡職調查清單，不是散戶選擇。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>對現在還在做離岸交易所生意的 Bybit、OKX 來說，這個判決到底改變了它們的客戶獲取話術，還是根本沒人在乎，因為用戶留存靠的從來不是信任？</li>
+        <li>目前多數 CEX 的儲備證明（PoR）只做 Merkle 樹資產快照而不含負債端即時驗證，這個判例之後哪家交易所的 PoR 架構真正能在鏈上證明「非挪用」？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-spacex">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / Crypto Briefing</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>SpaceX 把 BTC 當零頭放進 S-1，反而替企業配置設了天花板</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">SpaceX 於 2026-06-11 以每股 135 美元定價，隔日以代號 SPCX 在 Nasdaq 掛牌，募資約 750 億美元（$75B），估值近 1.75 兆美元（$1.75T），為史上規模最大的 IPO。S-1 招股書揭露公司截至 2026-03-31 持有 18,712 枚比特幣，價值約 12.9 億美元（$1.29B），列為「策略性儲備（strategic reserve）」，約佔總資產 1.8%。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">「連 Musk 都只放 1.8%」這句話今天就會成為企業 CFO 拒絕超配的現成理由，把 BTC 企業配置的心理上限錨定在個位數百分比。對 BlackRock 和 Bitwise 的企業 BD 而言，這個故事既開門又關門：更多公司會進場配置 BTC，但每家都會把比例控制在「安全」的低個位數。MicroStrategy 的全力押注敘事（重倉 BTC 作為核心策略）在這個框架下是負面的，Coinbase Prime 與 Fidelity Digital Assets 的企業託管業務則是短期贏家。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果我是 Bitwise 或 BlackRock 的 ETF 發行團隊，CFO 會用「連 Musk 都只放 1.8%」來壓低配置比例，這個「常態化」敘事會不會反而封死了企業配置 BTC 的上限？</li>
+        <li>有哪個機構 LP 會因為 S-1 裡這行字調整對 BTC 的配置權重，還是這純粹是 Elon 個人偏好被包裝成「企業採用」的敘事？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-cex">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / The Block / Cointelegraph</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>加密交易所搶進股票市場，真正的對手變成盈透而不是幣安</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OKX、Kraken、Hyperliquid 等主要中心化交易所（CEX）正快速為股票、商品與指數加上永續合約（perpetual futures，無到期日的槓桿衍生品）與代幣化市場。其中 Kraken 推出以 xStocks 框架（把上市股票以鏈上代幣 1:1 表示）為標的的合成美股永續合約，覆蓋 110 個以上國家，最高提供 20 倍槓桿，支援 24 小時交易。背景數據：代幣化美國國債（tokenized treasury）市場規模已達 146 億美元（$14.6B）；同期中心化交易所成交量單期下跌逾 11% 至 4.61 兆美元（$4.61T），創 2024 年底以來最低。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Kraken 合成美股永續的真實持有成本遠高於盈透（Interactive Brokers）：資金費率加買賣價差加高槓桿清算罰金疊加後，對隔夜持倉的零售用戶而言年化摩擦成本估計在 15-40% 之間，而盈透同等倉位接近 5-8%。這不是「券商化」，更接近「收一筆監管套利的隱性稅」，輸家是把這當成便宜股票曝險的非美散戶，贏家是 Kraken 的清算引擎，在高波動時段系統性收割被強平用戶。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Kraken 這個產品的真實留存和月活是多少，還是只用槓桿倍數當噱頭吸來一批高頻賭徒，三個月後就流失？</li>
+        <li>如果要做代幣化美債的競品，最難複製的到底是鏈上合約，還是 BlackRock 那張基金管理人執照和後面連到美聯儲隔夜逆回購窗口的贖回通道？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-06-15</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+</body>
+</html>
