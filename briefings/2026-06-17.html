@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-06-17</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+      color: var(--signal-bg);
+      font-weight: 700;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 6 月 17 日　星期三</span>
+    <span class="header-count">9 篇</span>
+  </div>
+  <h1>今天有什麼在改變世界的遊戲規則？</h1>
+  <p class="header-lede">禁令、政治與電網如何成為科技公司真正的護城河。一個 Fable 5 的故事，足以看清 AI 監管在實施前就已確立；另一個澳洲青少年禁令的失敗，提前驗證了英國政策的注定結局。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-fable-5">Fable 5 禁令的真實輸家</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-uk-youth">英國青少年禁令的執法缺口</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-nadella">Nadella 的 learning loop 護城河論</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-datacenter">資料中心反對潮的真實瓶頸</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-doj">DOJ 商品詐欺起訴的法律紅線</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-mistral">Mistral €20B 估值的 GDPR 溢價</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-fox">Fox $22B 買 Roku 的廣告鎖定戰</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-salesforce">Salesforce $3.6B 買 Fin 的市場補位</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <article class="article" id="ai-fable-5">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI · CyberScoop · Fortune</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Fable 5 解禁後，Anthropic 真正怕的不是禁令本身</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">一張禁令，四天內把 Anthropic 最有潛力的新產品化為內部工具，市場卻在禁令期間習慣了替代方案，真正的輸家是 GTM（市場進入策略）的可行性。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 於 6/9 上線 Fable 5 與 Mythos 5，6/13 因美國商務部出口管制指令即遭全球停用，包括非美籍員工在內一律切斷存取。觸發點據報是 Amazon 研究員繞過 Fable 5 部分防護後，商務部指定其構成國安威脅。由前 Facebook 資安長 Alex Stamos 發起的公開連署，簽署者超過 100 人（部分媒體報導逾 150），橫跨 Nvidia、Google、Adobe、Zoom、Stanford HAI 等機構。審閱過禁令機密報告的研究者 Katie Moussouris 揭露，所謂「越獄」（指繞過模型安全限制）的觸發提示詞只是「fix this code」，是資安防禦工作的日常操作。連署者主張 GPT-5.5、Claude Opus 4.8、Kimi 2.7 具備同等能力，禁令只拿走防守方工具。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Fable 5 從上線到被禁僅四天，不可能建立任何可量化的付費客戶基礎或 ARR（年度經常性收入）。這 100 多位連署的資安領袖本質上是潛在買家，在替一個 GTM（市場進入策略）尚未驗證的產品喊冤。Anthropic 最大的損失不是現有收入，而是禁令期間讓市場習慣了 Claude Opus 4.8 和 GPT-5.5 的替代路徑，真正的受益者是 OpenAI。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 Claude Opus 4.8 或 GPT-5.5 做紅隊測試（模擬攻擊找漏洞）已經夠用，Fable 5 解禁後靠什麼讓資安團隊非遷移不可？Anthropic 真正怕的是禁令本身，還是怕市場在禁令期間發現根本不需要它？</li>
+        <li>如果「fix this code」等防禦性提示詞就能觸發出口管制，所有具備程式碼修補能力的模型（包括開源 Llama 4）在技術上都符合同一禁令條件，商務部的執行機制要怎麼區分模型能力等級？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-uk-youth">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>英國的青少年禁令是空頭支票，澳洲 70% 穿透率已是實證</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">英國首相 Keir Starmer 宣布禁止未滿 16 歲使用社群媒體，號稱「比世界任何國家都走得更遠」。禁令涵蓋 Snapchat、TikTok、YouTube、Instagram、Facebook、X，WhatsApp 與 Signal 等通訊 App 豁免。執法責任與高額罰款落在科技公司身上，目標 2027 年春季上路。澳洲是 2025 年 12 月全球首個實施類似禁令的國家，但其 3 月民調顯示約 70% 受訪家長表示孩子仍在被禁平台上。英國此舉跟進西班牙、法國、丹麥、挪威、馬來西亞的行列。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">不靠政府級數位身份 API，平台端的年齡驗證在工程上無法抵抗 VPN 加假生日的組合攻擊。澳洲 70% 穿透率已是實證，英國若不建立類似愛沙尼亞的聯邦級數位身份核實基礎設施，科技公司承擔的「高額罰款」就是一個沒有執行機制的空頭支票。真正的受益者是 Discord 和 Telegram，青少年將流向這些監管灰色地帶。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>澳洲七成孩子繞過禁令還在線上，Snap 和 Meta 被罰的實際金額是零，Starmer 憑什麼假設英國的執行結果會不同？</li>
+        <li>如果青少年被大平台擋住，反而被推向不受監管的小平台，真正被顛覆的是大平台的廣告庫存，還是反而幫 Discord、Telegram 這類灰色地帶通路免費獲客？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-nadella">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI · Yahoo Finance</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Nadella 的「learning loop」論，是在 OpenAI 籌碼上漲時的防禦性公關</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">微軟 CEO Satya Nadella 發布新備忘錄，主張企業真正的 AI 護城河來自「learning loop」（學習迴路，每次使用後系統自我改善），而非挑當下最強的前沿模型（frontier model，如 OpenAI、Anthropic 的旗艦產品）。他把企業價值拆成「human capital（員工能力）」與「token capital（公司自有的 AI 專有權重與脈絡）」，強調抽換模型、公司的領域知識仍留在系統裡。備忘錄警告避免「少數幾個模型吞噬所有產業價值」的情境。Yahoo Finance 同時指出，微軟股價仍落後 Mag7（科技七巨頭）同儕。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Copilot 的續約率與 NRR（淨留存率）從未單獨揭露，所有「企業 AI 採用」數字都混在 Microsoft 365 套餐報告裡。備忘錄的發布時機恰在股價表現疲軟之後，更像是對沖 OpenAI 議價能力上升與 Copilot 留存疑慮的公關動作。最諷刺的是：Nadella 每次強調「我們不依賴模型」，OpenAI 的談判籌碼反而更值錢。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Nadella 說抽掉模型系統照跑，但如果 OpenAI 明天斷供 Azure 上的 GPT 系列，微軟自研模型能無縫接住多少企業 workload？這個「模型無關」的護城河故事，是真能出貨的架構還是對沖 OpenAI 分手風險的公關話術？</li>
+        <li>「Learning loop」講了一年，有哪家企業客戶的 Copilot 用量真的產生了可量化的複利留存提升，還是大部分 NRR 其實靠的是綁 Office 365 套餐？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-datacenter">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech · NBC News · The Next Web</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>$130B 被擋，但電網佇列才是比地方政治更難繞的牆</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">AI 情報公司 10a Labs 旗下的 Data Center Watch 報告顯示，2026 年 Q1 全美至少 75 個資料中心專案、合計約 $130B，遭擋下或延宕，是 2023 年開始追蹤以來單季最高，且已等於 2025 全年總和。反對團體數量翻倍，增至 49 州的 833 個。Q1 另有 14 項全州級措施、開年六週內即有 300 多件相關法案進入各州議會。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">電網互聯佇列（interconnection queue，即新電廠或大用電戶排隊接入電網的等待程序）排隊時間在多數案例中已長達 3 至 5 年，技術上比地方政治反對更難繞過。部分「被政治擋住」的專案，本身就已在電網佇列尾端，兩個瓶頸是疊加而非競爭關係。受衝擊最小的是 AWS，因其地理分布最廣、選址漏斗最成熟；最脆弱的是仍在集中建大型 campus 而非分散多點的二線超大規模資料中心業者（hyperscaler）。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>$130B 是「被擋下或延宕」，其中多少只是延宕六個月換個地點重新申請？這個數字把暫時卡關灌成永久損失了嗎？</li>
+        <li>75 個被擋專案裡，真正因為電網容量不足而在技術層面無法供電的比例是多少？是地方政治先於工程現實，還是電網佇列的排隊時間本身就已讓這些專案不可行？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="web3-doj">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk · The Block</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>DOJ 選擇「商品詐欺」起訴，等於在修法前就為預測市場劃好了法律紅線</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">美國司法部（DOJ）對一名前 Google 工程師提出刑事指控，指控其利用內部企業資料，在預測市場（prediction market，對事件結果下注的交易平台）牟利 $1.2M，罪名為電信詐欺與商品詐欺。同日，CFTC（美國商品期貨交易委員會）提出監管提案，擬修訂 Regulation 40.11，收緊「博弈合約」定義以限制預測市場產品範圍。當日 BTC 開盤 $66,287、ETH 開盤 $1,794，為兩週來最強開盤。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">DOJ 選擇以「商品詐欺」而非「內線交易」起訴，這個罪名選擇本身就是訊號：聯邦檢察官已確立預測市場合約屬於 CFTC 管轄的商品，而非 SEC 管的證券。這意味著任何掌握非公開企業資訊後在 Kalshi 或 Polymarket 下注的人，現在就已面臨刑事風險，無需等 CFTC 完成 Reg 40.11 修訂。受監管平台 Kalshi 反而是贏家，因為監管明確化對它比對無牌平台更友善。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>DOJ 把預測市場內線當商品詐欺起訴，這等於承認這些合約是商品而非賭博。Kalshi 應該偷笑還是害怕，因為 CFTC 收緊定義可能同時封殺它最賺錢的事件合約類別？</li>
+        <li>一個前 Google 工程師用內部資料只賺了 $1.2M，這代表預測市場的流動性薄到連內線都只能撈這點錢。Polymarket 們的真實交易量撐得起現在的估值嗎？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="vc-mistral">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech · TechCrunch · Bloomberg</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Mistral €20B 估值靠的是 GDPR 合規護城河，不是模型打贏 Llama 4</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">歐洲 AI 競賽的真實護城河，是法規架構而非技術能力，這個邏輯正在重新定義歐洲 AI 新創的估值基礎。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">法國 Mistral AI 已展開早期談判，擬以 €20B（約 $23.2B）估值募資 €3B。此估值較 2025 年 9 月 Series C 的 €11.7B 幾近翻倍，對比 2024 年 6 月 Series B 的 €5.8B，不到 12 個月漲逾三倍。資金用於自建運算基建，目標 2030 年達 1GW（十億瓦，衡量資料中心電力規模）算力。公司 3 月已取得 $830M 債務融資，股權加債務合計約 €6.5B。最大股東是荷蘭晶片設備商 ASML，曾以 €1.3B 取得 11% 股權領投 Series C。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Mistral 對歐洲企業的核心護城河不是模型能力，而是 GDPR（歐盟個人資料保護法規）合規的資料落地保證。模型在歐盟境內伺服器推論、資料不出境，這一點 Llama 4 開源生態做不到，OpenAI 和 Anthropic 的合規承諾仍仰賴條款而非架構。贏家是已簽約的歐洲金融與醫療客戶，輸家是假設「開源等於自建主權」的 IT 團隊，他們低估了合規維運成本。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果我是一家歐洲企業今天要部署 LLM（大型語言模型），Mistral 相對 Llama 4 開源生態的真正不可替代性在哪？是模型本身，還是歐盟資料合規的 GTM 捷徑？</li>
+        <li>Mistral 目標 2030 年 1GW 算力，但今天的營收是多少？€20B 估值隱含的營收倍數在哪個 ARR 門檻下才不是純粹的主權溢價？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-fox">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech · CNBC · Variety</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Fox 花 $22B 把廣告鎖定貨幣從科技平台手裡搶回來，股東用暴跌表達意見</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Fox Corporation 與 Roku 簽訂確定協議，以每股 $160（$96 現金加 0.9693 股 Fox A 類股）、企業價值約 $22B 收購 Roku，現金部分約 $14.2B，並安排 $12B 貸款支應。Roku 觸及全球 1 億串流家戶，擁有連網電視（CTV）作業系統與 The Roku Channel，以及大量第一方數據（first-party data，平台自有的用戶收視資料）。交易完成後原 Fox 股東約持 73%，Roku 創辦人 Anthony Wood 將加入 Fox 董事會，預計 2027 上半年完成。公告後 Fox 股價大跌。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">多年來從傳統電視外流到科技平台的廣告鎖定貨幣（即精準觸及特定受眾的能力），Fox 透過這筆交易試圖收回主導權。但公告後 Fox 股價大跌，市場對稀釋與整合成本並不買單。Netflix、Disney+ 等競爭對手一旦把 Roku 視為敵對通路，降低合作優先級，第一方數據的商業價值就會因平台空心化而打折。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Roku 的 ACR（自動內容辨識，追蹤用戶收視行為的技術）第一方數據價值建立在它作為「中立平台」讓所有串流 App 上架的前提上。一旦歸入 Fox，Netflix、Disney+ 等競爭對手有什麼機制能阻止資料被用於 Fox 的廣告定向，還是它們只能選擇離開？</li>
+        <li>Fox 公告後股價暴跌、還要借 $12B，原 Fox 股東被稀釋到 73%。誰是這筆交易真正的賣方受益者，Anthony Wood 個人套現多少？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-salesforce">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI · TechCrunch · CNBC</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Salesforce 用 $3.6B 買的不是 AI 技術，是 Agentforce 自己長不進去的市場</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Salesforce 簽署確定協議，以約 $3.6B 收購 AI 客服公司 Fin（前身為 Intercom，改名僅一個月）。Fin 的 AI Agent（能端到端自主完成任務的系統）可跨 live chat、email、WhatsApp、SMS、電話、Slack 等多管道運作，平均端到端解決 76% 客服量，帶來 3 萬客戶。Salesforce 的 Agentforce 在 FY27 第一季 ARR（年度經常性收入）已達 $1.2B，年增 205%，但其主要服務對象為需要深度客製的大型企業。交易預計 FY27 第四財季前完成。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Agentforce 主打大型企業的深度客製，但部署慢；Fin 預訓練、即裝即用，正好補上中小與中端市場這塊 Salesforce 自己長不出來的缺口。這是「AI agent 平台」開始整併的明確信號，Salesforce 買的是 30K 客戶基礎，不是更好的模型。真正的問題是：Fin 的 76% 解決率是在低複雜度工單上測出來的，接進 Salesforce 大企業客戶的多系統環境後，這個數字會在哪個整合層斷掉。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Fin 號稱端到端解決 76% 客服量，但這個數字是「機器人自己標記已解決」還是客戶滿意度驗證過的真實解決？3 萬客戶裡有多少其實是免費或低 ARPU（每用戶平均收入）的長尾用戶？</li>
+        <li>Zendesk、Freshdesk、ServiceNow 全都在推自己的 AI agent，Salesforce 買 Fin 的真正客戶獲取路徑是什麼？是靠 Service Cloud 綁售強迫遷移，還是 Fin 的中小客戶根本不在 Salesforce 生態系裡、併購後反而會流失？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-06-17</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
