@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-06-18</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 6 月 18 日　星期四</span>
+    <span class="header-count">11 篇</span>
+  </div>
+  <h1>今天那些比股價更值得讀的事</h1>
+  <p class="header-lede">IPO 窗口用完、開源模型打贏估值、被罰反而是做安全的代價。當新規則出現、舊的激勵機制反轉時，還有誰有膽氣做正確但不立刻獲利的選擇？</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-spacex-ipo">SpaceX 用 IPO 狂熱換走了一家公司</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-glm5">GLM-5.2 開源權重打贏 GPT-5.5</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic">Anthropic 因安全測試被罰</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-salesforce">Salesforce 花 3.6B 買 Fin</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-a16z">a16z 「資金流護城河」論</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-deepseek">DeepSeek 50B 估值的結構</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-formation">Formation Bio 共同創辦人論臨床開發</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-fox-roku">Fox 花 22B 買 Roku</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-uk-ban">英國社群媒體禁令是政治宣示</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <article class="article" id="ai-spacex-ipo">
+    <div class="article-meta">
+      <span class="article-source">CNBC / Bloomberg / Fortune</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>SpaceX 用 IPO 狂熱換走了一家公司，散戶付單</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">IPO 後股價 4 天內漲 48%，Musk 用高股價紙上資產收購了真實業務，稀釋的代價由後進散戶承擔</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">SpaceX 於 2026-06-16 正式行使四月談定的選擇權，以全股票（all-stock deal，用收購方股票而非現金支付）結構、$60B 作價收購 AI 編程新創 Cursor（Anysphere）。Cursor 成立於 2022 年，年化 B2B 營收（ARR）約 $2.6B，等於 23x ARR。對價以成交前 7 個交易日 SpaceX 收盤 VWAP（成交量加權平均價）計算。SpaceX 那斯達克 IPO 以 $135 掛牌，四天後股價衝破 $200，一週內市值增加近 $1T，Musk 個人財富突破 $1T。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">IPO 後股價從 $135 衝破 $200，代表 $60B 的實際股份稀釋成本在幾天內縮水了約 33%。這筆交易真正的贏家是 Anysphere 早期投資人，他們拿到的是高流動性上市股票。輸家是接盤 SpaceX IPO 的散戶，稀釋的對價由他們承擔。Musk 的計算視窗很窄：在市場狂熱期用紙上財富換真實資產，窗口一關就沒了。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Cursor 年化 B2B 營收 $2.6B 撐 $60B 對價等於 23x ARR，但 GLM-5.2 這類開源模型正把編程 AI 的定價壓到 1/6，Musk 用的是哪個留存率和淨擴張假設讓這個倍數不是在替 SpaceX 股東買單？</li>
+        <li>xAI 已有 Grok Build，Cursor 併進來後真正的 GTM 是讓 Cursor 變成 SpaceX 內部工具、還是對外賣給開發者？</li>
+        <li>如果是後者，誰會繼續用一個被 Musk 鎖進生態系的編輯器？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-glm5">
+    <div class="article-meta">
+      <span class="article-source">VentureBeat / TechTimes</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Z AI GLM-5.2：開源權重打贏 GPT-5.5，但這個定價可能在燒國家的錢</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">中國 AI 實驗室 Z AI（前智譜 Zhipu AI）釋出 GLM-5.2，753B 參數、1M token context window（一次可處理的 token 上限），以 MIT 授權（最寬鬆開源授權，可商用可改）上架 Hugging Face 及 20 個以上第三方編程環境。基準測試上，SWE-bench Pro 得 62.1，勝 GPT-5.5 的 58.6；Terminal-Bench 得 81.0，為首個開源權重（open-weights，模型權重可下載自行部署）模型破 80%；FrontierSWE 74.4%，逼近 Claude Opus 4.8 的 75.1%。定價約為前沿封閉模型的 1/6。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Z AI 從未揭露訓練成本，753B 參數模型的推理成本在 1/6 定價下幾乎確定是虧損或國家補貼結構。OpenAI 和 Anthropic 短期受衝擊的是對成本敏感、有能力自部署的中端開發者，Fortune 500 企業的 API 用量仍受數據合規保護，但長期估值裡「API 定價壁壘」的假設已動搖。真正的問題是：當補貼消失時，已建立依賴的企業客戶的切換成本有多高。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 MIT 授權的 753B 開源模型在 SWE-bench 已打平 GPT-5.5，OpenAI 和 Anthropic 靠編程 API 撐起的那塊營收具體要縮多少，現有估值裡的哪一段 ARR 假設已經不成立？</li>
+        <li>如果我明天用 GLM-5.2 權重包一層產品出貨，最難複製的到底是什麼？Z AI 下一版權重一開源，我跟所有競爭者又站回同一條起跑線了。</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-anthropic">
+    <div class="article-meta">
+      <span class="article-source">Fortune / Cybersecurity Dive</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 因為做安全測試被罰，競爭對手做了同樣的事卻沒事</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">這是前沿 AI 安全揭露激勵的結構性轉折點，後果比禁令本身長遠</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 刊於 2026-06-09 的模型 Fable 5 與 Mythos 5，在 2026-06-13（週五）遭美國商務部下達出口管制令（export control directive），Anthropic 隨即全球停用，連非美籍員工也無法存取。導火線是 Amazon 研究員以含已知漏洞的開源碼餵模型要求「fix this code」，模型產出修補方案，被視為攻擊性能力。前 Facebook 資安長 Alex Stamos 發起「Free Fable」公開信，連署已破 100 人，來自 Adobe、Zoom、Nvidia、Stanford HAI 等機構。連署指出 OpenAI Daybreak、GPT-5.5、Kimi 2.7 都具同等能力卻未受限。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Anthropic 因積極做紅隊（red team）測試並揭露能力而被懲罰，而具同等能力的競爭者安然無事。這直接改變了所有前沿實驗室的安全揭露激勵，Alex Stamos 在連署信中明確點名了這個邏輯。未來最理性的策略是「少揭露、少測試、少公開」，贏家是不做透明安全測試的競爭者，輸家是整個 AI 安全研究社群。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>率先投資紅隊測試並公開揭露能力的廠商反而結構性受罰，這是否從此改變所有前沿實驗室的安全揭露激勵？</li>
+        <li>Anthropic 真正害怕的是不是禁令本身，而是這次事件讓企業採購發現「單一供應商風險」，從此每個大客戶都要求多模型冗餘，Anthropic 的定價權被永久削弱？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-salesforce">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch / CNBC</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Salesforce 花 $3.6B 買了一批可能在整合中流失的客戶</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Salesforce 於 2026-06-15 宣布以約 $3.6B 收購客服 AI 公司 Fin（前身 Intercom）。Fin 核心產品是跨 live chat、email、WhatsApp、SMS、電話、Slack 等管道端到端（全流程自動處理不需人工接手）解決複雜客訴的 AI Agent（能自主多步完成任務的 AI 代理），背後自研客服模型 Apex。Fin 帶來 30,000 個以上企業客戶，交易預計於 Salesforce FY2027 第四季完成。Salesforce 稱 Fin 補足 Agentforce（Salesforce 企業級 AI agent 平台）搆不到的中小與中端市場。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Fin 的 30K 中小客戶黏的是「簡單便宜即裝即用」，一旦被套進 Salesforce 的企業級合規堆疊和銷售體系，流失到 Zendesk 的摩擦幾乎為零。Salesforce 從未成功經營低 ACV（年度合約金額）市場有歷史先例，HubSpot 收購案後中小客戶流失模式已有參考。這批客戶的真實 LTV 應該用 Intercom 的流失率計算，而非 Salesforce 的。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Salesforce 買的是下沉市場的即裝即用通路，但 Intercom 原本的中小客戶黏的是產品簡單便宜。一旦被包進 Salesforce 的銷售體系和定價結構，這些客戶會不會直接跑去 Zendesk 或下一個獨立 AI 客服？</li>
+        <li>Fin 對外宣稱解決率勝過通用前沿模型，但那三萬家客戶裡真正讓 AI Agent 端到端結案、不需人工接手的比例到底是多少？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="web3-a16z">
+    <div class="article-meta">
+      <span class="article-source">a16z crypto</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>a16z 的「資金流護城河」論點，和它的持倉高度重合</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z crypto 發布投資論點長文，核心主張歷史上最強的生意都靠「站進資金流」——促成網路內價值的創造與轉移並抽成。文章引 Visa FY2024 處理 $15.7 兆支付量、淨營收 $35.9B；Jane Street 去年淨交易營收 $20.5B，超過 Citigroup 或 Bank of America；前五大造市商處理 87% 的 PFOF（payment for order flow，造市商付費換取散戶訂單）。並指出傳統金融的利潤抽取：Visa/Mastercard interchange（交換費，刷卡時商家付給發卡行的費用）收 2-3%，跨境匯款走廊收 6-9%。文章延伸到算力市集、稀土、太空等新戰場。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">a16z crypto 投資組合中目前沒有任何一家穩定幣公司的公開年化手續費收入超過 $500M，Circle 的主要收入來自 USDC 利息而非交易手續費。文章的論述框架與 a16z 持倉（Circle、Uniswap 等）高度對應，可公開查證。GPU 市集（如 Akash）、能源交易、稀土的鏈上交易量目前均低於 $1B 年化，且主要是投機性而非真實商業結算。如果已有真實交易量，a16z 會在文章裡引用，但沒有。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>a16z crypto 用 Visa 的 $15.7 兆支付量和 Jane Street 的 $20.5B 交易營收當論據，但他們投資組合裡哪一家穩定幣公司的實際年化手續費收入超過 $500M，還是這篇文章本身就是替持倉寫的定價敘事？</li>
+        <li>a16z 點名的「無人防守」新戰場，如算力、稀土、太空，有沒有任何一個已經出現真實的鏈上交易量和留存，還是整篇論點停在「理論上應該可以」？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-deepseek">
+    <div class="article-meta">
+      <span class="article-source">SiliconANGLE / The Information</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>DeepSeek $50B 估值，是創辦人跟自己對敲出來的</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">DeepSeek 完成成立以來首輪外部募資，籌得逾 500 億人民幣（約 $7.4B），估值突破 $50B，成中國最貴 AI 新創。商業投資人須把資金投入由創辦人梁文鋒直接管理的有限合夥（LP，出資人不參與經營、權利受限），不獲 DeepSeek 直接股權、無投票權、資本鎖定 5 年。唯一例外是中國國家人工智慧產業投資基金，獲直接公司股權與投票權。主要外部投資人包括 Tencent 與 CATL（寧德時代）。梁文鋒個人投入約 200 億人民幣（約 $3B）。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">梁文鋒個人投入 $3B，佔募資額 40%，但他同時是估值的制定者和最大買家。商業投資人無投票權、資本鎖 5 年、資金導入 LP，正常的價格發現機制被直接消除。唯一持有直接股權和投票權的外部方是國家 AI 產業投資基金，這意味著未來模型開源決策、出口方向、技術路線的最終否決權實質上在國家手中。DeepSeek 的「獨立研究」定位在法律結構上已經終結。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>梁文鋒個人投 $3B、佔募資額的 40%，但他同時是估值的制定者和最大買家。這個 $50B 是被市場驗證的價格，還是創辦人自己跟自己對敲出來的數字？</li>
+        <li>Tencent 和寧德時代到底買到了什麼實際的通路或數據回報，還是純粹在買一張「不被排除在中國 AI 國家隊之外」的門票？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="vc-formation">
+    <div class="article-meta">
+      <span class="article-source">a16z</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>a16z 說臨床開發是護城河，作者剛好是被投公司 CEO</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z 刊出 Formation Bio 共同創辦人暨 CEO Ben Liu 的長文。核心論點：過去十年藥物候選數量約翻倍，但 FDA 年度核准新藥維持約 50 個（CDER 2024 核准 50 個），瓶頸不在發現而在開發。每個熱門標靶的在研藥物已從 2-3 個增至 7-8 個、部分達 15 個以上；PD-1/PD-L1（腫瘤免疫類）在研項目逾 200 個，GLP-1（代謝/減重類）達 193 個資產。臨床前授權交易（preclinical，進入人體試驗前）upfront（前期一次性付款）多在數千萬美元；Phase 2（第二期臨床試驗，驗證療效的關鍵節點）強數據後可達數億至數十億美元。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Ben Liu 是 Formation Bio 的 CEO，a16z 是 Formation Bio 的投資人，這篇文章的核心結論「臨床開發是唯一護城河」完全等於 Formation Bio 的 pitch deck。文章的產業數據部分有 FDA、IQVIA 等公開資料支撐值得參考，但「Formation Bio 的護城河因此成立」這個跳躍需要獨立驗證。更重要的是：每個熱門標靶已有 15 個以上在研藥物，而 FDA 核准數鎖死，CRO（委託研究機構）的臨床試驗產能才是下一個被擠爆的環節，贏家是 IQVIA、Covance 這類大型 CRO，不是「知道該開發什麼」的純 AI 新創。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Ben Liu 是 Formation Bio 的 CEO、a16z 是 Formation Bio 的投資人。這篇文章主張「臨床開發是唯一護城河」恰好就是 Formation Bio 的 pitch，讀者該把這當產業洞見還是持倉行銷？</li>
+        <li>每個熱門標靶在研藥物從 2-3 個暴增到 15 個以上，真正的 GTM 問題是不是已經不是「能不能做出藥」，而是「能不能搶到足夠的臨床試驗病人」？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-fox-roku">
+    <div class="article-meta">
+      <span class="article-source">Fox Business / Roku SEC</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Fox 花 $22B 買了一個一旦整合就開始縮水的平台</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Fox 於 2026-06-15 宣布以企業價值（enterprise value）約 $22B 收購 Roku，每股作價 $160（$96 現金加 0.9693 股 Fox A 類股），較 Roku 06-11 未受影響股價溢價 34%，並安排 $12B 貸款支應。Roku 的連網電視（connected-TV / CTV，透過網路串流的智慧電視生態）OS 觸及 100M 家庭。Fox 將把新聞、體育網與 Tubi 串流，結合 Roku 的 CTV 平台，組成全美第三大電視公司。消息公布後 Fox 股價明顯下跌。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Roku 的 100M 家庭價值建立在「中立開放平台」的承諾上，Netflix、Disney+、Amazon Prime Video 都在 Roku 上，因為 Roku 不是競爭者的母公司。Fox 收購完成後這個中立性立刻消失，Netflix 和 Disney+ 有動機轉移行銷預算、甚至推自有硬體（Apple TV、Fire TV 的先例已在）。平台網路效應一旦反轉，Fox 拿到的第一方數據（first-party data，平台自有用戶資料）資產會在收購完成前就開始萎縮。Fox 股價大跌是市場立刻定價了這個風險。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Fox 消息一出股價就大跌，市場是不是在告訴他們：Roku 的「開放平台」定位被 Fox 內容優先策略毀掉後，第三方串流夥伴出走，平台價值反而縮水？</li>
+        <li>Roku 一百萬家庭的第一方數據是 Fox 真正要的廣告貨幣，但 Samsung TV Plus 和 LG 的 webOS 也有類似規模的 CTV 數據。Fox 拿到的護城河是獨佔數據、還是只是暫時的規模領先？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-uk-ban">
+    <div class="article-meta">
+      <span class="article-source">NPR / Axios</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>英國社群媒體禁令是政治宣示，澳洲的數據已經說了</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">英國首相 Keir Starmer 於 2026-06-15 宣布禁止 16 歲以下使用 Snapchat、TikTok、YouTube、Instagram、Facebook、X，科技公司負執法責任（enforcement liability），未採合理措施者面臨高額罰款。YouTube Kids、WhatsApp、Signal 不受限。目標 2025 年底前國會立法、2027 春季上路。澳洲為先行者，其 3 月民調顯示約 70% 受訪家長稱孩子仍留在被禁平台。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">澳洲 70% 家長稱孩子照樣在線的數據直接說明：任何不控制裝置層的禁令在結構上必然失敗。VPN 和年齡偽造的技術門檻對 13-15 歲幾乎為零，Starmer 政府把責任推給平台的路徑只會產生年齡勾選框，而非真實身分驗證。這是政治宣示，代價是 Meta 和 Snap 的象徵性罰款，實際效果接近零。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>澳洲已經證明七成家長說孩子照樣在用被禁平台。英國把執法責任丟給科技公司，但平台真正會做的是最低合規的年齡勾選框、還是真的建身分驗證系統？</li>
+        <li>如果我明天要針對英國 13-15 歲市場出一個不叫「社群媒體」但有社群功能的產品，法律定義裡最模糊、最容易鑽過去的縫隙在哪裡？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-06-18</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
