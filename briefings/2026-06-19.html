@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-06-19</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 6 月 19 日　星期五</span>
+    <span class="header-count">13 篇</span>
+  </div>
+  <h1>今天有人用高估的股票買了公司，有人用零投票權的錢鞏固了位置</h1>
+  <p class="header-lede">一張收購支票、一套治理結構、一份有選擇偏差的研究，今日新聞的共同線索是「看起來漂亮的故事有多少實際的轉折被隱藏起來」。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-spacex-cursor">SpaceX 用高估股票買 Cursor</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-glm-chinese">中國開源模型逼近閉源</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-export">Anthropic 被出口管制堵住</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-research">Anthropic 40 萬次研究數據</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-pew-penetration">Claude 滲透率只有 6%</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-deepseek-funding">DeepSeek 融 74 億美元</a></li>
+    <li><span class="toc-tag ai">機器人</span><a href="#robot-genesis">Genesis AI 輪式機器人</a></li>
+    <li><span class="toc-tag ai">機器人</span><a href="#robot-mobileye">Mobileye 下場做 Robotaxi</a></li>
+    <li><span class="toc-tag ai">機器人</span><a href="#robot-xdof">XDOF 帶 7000 萬美元出隱身</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-starknet">Starknet 隱私池冷啟動</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-a16z-stablecoin">a16z：穩定幣坐在錢流中間</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-formation-bio">Formation Bio 反向帕斯卡賭注</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">6 篇</span>
+  </div>
+
+  <article class="article" id="ai-spacex-cursor">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>SpaceX 用 IPO 暴漲的股票買 Cursor，真正的帳單還沒到</h3>
+    <div class="factual-context">
+      <p><strong>事實背景</strong></p>
+      <p>SpaceX 正式以全股票方式收購 AI 編碼工具 Cursor，名目對價 600 億美元。雙方 4 月已宣布合作協議，內含「60 億美元收購或 100 億美元純合作」的選擇權。SpaceX 上週五以每股 135 美元上市，數日內突破 200 美元、市值超過 2 兆美元、IPO 募資 750 億美元，Elon Musk 個人身價突破 1 兆美元。Cursor 年化 B2B 營收約 26 億美元，預計 Q3 完成交割。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Cursor 最值錢的地方是跨模型的中立路由層，企業客戶付費是因為能同時接 Anthropic、OpenAI、Gemini。一旦併入 Musk 的垂直堆疊鎖定 Grok，Windsurf 和 GitHub Copilot 的銷售話術立刻從功能競爭變成「單一供應商風險規避」。最先流失的是已與 Anthropic 簽企業合約的客戶，他們有現成替代品且切換成本低。若這批客戶流失，Cursor 帶給 SpaceX 的編碼訓練數據飛輪反而因整合決策本身而萎縮。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Cursor 年化 B2B 營收 26 億美元裡，有多少是 SpaceX 和 xAI 內部自用貢獻的，拿掉 Musk 體系後真正的第三方留存率（NRR）是多少？</li>
+        <li>Cursor 被 SpaceX 買走後，Claude Code 最大的分發通路斷了，Anthropic 現在真正的開發者獲客路徑是什麼，靠 API 還是靠自己做 IDE 端？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-glm-chinese">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>中國開源模型逼近閉源一個百分點，先垮的是 Anthropic 的中型工程客戶</h3>
+    <div class="factual-context">
+      <p><strong>事實背景</strong></p>
+      <p>Z AI（前身 Zhipu AI，北京）釋出 MIT 授權的開放權重模型 GLM-5.2，採用 753B 參數混合專家架構（MoE，每次只激活約 40B 參數），支援 100 萬 token 上下文。獨立評測顯示多項長程編碼基準僅落後 Claude Opus 4.8 約 1 個百分點、小勝 GPT-5.5 約 1%，Terminal-Bench 81.0 為首個開源模型突破 80%，SWE-bench Pro 62.1 勝過 GPT-5.5 的 58.6，在 Artificial Analysis Intelligence Index 開源分類拿下最高分 51。定價約為前沿閉源模型的六分之一，授權文件明確標注「無地域限制」。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Anthropic 60 億美元估值的隱含前提是閉源模型能在 2 到 3 年內維持顯著性能溢價，但 GLM-5.2 讓這個窗口正在壓縮。真正的定價侵蝕不會從大型企業開始，因為企業採購有合規審計和整合工時的摩擦（6 到 12 個月觀望期）。最先承壓的是 Anthropic 的中小型工程客戶，他們合規要求低、技術能力高、切換成本最低，OpenAI 因消費端護城河更厚，受衝擊較晚。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>跑分接近閉源但 MIT 開放權重，真正會自建部署的企業客戶有多少，還是大家最終都回到 API 付費，「免費權重」其實是個沒人兌現的行銷敘事？</li>
+        <li>如果我明天拿 GLM-5.2 權重包一層企業服務出貨，Z AI 真正難被複製的是持續訓練的數據飛輪，還是只是這一版快照，下一版他們憑什麼留住通路？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-anthropic-export">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 被出口管制堵住，短期受益的是 Google 不是別人</h3>
+    <div class="factual-context">
+      <p><strong>事實背景</strong></p>
+      <p>美商務部下令 Anthropic 在無許可的情況下不得將 Mythos 5、Fable 5 提供給任何外國人，包含 Anthropic 自家外籍員工，兩款模型於 6 月 12 日全球停用。彭博釋出商務部長 Howard Lutnick 致 Anthropic 信件，紐約時報取得的內部訊息顯示員工認為公司「被不公平針對」。觸發點據報為 Amazon 研究員繞過 Fable 5 的安全防護。G7 峰會（法國 Evian-les-Bains，6/16 至 18）期間，Lutnick 推動「信任夥伴」框架，Trump 政府拒絕英相 Starmer 豁免 G7 盟國的請求。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">「信任夥伴」框架若落地，Anthropic 的可觸及市場從全球壓縮至美國加部分盟國，歐洲與亞太通常佔前沿 AI 廠商 API 收入的 35 到 50%，60 億美元估值隱含的全球 TAM 假設確實已部分失效。受損最深的是 Anthropic 的歐洲企業客戶，短期受益者是 Google，Gemini 有 24% 消費端滲透率加上 GCP 企業通路，且出口管制包袱更輕。Anthropic 若無法在 12 個月內拿到明確豁免，B2B 增長預測需要大幅下修。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>被全球停用的這段時間，Mythos 5 和 Fable 5 的企業客戶實際上跑去了誰，Google 和 OpenAI 有沒有趁這個窗口把合約簽走，Anthropic 回來後還接得住嗎？</li>
+        <li>「信任夥伴」框架如果落地，Anthropic 的 GTM（進市場策略）實質上變成要走政府審批通路，這跟賣軍火的銷售流程有什麼差別，合約週期會被拉成什麼樣子？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-anthropic-research">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 40 萬次研究說領域知識比寫程式重要，但成功率最高只有 33%</h3>
+    <div class="factual-context">
+      <p><strong>事實背景</strong></p>
+      <p>Anthropic 分析 2025 年 10 月至 2026 年 4 月約 40 萬次 Claude Code 工作階段、約 23.5 萬名使用者。使用者做約 70% 規劃決策，Claude 處理約 80% 執行決策。新手每個提示約引出 5 個動作、600 字輸出，專家約引出 12 個動作、3,200 字輸出。驗證成功率（通過測試或保存成果）中階以上達 28 到 33%，是新手 15% 的兩倍多。律師、經理、科學家等非工程職業在編碼任務上與軟體工程師僅差約 7 個百分點。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究中「驗證成功率」以通過測試或保存成果定義，在沒有預寫測試的專案中這個指標等於「用戶選擇保存」，高度依賴自我評估。留下來完成整個工作階段的用戶本身已是正向篩選的子集，若真正的首月流失率超過 60%，那 15% 對比 33% 的成功率差距描述的是最頑固的重度用戶，而非一般部署場景。「非工程職業追平軟體工程師」這個結論對 Anthropic 定價策略的含義，需要更保守的解讀。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>「領域專家跟軟體工程師只差 7 個百分點」這個數字是自家平台的自選樣本，留下來用完整個工作階段的人本來就是最強的，真正的首月流失率是多少？</li>
+        <li>專家每個提示引出 12 個動作、新手僅 5 個，但研究沒有區分「AI 自主正確執行」和「AI 跑偏後被專家即時糾正」的比例，如果專家優勢主要來自即時糾錯，這套人機分工在夜間自動執行的批次場景下是否直接失效？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-pew-penetration">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Claude 只有 6% 滲透率，這是刻意的 B2B 押注，現在正被出口管制從兩頭夾擊</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Anthropic 的戰略選擇和外部管制正在同時壓縮它的增長空間。</span>
+    </div>
+    <div class="factual-context">
+      <p><strong>事實背景</strong></p>
+      <p>Pew 研究中心調查逾 5,000 名美國成人，結果顯示約半數成人現在使用聊天機器人（2024 年僅約三分之一），約四分之一每日使用。各平台消費端滲透率：ChatGPT 44%、Gemini 24%、Copilot 17%、Meta AI 14%、Grok 8%、Claude 6%、Character.ai 3%。近 40% 受訪者預期 AI 未來 20 年讓社會更糟，僅 16% 認為更好，76% 表示很少或只是有時信任 AI。30 歲以下使用最多但最不信任，僅 14% 看到正面社會回報。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Claude 6% 的消費端滲透率不是策略失誤，是刻意的，Anthropic 的架構和定價從設計上優先服務 API 和企業整合，消費端只是副產品。問題在於這個 B2B 賭注的兩條腿，也就是政府合約和海外企業 API，現在同時被出口管制壓縮。Google 是短期受益者，Gemini 24% 滲透率加上 GCP 企業通路，且出口管制包袱更輕，Anthropic 若無法在 12 個月內拿到明確豁免，B2B 增長預測需要大幅下修。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>ChatGPT 44% 滲透率裡真正每週回訪的比例跟 Claude 6% 裡每週回訪的比例，哪個數字對企業買家更有意義，「用過」跟「離不開」的差距到底多大？</li>
+        <li>Anthropic 在業界聲量頂級但大眾滲透率只有 6%，真正的消費者獲客通路到底是什麼，他們是在認真做 C 端還是根本放棄這條路只守 B2B？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-deepseek-funding">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>DeepSeek 融了 74 億美元，但騰訊投 14 億美元拿到的是政治門票不是股權</h3>
+    <div class="factual-context">
+      <p><strong>事實背景</strong></p>
+      <p>DeepSeek 完成首次外部融資，募超 500 億人民幣（約 74 億美元），估值破 500 億美元，部分來源稱 590 億美元，成為中國最貴 AI 新創。創辦人梁文鋒自己出資約 200 億人民幣（約 30 億美元），騰訊約 14 億美元，寧德時代約 50 億人民幣。資金進入梁文鋒管理的有限合夥（LP，投資人通常無經營權），五年鎖定且無投票權，據報唯一拿到實質權利的是中國國家方。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">騰訊投 14 億美元卻拿到零投票權、五年鎖定，這不是財務投資的合理結構，正常 LP 至少會要求贖回保護或優先清算權。合理解釋是騰訊買的是「確保不被排除在中國國家戰略級 AI 生態之外」的保險，以及未來在微信和騰訊雲上取得 DeepSeek 模型優先整合的非正式期權。真正受損的是騰訊小股東，他們的錢被用來購買一張財務回報不明的政治入場券。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>投資人五年鎖定零投票權還搶著進，真正買的是 DeepSeek 的商業回報還是跟中國國家隊站隊的門票，騰訊和寧德時代拿到的分發協議長什麼樣？</li>
+        <li>梁文鋒自己出 30 億美元佔融資額四成並保留全部控制權，500 億美元估值的分母裡有多少是真正的外部定價，多少只是創辦人左手付給右手的自我標價？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">機器人</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="robot-genesis">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Robotics</span>
+      <span class="article-tag ai">機器人</span>
+    </div>
+    <h3>Genesis AI 押注輪子打敗雙腿，但它說要進旅館和醫院</h3>
+    <div class="factual-context">
+      <p><strong>事實背景</strong></p>
+      <p>法國新創 Genesis AI 推出輪式可折疊機器人 Eno，跳過人形範式。Eno 以輪式底座頂著可調的鉸接面板塔，能即時升降，再收折至行李箱大小；雙手設計為 20 個主動可反向驅動（可被外力安全推動）自由度，與人手 1 比 1 尺寸。配套基礎模型（Foundation Model，大型預訓練 AI 模型）GENE 讓 Eno 作為「物理代理」推理並對結果負責。已造數十台，今年稍晚量產，先進物流與製造，再擴展到旅館、醫院、消費端。本輪為 1.05 億美元種子輪，Eric Schmidt、Khosla Ventures、Eclipse Ventures 加持。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">輪式底座在倉庫和平坦製造現場確實優於雙足，但 Genesis 明確宣稱要進旅館、醫院、消費端，這些場景有門檻、地毯、電梯轎廂和不規則障礙。人形機器人（Humanoid Robot）的雙足設計本就是為人類環境而生，Tesla Optimus 和 Figure 的目標場景與人類共享空間高度重疊。Genesis 的「反人形」定位在倉庫有優勢，在它宣稱的擴張場景中可能反而是劣勢，真實可觸及市場可能比人形更窄，不是更寬。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>「已造數十台」但客戶名單一個都沒公開，有沒有任何一家客戶已經把 Eno 放進真實產線連續跑超過一個月，還是全部都還在 Pilot 測試階段？</li>
+        <li>如果波士頓動力的 Stretch 或 Agility 的 Digit 明天加一對靈巧手臂上去，Genesis 除了「輪子比腳便宜」之外還剩什麼護城河，GENE 基礎模型的訓練數據從哪來？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="robot-mobileye">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Robotics</span>
+      <span class="article-tag ai">機器人</span>
+    </div>
+    <h3>Mobileye 下場做 robotaxi，最可能先跑的客戶是 VW 不是 Lyft</h3>
+    <div class="factual-context">
+      <p><strong>事實背景</strong></p>
+      <p>Mobileye 將於 2027 年在未具名美國城市投放 100 台自營 Robotaxi（自駕計程車），五年內擴至約 1.7 萬台，透過旗下叫車 App Moovit 運營，媒體照片暗示使用改裝自長城汽車 Ora iQ 的車輛。Mobileye 目前同時供應 Lyft（達拉斯，最快 2026 年）與 VW 旗下 MOIA 的自駕軟體，兩者均與自家軟體供應商直接競爭。CEO Amnon Shashua 自 2020 年就主張自駕「聖杯」要先走 Robotaxi。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">供應商下場競爭的結構張力不需要合約條款就能顯現：SDK 更新優先級、bug 修復排隊、新功能路線圖，這些都會在「自營車隊需求 vs 外部客戶需求」之間產生可見的張力。最有可能最先換棧的是 VW MOIA，因為它有母集團資源去洽談 Waymo 或 Motional 的替代方案，且在歐洲市場 Mobileye 的競爭優勢更弱。Lyft 因為自身技術能力較弱、替換成本更高，反而可能忍得更久。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Lyft 達拉斯合作說好 2026 年落地到現在還沒實現，Mobileye 自己的 2027 車隊時間表憑什麼更可信，真正卡住的是技術、法規還是車輛供應鏈？</li>
+        <li>供應商下場做車隊，VW MOIA 和 Lyft 會不會直接把 Mobileye 換成 Waymo 的技術棧，Mobileye 的合約裡有沒有排他條款能擋住這件事？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="robot-xdof">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Robotics</span>
+      <span class="article-tag ai">機器人</span>
+    </div>
+    <h3>XDOF 帶 7000 萬美元出隱身，賣的是「未來會有數據」的期權而非現有數據</h3>
+    <div class="factual-context">
+      <p><strong>事實背景</strong></p>
+      <p>柏克萊新創 XDOF 帶 7000 萬美元（Thrive Capital 領投）出隱身，主張機器人最大瓶頸是尚不存在的物理世界訓練數據。已服務 20 家客戶，含數家未具名前沿 AI 實驗室。公司打造遙操作（Teleoperation，人類遠端操控機器人以採集示範數據）裝置和穿戴感測器，覆蓋從機上遙操作到人類第一人稱日常數據（Egocentric Data）。並開源 ABC-130K 機器人訓練集：13 萬條操作軌跡、300 小時模擬、100 小時評估。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">XDOF 服務的「數家未具名前沿 AI 實驗室」是核心收入來源，但這些實驗室都有充分的資源和動機自建內部數據採集團隊，Google DeepMind 在機器人操作的投入（RT-2、ALoha）已有規模。13 萬條軌跡對比 Open X-Embodiment 的百萬級差了約一個數量級，XDOF 賣的顯然不是現有數據量，而是「未來持續採集的管線能力」這個期權。若任一頭部實驗室內部化採集流程，XDOF 的年度合約收入（ARR）可能斷崖。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Thrive Capital 給 7000 萬美元種子輪，但 XDOF 服務的那幾家前沿 AI 實驗室若自己建內部採集團隊，這個估值邏輯瞬間歸零，誰在承擔這個客戶集中度風險？</li>
+        <li>開源 ABC-130K 只有 13 萬條軌跡，這個數據集的規模能支撐什麼等級的模型訓練，XDOF 賣的到底是數據本身還是「未來會有數據」的期權？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="web3-starknet">
+    <div class="article-meta">
+      <span class="article-source">Decentralised.co</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Starknet 賣的隱私願景是真的，但冷啟動三個月沒有一個 TVL 數字</h3>
+    <div class="factual-context">
+      <p><strong>事實背景</strong></p>
+      <p>鏈上 RWA（真實世界資產代幣化，Real World Assets）價值（除穩定幣外）自 2025 年初約 60 億美元增至 2026 年中逾 300 億美元，穩定幣年轉移量約 39 兆美元。Starknet 推出 STRK20 協議（2026 年 3 月 10 日上線），讓鏈上既有資產（USDC、代幣化國債、包裝比特幣、任何 ERC-20 標準代幣）進入共享隱私池而不需重新發行。技術核心是 STARK 零知識證明（Zero-Knowledge Proof，在不揭露內容的前提下證明陳述為真），把「正確性」與「可見性」解耦，並提供檢視金鑰（Viewing Key，可選擇性向審計或監管揭露自身紀錄）保留合法揭露路徑。4 月 Shinobi 升級把證明驗證移入共識層，使私密交易能秒級結算。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">STRK20 上線三個月，但文章本身沒有提供任何 TVL（總鎖定價值）或獨立地址數字，這通常意味著數字不好看。隱私池的冷啟動悖論是結構性的：池小時匿名集小，首批用戶反而比沒有隱私時更暴露（行為模式更容易被辨識）。機構不會用自家帳本當白老鼠去填一個尚未達到臨界規模的隱私池，ZK 電路安全風險（Zcash Orchard 2026 年 5 月才出現允許無限增發的健全性 bug）也尚未消除，機構在看到至少兩輪獨立安全審計前不應把重要資產放入此類池子。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>STRK20 上線三個月了，隱私池裡實際鎖了多少 TVL、有多少獨立地址真的在用，冷啟動問題解決了嗎，還是池子小到隱私根本不成立？</li>
+        <li>機構客戶說要隱私，但 Canton 和 Avalanche Evergreen 已經在私有子網上跑了，Starknet 去搶機構的真實通路是什麼，靠誰把合約簽進來？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="vc-a16z-stablecoin">
+    <div class="article-meta">
+      <span class="article-source">a16z crypto</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>a16z 說穩定幣讓創業公司坐在錢流中間，但真正坐在咽喉的是 MEV 機器人</h3>
+    <div class="factual-context">
+      <p><strong>事實背景</strong></p>
+      <p>a16z crypto 發文主張歷史上最好的生意都「坐在錢流中間」抽成：Visa FY2024 處理 15.7 兆美元支付量、淨營收 359 億美元；Jane Street 去年淨交易營收 205 億美元，高於花旗或美銀；美國前五大造市商處理 87% 的訂單流付款（PFOF，造市商付費換取散戶訂單路由）。論點核心是加密貨幣和穩定幣讓創業公司首次能原生架在「money flow + 網路效應」這個最耐久的商業結構上。前沿延伸到算力、AI 訓練數據、能源、機器人、太空等無現成中介的領域。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">a16z 描述的「坐在錢流中間抽成」在鏈上已被 MEV（最大可提取價值）機器人和區塊建造者提前實現了：每筆穩定幣轉帳在進入最終狀態前，排序層已在攫取可提取價值，應用層看到的錢流是已被剝了一層皮的殘餘。真正坐在咽喉的是 Flashbots 生態和 L2 的 Sequencer（交易排序者），不是穩定幣支付應用。a16z 的論點只在私有 L2 或應用鏈（自己掌控排序）的情境下成立，但那又犧牲了組合性（Composability，不同協議間可自由組合）。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>穩定幣 B2B 支付年增 700% 聽起來嚇人，但基數是 2260 億美元對比全球 B2B 89 兆美元，真正在用的是哪幾條走廊的哪幾種交易，還是大部分量是鏈上套利自己跟自己玩？</li>
+        <li>如果 Stripe 和 PayPal 明天把穩定幣結算直接內建進現有商戶網路，原生 crypto 支付新創的通路優勢瞬間歸零，a16z 投的哪家組合公司真正擋得住這件事？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-formation-bio">
+    <div class="article-meta">
+      <span class="article-source">a16z</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Formation Bio 的反向帕斯卡賭注數學上很漂亮，但資金層面根本不成立</h3>
+    <div class="factual-context">
+      <p><strong>事實背景</strong></p>
+      <p>Formation Bio CEO Ben Liu 主張 AI 對製藥的改造不均勻：藥物發現逐漸商品化，近十年候選藥物數量約翻倍，但 FDA CDER 每年核准的新藥穩定在約 50 個，證明瓶頸在臨床開發而非發現。2025 年 PD-1 與 GLP-1 各逾 100 個在研項目，部分熱門靶點逾 15 個在研藥物。Phase 2（二期臨床試驗，價值最大拐點）基線成功率約 30%，Liu 提出「反向帕斯卡賭注」：按業界平均 PoS（成功機率）承保、確保能打足夠多的射門。Formation Bio 累計募資約 6.15 億美元，建有 Atlas、Delphi、Apollo 等 AI 系統。</p>
+    </div>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Formation 的「反向帕斯卡賭注」建立在各次射門獨立的假設上，但所有資產選擇都通過同一套 Atlas/Delphi 系統，這套系統的模型偏差和訓練數據相關性使各次射門高度相關，「10 個獨立 Phase 2 零中獎機率僅 2.8%」的計算本身可能是錯的。算術層面同樣有問題：一次 Phase 2 直接成本加資產收購保守估計 8000 萬至 2 億美元，6.15 億美元在扣除運營後實際可支撐的射門次數可能只有 4 到 6 次，距離宣稱的 10 到 20 次差距顯著。若 Formation 沒能在前幾次讀出中帶動新一輪融資，這個賭注的前提在資金層面從一開始就不成立。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Formation 累計募了 6.15 億美元要打 10 到 20 次 Phase 2 射門，每次臨床成本動輒 5000 萬至 1 億美元，這筆錢夠打幾發，Ben Liu 的「反向帕斯卡賭注」在資金燒完前有足夠的射門次數嗎？</li>
+        <li>Formation 目前實際進到 Phase 2 讀出的資產有幾個、中了幾個，打了多少次射門，命中率跟業界平均 30% 比是高還是低？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-06-19</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+</body>
+</html>
