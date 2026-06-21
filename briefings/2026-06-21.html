@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日簡報 — 2026-06-21</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+      color: var(--ink);
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 6 月 21 日　星期日</span>
+    <span class="header-count">7 篇</span>
+  </div>
+  <h1>今天裡面藏著一個最安靜卻最重要的訊號</h1>
+  <p class="header-lede">Anthropic 的身份驗證層根本不存在；OpenAI 買的是招股書上的名字；CLARITY 法案的真正瓶頸是一個人的表態時機。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-identity">Anthropic 承認的不是合規問題，是身份層根本不存在</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-shazeer">OpenAI 買到的是一個 IPO 招股書上的名字</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-midjourney-medical">Midjourney 的醫療掃描儀：60 秒是行銷，20 分鐘是現實</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-clarity-alsobrooks">CLARITY Act 的死線不是 8 月，是 Alsobrooks 什麼時候表態</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-a16z-proof-stack">a16z 的 proof stack 手冊，是寫給別人照的，還是先照鏡子的</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="ai-anthropic-identity">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI、Korea JoongAng Daily、The Globe and Mail</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 承認的不是合規問題，是身份層根本不存在</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 的前沿模型 Mythos 5 與 Fable 5 在上線僅 3 天後，依美國商務部基於國安理由發出的命令，要求封鎖外國人（foreign nationals）使用，因此全球下架。觸發點據報有兩個：Amazon 在 Fable 5 上發現越獄（jailbreak，指繞過模型安全護欄的提示攻擊）手法，以及 SK Telecom 透過代號「Project Glasswing」存取 Mythos 5 的疑慮。Anthropic 解釋選擇全面下架而非地理封鎖，原因是「在此規模下逐一核對使用者國籍很困難」。國際董事總經理 Chris Ciauri 在首爾記者會稱凍結為暫時性，模型將在「數日內」恢復，同週 Anthropic 也在首爾新設辦公室。禁令至 6/18 已進入第 6 天。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Anthropic 選擇全球下架這個決定本身就是供詞：現有 API 分發架構裡根本沒有可在推論層執行的國籍驗證機制，AWS Bedrock 作為代理層同樣無法補這個洞，因為 KYC（身份驗證）資料從未被設計進模型存取路徑。真正的輸家是把 Bedrock 當「合規包裝」賣給企業客戶的 AWS 銷售團隊，他們對企業買家的整套論述需要完整重寫。Ciauri 親赴首爾的緊迫性說明另一件事：停機期間 Google 和 Meta 有足夠的空窗期把亞洲電信與主權客戶的評估採購流程接走，而電信商 BD 週期一旦被打斷，重啟談判時議價籌碼已換到對手手上。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果前沿模型隨時可能被商務部一紙命令全球下架，主權基金和非美盟國電信商還敢按原本的估值邏輯投 Anthropic 下一輪嗎？</li>
+        <li>當恢復上線後，誰在推論基礎設施層真正具備逐請求級別的出口合規能力，是 AWS Bedrock、Azure、還是模型廠自建，抑或這個能力目前根本不存在於任何一方的技術棧裡？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-openai-shazeer">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI、CNBC、The Information</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 買到的是一個 IPO 招股書上的名字，不是可留存的工程能力</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Noam Shazeer，Google 工程副總裁、Gemini 模型共同負責人、2017 年奠定現代大語言模型基礎的論文「Attention Is All You Need」（提出 Transformer 神經網路架構）共同作者，於 2026 年 6 月 18 日宣布離開 Google 加入 OpenAI。他 2000 年加入 Google，後自行創辦 Character.AI，Google 在 2024 年以約 27 億美元的代價將他找回，主要為強化 Gemini 模型的技術深度。此次離職距回鍋不到兩年，$2.7B 的無形資產已成沉沒損失。產業報導普遍將此挖角連結至 OpenAI 的 IPO 前資深人才加速招募。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Shazeer 從 Character.AI 回 Google、再從 Google 去 OpenAI 的移動模式說明一件事：頂尖研究員的效用函數裡，「做哪個問題」的權重遠高於薪酬或股票，Google 的 $2.7B 鎖不住他，是因為錢本來就不是決定性變數。但對 OpenAI 而言，真正的問題是 Shazeer 在 Google 主導的是 Gemini 在 TPU 棧上的架構優化，OpenAI 的基礎設施是完全異構的 NVIDIA GPU 叢集，若他單獨加入而非整組搬遷，OpenAI 實際獲得的更可能是招股書技術信用度的定價加乘，而非可立即交付的工程能力。真正的得利者是 OpenAI 的承銷行，Shazeer 的名字讓 S-1 在技術可信度上值得更高的估值倍數，不論他六個月後留不留下。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Google 花 $2.7B 都鎖不住人，OpenAI 拿什麼護城河留住他。如果 Anthropic 明天開兩倍價，Shazeer 的忠誠度靠什麼防禦，還是頂尖人才本質上就不是任何公司的護城河？</li>
+        <li>一個研究領袖的知識遷移高度依賴他帶來的團隊與工具鏈，若 Shazeer 單獨加入而非整組搬遷，OpenAI 在架構層面真正獲得的是可執行的工程能力，還是僅僅是一個 IPO 招股書上的名字？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-midjourney-medical">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI、PYMNTS、TechTimes、TheNextWeb</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Midjourney 的醫療掃描儀：60 秒是行銷，20 分鐘是現實，0 次臨床驗證是真相</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">以 AI 生圖起家的 Midjourney 宣布成立「Midjourney Medical」部門，推出全身超音波掃描儀：使用者降入水中，穿過整圈水下超音波感測器。設備共使用 8,960 個 transducer（超音波換能器），整合 40 個 Butterfly Network（超音波晶片廠商）的 ultrasound-on-chip（晶片化超音波模組），以 $15M 預付取得技術授權。公司宣稱目標是 60 秒完成全身掃描，但現行原型實際約需 20 分鐘，瓶頸在頻寬與影像重建演算法（reconstruction algorithm）。商業計畫是自營「Midjourney SPA」，搭配三溫暖、冷水池、熱水浴。首家 SPA 預計 2027 年底開在舊金山 Union Square，配置約 10 台掃描儀。6 年內部署目標 50,000 台。目前僅約 12 人被掃描，無任何獨立臨床驗證發表。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">以訂閱制生圖業務估算年收上限約 $1.9B，但六年五萬台掃描儀即使每台僅以 $50K 保守估算，總資本支出也達 $2.5B，這個量級差距讓訂閱現金流交叉補貼硬體的邏輯根本站不住腳。David Holz 更可能的路徑是：用醫療硬體敘事拉高 Midjourney 整體估值，再另行融一輪大額資金。真正跟著一起承擔風險的是 Butterfly Network，$15M 授權費對他們是收入，但若 Midjourney Medical 最終失敗，合作背書的技術聲譽連帶受損。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>只掃過 12 個人、零臨床驗證就喊出五萬台部署計畫，David Holz 這是在做醫療器材公司，還是在用硬體敘事替 Midjourney 下一輪融資墊估值？</li>
+        <li>Butterfly Network 的 ultrasound-on-chip 是公開授權的，GE HealthCare 和 Siemens Healthineers 明天就能做同樣的事。Midjourney Medical 最難被複製的到底是什麼，品牌？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="web3-clarity-alsobrooks">
+    <div class="article-meta">
+      <span class="article-source">a16z crypto 電子報、CoinDesk、CNBC、ABA Banking Journal</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>CLARITY Act 的死線不是 8 月，是 Alsobrooks 什麼時候表態</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">今日最重要訊號：CLARITY Act 的真實卡點不是加密產業的遊說強度，而是 Alsobrooks 一個人的表態時機，法案命運已收窄到一個黑洞。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">CLARITY Act（Digital Asset Market Clarity Act，數位資產市場結構法，界定哪些數位資產歸 SEC、哪些歸 CFTC 管轄）於 2026 年 5 月 14 日在參議院銀行委員會（Senate Banking Committee）以 15 比 9 通過 markup（委員會逐條審議與表決），民主黨參議員 Ruben Gallego（AZ）與 Angela Alsobrooks（MD）加入全體共和黨支持。6 月 1 日公布新版文本，列入參議院議事日曆 Calendar No. 423（General Orders），正式具備院會審議資格。要成法仍須：與參院農業委員會版本整合、通過院會 60 票門檻（cloture，終結辯論所需的 60 票），至少需要 7 位民主黨參議員支持。Alsobrooks 已公開表示院會前可能需要進一步談判。可能於 7 月進行院會表決，8 月國會休會（recess）為實質死線。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">法案命運的決定性變數不是加密產業的遊說強度，而是參議院多數黨領袖如何排列 7 月議事優先順序，預算調解、移民、國防授權任何一項插隊都能把 CLARITY 擠到 8 月休會後等死。Alsobrooks 公開說要再談判，等於給其他猶豫的民主黨參議員提供了「可以繼續觀望」的政治掩護，在她明確表態支持之前，7 票的計算是 6 加 1 個黑洞，而不是 6 加 Alsobrooks。輸家已經確定：把「合規確定性」當核心 GTM（市場進入）故事、正在談機構客戶的 B 輪 Web3 公司，他們的銷售週期因法案延宕已被迫停擺。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>法案如果 8 月前沒過，已經拿「合規確定性」當 GTM 故事融 B 輪、C 輪的 Web3 公司，他們跟機構客戶簽的合約裡有沒有監管變動的退出條款，這些公司的真實牽引力撐不撐得住法案延宕兩年？</li>
+        <li>CLARITY 把「充分去中心化」資產從 SEC 移至 CFTC 管轄，但鏈上判定去中心化程度的技術標準至今沒有共識，這個執行層的模糊性是否會讓 Uniswap、Lido 這類協議反而陷入雙重監管的灰色地帶？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="vc-a16z-proof-stack">
+    <div class="article-meta">
+      <span class="article-source">a16z crypto 電子報</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>a16z 的 proof stack 手冊，是先照鏡子的，還是寫給別人用的？</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z crypto 發文主張加密產業正進入「Show Me 時代」：過去靠白皮書與代幣就能取得信任的「承諾式邏輯」已失效，溝通起點從「你在建什麼」變成「你已建了什麼、誰在用」。觸發因素包括對技術二十年的累積性懷疑、BlackRock（代幣化貨幣市場基金）、Fidelity（託管與 ETF）、JP Morgan（自建鏈 Onyx）、Franklin Templeton（鏈上貨幣基金）以真實產品大舉進場的 TradFi（傳統金融）機構，以及 AI 產業推出消費者就緒產品的對比壓力。a16z 提出「proof stack（證據堆疊）」四件套：有牙齒的合作、主網（mainnet，真實有資金的鏈上環境）真實數據與留存曲線、PR 之前就存在的有機社群、第三方獨立驗證。文中稱 2021 年可用「80% 願景 / 20% 實質」過關，如今比例已反轉。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">a16z 的 proof stack 若回頭套用在其 2021 到 2023 年的代表投資上，多數 portfolio 公司，尤其是 NFT 基礎設施與 L2 遊戲鏈，無法通過「主網留存曲線」與「PR 前有機社群」這兩關。這篇觀點文更像是 a16z 在為當前 portfolio 重新定錨估值敘事，把「新標準」框成行業現象，迴避了「你們自己舊投資咋辦」這個最直接的問題。而 Dune 儀表板讓鏈上數據人人可查的「透明性」也是雙面刃：有能力做鏈上分析的大型機構（BlackRock、Fidelity 自己的研究團隊）比散戶更早看穿 wash trading（洗盤）和空投驅動的假留存，真正的護城河因此不是鏈上數據本身，而是誰能最快做出競品做不到的使用者體驗。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>a16z 自己投的 portfolio 裡，有幾家現在拿得出「主網留存曲線」而不是測試網 vanity metrics（虛榮指標），這套 proof stack 檢查表是寫給別人的，還是先照鏡子的？</li>
+        <li>如果 BlackRock 和 Fidelity 用自有基礎設施做代幣化就能吃掉市場，a16z portfolio 裡的中間層協議公司到底在替誰創造價值，還是只是在替 TradFi 巨頭免費驗證概念？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-06-21</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
