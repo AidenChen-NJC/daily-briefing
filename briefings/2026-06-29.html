@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-06-29</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+      color: #000;
+      font-weight: 700;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 6 月 29 日　星期一</span>
+    <span class="header-count">7 篇</span>
+  </div>
+  <h1>當守門人穿上安全的外衣</h1>
+  <p class="header-lede">白宮用安全名義卡住模型，Anthropic 的資料被偷卻察覺太晚，而真正受益的是那些跟政府關係最好的公司。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-gpt56">白宮卡 GPT-5.6，真正受益者是 Palantir</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic">Anthropic 被偷 2,880 萬次對話</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-apple">Apple 漲價 $200，成本只解釋一半</a></li>
+    <li><span class="toc-tag ai">科技</span><a href="#tech-slate">Slate 的 18 萬預約，轉換率才是生死線</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-hype">Multicoin 發 HYPE 目標價 $319</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-agility">Agility SPAC 上市，訂單全押一客</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <article class="article" id="ai-gpt56">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / CNN Business / Axios</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>白宮用「安全」名義卡住 GPT-5.6，真正受益者是 Palantir 和 Anduril</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">白宮要求 OpenAI 把下一代主力模型 GPT-5.6（代號 Sol）的釋出限制在約 20 個政府核可夥伴，原因是政府認定其能力與 Anthropic 的 Mythos 「同級」，需先建立安全評估框架再廣泛上線。介入由白宮國家網路總監辦公室（ONCD）與科技政策辦公室（OSTP）主導，Altman 在內部稱此為「釋出的最佳路徑」，完整上線預計數週後。這已是第三個被政府卡住的前沿模型，此前 Anthropic 的 Fable 與 Mythos 已先遭出口管制令。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向一個具體結論：在沒有公開技術基準的前提下，「能力門檻」認定完全依賴 ONCD 與 OSTP 的人工紅隊裁量，這意味真正的競爭從模型本身轉移到了「誰跟白宮關係更好」。無需公開標準、無法訴諸法院的審查框架下，Palantir 和 Anduril，兩者都已是核可夥伴，享有非正式優先權，等於政府以「安全」為名完成了商業導流。短期輸家是 Anthropic，已先遭出口管制令且缺乏 Altman 那種公開配合的姿態；短期贏家是 OpenAI，用一句「最佳路徑」換到了繼續釋出的空間。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>那 20 個核可夥伴是真正有部署需求的客戶，還是 OpenAI 拿「國安限制」當藉口把稀缺供給導向最高付費企業的 GTM 策略？</li>
+        <li>如果政府已成為前沿模型的實質守門人，Anthropic 和 OpenAI 誰的護城河其實是「跟白宮的關係」而非模型本身？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-anthropic">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / CNBC / Tom's Hardware</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 被偷了 2,880 萬次對話才察覺，比被偷的能力更嚴重的是這件事</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 向參議院銀行委員會去函，指控阿里巴巴透過近 25,000 個詐欺帳號、在約 45 天內（4/22–6/5）對 Claude 進行 2,880 萬次對話，鎖定其代理式推理（agentic reasoning）、coding 與長程任務（long-horizon tasks）能力，稱為迄今最大規模的蒸餾攻擊（distillation attack，大量查詢前沿模型、用回應訓練較弱模型以複製能力）。攻擊者被指與阿里 Qwen 實驗室有關。此前 2 月 Anthropic 曾披露 DeepSeek、Moonshot、MiniMax 涉及超過 1,600 萬次對話的類似攻擊。Anthropic 要求立法反壟斷釐清、更強晶片出口管制，以及制裁相關中國實驗室，參議員 Hagerty 與 Kim 正推動把制裁條款掛進 NDAA（國防授權法）。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">45 天、25,000 個假帳號、2,880 萬次查詢全程未觸發熔斷，暴露的是 Anthropic 異常偵測以「單帳號行為」而非「跨帳號協同模式」為單位，這個架構盲區比阿里拿走什麼更損品牌。更值得看的是後續的立法操作，把一次企業 IP 糾紛送進 NDAA，一旦制裁入法，DeepSeek、Qwen、MiniMax 全數被納入黑名單，這條監管護城河 OpenAI 無需自己動手也受益。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>45 天內 2,880 萬次查詢都沒觸發熔斷，這暴露的是哪一層反濫用基礎設施的架構盲區？</li>
+        <li>Anthropic 把企業 IP 糾紛包裝成國安議題送進 NDAA，真正想擋的是阿里巴巴，還是想建一道讓所有中國開源模型都無法合法對標 Claude 的監管護城河？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-apple">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech / CNN Business / Reuters</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Apple 漲價金額超出記憶體成本，多出的那 $100 是毛利</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Apple 調漲 Mac 與 iPad 售價 $100–$200，歸因 AI 狂潮推升的 DRAM（動態隨機存取記憶體）與儲存晶片成本。具體調幅：MacBook Neo $599 升至 $699、Air $1,099 升至 $1,299、Pro $1,699 升至 $1,999；iPad Pro 升至 $1,199、Air 升至 $749。DRAM 價格 Q1 2026 飆漲近 100%，本季預估再漲 58–63%（分析師稱為「RAMageddon」）。iPhone、Apple Watch、AirPods 暫不調漲但 Tim Cook 暗示可能跟進。Apple 股價週四跌逾 6%，創一年多來最差單日；IDC 預估今年 PC 市場萎縮 11.3%，Microsoft、Dell、Lenovo 已相繼漲價或預警。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">若 DRAM 占 Apple 裝置的物料清單（BOM）約 15–20%，Q1 漲幅 100% 應使 BOM 成本上升約 $80–100；MacBook Air 漲了 $200，溢出部分約 $100 指向毛利擴張，而非純粹成本轉嫁。Micron 因漲價繳出爆發性財報，且 HBM 轉產與 EUV 產能受限意味 DRAM 供給 18 個月內無法大幅擴張，Apple 的定價壓力至少延續到 2027 年。入門款 MacBook Neo 從 $599 漲至 $699 後，開始正面衝撞 Chromebook 與二手 Mac 的替代選項，IDC 預估的需求破壞已經開始。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>DRAM 漲了 98% 但 MacBook Air 漲幅達 18%，Apple 下季毛利率若突破硬體歷史高位，「成本轉嫁」的說法就穿幫了，要怎麼看這個數字？</li>
+        <li>IDC 說 PC 市場萎縮 11.3%，Micron 卻因漲價繳出爆發性財報，資本該重新配置到記憶體供應商而非品牌終端嗎？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="tech-slate">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech / TechCrunch / Electrek</span>
+      <span class="article-tag ai">科技</span>
+    </div>
+    <h3>Slate 的 18 萬預約看起來很猛，但轉換率才是這個故事的生死線</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Bezos 投資的 EV 新創 Slate Auto 開放 $24,950 電動皮卡正式預訂，標榜全美最便宜新卡車，年底開始交車。基本款續航從 150 哩提升至 205 哩（放棄原規劃的 240 哩大電池包）；SUV 改裝版 $29,950。設計刻意減法：手搖車窗、無資訊娛樂螢幕、灰色複合材料車身（買家自貼車膜客製）。此前以 $50 累積約 18 萬個預約，現轉為 $300 訂金的正式預訂。對照：Chevy Bolt 起售 $28,995 /續航 262 哩；Ford 原型 $30K 中型電動皮卡預計 2027 推出。目前 $7,500 聯邦電動車稅額抵免（federal EV tax credit）已取消。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">歷史參照直接指出問題的核心：Fisker Ocean $250 預約的正式預訂轉換率低於 20%，Lordstown 預訂幾乎全數泡沫化。若 Slate 轉換率低於 30%，有效正式預訂低於 54,000 台，量產經濟性的基礎就站不住，且沒有聯邦稅額抵免墊底，退訂誘因更高。電池包規模對應約 55–65 kWh，以目前 Slate 的採購量，向 CATL 或 LG 買電芯的 BOM 光電池就約 $8,000–$10,000，起售 $24,950 的毛利為負的可能性極高，Bezos 現階段投的是「能否靠規模翻轉成本結構」的期權，不是一家能自給自足的車廠。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>18 萬個 $50 預約轉成 $300 正式預訂的轉換率是多少？如果低於 30%，這跟 Fisker 死前的虛榮預約數有什麼本質差別？</li>
+        <li>Bezos 是在投一家車廠，還是在補貼一個永遠靠下一輪融資活著的故事？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="web3-hype">
+    <div class="article-meta">
+      <span class="article-source">Multicoin Capital / DefiLlama</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Multicoin 發布 HYPE 目標價 $319，它自己是最大持倉方</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Multicoin 公布對 Hyperliquid（HYPE）的全面估值報告，推出約 $319 目標價（現價約 $63）。Hyperliquid 是垂直整合的 L1 區塊鏈兼去中心化交易所，專為高速交易而建。2025 年營收約 $873M、交易量約 $2.9 兆；目前掌握 DeFi 永續合約（perp，無到期日的期貨）市場 59%+ 未平倉合約（OI），自身約 $96 億 OI 超過所有鏈上競爭者總和。HIP-3 改進提案把平台擴展至真實世界資產（RWA）連結的永續合約，OI 突破 $29 億；官方授權 S&P 500 永續合約首週日交易量逾 $1 億。代幣設計：約 99% 協議營收用於回購 HYPE，從未募外部資金。Multicoin 以 2028 年約 $80 億年盈餘、20 倍倍數推得目標價。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">這份報告有兩個問題需要拆開看。第一，Multicoin 自己揭露是 HYPE 最大流動性持倉方之一，$319 目標價本質是「持倉方創造退出流動性」的操作，DefiLlama 中性數據顯示 Hyperliquid 永續 DEX 市佔已從 70%+ 滑至約 38%，但報告刻意未強調這個下滑，Multicoin 是這份報告的受益方，跟單散戶是風險承擔方。第二，99% 營收回購製造了類似股票回購的現金流效應，但 HYPE 持有者沒有法律上的求償權、清算優先權或股東訴訟管道，2025 年已有壞帳事件先例，「乾淨對齊」的代幣設計在治理危機時等於純粹暴露。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>DefiLlama 顯示 Hyperliquid 永續 DEX 市佔從 70%+ 滑到約 38%，Aster 一家就能切這麼多。99% 營收回購的設計如果無法阻止交易者追逐更低費率，護城河到底在哪？</li>
+        <li>99% 回購聽起來像股票回購，但 HYPE 持有者沒有法律上的股東權利，真的搞清楚自己買的是現金流權益，還是一個靠敘事維持的回購迴圈嗎？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="vc-agility">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch / The Robot Report / SEC Form 425</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Agility Robotics SPAC 上市，$300M 訂單全押在一個客戶身上</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Agility 的 $300M 訂單全來自單一客戶，上市後這個數字再也藏不住。</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Agility Robotics 透過與 Churchill Capital Corp XI 合併、以 $2.5B 估值 SPAC（特殊目的收購公司，借殼上市工具）上市，成為首家在美股交易的純人形機器人公司，股票代號 AGLT。交易預計募資逾 $6.2 億，含製造巨頭 Foxconn 領投約 $2 億。其雙足機器人 Digit 已部署於 9 個客戶據點（含 Toyota、GXO、Mercado Libre），累積逾 65,000 小時實際運行。Agility 聲稱超過 $3 億 Digit v5 已承諾訂單，但 SEC Form 425 文件顯示該數字全來自單一未具名客戶的 3 年 1,000 台合約。對照：Morgan Stanley 今年二度上修中國 2026 人形出貨預測至 50,000 台，State Grid 單筆採購約 $10 億（500 台人形、3,000 台雙臂、5,000 台四足機器人），中國佔全球 80%+ 人形出貨。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">訂單集中度是這個估值的核心風險，已由 SEC 文件確認。若單一未具名客戶是 Amazon 或 Foxconn 本身，這是關係人交易撐起的估值而非市場驗證的需求；若是第三方，單一客戶可隨時重談，$2.5B 的訂單支柱即為虛構。發起人 Michael Klein 此前促成 Lucid 上市，Lucid 上市後股價跌逾 95%，SPAC 包裝訂單的手法 LP 應高度警惕。Foxconn 投 $2 億最合理的解讀不是押 Agility 勝出，而是取得進入美國人形機器人市場的技術視窗，一旦 Agibot 或 Unitree 在台灣或越南設廠規避關稅，Foxconn 可迅速切換供應鏈。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>$300M 訂單全來自單一未具名客戶的 3 年 1,000 台合約，如果那個客戶是 Amazon 或 Foxconn 自己，這到底是市場需求還是股東自導自演的牽引力？</li>
+        <li>中國 State Grid 單筆 $1B 採購 8,500 台機器人，Agility 累計才部署 9 個據點跑 65,000 小時，在這種量級差距下，Digit 靠什麼阻止 Foxconn 直接轉投 Agibot 或 Unitree？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-06-29</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
