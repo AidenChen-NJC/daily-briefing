@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-07-01</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+    
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+      color: var(--signal-bg);
+      font-weight: bold;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 7 月 1 日　星期三</span>
+    <span class="header-count">9 篇</span>
+  </div>
+  <h1>當市場在腰斬，有人在數錢</h1>
+  <p class="header-lede">從 Apple 的零件漲價、到前 DeepMind 研究員的 AI 交易、再到加密政策的利益衝突，今天的故事都指向同一件事：在下行循環中，贏家往往是轉變成本結構、或直接轉移成本給別人的人。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-ram-ageddon">RAM-ageddon 的真正受害者不是 Apple</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-deepmind-poker">前 DeepMind 撲克 AI 三人組</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-etched">Etched 賣的不是晶片</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-open-usd">Open USD 的 140 家夥伴</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-etf-btc">ETF 降低了持有比特幣的門檻</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-trump-crypto">Trump 加密年收 10 億</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="ai-ram-ageddon">
+    <div class="article-meta">
+      <span class="article-source">Fortune / CNBC / Bloomberg</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>RAM-ageddon 的真正受害者不是 Apple，是幫 Apple 封裝記憶體的台積電供應鏈</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Apple 於 6 月 25 日宣布全面調漲 Mac 與 iPad 售價，首度將記憶體與儲存成本轉嫁消費者：MacBook Air 從 1,099 美元漲至 1,299 美元、MacBook Pro 從 1,699 美元漲至 1,999 美元、Mac Studio 從 1,999 美元漲至 2,499 美元；iPad Air 從 599 美元漲至 749 美元、iPad Pro 從 999 美元漲至 1,199 美元。iPhone 暫未調漲。消息公布後 Apple 股價單日重挫逾 6%，為 2025 年 4 月以來最大跌幅。Apple 執行長庫克（Tim Cook）表示「從沒見過零件價格漲得這麼多、這麼快」，並傳出尋求美國政府批准向被列黑名單的中國記憶體廠 CXMT 採購，以緩解 LPDDR（低功耗行動記憶體，Mac 和 iPad 所用的記憶體規格）缺口。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Apple 向 CXMT 求貨是這場缺貨潮的最強確認信號：三星和 SK 海力士把晶圓廠資本優先投入利潤更高、需要先進封裝的 HBM（高頻寬記憶體，AI GPU 所用），擠壓了消費級 LPDDR 的擴產意願，而非總產能不足。連議價能力最強的買家都在市場上找不到貨，說明這不是短期調度問題，而是資本配置結構的結果。iPhone 暫緩漲價的真正原因更可能是庫克判斷手機的需求彈性比電腦敏感，若後續跟漲、換機週期拉長，真正的輸家是台積電封裝與鴻海組裝的產能利用率。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Apple 向被制裁的 CXMT 求貨，等於承認三星和 SK 海力士的產能已被 AI 資料中心合約鎖死。那些 AI 買家鎖定的是什麼價格，鎖多久？</li>
+        <li>MacBook Air 漲 200 美元代表 Apple 判斷需求彈性撐得住。如果這個假設錯了、銷量掉超過 15%，庫克是打算吃毛利還是砍哪條產品線？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-deepmind-poker">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch / Bloomberg</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>前 DeepMind 撲克 AI 三人組：5 億美元估值，但 Tower Research 才是真正的贏家</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">三位曾在 DeepMind 打造出擊敗人類撲克 AI 的研究員，創辦了布拉格 AI 實驗室 EquiLibre Technologies，並將相同的強化學習（reinforcement learning，讓模型透過反覆試錯以獎勵訊號自我優化的訓練方法）技術應用於股票交易。EquiLibre 完成一筆金額未揭露的 Series A（新創在種子輪後的首輪機構募資），由 Creandum 領投，為該創投史上「單筆最大投資」，目前估值逾 5 億美元。其演算法與量化交易公司 Tower Research Capital 合作，每日在標普 500 與納斯達克交易數十億美元。該公司宣稱自 2025 年在加密市場推出、後擴及股市以來，保持「零負月」紀錄。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">「零負月」是自我申報，且涵蓋了加密牛市階段，若未扣除市場因子（beta），這個數字更接近「運氣加槓桿」，而非 alpha 生成能力的證明。Tower Research 的參與是最重要的隱性背書，但它是分潤方而非稽核方，真正承擔稽核責任的機制目前不存在。更關鍵的結構性問題是：若 EquiLibre 的 alpha 部分來自 Tower Research 的暗池接入（market microstructure access，大型機構專屬的交易管道）與執行基礎設施，贏家是 Tower，它以分潤換到了 AI 策略的免費迭代，而假設這兩者可分離的投資人是輸家。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>「零負月」是以什麼口徑算的？是扣除基礎設施成本和 Tower Research 的分潤之後的淨 PnL，還是只看策略的毛收益？</li>
+        <li>如果核心 alpha 來自與 Tower Research 共享的執行基礎設施和暗池接入，EquiLibre 離開 Tower 之後還能獨立出貨嗎？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-etched">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch / Bloomberg</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Etched 賣的不是晶片，是「推論成本從變動費用變固定成本」的選擇權</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Etched 的 10 億美元訂單揭示一個結構轉折：推論成本已痛到有大型買家願意賭「Transformer 架構不會再大改」，這是 AI 算力市場從訓練競賽轉向推論成本戰的第一個硬數字。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">AI 晶片新創 Etched 於 6 月 30 日傳出估值達 50 億美元，其 ASIC（application-specific integrated circuit，為單一用途客製化的晶片，效率高但不通用）晶片 Sohu 專為執行 Transformer（當前主流大模型的神經網路架構）打造，採 TSMC 4nm 製程，宣稱在推論（inference，模型訓練完成後實際回應查詢的運算階段）效能上大幅領先 GPU 且更省電。Etched 去年 12 月以 50 億美元投後估值完成融資，累計募資達 8 億美元，Sohu 已累積 10 億美元合約訂單，計畫今夏開始出貨，Jane Street 與一家 TSMC 相關創投為本輪投資人。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Etched 的真正客戶不是一般企業，而是「推論量大到雲端定價讓毛利率受不了」的 AI 應用公司，Sohu 賣的是把推論成本從雲端帳單（變動費用）轉為資本支出（固定成本）的自主性，Google TPU 和 AWS Trainium 解決不了這個問題。但把 Transformer attention 焊死在矽上，意味著 Etched 的存亡與 Transformer 架構的壽命完全綁定，一旦主流模型轉向 Mamba（state-space model 的代表架構）或混合注意力機制，Sohu 的矽層功能性廢棄，無法靠韌體更新補救。10 億訂單裡「不可撤銷承諾」與「意向書」的比例，因此比估值本身更重要。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>那 10 億美元合約訂單裡，有多少是不可取消且附預付款的硬承諾，而不是意向書或附條件的框架協議？</li>
+        <li>把 Transformer attention 機制焊死在 ASIC 裡，一旦架構演進到 state-space model 或混合注意力機制，Sohu 的矽層還能跑嗎，還是整片晶片直接報廢？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="web3-open-usd">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / The Block / Fortune / Bloomberg</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Open USD 的 140 家夥伴裡，真正能殺死 Circle 的只有三到五家</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">由獨立公司 Open Standard 發行的穩定幣 Open USD 於 6 月 30 日宣布成立，創始夥伴超過 140 家，包含 Stripe、Coinbase、Mastercard、Visa、BlackRock，另有 BNY、Standard Chartered、DBS、U.S. Bank、Shopify、Google、IBM、Mercado Pago、Fireblocks、Anchorage Digital、MetaMask、Aave、Solana、Polygon、Ripple 等機構。Open USD 的核心差異化是將準備金收益（stablecoin reserve revenue，發行方拿用戶美元買美債賺的利息，Circle 和 Tether 的主要獲利來源）返還給參與商戶，僅扣小額管理費，並取消鑄造與贖回（mint/redeem，發行與贖回穩定幣的動作）手續費。消息公布後 Circle 股價單日重挫 17%，跌至四個月低點，多家分析師認為賣壓「過度反應」，因 Open USD 預計今年稍晚才上線。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">140 家創始夥伴多數屬於「背書站台」而非「簽約鑄造量承諾」，這是標準聯盟啟動策略，真正能帶來流動性的關鍵少數是 Stripe（支付流量）、Shopify（商戶端）與 Mastercard/Visa（結算網路），其餘大多是信號放大器。Open USD 的生死取決於這三到五家能撥多少實際交易量過去，而非名單長度。真正被攻擊的也不是 Circle 的技術，而是它的機構夥伴網路這道護城河，一夕之間對手把 Circle 最大的分銷優勢複製了一份，而 Circle 剩下的機構合約鎖定期資訊目前未公開。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Stripe 和 Coinbase 同時是 Circle 現有的分銷夥伴，又是 Open USD 創始成員。他們會把現有 USDC 的商戶流量直接切過去嗎，還是兩邊都接？</li>
+        <li>Open Standard 把準備金利息還給商戶、又取消鑄造贖回費，那它自己靠什麼活？「小額管理費」到底是幾個 bps，足以撐起一家獨立公司的營運嗎？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-etf-btc">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / The Block</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>ETF 降低了持有比特幣的門檻，也降低了逃跑的門檻</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">6 月 30 日比特幣下跌 3% 至 58,350 美元，較去年秋季歷史高點回落約 50%，以太幣、XRP、Solana 同步下挫。美國現貨比特幣 ETF（spot bitcoin ETF，直接持有比特幣的交易所交易基金，2024 年在美國獲批）在截至 6 月 26 日的一週淨流出約 17.9 億美元，為上市以來第二大單週流出，連續第七週淨流出。BlackRock 的 IBIT 當日再流出約 3 億美元，其平均投資人目前浮虧約 40%。選擇權交易員同時為下檔保護（downside protection，用選擇權對沖價格下跌的成本）付出更高溢價。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">ETF 曾被視為「帶來穩定長期資金」的結構性利多，但這次數據揭示了一個反向機制：IBIT 降低了持有比特幣的摩擦，同時也降低了逃跑的摩擦，當平均持有人浮虧 40% 時，ETF 反而成為放大賣壓的管道，而非緩衝。歷史上黃金 ETF 也有同樣的雙向加速效應。贏家是做空波動率的交易員，輸家是相信「ETF 引入長期穩定機構資金」這個敘事的散戶。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>BlackRock 當初賣 IBIT 的通路主要是財富管理顧問推給散戶，這些顧問現在是主動勸客戶贖回，還是客戶自己跑的？哪一方先動手決定了下一波賣壓的深度？</li>
+        <li>連續七週淨流出後，還留在 IBIT 裡的資金到底是真正長期配置的機構，還是只是被套牢不甘砍的散戶？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-trump-crypto">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Trump 加密年收 10 億：政策友善能否持續，取決於下任政府逆轉的成本有多低</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">根據 Trump 的年度財產揭露，他去年在入主白宮並推行積極親加密政策期間，從加密貨幣的銷售與權利金（royalties，授權自身名號發行代幣所收取的分成）賺進逾 10 億美元，其中 6.35 億美元來自自名 memecoin（迷因幣，多半無實際用途、靠社群炒作與名人效應驅動價格的加密代幣）業務的權利金。消息公布之際，加密產業正值低潮：比特幣較高點腰斬、現貨 ETF 連續七週淨流出。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">這是「利益衝突從敘事變成可量化申報數字」的轉折點，但真正需要重新定價的不是這位總統的政策風險，而是加密政策的制度化程度。若親加密政策的支撐力量是個人利益驅動而非立法根基，下任政府的逆轉成本極低。對加密基金的長倉投資人而言，假設監管友善能持續是一個正在定價錯誤的假設。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果我是加密基金的 LP，總統個人年收 10 億而同期 ETF 投資人平均虧 40%，這個利益分配結構下，我該重新評估的是哪一層政策風險溢價？</li>
+        <li>任何想發名人幣的競爭者現在看到的真正護城河，到底是「總統」這個身份本身，還是他能動用行政權替加密產業開綠燈這件事？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-07-01</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
