@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日科技簡報 — 2026-07-03</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+      color: var(--signal-bg);
+      font-weight: 700;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 7 月 3 日　星期五</span>
+    <span class="header-count">7 篇</span>
+  </div>
+  <h1>政府、機器人與過熱的估值</h1>
+  <p class="header-lede">Anthropic 讓美國政府常駐了模型發布流程，Meta 進場搶算力租賃市場，而中國人形機器人租賃市場正在標出真實能力成本——一天 2,500 元人民幣，裡面根本沒有毛利。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic">Anthropic 讓政府永久進入了它的發布流程</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-meta">Meta 進場算力出租，真正的問題不是定價而是 SLA</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-apptronik">Apptronik 的數據護城河可能從第一天就漏水</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-bmw">BMW 三家廠商同跑：Figure 被選中，還是被拿來壓價？</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-china">中國人形機器人租賃熱潮正在標出一條真實能力基準線</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-wayve">Wayve $85M Tender Offer 的留才算術根本算不過</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="ai-anthropic">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 讓政府永久進入了它的發布流程</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Anthropic 此次換取的不是單次解禁，而是把美國政府嵌入所有未來模型發布流程的先例，這是 frontier AI 監管史上第一次直接介入商業部署週期。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 的前沿模型（frontier model，能力最強的一線模型）Claude Fable 5 於 6/9 發布，三天後美國商務部以國安權限要求對所有外籍人士暫停存取，觸發點是 Amazon 研究員發現的一個 jailbreak（越獄，用 prompt 繞過模型安全限制），讓模型標記出軟體漏洞並寫出可被濫用的程式碼。中斷 18 天後，商務部於 7/1 解除出口管制（export controls，原用於限制敏感技術外流），條件是 Anthropic 承諾向政府通報惡意活動、協助制定未來模型標準，並給予政府對未來每一代模型的預發布存取權。付費方案 7/7 前每週用量上限砍半，之後改用量計費；更新後的安全過濾器（guardrails，安全護欄）對該已知 jailbreak 阻擋率 >99%，被擋時以 Opus 4.8 作為 fallback 回答。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">這次交換的核心不是 Fable 5 的存取權，而是「政府對未來每一代模型的預發布審查常態化」。Anthropic 的模型上線時程從工程決策變成了政治決策，最直接的受益者是 Meta 的 Llama 開源系列，因為它不受此約束，等於在每次審查延遲期間自動拉大部署速度優勢。18 天中斷加上 7/7 前用量砍半，已有企業客戶把非核心工作負載切到 GPT 5.5 或開源替代做壓測，而切走後發現替代品夠用的那部分流量，幾乎不會再回來。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>預發布審查如果變成常態，Anthropic 的企業客戶簽約時會不會要求「保證上線時程」的 SLA，這條件他們現在根本給不出來，GTM 怎麼跟不受此限的開源模型搶單？</li>
+        <li>政府預發布審查若變成常態化卡點，不受此約束的開源模型（如 Meta Llama 系列）是否因此拿到結構性的部署速度優勢，而不只是短期佔便宜？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-meta">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Meta 進場算力出租，真正的問題不是定價而是 SLA</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Meta 傳正開發雲端服務，計畫將資料中心閒置算力（spare compute）對外出租，選項涵蓋出租原始算力或讓開發者付費使用 Meta 託管的模型（含近期發布的 Muse Spark 閉源模型），模式對標 AWS Bedrock（Amazon 的託管模型 API 服務）與 CoreWeave 這類 neocloud（新雲，如 CoreWeave、Nebius，專門出租 GPU 算力的新型雲端商）。消息一出，Meta 股價單日漲 9.3%，CoreWeave 跌 14%、Nebius 跌 17%，SanDisk、Intel、AMD 各跌 6.9% 至 10.6%。Meta 已投入 $182.9B 基礎設施，Zuckerberg 五月表示每週都有外部公司詢問是否可買 Meta 算力，但公司仍以內部使用為主。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">CoreWeave 和 Nebius 的核心護城河是 GPU 供應合約鎖定加上客製化 InfiniBand 網路拓撲，Meta 帶著自研 MTIA 晶片與既有 NVIDIA 庫存進場，最先被打掉的是裸 GPU 出租的低端市場層，因為 Meta 可以用相同型號晶片報更低價格。但多租戶隔離（multi-tenant isolation）、SLA 保證和合規體系是 Meta 現在完全不具備的能力，neocloud 真正能撐 12 至 18 個月的防線正是在這裡，不是在價格上。更根本的問題是：Meta 的閒置算力是推論峰谷差的剩餘，一旦 Muse Spark 採用量起飛，這些算力隨時會被內部優先佔用，任何把生產工作負載放上去的外部客戶都在承擔「供應商隨時砍配額」的風險。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Meta 的「閒置算力」是推論峰谷差的剩餘，如果 Muse Spark 採用量一旦起飛，這些算力隨時會被內部收回，哪個外部客戶敢把 production workload 放上去？</li>
+        <li>CoreWeave 和 Nebius 真正該怕的不是價格戰，而是 Meta 把模型託管跟算力綁售變成 AWS Bedrock 式的鎖定，Meta 有沒有能力在六個月內建出企業級的帳務、SLA、合規體系，還是這只是一張說說的投影片？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">5 篇</span>
+  </div>
+
+  <article class="article" id="vc-apptronik">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Robotics</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Apptronik 的數據護城河可能從第一天就漏水</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Apptronik 在 Austin 開設 9 萬平方呎訓練設施「Robot Park」，雙足與輪式兩種構型的 Apollo 2 透過遠端操控（teleoperation，由人操作機器人以蒐集示範數據）與自主運作，在物流、製造、零售任務上反覆累積數據。CEO Jeff Cardenas 稱之為「數據工廠」，產出直接餵入與 Google DeepMind 的合作，協助訓練 Gemini Robotics（Google DeepMind 的機器人基礎模型）；類似蒐集流程已擴及 Mercedes-Benz 和物流客戶 GXO。下一代 Apollo 3 預計明年推出，Cardenas 稱其為 Apptronik 第一個「真正的產品」，脫離 Apollo 2 的原型階段。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Apptronik 把 Robot Park 數據餵給 Google DeepMind 訓練 Gemini Robotics，若模型權重歸屬在 DeepMind，Apptronik 的真實角色是「外包標注員」而非護城河持有者，除非合約明確保留獨佔使用權或反向授權。更大的結構問題是：Apollo 3 明年才是真正產品，代表 Apptronik 現在是用原型機燒錢養 9 萬平方呎設施，同時把數據利潤讓渡給 Google DeepMind，能否撐到 Apollo 3 產生營收，完全取決於 Google 合作是否有實質資金流入。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Mercedes-Benz 和 GXO 場域蒐集的數據歸誰？如果客戶要求數據不出廠，Robot Park 練出來的模型在真實工廠根本不能用，那這座護城河從第一天就漏水了？</li>
+        <li>Google DeepMind 拿走 Robot Park 產出的數據訓練 Gemini Robotics，數據的經濟價值到底歸誰，Apptronik 是在幫 Google 免費標註還是在收授權費？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-bmw">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Robotics</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>BMW 三家廠商同跑：Figure 被選中，還是被拿來壓價？</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Figure 03 回到 BMW Spartanburg（South Carolina）廠，從車體車間改派倉庫地板做序列揀貨（sequencing，把零件依裝配順序排入料車），零件以散裝容器送達，Figure 03 揀出元件後依裝配順序放入 trolley。Figure 03 新增觸覺感測手（tactile sensor）、掌心相機、無線充電、軟觸安全件與 speech-to-speech（語音對語音）語音互動。前一輪 Figure 02 花 11 個月跨越逾 30,000 台 BMW X3、運行逾 1,250 小時、處理逾 90,000 個零件。同期，Hexagon 的 AEON 在 BMW Leipzig 測試，Boston Dynamics 的 Spot 在英國廠負責巡檢，BMW 等於同時在三座廠跑三家廠商。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">BMW 同時多家廠商、多座工廠並跑，是汽車產業壓低採購籌碼的標準做法，Figure 拿到的幾乎可以確定不是排他合約，而是讓三家互相競標的比較結構。更根本的信號缺席了：Figure 02 跑了 11 個月、處理 9 萬個零件，但目前沒有任何公開資料顯示 BMW Spartanburg 的產線人數因此縮減。人力替代數字出現之前，Brett Adcock 說「不再是實驗室實驗」只是行銷敘事，BMW 才是這個安排裡最大的贏家，因為它免費累積了三家廠商的真實比較數據。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>BMW 同時讓 Figure、Hexagon AEON、Boston Dynamics 三家跑三座廠，這對 Figure 來說到底是「被選中」還是「被當成比較基準隨時可換」，Figure 拿到的是排他合約還是隨時可終止的 pilot？</li>
+        <li>Figure 02 跑了 11 個月處理九萬個零件，但 BMW 有沒有因此減少任何一條線的人力配置，如果人頭數沒動，這就只是免費 beta test 不是真實牽引力？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-china">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Robotics</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>中國人形機器人租賃熱潮正在標出一條真實能力基準線</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">中國人形機器人熱潮催生龐大租賃市場，最低 2,500 元人民幣（約 $368）一天即可租一台，含運送與一名人類操作員。AgiBot 的 Yuanzheng A2 報價為 $1,380/天。全球最大人形機器人商 Unitree 的工業部署仍不到 10%，主要買家是研究機構。Morgan Stanley 預估 2050 年將有 10 億台人形機器人在用、市場達 $5T。一名杭州 livestreamer 對 CNN 表示，今天的機器人「還不能自己運作，基本上是放大版玩具」，即便他自己的租賃生意做得不錯。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">租賃市場的毛利結構極度緊張。以中國一線城市操作員日薪 500 至 800 元、運輸 200 至 400 元、加上 Unitree G1 約 $16,000 售價假設 200 天租賃壽命則每日折舊約 $80 粗估，2,500 元的日租幾乎沒有正毛利空間，整個市場更像是把研究機構銷售的庫存轉為展示場流水。這直接打臉 Unitree 的上市故事：工業化率低於 10%，卻備戰上海上市，上市說明書若把租賃市場規模當成 TAM（總可服務市場）背書，而不是實際訂單，就是典型的炒高週期式 IPO。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>一天 2,500 元含操作員的租金，扣掉運輸、人力、折舊後毛利是正的嗎，還是這些租賃商根本在燒 Unitree 的補貼庫存，一旦補貼停就全倒？</li>
+        <li>Unitree 工業部署不到 10%、主要買家是研究機構，它備戰上海上市時拿什麼當收入故事，租賃市場的 GMV 會被算進 Unitree 的營收嗎，還是只是經銷商的流水？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-wayve">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Robotics</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Wayve $85M Tender Offer 的留才算術根本算不過</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">英國自駕新創 Wayve 透過新舊投資人領投的 tender offer（要約收購，讓員工把未上市已 vested 股票，即已歸屬股權，變現），讓員工出售 $85M 股權，估值維持在今年 2 月 $1.2B Series D 所設的 $8.5B。Series D 由 Eclipse、Balderton、SoftBank Vision Fund 2 領投，Ontario Teachers'、Baillie Gifford、Microsoft、Nvidia、Uber 參與。這是 Wayve 第二次流動性事件，前次隨 2024 年 5 月的 $1.05B Series C。公司過去一年員工數翻倍至約 1,200 人，規劃與 Uber 的 robotaxi 試點，並預計 2027 年起把端到端神經網路（end-to-end neural network，直接從感測輸入學到駕駛輸出、不靠預建地圖）整合進 Nissan 駕駛輔助系統。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">數學算不過。1,200 名員工、$85M tender，人均套現不到 $71K，而頂尖自駕工程師在 Waymo 或 Aurora 的年薪 comp 輕鬆超過 $400K，$71K 的一次性套現大約只是 2 至 3 個月薪差。真正有留才效果的只有那些持有大量 vested equity 的早期員工，可能是 50 至 100 人，其餘大多數人的實際套現金額遠低於均值，作為全員留才工具幾乎失效。Eclipse 和 SoftBank 在 $8.5B 估值接員工老股的退出情境，最可能是押 Nissan 或 Uber 在 2027 至 2028 年整合成功後觸發戰略收購，而非 IPO，因為在 Waymo 已有真實付費乘客的對照下，Wayve 很難以當前里程碑支撐公開市場的 $8.5B。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>1,200 名員工、$85M tender，人均套現不到 $71K，這個金額真的夠阻止頂尖自駕工程師跳槽去 Waymo 或 Aurora 拿兩倍現金 comp 嗎？</li>
+        <li>$8.5B 估值但 Uber 試點和 Nissan 整合都還沒上線，Eclipse 和 SoftBank 願意在這個價位接員工老股，他們的退出情境是 IPO、被收購、還是單純賭下一輪有人接盤？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-07-03</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
