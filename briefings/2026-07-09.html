@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-07-09</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+      color: var(--signal-bg);
+      font-weight: 700;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 7 月 9 日　星期四</span>
+    <span class="header-count">11 篇</span>
+  </div>
+  <h1>十件事讓你今天比昨天聰明一點</h1>
+  <p class="header-lede">解禁、嵌入、被迫。三個關鍵字理解今天三大領域的權力重組。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-safety">OpenAI 的安全自評</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-meta-muse">Meta Muse Image</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-china-open">中國管制開源模型</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-lean-eth">Lean Ethereum 的威脅</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-strategy-btc">Strategy 賣幣付息</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-stablecoin">穩定幣月跌 $7.7B</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-sec-crypto">SEC Regulation Crypto</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-zapper-plume">Zapper 關閉、Plume 進 Binance</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-paradigm">Paradigm 新基金短募</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-sambanova">SambaNova $11B 估值</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-norm">Norm 完成 Series C</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="ai-openai-safety">
+    <div class="article-meta">
+      <span class="article-source">CNBC / Axios</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 的安全自評從未被任何人驗證，而這正是它能解禁的原因</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OpenAI 於 7/8 宣布本週四全面公開發布 GPT-5.6 系列三款模型：旗艦版 Sol（強化編碼、生物、化學與資安）、均衡版 Terra，以及高速低成本版 Luna。這距離 6/26 應美國政府要求限縮至「少數受信任夥伴」僅晚兩週。OpenAI 稱 Sol「協助修補漏洞的能力優於可靠地執行端到端攻擊」，其能力未達 preparedness framework（OpenAI 自訂的能力風險分級框架，判定模型是否達到需管制的「critical」危險等級）的 critical 門檻，前代 GPT-5.5 於 4/23 發布。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">preparedness framework 的門檻由 OpenAI 自訂、自行評估，目前沒有任何獨立第三方對 Sol 的生物合成能力完成過公開的對抗性評測。這套自裁判機制的設計邏輯是：只要把「critical」的行為測試邊界設得夠窄，幾乎任何模型都能被宣告「未達標」而合法發布，政府沒有技術能力拒絕這份自我評估。真正驅動解禁的是商業壓力，限制兩週恰好落在中國模型搶市的新聞週期，企業 API 切換成本接近於零，OpenAI 向白宮呈現的核心論點很可能是「限制美國模型等於把市場讓給對手」而非技術安全論證。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>OpenAI 用「未達 critical 門檻」說服白宮解禁，但這個 preparedness framework 的門檻是 OpenAI 自己設的。哪個獨立第三方驗證過 Sol 的生物與資安能力確實低於 critical？</li>
+        <li>Sol「協助修補優於端到端攻擊」的主張，是否只是因為評測設計未涵蓋多步驟 agent 串接的真實攻擊鏈，而非模型能力本身的限制？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-meta-muse">
+    <div class="article-meta">
+      <span class="article-source">CNBC / TechCrunch / Axios</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Meta Muse Image 的真實護城河不是模型，是你已經開著的 app</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Meta 於 7/7 推出首款圖像生成模型 Muse Image，由 Alexandr Wang 領導的 Superintelligence Labs 開發，接續 4 月發布的 Muse Spark LLM。消費者可免費透過 Meta AI app、WhatsApp 私訊與 Instagram Stories 使用，超過一定用量後需訂閱 Meta 月費方案。廣告端，Muse Image 驅動 Advantage+（Meta 的 AI 自動化廣告投放產品線）的圖像生成工具。最大爭議點在於：只要目標為公開帳號，用戶即可用 AI 操作他人 Instagram 照片，發布當日即引發反彈。後續預告推出影片模型 Muse Video。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Meta 真正難以複製的不是模型品質，而是 WhatsApp 加 Instagram 的分發管道。數十億用戶無需下載新 app、無需新帳號，功能直接出現在使用者已開著的應用程式裡。Midjourney 和 Stability AI 在這個維度上完全沒有勝算，開源模型加 IG 公開 API 可以複製生成能力，但複製不了「用戶已在這裡」的分發密度。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果歐盟因公開帳號照片加工功能判定違反 GDPR 並限制服務，Meta 為 Muse Image 投入的研發與整合成本在什麼 DAU 滲透率之下變成淨虧損？</li>
+        <li>Muse Image 嵌進 WhatsApp 端對端加密環境後，Meta 在技術上如何對生成內容執行安全審查而不破壞 E2EE 的隱私保證？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-china-open">
+    <div class="article-meta">
+      <span class="article-source">Fortune / CNBC</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>中國管制開源 AI 模型的提案，在技術上幾乎不可能執行</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">據 Fortune 7/8 報導，中國商務部召集 Alibaba、ByteDance、xAI 等頂尖科技公司，討論限制中國最先進 AI 模型（含未發布者）對外供應的政府提案，涵蓋封閉源與開源模型，洩漏或竊取相關技術恐構成國安罪，並研議限制誰能投資國內 AI 新創。背景是 CNBC 7/7、7/8 報導中國模型因 OpenAI、Anthropic 成本飆升而在美企市場快速滲透，Anthropic 的 Fable 5 曾因美國出口管制下架兩週，GPT-5.6 亦一度應政府要求限縮。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">對開源模型實施出口管制在技術上幾乎不可執行。模型權重一旦上傳至 HuggingFace 或 GitHub，任何人皆可下載並在境外伺服器部署，沒有技術手段追溯已散布的副本。中國政府能執行的只是「禁止國內公司未來公開發布新模型」，真正受損的輸家是 Alibaba、ByteDance 等欲以開源建立生態的公司，而現有已散布模型的境外使用者不受任何實質影響。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果雙邊同時築牆，中間地帶的東南亞和中東客戶會被誰先鎖定。真正的 GTM 賽跑是簽政府合約還是綁雲端帳單？</li>
+        <li>美企「正在用中國模型」的實際情境是生產環境的推論負載，還是只是工程師在 sandbox 跑 benchmark 後寫了篇內部報告？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">5 篇</span>
+  </div>
+
+  <article class="article" id="web3-lean-eth">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / The Defiant</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Lean Ethereum 最大的受害者不是現有節點，是那些靠 EVM 相容性賣故事的 L2</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Vitalik 的 RISC-V 替換提案是一個具體的時間炸彈：所有以「永久 EVM 相容」為核心賣點的 L2 基礎設施，投資人現在就應該要求持倉方明確表態遷移策略。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Vitalik Buterin 於 7/6 發布「Lean Ethereum」路線圖，主張以量子安全密碼學替換所有現有加密、以 recursive STARKs（零知識證明的一種，讓節點只需驗證「運算已正確完成」的壓縮證明，而非重算每筆交易）取代節點全量重算、並把隱私升格為協議核心。主要實施時程 3 至 4 年、涵蓋 7 次分叉，路線圖後期 EVM（以太坊現有的指令集架構）可能被 RISC-V（開源指令集架構）取代。路線圖發布當週 ETH 漲 12%，同期 Ethereum Foundation 裁員約 20%，共 54 人。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">若 EVM 後期被 RISC-V 取代，Arbitrum、Base、OP Stack 系列 L2 以「EVM 相容性」為核心賣點的護城河面臨底層破壞。短期輸家是以「永久 EVM 相容」為核心進行融資的 L2 基礎設施項目；短期贏家是已開始研究 RISC-V zkVM 的團隊，如 RISC Zero 和 Succinct Labs（SP1）。路線圖與 Foundation 裁員 20% 同步，但裁員的職能分布未披露，若涉及協議研究而非行政職能，7 次分叉的執行可信度下降。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>路線圖要 7 次分叉、3 至 4 年完成，同期 Ethereum Foundation 裁員 20%。用更少的人執行 Merge 以來最大重建，ETH 持有者應該相信哪個信號？</li>
+        <li>如果 EVM 後期被 RISC-V 取代，Arbitrum、Base、OP Stack 所有 L2 的 EVM 相容性護城河歸零。這些 L2 的投資人現在該把持倉減記多少？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-strategy-btc">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Strategy 在賣 BTC 付「為了買 BTC 借的錢」的利息，這是被迫的，不是策略</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Strategy 於 7/6 揭露，6/29 至 30 賣出 1,363 BTC（$80.8M）、7/1 至 5 再賣 2,225 BTC（$135.2M），合計 3,588 BTC、套現 $216M，現持 843,775 BTC。新的 Digital Credit Capital Framework（允許動用 BTC 庫存融通特別股股利支付的新政策，取代過去「只買不賣」原則）授權最多出售 $1.25B BTC，現金儲備 $2.55B。賣出用途為支付四種永久特別股（無到期日、固定股利、清算優先於普通股的融資工具，當初正是為了買更多 BTC 而發行）的 Q2 股利。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Strategy 是在賣 BTC 來履行「為買 BTC 而發行的特別股」的固定股利義務，這是機械性強制賣出，而非主動策略調整。四種永久特別股的固定股利年總額估計在 $3 至 4 億美元區間，意味每季需持續動用授權框架支付，MSTR 普通股股東承擔所有剩餘風險，特別股持有人有固定股利優先權。持有 MSTR 相對於直接持有 BTC ETF 的溢價理由，在定期賣出成為結構性事實之後已經消失，贏家是 BlackRock iShares Bitcoin ETF 和 Fidelity FBTC，它們是最直接的替代持倉。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>$1.25B 授權賣出框架裡已用掉 $216M，按目前特別股股利節奏，剩餘額度撐幾季。這個強制賣出循環的觸發條件是 BTC 價格跌到多少時變成螺旋？</li>
+        <li>Michael Saylor 用發特別股借的錢買 BTC、再賣 BTC 付特別股股利，這個循環結構裡誰是最終風險承擔者，是 MSTR 普通股股東還是特別股持有人？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-stablecoin">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk Research</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>穩定幣月跌 $7.7B，錢沒跑，Circle 悄悄在代幣化基金市場擊敗了 BlackRock</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">據 CoinDesk Research，穩定幣總市值 6 月跌至 $312B，月降 $7.7B（-2.39%），為 2022 年 5 月 TerraUSD（2022 年崩潰的算法穩定幣，曾造成逾 $400B 加密市值蒸發）以來最大月降。同期代幣化股票鏈上量暴增 145% 至歷史新高 $3.86B，SpaceX（SPCX）代幣化量達 $1.19B，主要場所為 Backpack Securities 和 xStocks。RWA（Real-World Assets，把股票、國債等現實資產鑄成鏈上代幣）總市值升至 $30.1B 新高。Circle 的 USYC（Circle 的代幣化貨幣市場基金，持有人可獲利率收益，有別於無息的 USDC）規模達 $3.11B，首度超越 BlackRock BUIDL。穩定幣 CEX 交易量 $981B（+10.8%），五個月來首漲。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">代幣化股票 145% 的標題數字有誤導性。SpaceX 一檔佔總量 $3.86B 的 31%，剔除此單一催化劑後，剩餘增長率約 50 至 60%，更接近「少數 IPO 前私募股票代幣化的機會性聚集」而非結構性趨勢。Circle USYC 超越 BlackRock BUIDL 才是更重要的信號，但 BUIDL 的品牌在機構端仍佔優勢，若 BlackRock 選擇強化 BUIDL 的零售觸及，Circle 的領先地位在 60 至 90 天內即可能逆轉。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>SpaceX 代幣化量 $1.19B 佔了代幣化股票暴增量的近三分之一，如果拿掉這單一事件驅動，Backpack 和 xStocks 的基礎日活交易量趨勢是漲還是平？</li>
+        <li>Circle USYC 首度超越 BlackRock BUIDL，但這是靠收益率價格戰還是靠分發通路。如果 BlackRock 明天把 BUIDL 塞進 Coinbase 首頁，Circle 的領先能撐多久？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-sec-crypto">
+    <div class="article-meta">
+      <span class="article-source">Decrypt</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>SEC「7 月出爐」是程序啟動，不是法規生效，最快 2027 年初才能出貨</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">SEC 於 7/7 更新監管議程，主席 Paul Atkins 承諾 Regulation Crypto 最快本月進入公眾意見徵詢期，框架涵蓋代幣化證券、DeFi 豁免與去中心化過渡安全港（safe harbor，符合特定條件者暫時豁免 SEC 證券法登記要求）：小型新創於估值 $5M 內、創辦 4 年內可豁免登記，並可透過合格加密投資合約最多籌集 $75M。本次發布具行政約束力，但仍屬提案，須經公眾評論後才成最終規則。Polymarket 上 CLARITY Act 通過機率約 50%，為兩週高點。Atkins 自 3 月起已三度跳票「數週內出爐」。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">公眾評論期通常 60 天，加上最終規則制定額外 3 至 6 個月，合規產品能實際出貨的最早時間點是 2027 年初，而非 7 月。任何已按草案設計產品並開始對客戶銷售的合規工具新創（如 token issuance platform）正在賭一份尚未確定最終形態的規則，GTM 風險最高。$75M 安全港融資上限和 $5M 估值豁免門檻，實際受益者是種子輪至 A 輪之間的原生加密協議新創，對已融超過 $260M 的 Norm 或持有 $12B AUM 的 Paradigm 完全不適用。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Atkins 已跳票三次，這次用正式監管議程發布。但公眾評論期加最終規則制定至少拖半年，真正能出貨的合規產品時間表根本不是 7 月，對嗎？</li>
+        <li>如果 CLARITY Act 和 Regulation Crypto 同時落地但互相矛盾，已經按草案設計產品的新創要全部重來，誰的 GTM 風險最大？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-zapper-plume">
+    <div class="article-meta">
+      <span class="article-source">The Block / Benzinga</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Zapper 死於「純資料層無法變現」，Plume 告訴你 DeFi 門戶的未來是嵌入</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">DeFi 聚合器與資產追蹤工具 Zapper 於 7/8 宣布 8/3 全面關閉，結束 7 年營運，峰值月活達 200 萬、累計交易量 $130 億、歷史融資 $15M，Mark Cuban 為支持者之一。同日 Plume 宣布把機構等級收益工具 nBASIS（底層為 Bitwise Crypto Carry Fund USCC，AUM $225M+，以及 Invesco USTB，AUM $950M+，採加密基差交易，即在現貨與期貨間同時建立多空捕捉期貨升水）整合進 Binance Wallet，當前收益率約 3.5%，讓散戶觸及 Invesco（管理逾 $2T）和 Bitwise（管理 $11B+）等機構基金。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Zapper 七年燒完 $15M、200 萬 MAU 卻沒有可持續收入，投資回報幾乎確定接近全損。DeBank 的付費社交功能和 Zerion 的自託管錢包是目前存活者試圖跨越的護城河，但它們的付費轉換率從未公開披露，能否持續仍存疑。Plume 和 Binance 的配對則確認了另一條路：把機構產品嵌入用戶已在的通路，而非建立新的獨立門戶。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Zapper 死於「純資料層無法變現」，但 DeBank、Zerion 還活著。它們找到了什麼 Zapper 沒找到的付費意願，還是只是死得比較慢？</li>
+        <li>Plume nBASIS 收益率僅 3.5%，塞進 Binance Wallet 後觸及的散戶願意為這個收益率鎖倉的平均金額是多少。如果答案低於 $1,000，Plume 的分銷故事在 unit economics 上成不成立？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="vc-paradigm">
+    <div class="article-meta">
+      <span class="article-source">The Block / TechCrunch / Bloomberg</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Paradigm 新基金低於目標 $300M，LP 不買「加密 VC 能挑 AI 硬體」的故事</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Paradigm 於 7/8 宣布完成 $1.2B 新基金（第四號、第三支創投基金），由創辦人 Matt Huang 與 Managing Partner Alana Palmedo 主導，投資範圍從加密擴至 AI、機器人與太空硬體，但刻意不揭露各類別配置比例。已部署無人機配送公司 Zipline 與太空新創 True Anomaly，繼續投資加密基礎設施 Foundry、Reth，以及穩定幣鏈 Tempo（Paradigm 與 Stripe 共同創辦）。前基金規模為 2021 年 $2.5B、2024 年 $850M，2025 年底 AUM 近 $12B。WSJ 2 月曾報導目標 $1.5B，最終低約 20%、短募 $300M。LP（Limited Partner，基金出資方，多為養老金、大學捐贈基金、家族辦公室等機構）對擴張方向仍有保留。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">短募 $300M 最可能的原因是兩類 LP 同時未買單：原有加密配置 LP 對「AI/機器人混搭」沒有既有配置框架，需要額外委員會審批；潛在 AI 配置 LP 則認為 Paradigm 在非 EVM 領域缺乏可驗證的選案記錄，Zipline 和 True Anomaly 均非 Paradigm 原始主導投資。不揭露配置比例等於 LP 無法用單一基準評估這筆資金，若以加密 VC 的 3 至 5 倍 MOIC 衡量 AI 硬體投資，或以成長型 PE 的 IRR（Internal Rate of Return，年化內部報酬率）15%+ 標準衡量加密基礎設施，兩種框架都會讓另一半部位看起來定價錯誤。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>$1.5B 目標只募到 $1.2B，少掉的 $300M 是哪些 LP profile 拒絕了。是原有加密配置的 LP 不買 AI 故事，還是 AI 配置的 LP 不信 Paradigm 有選案能力？</li>
+        <li>如果 a16z crypto 和 Polychain 明天也宣布投 AI 機器人，Paradigm 在非加密領域的 dealflow 護城河到底是什麼？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-sambanova">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch / CNBC</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>SambaNova 估值 $11B，JPMorgan 以客戶身分出現比任何投資人背書都有說服力</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">SambaNova Systems（2017 年創立，San Jose）於 7/8 宣布 Series F（第六輪機構融資，通常為 IPO 前擴張輪）首次關帳，融資 $1B、估值 $11B，由成長型私募 General Atlantic 領投，其他投資方包括 BlackRock、Intel Capital、Qatar Investment Authority、T. Rowe Price、Capital Group。公司同步宣布 JPMorgan Chase 成為 AI 推論（inference，指用已訓練好的模型對新輸入即時生成輸出，對晶片延遲與能效要求極高）基礎設施正式客戶。第二次關帳預計數週內完成，距上次大額融資僅 5 個月。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">General Atlantic 以成長型 PE 身分領投而非 VC，意味評估框架已從技術賭注轉為可交付的企業收入。JPMorgan 以客戶而非投資人身分曝光，意味採購決策通過了 JPMorgan 的技術評估與資安審計，這比任何財務背書更有說服力。但 SambaNova 的 ARR 未公開，若當前 ARR 低於 $500M，$11B 估值隱含 revenue multiple 超過 22x，在 PE 框架下只能用「IPO 前擴張」解釋，且合約若僅是框架採購而非全面生產部署，JPMorgan 客戶信號的說服力打五折。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>JPMorgan 是「客戶」，但實際部署的是哪個業務線、多少推論節點在跑生產負載，還是一份框架採購合約加幾台 POC 機器？</li>
+        <li>$11B 估值隱含的年化營收倍數是多少。如果 SambaNova 目前 ARR 低於 $500M，General Atlantic 作為成長型 PE 接受 22x+ revenue multiple 的退出假設是 IPO 還是被 Nvidia 收購？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-norm">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch / Bloomberg</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Kirkland 前董事長和 Fenwick 投了 Norm，這是買保險，不是押注顛覆</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Norm 於 7/7 完成由 Khosla Ventures 領投的 $120M Series C，估值 $1.2B，累計融資逾 $260M，成立約 3 年。公司旗下設 Norm Law（AI 原生律所），由 AI agent 執行法律工作、人類律師監督，對企業客戶以成果計費（outcome-based billing，費用與案件結果掛鉤，取代傳統律所的計時收費）取代小時計費。本輪投資人涵蓋 Coatue、Craft Ventures、Bain Capital Ventures 等 VC，Vanguard、TIAA、New York Life 等傳統金融機構，以及 Tony James（前 Blackstone 總裁）、Jeff Hammes（Kirkland & Ellis 前董事長）與 Fenwick 律所本身。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Kirkland & Ellis 前董事長與 Fenwick 本身參與投資，更接近「買保險」而非押注顛覆。他們的投資金額在各自的資產配置中佔比極小，但若 Norm 成功則換來早期關係與潛在的業務導流議價空間。真正有說服力的顛覆信號不是他們投了錢，而是他們有沒有把自己的案子導給 Norm。目前沒有任何公開資料顯示這發生過，而 $1.2B 估值裡的法律失誤損失準備金假設，在 AI agent 法律責任保險市場根本不存在的情況下，幾乎可確認是空白或嚴重低估。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Kirkland 前董事長和 Fenwick 自己投錢進來，這到底是真的押注顛覆還是買一張「如果它贏了我們有席位」的保險。他們有把自己的案子導給 Norm 嗎？</li>
+        <li>AI agent 執行的法律工作若在成果計費模式下產生錯誤導致客戶敗訴，專業責任保險的精算模型目前根本不存在，Norm Law 用什麼機制承擔這個尾部風險？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-07-09</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
