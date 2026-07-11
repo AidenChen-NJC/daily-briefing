@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-07-11</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+      color: var(--signal-bg);
+      font-weight: 700;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 7 月 11 日　星期六</span>
+    <span class="header-count">8 篇</span>
+  </div>
+  <h1>當評測者有權選擇計分板</h1>
+  <p class="header-lede">OpenAI 撤回對 SWE-Bench Pro 的背書，本質上是一場計分板的死刑。Meta 用廣告利潤發動降價戰，Anthropic 沒有反制武器。資本市場重新為不確定性定價。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-superapp">OpenAI 的 superapp 遲到了</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-meta-ads">Meta 廣告武器無人反制</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-broadcom">Broadcom 的客戶集中度</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-swe-bench">SWE-Bench 計分板翻盤</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-apple-30b">Apple 的政治保險</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-netflix-short">Netflix 補洞的毛利矛盾</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-blueorigin">Blue Origin 沒有 Starlink</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-meta-alberta">Meta Alberta：快速贏電價險</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">5 篇</span>
+  </div>
+
+  <article class="article" id="ai-openai-superapp">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 的 superapp 比 Anthropic 晚了一個工作流週期</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OpenAI 正式發布 GPT-5.6 家族，旗艦 Sol 定價 $5/$30 per million tokens（輸入/輸出），與前代 GPT-5.5 持平。Sol 在第三方 agentic coding 基準 Coding Agent Index 得 80 分，比競爭模型 Fable 5 高約 2.8 分，且輸出 token 用量與耗時皆不到一半。同步發布的 ChatGPT Work 是對標 Anthropic Claude Cowork 的日常工作 agent 平台，Codex 引擎同時併入改版 ChatGPT 桌面 app，內建瀏覽器與電腦控制功能。此外，OpenAI 二號人物 Fidji Simo 在同一天宣布離任。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">ChatGPT Work 急於上線的時機，和「Anthropic Cowork 已建立企業工作流鎖定」的假設高度吻合。企業客戶的日常任務（文件、試算表、會議）一旦跑在 Claude 上，切換成本每週都在升高，OpenAI 若再晚三個月，輸掉的不是功能比較，而是工作流慣性。Simo 離任當天同步發布產品改組，表明這是計畫性切割，但產品營收責任鏈從 Simo 直接扁平化到 Altman，對 $6.6B 輪投資人而言治理風險同步升級。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Sol 定價與 GPT-5.5 完全持平，但 Altman 聲稱 token 效率提升 54%，這等於變相降價近半，OpenAI 的毛利率假設是靠什麼撐住的？</li>
+        <li>Fidji Simo 走人的同一天發產品，OpenAI 真正怕的是不是企業客戶已經被 Anthropic 鎖進 Cowork 的工作流，所以急著用 superapp 敘事搶回通路？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-meta-ads">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Meta 用廣告利潤做武器，Anthropic 沒有對等反制手段</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Meta Muse API 定價四分之一，永久負毛利定價的對手手裡沒有同等武器。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Meta 發布 Muse Spark 1.1，並首次推出付費 API，定價 $1.25/$4.25 per million tokens（輸入/輸出），約為市場主流競品的四分之一（Anthropic Opus 4.8、GPT-5.5、Fable 5 的輸出價落在 $25–$50 per M tokens）。新帳戶送 $20 credits，public preview（公開測試）目前限美國開發者，支援 1M token context window（上下文視窗）。API 原生相容 OpenAI 與 Anthropic 的 SDK（開發工具包），開發者不改程式碼即可切換模型供應商。Zuckerberg 稱這是「我們第一次做 real serious API」。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Meta 廣告業務每季約 $400B 年化營收規模下，API 即便每季燒 $1–2B 也不到廣告利潤的 5%。這讓 Meta 可以把 API 定義為廣告基礎設施的分攤成本，永久維持負毛利定價。Anthropic 和 OpenAI 的收入只靠賣 token，在這個框架裡沒有對等反制手段。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Meta 把 API 輸出價壓到 $4.25/M tokens，Anthropic 和 OpenAI 靠賣 token 活著，Anthropic 在這個價位下年化營收假設要砍多少，其 $60B 估值還能成立嗎？</li>
+        <li>四分之一定價聽起來嚇人，但 preview 限美國且新帳戶才送 $20，實際有多少開發者真的把生產流量切過來，還是只是跑了個測試就回去用 Anthropic？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-broadcom">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Meta Iris 晶片讓 Broadcom 同時押注兩個大客戶，集中度折價沒人定價</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">據 Reuters，Meta 自研 AI 晶片 Iris 將於 2026 年 9 月開始量產，與 Broadcom 共同設計、TSMC 代工，bug 測試僅六週完成且無重大問題。晶片定位為補充（非取代）向 Nvidia 與 AMD 採購的 GPU，目的是壓低推論（inference，模型上線後的運算）成本。Meta 今年部署目標 7 GW 算力，2027 年翻倍至 14 GW，並計畫在 MTIA（Meta Training and Inference Accelerators，Meta 自研晶片計畫）下每六個月推出一款新晶片。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">同一週，Broadcom 拿下 Apple $30B 無線晶片單，同時承接 Meta Iris 共同設計案。其客製 ASIC 部門現在深度依賴兩個單一客戶的資本支出週期，若 Apple 下一代 iPhone 轉向自研射頻、或 Meta Iris 路線圖中斷，Broadcom 客製晶片營收將面臨雙重衝擊。市場目前把 Broadcom 定價為純粹的受益者，集中度折價尚未反映。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Broadcom 同時幫 Meta 做 Iris 又幫 Apple 做無線晶片，Broadcom 的客製設計產能才是真正的瓶頸護城河，如果 Qualcomm 或聯發科要搶回客製晶片通路，Broadcom 最難被複製的到底是設計能力還是產能排程的鎖定？</li>
+        <li>Meta 從 7 GW 翻倍到 14 GW，Nvidia 資料中心營收裡 Meta 這塊的採購佔比會被砍多少，Jensen 的毛利故事在哪個節點開始鬆動？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-swe-bench">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 掀翻 SWE-Bench Pro 的時機，和 Fable 5 在那個計分板上贏了高度吻合</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OpenAI 審計了業界最常用的 AI coding 基準 SWE-Bench Pro（由 Scale AI 設計），以模型審查 agent 加上 5 位資深工程師人工審查 731 題公開題組。自動化 pipeline 標記 200 題（27.4%）有問題，人工審查標記 249 題（34.1%），綜合估計約 30% 任務有缺陷，問題包括測試過嚴、題目描述不足與誤導性描述。OpenAI 正式撤回先前要求研究社群採用 SWE-Bench Pro 的建議。SWE-Bench Pro 當初正是為取代 2026 年 2 月因 benchmark contamination（基準題目洩入訓練資料導致分數失真）被棄用的前代基準而設計。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">OpenAI 推倒 SWE-Bench Pro 的時機，與 Sol 在其自選替代基準 Coding Agent Index 上領先 Fable 5 高度吻合。最合理的解讀是：當你在現有計分板上無法壓倒性領先，換計分板本身就是產品策略的一部分。真正的輸家是 Fable（失去在主流基準上標榜優勢的機會）和 Scale AI（失去「中立裁判」人設，其 $138B 估值中有相當比例建立在這個假設上）。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>OpenAI 自己立的標準自己拆，真正的 GTM 動機是不是因為 Fable 5 在 SWE-Bench Pro 上贏了，所以要把計分板掀掉重來？</li>
+        <li>如果頭號被評測者能自己決定基準生死，LP 們投 AI 公司時引用的所有 benchmark 數字，哪一個還能當真？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-apple-30b">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Apple 的 $30B 承諾是政治保險，不是供應鏈去風險</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Apple 宣布與 Broadcom 簽訂超過 $30B 的多年期協議，在美國設計並生產超過 150 億顆客製無線連接晶片（手機連網、Wi-Fi、藍牙），並投入 $1.5B 資本支出協助擴建 Broadcom 位於科羅拉多州 Fort Collins 的製造廠。這是 Apple「American Manufacturing Program」迄今最大承諾，屬於其在川普政府壓力下承諾四年投資美國 $600B 的一部分。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">無線連接晶片本來就是 Broadcom 對 Apple 的長期供應關係，這筆 $30B「新承諾」大概率是將未來幾年既有採購量重新標記為美國製造投資。對華府是 PR 勝利，對 Broadcom 是收入確定性提升，但對 Apple 供應鏈實際去風險幾乎為零，製造仍依賴 Broadcom，只是廠址從海外移至科羅拉多。Apple 此類政治性承諾的重新包裝模式，在 2017 年川普第一任期已有先例可循，這次邏輯一致。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Apple 四年 $600B 美國投資承諾裡，這 $30B 有多少是把原本就要給 Broadcom 的採購訂單重新包裝成「新投資」來應付華府？</li>
+        <li>這筆 $30B 鎖的是無線連接晶片而非 AI 晶片，Apple 真正在買的是對華府交差的政治保險，還是有實際供應鏈去風險的留存價值？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">0 篇</span>
+  </div>
+
+  <p style="font-size: 14px; color: var(--ink-muted); padding: 32px 0;">本日無符合來源的 Web3/Crypto 條目（Messari、Pantera、a16z crypto、TLDR 等來源今日無新信）。</p>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="vc-netflix-short">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Netflix 引入出版商短影音是在補貼競爭對手的內容，未強化自身護城河</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Netflix 旗艦劇在季與季之間流失 30–70% 觀眾，據 Bloomberg 數據：《降世神通》真人版第二季前 4 天 870 萬次觀看（第一季同期 2,120 萬）、《怒嗆人生》季間流失 70%、《暗夜密探》流失 50%。空窗期是主因之一，《怒嗆人生》與《航海王》皆隔 3 年才回歸。Netflix 的回應是 8 月 3 日起在美國上架 BuzzFeed、Condé Nast、Hearst 等出版商的短影音（長度從 2 分鐘到 20 分鐘以上）。背景數字：YouTube 在 2025 年首次超越 Netflix 日均觀看時長，微短劇 app ReelShort 年消費支出約 $1.2B，年增 119%。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">若用戶打開 Netflix 只看 BuzzFeed 或 Condé Nast 短影音，對 Netflix 的品牌黏性貢獻接近零，因為這些內容在 YouTube 或品牌自有平台同樣可得。Netflix 的內容攤銷模型是為數億美元的長劇設計的，短影音授權若用固定費，成本被歸入 content amortization 會稀釋每小時觀看成本效益；若用 CPM 分潤，Netflix 等於在自己平台上為 BuzzFeed 和 Hearst 建廣告業務。兩種模式都與訂閱制的毛利邏輯衝突，真正的輸家是持有現有內容投資規模的 Netflix 股東。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Netflix 上架出版商短影音之後，要怎麼衡量這些內容的留存貢獻，如果用戶只看短影音不看劇，那跟打開 YouTube 有什麼差別？</li>
+        <li>Netflix 真正怕的是不是 ReelShort 證明了「低成本餵食流」能收到錢，而它的成本結構根本做不出低毛利內容，所以才用聚合別人的方式硬補？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-blueorigin">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Blue Origin 用 SpaceX 的盈利結構為自己的期權故事定價，但它沒有 Starlink</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Bezos 的 Blue Origin 進行創立 26 年來首次外部募資，以 $130B 估值募資約 $10B。其中 Coatue Management 出資約 $4B，Bezos 個人加碼 $2B，其餘約 $4B 來自機構投資人。公司自 2000 年創立以來幾乎全靠 Bezos 出售 Amazon 持股融資。時點敏感：SpaceX 上月完成史上最大 IPO（含超額配售募近 $86B），且 Blue Origin 火箭不久前在發射台爆炸，根因調查仍在進行中。以 $130B 計，Blue Origin 估值超過 Lockheed Martin 約 $122B 的市值。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">SpaceX IPO 給了市場「太空 comp」，但 SpaceX 有 Starlink 經常性收入支撐現金流。Blue Origin 幾乎無商業營收，$130B 估值實際上是在用 SpaceX 的盈利結構為 Blue Origin 的期權故事定價。Coatue $4B 的邏輯更接近「SpaceX 已證明天花板，Blue Origin 是折價版入場券」，而非 DCF，這個框架在 Blue Origin 找到自己的 Starlink 等價物之前，本質上無法否證。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>外部資本進來後 Blue Origin 第一個要交的成績單是什麼，是 NASA 合約的發射時程達成率，還是有任何商業客戶的重複訂單能證明牽引力？</li>
+        <li>SpaceX 用 Starlink 的經常性收入養火箭，Blue Origin 的客戶獲取通路到底是什麼，還是這 $10B 本質上在賭它能找到自己的 Starlink？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-meta-alberta">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Meta 選 Alberta 是為了快速上線，但電價風險全甩給了 Pembina 股東</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Meta 宣布在加拿大 Alberta 省 Sturgeon County 動土興建首座加拿大資料中心，投資逾 CAD $13B（約 USD $10B），為 1 GW 的 AI 優化設施，可擴充至 1.8 GW，耗電相當於 75 萬戶家庭。設施由 Meta 出資支持的新建燃氣電廠供電，合作方為 Pembina Pipeline 的 Greenlight Electricity Centre，預計 2030 年底投運，Meta 簽長期 tolling agreement（長期包電協議，向特定電廠鎖量鎖價）。這是 Meta 全球第 33 座、美國境外最大資料中心，採閉環液冷（closed-loop liquid cooling，冷卻水循環使用不外排）。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Quebec 水電更便宜（約 CAD $0.04–0.06/kWh，Alberta 約 $0.07–0.09/kWh）且碳排放更低，Meta 選 Alberta 的主要變數是審批速度與輕監管環境，表明 AI 算力的時間競爭壓力已高過 5–10 年的能源成本優化。代價是 Meta 透過 tolling agreement 把電價風險轉給 Pembina，Pembina 股東承擔的是：若天然氣價格在 2030–2040 年間持續高於合約隱含成本，或 Carbon Tax 進一步提高 Alberta 燃氣發電成本，Greenlight 電廠將陷入長期虧損。Pembina 目前股價反映的是管線業務的穩定現金流，這個合約的下行風險尚未被充分定價。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>選 Alberta 而不是 Quebec 便宜水電，Meta 真正買的是輕監管和快速審批的通路速度，還是有實際的網路延遲或客戶需求在驅動？</li>
+        <li>Pembina 股東有沒有算過這份 tolling 合約在天然氣價格哪個水位開始虧，如果 AWS 和 Google 明天也去 Alberta 搶電，Meta 的成本優勢能撐多久？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-07-11</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
