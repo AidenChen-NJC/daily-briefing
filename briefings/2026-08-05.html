@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-08-05</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 8 月 5 日　星期三</span>
+    <span class="header-count">21 篇</span>
+  </div>
+  <h1>今天讀一個讓你不舒服的問題就夠了</h1>
+  <p class="header-lede">三個大類目裡全是結構性矛盾。白宮框架幫閉源廠商造牆、開源沒辦法貼標籤；機器人的成功率貼在牆上、三到五年商用時程必須後修；硬體錢包被攻破、自我保管敘事被拖下水。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-white-house-framework">白宮框架的第一個效果</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-qwen-open-weight">Qwen 開放權重</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-astra-math">Astra 數學突破</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-pwc-survey">金融業 91% 加薪</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-base-power">Base Power $1B 融資</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-airtable-acquisition">Airtable 以 $1.28B 賣出</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-aws-q2">Amazon AWS Q2</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-montana-pharma">蒙大拿實驗藥物執照</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-flock-alpr">Flock 車牌辨識</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-deepmind-robotics">DeepMind 機器人成功率</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-drone-school">學校攻擊無人機</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-coldcard">Coldcard 漏洞第四波</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-polymarket-kalshi">Polymarket vs. Kalshi</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-blackrock-tokenization">BlackRock $3,110 億上鏈</a></li>
+  </ol>
+</nav>
+
+<!-- AI · 科技 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">11 篇</span>
+  </div>
+
+  <article class="article" id="ai-white-house-framework">
+    <div class="article-meta">
+      <span class="article-source">Axios / CNBC / CNN Business / The Rundown AI</span>
+      <span class="article-tag ai">AI 治理</span>
+    </div>
+    <h3>白宮框架的第一個效果：幫閉源廠商造了一道開源競品永遠貼不上的合規標籤</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">白宮於 08-04 邀集 OpenAI、Anthropic、Meta、Google 檢視一份依 Trump 2026-06-02 行政命令設計的自願性框架，規定上述公司可在模型公開發表前最多 30 天讓政府取得存取權，模型須存放於高安全性環境、存取留詳細 log。Axios 取得的框架文本顯示，「covered frontier model」被定義為閉源、具最先進能力且有國安風險的模型，Qwen3.8-Max、Kimi K3 等開放權重模型被明文排除。框架全文不對外公開，基準測試列為機密。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">閉源廠商為這份框架付出的實際成本接近零：30 天禁售期只有在模型有硬發布日時才有機會成本，而 OpenAI 和 Anthropic 的發布節奏本就是滾動式。真正的收益是企業銷售層面的品牌標籤，政府背書讓「受監管」變成一個可對 CISO 報銷的採購理由，而 Kimi K3 和 Qwen3.8-Max 永遠無法貼上這個標籤。這是一次零成本的市場分割，不是安全框架。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果我是一家用 Qwen 或 Llama 開權重模型出貨的 AI 新創，這份框架等於替我免除了所有合規成本，那閉源廠商實際上要靠什麼 GTM 動作，才能讓企業客戶覺得「被監管」是值得多付錢的功能，而不是交期延遲的風險？</li>
+        <li>框架「自願加保密」意味著合規無法被外部稽核，OpenAI 和 Anthropic 真正願意配合的動機，是拿到「政府背書安全」的品牌溢價做企業銷售，還是單純在用 30 天禁售期當護城河擋開源競品？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-qwen-open-weight">
+    <div class="article-meta">
+      <span class="article-source">TechRepublic / Latent Space AINews / The Rundown AI</span>
+      <span class="article-tag ai">AI 模型</span>
+    </div>
+    <h3>Qwen 開放 2.4 兆參數：Anthropic 的企業客戶手上現在有一個用不到但能用來砍價的錨點</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Alibaba 發表 Qwen3.8-Max，一個 2.4 兆參數稀疏 MoE（混合專家架構，每個 token 只啟動其中少數「專家」子網路）模型，每個 token 只啟用 950 億參數，context window（模型單次能讀入的 token 上限）為 100 萬 tokens。Model Studio 定價為 input $2 / output $6 每百萬 tokens，較 Anthropic Fable 5 約為其五分之一，較 OpenAI GPT-5.6 Sol 未快取 input 便宜 60%、output 便宜 80%。在 Arena WebDev 排行榜上領先 Anthropic Fable 5。完整權重預計 8/10 於 Hugging Face 釋出，這是 Qwen Max 系列首次開放權重。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">阿里真正的 GTM 不是鼓勵人自架，是用「開放權重存在」這件事壓低 Model Studio API 的議價阻力。2.4 兆參數的自架門檻（記憶體、互聯頻寬）使絕大多數企業無法真正部署，但它讓 Anthropic Fable 5 的企業客戶手上有了一個可公開引用的比價錨點，即使從未打算切換，談判桌上的籌碼已經換邊。能擋住切換的真正防線不是模型品質差距，是企業合規認證（SOC 2、HIPAA、歐盟資料主權）、已完成的 fine-tuning pipeline 以及 support SLA，這些都是 Qwen 開放權重版本目前無法提供的配套。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Anthropic 上一輪估值 $600 億的核心假設是閉源模型能長期維持定價權，現在 Qwen3.8-Max 用 Fable 5 五分之一的價格在 WebDev 排行榜上領先，Anthropic 的 LP 該用什麼數字重算那個估值的合理性？</li>
+        <li>如果我今天用 Fable 5 或 GPT-5.6 Sol 出貨一個 AI 產品，客戶拿 Qwen 的公開價格來砍我，我實際能防守的點是什麼，是模型品質差距，還是純粹的切換成本和合規認證，哪一個才是真正擋住客戶搬走的牆？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-astra-math">
+    <div class="article-meta">
+      <span class="article-source">SiliconANGLE / Quartz / The Next Web / Forbes / The Rundown AI</span>
+      <span class="article-tag ai">AI 模型</span>
+    </div>
+    <h3>OpenAI Astra 的真實邊界是它比 Fable 多解出的那五題，而不是「AI 會做數學了」</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OpenAI 公開 Astra（尚未正式發表的下一代模型），宣布解出 10 個橫跨數學、量子複雜度與理論計算機科學的開放問題，每題至少開放十年。最受矚目的包括構造出 Gromov 自 1999 年提出後懸置的非 sofic 群（sofic 群指其行為可被有限置換系統任意逼近，非 sofic 群的存在性約三十年無解），以及否證 Alain Connes 關於 von Neumann 代數的 rigidity conjecture。OpenAI 釋出 249 頁手稿與 Lean 4（形式化證明語言，其 kernel 對證明只有接受或拒絕兩種結果）證明憑證於 GitHub，repo 的 `sorry`（Lean 中標記「此處未證明」的佔位符）計數為 0。依 Sol API 費率，所有成功執行的 token 成本合計約 $2,000。十項結果均未經同儕審查。24 小時內，Anthropic 的 Levent Alpoge 宣稱用 Fable、通用 prompt、無網路連線重現了其中五項。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Lean 驗證推導合法性，但不驗證 Lean 陳述是否忠實對應原始數學問題。若任何一題的 Lean 定理陳述把原始問題弱化為平凡形式，機器驗證通過但數學主張失效，OpenAI 的「AI 做研究」敘事將從最可信（有機器錨點）變成最危險（有機器背書的錯誤）。Alpoge 明確說無網路、通用 prompt，排除了工具調用的解釋，因此 Astra 若真有邊際能力，最可能是更大的推論 token 預算，而不是架構突破，這對「下一代模型」的估值敘事有結構性影響。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 Anthropic 的 Levent Alpoge 用已經上架的 Fable 和通用 prompt 就能在 24 小時內重現一半，那 Astra 真正不可複製的邊際能力是落在剩下那五題的難度差距，還是只是 OpenAI 先跑了一遍知道哪些題可解，如果是後者，這展示的是模型能力還是選題策略？</li>
+        <li>十題零同儕審查、Lean 只驗推導不驗命題陳述是否平凡，如果其中任何一題事後被發現是把定理寫成了 trivially true 的形式化，OpenAI 為 Astra 建立的「AI 做研究」定價錨點會一夜歸零，哪家 LP 現在該對這個風險重新定價？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-pwc-survey">
+    <div class="article-meta">
+      <span class="article-source">Bloomberg / PwC 原始報告 / The Hill / The Rundown AI</span>
+      <span class="article-tag ai">AI 勞動市場</span>
+    </div>
+    <h3>金融業 91% 在替 AI 技能加薪、77% 看不到 ROI：這是選擇權定價，不是生產力定價</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">PwC 調查超過 1,000 位美國金融服務業 director 級（總監級）以上高管。86% 表示對許多新進人員而言，AI 技能訓練比 MBA 更有價值。91% 正在提高具 AI 技能員工的薪酬，58% 願意為 AI 熟練度（指實際操作能力而非理論知識）支付溢價。近八成高管預期公司員工數在未來五年內縮減至少 20%，入門級與中階職位最易受衝擊。但 77% 表示多數 AI 投資尚未展現可衡量的 ROI（投資報酬率，指能歸因到具體財務科目的效益）。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">91% 加薪但 77% 沒有可衡量 ROI，這組數字只有一個內部一致的解釋：HR 預算在吸收選擇權保費，P&L 上找不到對應的效益歸因。企業買的是「萬一 AI 重要時我手上有人」的保險，而非生產力，真正能成交的 AI upskilling 產品 pitch 是「留才保險」而非「ROI 計算器」。更深的結構矛盾在於：8 成預期裁減入門級、86% 說要訓練新人，被訓練的入門級不是為了被留下，而是為了在被裁之前產生足夠的標註資料和回饋信號來訓練取代他們的系統。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>91% 加薪但 77% 沒看到 ROI，如果我現在要賣一套 AI upskilling 產品進金融業，真正能成交的 pitch 是「幫你產生可衡量的 ROI」還是「幫你的 AI 人才不被隔壁挖走」，客戶實際在買的到底是生產力還是留才保險？</li>
+        <li>八成高管說五年內砍兩成人力、入門級最脆弱，但同時說要大量訓練新人 AI 技能，這兩個訊號擺在一起，真正會發生的 GTM 機會是不是「取代入門級人力的 AI agent 產品」而不是「訓練入門級人力的課程產品」？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-base-power">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch / Businesswire / Electrek / a16z</span>
+      <span class="article-tag ai">AI 基建與能源</span>
+    </div>
+    <h3>Base Power $13B 估值的底層資產不是電池技術，是一份任何公用事業級新案都要排隊數年才拿得到的併網許可</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">今日重點訊號</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Base Power 宣布 $1B Series D，投後估值 $13B，累計募資超過 $2.5B，由 Ribbit、Addition、Valor Equity Partners 與 JPMorganChase Strategic Investment Group 領投。公司商業模式不是賣電池：房主付數百美元安裝費、部分地區月費約 $19，換得三年固定費率電力（帳單通常省 10-20%），代價是讓 Base 用這些電池（車隊規模超過 500 MWh）與電網交易電力，同規格電池自購成本超過 $10,000。一年前公用事業合作占銷量不到 5%，現已超過半數，Austin Energy 簽下 40 MW、CoServ（全美第三大電力合作社）簽下 100 MW。德州 7/22 用電創歷史紀錄 91.3 GW 當日，批發電價最高僅觸及 $0.30/kWh，對照 2023-24 尖峰曾破 $4/kWh，Base 當日放電約 150 MW。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Base 真正的資產不是電芯，是房主無償提供的三樣東西：土地、既有併網點、以及繞過輸電成本的直連。公用事業級儲能的真正瓶頸從來不是電芯價格，是 interconnection queue（併網排隊，新設施接入電網須經電網營運商審查，美國目前普遍排隊數年），a16z 的文章指出 Base 在 7/22 放電的 150 MW 約等於一座公用事業級電池廠，而同等規模的案子若 2024 年動工，今天還卡在排隊裡。但德州批發電價從 $4 壓到 $0.30 正是儲能成功的結果，套利利差正在被 Base 自己的規模化抹平，存續需要切換到容量合約才能保住利潤。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>德州批發電價從 $4/kWh 壓到 $0.30/kWh 正是儲能太成功的結果，Base 的 $13B 估值建立在套利價差上，而這個價差正在被 Base 自己的規模化抹平，Ribbit 和 JPMorgan SIG 投這一輪時用的終態價差假設是多少？</li>
+        <li>一年前公用事業客戶占銷量不到 5%、現在過半，Base 從 D2C 顛覆者變成 Austin Energy 和 CoServ 的部署外包商，那房主到底是客戶還是免費提供土地和併網點的基礎設施供應商，價值分配裡房主拿到的那 10-20% 電費折扣相對於 Base 拿走的併網套利是什麼比例？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-airtable-acquisition">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch / Axios / CNBC / The Information / The Rundown Tech</span>
+      <span class="article-tag ai">科技併購</span>
+    </div>
+    <h3>Airtable 賣到 2.7 倍 ARR：策略買家集體缺席，是對「協作型 SaaS」這個類別終值的一票否決</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Bending Spoons 同意以 $1.28B 現金收購 Airtable，為其上月 IPO 後的第一樁收購。計入 Airtable 目前的淨現金，企業評價約 $2.25B。Airtable CEO Howie Liu 表示服務超過 50 萬個組織，包含 Fortune 100 企業中的 80%，ARR（年度經常性收入）截至 2026 年 6 月約 $480M、年增超過 20%，隱含倍數約 2.7 倍 ARR。2021 年高峰估值逾 $11B，今年稍早次級市場（未上市公司股份私下轉讓的市場）成交估值約 $4B。Bending Spoons 此前對 Evernote 和 Vimeo 的操作模式是大幅削減成本、作為現金流機器經營。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Salesforce、Microsoft、Google 沒出價的最清晰解釋是：它們各自正在建的 agent 原生資料層（Microsoft Copilot Studio、Salesforce Agentforce）讓 Airtable 的客戶遲早會自然遷移，收購 $480M ARR 的過渡型產品不如等三年讓客戶自己走過來。當一家公司的最佳出價方從策略買家變成成本套利買家，是這個類別已被市場歸類為「收割期」的明確訊號。2021 年以 $11B 進場的 Greenoaks 和 Thrive Capital，在 $1.28B 出場下的基金 IRR 計入時間成本後是深度負值。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>ARR $480M 且年增 20% 卻只能賣給 Bending Spoons 這種成本套利買家，是因為 Salesforce、Microsoft、Google 這些策略買家都判斷 AI agent 會直接取代「人類手動建結構化資料庫」這個使用場景，所以沒人出價嗎？</li>
+        <li>Bending Spoons 對 Evernote 和 Vimeo 的劇本是砍人砍成本擠現金流，Airtable 80% 的 Fortune 100 客戶在看到團隊被砍之後，NRR 能撐多久，還是這批企業客戶本來就只是用免費版、付費留存根本沒有新聞稿暗示的那麼強？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-aws-q2">
+    <div class="article-meta">
+      <span class="article-source">CNBC / Fortune / The Rundown Tech</span>
+      <span class="article-tag ai">雲端與資本支出</span>
+    </div>
+    <h3>AWS 同時做到成長加速、利潤擴張、資本支出創紀錄，但這三件事能同時成立只有一個前提</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Amazon 市值 08-03 首度突破 $3 兆，成為第五家跨過此門檻的上市公司。AWS Q2 2026 營收 $42.2B，超越分析師共識預期的 $40.54B，年增 37%，為 2021 年以來最快增速。AWS 營業利益達 $16.6B，較去年同期 $10.2B 成長 64%，營業利益率（營業利益除以營收）自 32.9% 擴張至 39.4%。CEO Andy Jassy 表示今年將投入約 $2,200 億資本支出（資料中心、GPU、電力等固定資產投入），且仍不足以滿足需求。Amazon 與 Microsoft 合計的 AI 相關支出規模約 $4,000 億。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">成長加速、利潤率擴張、資本支出創紀錄三件事同時發生，在傳統資本密集產業裡幾乎互斥。這組合成立的唯一解釋是需求嚴重超過供給，定價權完全在賣方，客戶不是在比價而是在排隊。但 AWS 的財報無法在收入確認層面拆分「AI 新創用募資款買 credits」與「終端企業真實工作負載」，而這兩者在財報上長得一模一樣，需求真實性才是懸案，這個測試要等融資環境收緊之後才會到來。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>成長加速和營益率擴張同時發生，唯一的解釋是需求遠超供給，但這條需求曲線裡有多少是 AI 新創拿著創投的錢互相買 GPU 時數，一旦融資環境收緊，AWS 的 AI 工作負載留存率會是什麼形狀？</li>
+        <li>如果我今天是一家 AI infra 新創想在 AWS 生態裡出貨，Jassy 說 $2,200 億還不夠代表的通路機會是什麼，是幫 AWS 客戶在既有容量上榨出更多效能，還是在 AWS 排隊排不到的客戶面前提供替代方案？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-montana-pharma">
+    <div class="article-meta">
+      <span class="article-source">MIT Technology Review / WSJ / Science-Based Medicine / The Rundown Tech</span>
+      <span class="article-tag ai">生技與監管套利</span>
+    </div>
+    <h3>蒙大拿的實驗藥物執照：發照者的收入和發照數量正相關，這不是監管放寬，是監管私有化</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">依 2025 年 5 月由 Gianforte 州長簽署的 Senate Bill 535，蒙大拿讓任何持有實驗性藥物的生技公司有一條直售通路：藥物只要通過 Phase I（第一期臨床試驗，只驗證安全性與耐受劑量，不驗療效，有時受試者少至 10 名健康人），公司即可支付 $12,500 向新設立的審查委員會申請核准。委員會由長壽創業者 Niklas Anzinger 籌組，經費完全來自申請費，成員包含一名蒙大拿州認證醫師、專家科學家與一名倫理學家。核准後公司可自行定價，透過診所販售，首批診所預計 2026 年底前開業。與其他 right-to-try（試藥權法，允許特定患者取得未經核准藥物）不同，蒙大拿不要求患者為末期病患。委員會核准不等同 FDA 核准，不賦予任何聯邦法律地位。Anzinger 同時在宏都拉斯 Próspera 特許區經營販售實驗性幹細胞與基因療法的診所。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">委員會的收入與發照數量正相關，而否決的代價（損失 $12,500 且申請者不再來）由委員會自己承擔，批准的代價（患者受害）由患者承擔。Phase I 只驗證急性毒性，委員會沒有任何獨立資料能否決一份通過了 Phase I 的申請，激勵結構使否決的制度性動機趨近於零。這條 GTM 通路的實際存續期估計是三到五年，終結點不是 FDA 的法律行動，是第一起媒體報導的患者傷害事件觸發蒙大拿州議會廢法。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>審查委員會的經費 100% 來自受審廠商繳的 $12,500 申請費、主持人 Niklas Anzinger 自己就在 Próspera 賣實驗性療法，如果我是一家走這條路的生技新創，真正的 GTM 風險不是 FDA 打過來，而是第一起嚴重不良事件後蒙大拿州議會直接廢法，那這條通路的實際存續期有多長？</li>
+        <li>Phase I 後即可產生營收聽起來是資本效率的突破，但願意飛到蒙大拿付全額自費的客戶到底長什麼樣，是矽谷長壽圈年花六位數做健康優化的那批人，還是真的有規模化的患者漏斗？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-flock-alpr">
+    <div class="article-meta">
+      <span class="article-source">Washington Post / Business Insider / CNET / The Rundown Tech</span>
+      <span class="article-tag ai">監控與隱私</span>
+    </div>
+    <h3>Flock 的 71% 誤判率把問題從「壞警察濫用好系統」改寫成「系統本身不夠準確來支撐它已在觸發的動作」</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Washington Post 調查發現至少 50 名美國執法人員被起訴或指控將自動車牌辨識系統（ALPR，路側相機自動記錄通過車輛的車牌與時戳）用於未授權目的，其中 46 名使用 Flock Safety 的網路，26 件明確為監視女性伴侶或前任。Flock 網路涵蓋超過 12 萬台相機、6,000 多個社區，每月記錄 200 億次車牌掃描。加州 Roseville 市自行稽核 1,427 筆警報，發現 71% 來自誤讀車牌，此類錯誤已導致過持槍攔車與逮捕。目前已有六個城市中止或暫停合約，開源行動「DeFlock」正在標記相機位置。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Flock 的官方辯詞「相對破案量，濫用統計上罕見」在每月 200 億次掃描的分母下自我瓦解，且被抓到的 50 件只是留下起訴紀錄的那些，查詢日誌本身掌握在被監督者手上。更關鍵的是 Roseville 那個 71% 誤讀率：它把問題從「壞警察濫用好系統」改寫成「這套系統本身的準確度不足以支撐它所觸發的行動」，而這些警報已導致持槍攔車與逮捕。Flock 的真正防線是現有城市的轉換成本（重新部署相機、重新整合警務系統），不是技術優勢，六個已中止合約的城市就是現成的試點市場給準確度更高的競品使用。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Flock 的防禦是「相對破案量，濫用統計上罕見」，但 Roseville 自查 71% 誤判率直接打臉系統準確度，如果我今天要做一個競品切進這個每年 $40 億的校園與市政安全市場，真正的護城河是 12 萬台已裝相機的網路效應，還是跟 6,000 個警局的採購合約鎖定期？</li>
+        <li>六個城市已經中止合約、DeFlock 在標記相機位置，如果第四修正案的判例翻了要求搜索令才能查歷史位置，Flock 的整個商業模式會不會一夜歸零？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-deepmind-robotics">
+    <div class="article-meta">
+      <span class="article-source">Google DeepMind / The Rundown Robotics</span>
+      <span class="article-tag ai">機器人</span>
+    </div>
+    <h3>DeepMind 公布成功率的那一刻：產業第一次承認鎖燈泡 36% 是當前天花板，不是暫時的 bug</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Google DeepMind 首次讓 Gemini Robotics 2 驅動整具機器人身體，包含人形機器人的雙足，搭配擔任高階規劃的 ER 2 模型。Apollo 2 人形機器人從架上取物成功率 76.3%，從地板取物僅 45.7%。22 自由度（機械關節可獨立運動的維度數，人手約 27 DoF）的 SharpaWave 機械手旋開燈泡成功率 92%，但鎖回去僅 36%；密封夾鏈袋 40%。DeepMind 直言多指操作仍是未解問題。最重要的控制模型目前僅限 early-access 合作夥伴取得。此發表與美國政府切斷美國研究者常用的中國低價人形機器人平台發生在同一週。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">「旋開 92% 對鎖回 36%」是同一隻手、同一個物件、方向相反，差距近三倍，直接指向純視覺-語言-動作模型在沒有觸覺回饋（force feedback，機器人感測接觸力以調整動作的閉環機制）條件下，對準螺紋這類任務的成功率上限就是 36% 左右。倉儲揀貨的工業客戶接受的最低成功率通常是 99%，45.7% 的地板取物成功率連最寬鬆的工業場景都無法商用，2028 年商業化時程後移到 2030-2031 年更現實。DeepMind 把控制堆疊鎖在 early-access 後，同時美制硬件成本比中國平台高出 3-5 倍，機器人製造商的利潤結構會接近 Android 手機製造商對 Google Play 的從屬關係，真正在賺錢的是 Google。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>旋開燈泡 92% 但鎖回去 36%，所有「人形機器人取代體力勞動」的市場規模估算都默認精細操作已解決，如果這個 36% 代表的力回饋閉環問題還要三到五年，軟銀和 Figure AI 投資人手上那些 2028 年商業化的時程假設該怎麼重算？</li>
+        <li>DeepMind 把控制模型限定 early-access 夥伴、同一週美國政府切斷中國低價平台，美國機器人新創被推向「Google 的大腦加美製的貴身體」這個組合，那真正在賺錢的到底是做機器人的公司還是賣軟體存取權的 Google？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-drone-school">
+    <div class="article-meta">
+      <span class="article-source">Futurism / The Rundown Robotics</span>
+      <span class="article-tag ai">機器人</span>
+    </div>
+    <h3>學校無人機：操作員在奧斯汀、學生在佛州，現有法律框架裡找不到這條責任鏈的對應位置</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">佛州、喬治亞州與科羅拉多州共九所學校導入 Mithril Defense 的遠端操控攻擊無人機，四旋翼無人機（quadcopter）停放於校園各處的保全箱中，可在數秒內起飛，以最高 70 mph 撞擊或發射胡椒彈（非致命性驅離武器）。人類操作員位於 Mithril 奧斯汀總部遠端駕駛。佛州為三校試點撥款 $557,000，喬治亞州五校 $500,000，科羅拉多一校自費。美國學校每年實體安全支出約 $40 億。Omnilert 的 AI 槍枝偵測系統曾把一名青少年的 Doritos 袋標記為武器，卻在田納西州一起致命校園槍擊中未能辨識出實際使用的手槍。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">這類設備的真正分水嶺是從「回報型」變成「行動型」：過去 $40 億買的攝影機和感應器全部只負責通知人類，這些無人機是第一種自己執行武力介入的校園設備。責任鏈在此斷裂：學區沒有指揮權、警方尚未到場、承包商不是執法人員，若無人機撞錯人，沒有既有的法律框架界定誰負責。Mithril 目前的資產基礎可能無法吸收一起重大誤傷訴訟（賠償額可能達數千萬），若 Mithril 破產，訴訟轉向學區，納稅人承擔。真正能決定這個市場格局的護城河不是 70 mph 的撞擊性能，是誰先在各州拿到責任豁免立法。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>第一起無人機誤傷學生的責任會落在學區、Mithril、還是遠端操作員身上，目前完全沒有判例，如果我是競品要進這個市場，真正的護城河是技術還是誰先拿到各州的責任豁免立法？</li>
+        <li>九所學校、三個州、總撥款約 $100 萬，這是真正的牽引力還是三個州各寫了一張示範計畫支票，Mithril 的實際 pipeline 裡有多少學區走完了採購流程而不是只在「評估」？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<!-- Web3 · Crypto -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="web3-coldcard">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / Decrypt / Galaxy Research</span>
+      <span class="article-tag web3">Web3 安全</span>
+    </div>
+    <h3>Coldcard 第三波「更多錢包、更少金額」說明一件事：高價值目標已清空，攻擊者在做地毯式清尾</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Coldcard 硬體錢包（一種永不連網的冷錢包）2021 年 3 月一版韌體將種子（私鑰的助記詞備份）生成導向可預測的軟體亂數器，而非晶片內建的硬體亂數器，使得金鑰落在有限且可離線窮舉（key enumeration，攻擊者可還原私鑰，無需接觸實體裝置）的集合中。Galaxy Research 追蹤：第一波 07-30 掃走 1,083 BTC / 1,196 個地址；第三波 08-01 至 08-02 掃走 208 BTC / 1,912 個地址，錢包數更多但金額僅五分之一。三波合計 1,367 BTC / 4,585 個地址，約 $89M。08-03 出現疑似第四波，整日掃走約 449 BTC / 709 個地址，累計損失上修至最高約 $114M。08-04 Coldcard 公開敦促用戶移轉。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">波次三「更多地址、更少金額」的形狀說明可列舉金鑰集合已被接近窮舉，高價值目標清空，剩餘未掃蕩錢包幾乎全部是「餘額太小、不值得優先排序」而非「尚未算到」。金鑰列舉的邊際成本趨近於零，「我的餘額很小所以不值得攻擊」這個假設在此刻已完全失效。Coldcard 在事件第六天才出面，這段沉默期對整個硬體錢包品類的損害，不會是 Ledger 或 Trezor 吃到的客戶遷移紅利，而是「自我保管」敘事整體被質疑，恐慌流向 Coinbase 和 Kraken 等交易所託管，而不是競品硬體錢包。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>波次三掃了 1,912 個錢包只拿到 208 BTC 代表高價值目標已經清空、攻擊者在做地毯式清尾，如果我今天賣硬體錢包，這起事件之後客戶真正會因此選擇的替代方案是換一家硬體錢包、還是直接把幣搬回交易所託管，自我保管這個 GTM 敘事還能撐多久？</li>
+        <li>Coldcard 在事件第六天才公開敦促用戶移轉，這段沉默期對整個硬體錢包品類的品牌信任造成的損害，是競品 Ledger 或 Trezor 能直接吃到的客戶遷移紅利，還是整個品類一起被拖下水？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-polymarket-kalshi">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / CNBC / Bloomberg</span>
+      <span class="article-tag web3">Web3 資本市場</span>
+    </div>
+    <h3>Kalshi 估值比 Polymarket 高一倍卻沒有公開的可比營收，市場正在為「受聯邦監管」這個屬性付溢價</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Polymarket 正洽談以逾 $200 億估值募資約 $10 億，較四個月前的 $150 億再跳 33%。6 月時 Polymarket 表示年化營收（以近期營收外推全年）已遠超 $10 億，隱含倍數約 20 倍年化營收。4 月份紐約證交所母公司 Intercontinental Exchange（ICE）投入 $6 億。最大競爭對手 Kalshi 傳出以近 $400 億估值尋求新資金，是其 5 月份 $220 億估值的近兩倍，但 Kalshi 未公開可比的營收數字。兩家結構差異明顯：Kalshi 是 CFTC（美國商品期貨交易委員會）監管下的聯邦指定合約市場，Polymarket 使用區塊鏈基礎設施與加密貨幣結算。Coinbase 與 Robinhood 同期擴張預測市場業務。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Kalshi（$400 億）比有實打實 $10 億年化營收的 Polymarket（$200 億）估值高一倍，市場給「CFTC 監管」這個屬性支付了約 100-200% 的溢價，這與加密敘事一貫主張「監管是成本」的方向完全相反。這個溢價反映的是風險定價：Polymarket 的折扣對應它某天面臨 CFTC 執法的可能性。更脆弱的是兩張估值表的基礎：Polymarket $10 億年化營收幾乎確定含有重大選舉年溢價，預測市場歷史數據顯示非選舉月份交易量約為高峰的 20-30%，ICE 四月投的 $6 億若是按週期高峰算永續倍數，這個假設幾乎沒有投資人在公開場合承認。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Polymarket 年化營收 $10 億是用選舉年的交易量外推的，2027 年沒有大選時這個數字會剩多少，真正的留存指標應該看非選舉月份的月活和交易額，這個數字有人敢公開嗎？</li>
+        <li>Kalshi 受 CFTC 監管估值卻比鏈上結算的 Polymarket 高一倍，這是不是說明企業和機構客戶才是真正的大額交易者，如果我要做預測市場，真正的 GTM 不是搶散戶而是搶機構的風險對沖需求？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-blackrock-tokenization">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / The Block / Decrypt / Bloomberg</span>
+      <span class="article-tag web3">Web3 基礎設施</span>
+    </div>
+    <h3>BlackRock $3,110 億上鏈：代幣是流動性介面，官方股東名冊在傳統過戶代理手上，DeFi 完全碰不到</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">BlackRock 為旗下六檔、合計持有 $3,110 億的歐洲貨幣市場基金（投資短期債務工具的低風險機構現金管理基金）推出 12 個代幣化 share class（代幣化級別，同一檔基金下以代幣形式發行的股份類別，權利與傳統級別相同），代幣鑄造於以太坊，涵蓋 15 個歐洲市場，英鎊、歐元、美元計價，合作方為 JPMorgan 的 Kinexys 資產代幣化平台。底層基金受歐盟 UCITS（歐盟可轉讓證券集合投資計畫，歐洲零售基金監管框架）監管，有合格投資人限制。官方股東名冊仍由過戶代理機構維護，投資人可透過數位錢包全天候直接轉讓代幣。BlackRock 自家原生代幣化基金 BUIDL 自 2024 年 3 月發行至今管理逾 $26 億，本次規模約為 BUIDL 的 120 倍。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">鏈上的不是所有權，是流動性介面，這是代幣化 RWA（真實世界資產代幣化）敘事最常被跳過的部分。真正的成長路徑不是「發一個新的鏈上基金」（BUIDL 兩年多只做到 $26 億），而是把既有巨大資產池加一層代幣介面，120 倍的規模差距直接說明這一點。但 UCITS 合格投資人限制使 DeFi 協議的智能合約地址無法直接持有這些代幣，Aave 和 Morpho 等借貸協議完全碰不到這 $3,110 億，中間層是 JPMorgan 私有平台，代幣化 RWA 的「可組合性」敘事在這個架構下不成立。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>鏈上的是流動性介面而不是所有權、官方名冊還在傳統過戶代理手上，那對持有這些代幣的機構來說，24/7 可轉讓這個功能的實際使用頻率是多少，還是這只是一個「能做但沒人在做」的展示品？</li>
+        <li>Kinexys 卡在 BlackRock 和以太坊中間當轉譯層，DeFi 協議因為 UCITS 合格投資人限制根本碰不到這些代幣，那這 $3,110 億的鏈上存在，真正服務的客戶是誰，是 JPMorgan 既有的機構客戶想要更快結算，還是 BlackRock 在替未來某個開放存取的監管突破先卡位？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<!-- VC · 投資動態 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">0 篇</span>
+  </div>
+  <p style="font-size: 14px; color: var(--ink-muted); font-style: italic; padding: 28px 0;">無獨立 VC 新卡片，相關投資邏輯已整合進 Base Power、Airtable、Polymarket 各卡。</p>
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-08-05</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
