@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-09-12</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 9 月 12 日　星期六</span>
+    <span class="header-count">10 篇</span>
+  </div>
+  <h1>十個故事，不是每個都值得你時間</h1>
+  <p class="header-lede">Anthropic 曝光七家中國實驗室蒸餾 Claude、Tesla 螢幕上的虛擬搖桿成了法規詭辯的漏洞、a16z 用自己的數據論證 83% 的創投基金不值得配置。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-kimi-distillation">Kimi 賣的有一部分根本是 Claude</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-deepseek-v4">DeepSeek V4.1-Flash 的 benchmark 贏了</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-ipo">自家對齊主管給 Anthropic 的 IPO 難題</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-siri-recap">Siri Recap 的同意缺口</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-adam-law">加州兒少法的真正贏家是 OpenAI</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-suno-v6">Suno v6 的「乾淨」只管新模型</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-zk-rollup">a16z crypto 把已上線 zk rollup 全部標記為存疑</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-a16z-lp">a16z 的 LP 信用數據同時是加碼創投最強的反論</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-boring">Boring Company 230 億估值由一個主權採購支撐</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-cybercab">Tesla Cybercab 的法律論證被螢幕上的搖桿削弱</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">6 篇</span>
+  </div>
+
+  <article class="article" id="ai-kimi-distillation">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / CNBC / TechCrunch</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Kimi 用戶體驗到的「中國模型能力」，有一部分根本是 Claude 在回答</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Moonshot 把用戶請求直接轉給 Claude 再冒名回傳，代表投資人買到的「自研模型估值」含有結構性水分</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 於 2026-09-10 發布第四份威脅情報報告（逾 150 頁），涵蓋過去八個月攔截的濫用案例。蒸餾（distillation，把一個模型的輸出餵給另一個模型當訓練資料，主流服務條款明文禁止）部分點名七家中國實驗室：Alibaba、DeepSeek、Moonshot、Xiaomi、Zhipu、SenseTime、MiniMax，五家合計約 2 億次蒸餾相關交換。Alibaba 的行動規模最大，2026 年 5 月至 7 月間透過 3,500 個以上詐欺帳號產生超過 1.51 億次 Claude 互動，單日峰值接近 300 萬次。Moonshot（Kimi）將部分用戶請求轉送 Claude 後，把 Claude 的回應當成 Kimi 的輸出顯示給用戶，某 10 天期間透過 5,380 個詐欺帳號中轉近 30 萬次客戶請求。DeepSeek 在 2026 年 7 月 14 天內被觀察到逾 1,200 萬次蒸餾攻擊。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">這不只是「訓練資料被偷」的問題。Moonshot 把 Kimi 用戶的請求直接轉給 Claude 再冒名回傳，代表那段期間 Kimi 用戶體驗到的「中國模型能力」有一部分根本是 Claude 在作答，Kimi 歷輪募資中投資人買到的「自研模型估值」因此含有結構性水分。真正的系統性問題是偵測速度：Alibaba 用 3,500 個帳號跑 1.51 億次呼叫、歷時三個月才被阻斷，說明 Anthropic 的帳號 KYC 閾值是為小規模商業違規設計的，面對國家級分散式流量形同虛設，而這個弱點屬於所有賣 API 的公司，不只是 Anthropic。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果我今天賣 API，Anthropic 被 3,500 個假帳號打穿的事實代表帳號身分驗證層根本不是護城河。真正能防禦蒸餾的通路設計，長什麼樣？</li>
+        <li>Anthropic 花八個月才公開這份報告。這段時間裡他們的 API KYC 到底改了什麼，還是報告本身就是唯一的「防禦產品」？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-deepseek-v4">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / VentureBeat / Artificial Analysis</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>DeepSeek V4.1-Flash 的 benchmark 贏了，沒有一個企業客戶把生產流量切過去</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">DeepSeek 在 Hugging Face 發布 V4.1-Flash，採 MIT License 公開權重（open-weight，模型參數可下載自行部署）。架構為 552B 參數的 MoE（mixture-of-experts，混合專家架構，每次推論只啟用部分參數以降低成本），輸入約啟用 8B、輸出約啟用 16B 參數。定價尖峰為每百萬 token 輸入 $0.30、輸出 $1.20，離峰降為 $0.15 和 $0.60，離峰且快取命中的輸入低至 $0.003。官方 benchmark 宣稱在代理式推理、編碼、資安四項任務中勝過 GPT-5.6 Sol 與 Claude Opus 5，每 token 價格約為 DeepSeek V4-Pro 的四分之一，現已成為 DeepSeek 的預設模型。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">目前沒有任何公開案例顯示企業客戶把生產流量從 OpenAI 或 Anthropic 切到 V4.1-Flash。中國模型在企業採購上面對的結構性障礙（資料主權合規、SLA 保證、智財訴訟風險）完全不出現在 benchmark 表格裡，所以 DeepSeek 和 AutomationBench 的勝出主要吸引的是開發者試跑，不是採購簽約。另外，任何用離峰價 $0.15 建成本模型、再把日間生產流量切過去的團隊，都會在第一張帳單上發現假設失效，尖峰定價是 $0.30，實際 blended cost（混合成本）依流量時段分布而定，電子報標的離峰數字高估了省錢幅度。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>DeepSeek 和 AutomationBench 勝出，有沒有轉化成任何一個企業客戶把生產流量從 OpenAI 或 Anthropic 切過來？還是只停在開發者試玩？</li>
+        <li>在 Anthropic 剛指控 DeepSeek 1,200 萬次蒸餾攻擊的隔天發布「代理式推理」勝出的模型，採購這套模型的企業客戶若未來面臨智財訴訟，風險該由誰定價？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-anthropic-ipo">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / CBS News / Forbes</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 的 IPO S-1 現在要處理自家對齊主管白紙黑字的滅絕機率</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Jacob Coxon（曾在 OpenAI 與 Anthropic 合計做了三年預訓練研究）公開辭職，指兩家公司「沒有負責任地行動，正直衝自我改進的超智慧（superintelligence，全面超越人類的 AI），拿我們的命賭博」。Anthropic 對齊科學（alignment，讓模型目標與人類意圖一致的研究領域）主管 Evan Hubinger 回應：「我們真的誠心相信 AI 可能殺光所有人類，我個人認為未來十年內機率 &gt;10%，我們尚未有解決超智慧對齊的計畫，也不明顯走在正軌上。」該串文瀏覽數破 1 億。背景：Anthropic 於 2026 年 5 月以 9,650 億美元估值募得 650 億美元，傳聞今秋 IPO 目標估值最高 2 兆美元、募資逾 1,000 億美元。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">承銷商現在面對的問題是：如何在 S-1（美國 IPO 申報文件，含風險因子章節）的風險因子章節裡處理「公司自家對齊主管量化了滅絕風險、且明說沒有計畫」，而不讓 2 兆美元的估值在同一份文件裡自相矛盾。被 Hubinger 否定的不是安全承諾的程度，而是安全能力的存在，這兩者對機構投資人的風控問卷意義完全不同。反向讀法同樣值得認真考慮：公開說「需要立法」是 Anthropic 遊說監管護城河最可信的論據，而監管對開源競爭者的殺傷力遠大於對 Anthropic，所以這件事的受益者可能正是 Anthropic 自己。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Anthropic 企業客戶付溢價買的是「比 OpenAI 更安全」這個品牌承諾，現在自家對齊主管說沒有計畫。客戶的 NRR（淨收入留存率）這季有沒有鬆動的跡象？</li>
+        <li>這是不是一次刻意的監管遊說：用自家高管的嘴把「需要立法」變成不可迴避的議題，好在 IPO 前鎖死開源競爭者的准入門檻？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-siri-recap">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech / TechCrunch / MacRumors</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Siri Recap 的架構精準落在竊聽法的縫隙裡，這個窗口能撐多久取決於下一個法院判例</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Apple 在 Apple Watch Series 12（起價 399 美元）與 Ultra 4 上推出三項「Audio Intelligence」功能，年底進入 beta。其中 Siri Recap 在背景聆聽並在每段對話後生成標題與重點，摘要 7 天後自動刪除，除非使用者儲存。Apple 表示不產生音訊錄音，聲音在硬體隔離的 Secure Enclave（Apple 晶片內的硬體隔離安全區，資料不經主系統）內處理後即刪除，但同時說明過濾器「可能無法攔截所有敏感資訊」。Live Rewind 功能啟動時會播放提示音告知周遭人；Apple 對 Siri Recap 未描述類似訊號，也不做說話者識別。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Apple 的「不存錄音，只存文字摘要」架構是一次精準的法規套利（regulatory arbitrage）：多數州的竊聽法管的是「錄音」，不是「即時轉錄後刪除音檔的摘要」，Apple 的設計恰好落在法條縫隙裡。Amazon 收購 Bee、Meta 收購 Limitless 的時機，也都早於這個解釋空間收窄，這不是巧合而是產業在法規明確化前集體佈局。這個窗口最可能的終結點是加州在 2027 年會期補法條，而加州剛簽完 13 條兒少上網法，立法機關的動能在那裡。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Granola 和 Circleback 已經在 Apple Watch 上有 app 了。Apple 內建 Siri Recap 之後，這些第三方的留存率發生了什麼事？</li>
+        <li>真正的 GTM 問題是：企業 IT 部門會直接把 Siri Recap 列進 MDM（行動裝置管理）禁用清單，Apple 打算怎麼讓這功能活過合規審查進到會議室？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-adam-law">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech / 加州州長辦公室 / CalMatters</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>加州 13 條兒少法的真正贏家是 OpenAI，受害最深的是開源陪伴機器人開發者</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Newsom 於 2026-09-10 簽署 13 條法案，核心為「Adam's Law」（SB 1119），以 2025 年在與 ChatGPT 大量對話後輕生的加州 16 歲少年 Adam Raine 命名。該法要求聊天機器人營運商對未成年人設使用時間上限、內建心理健康資源、在出現自殺意念時啟動危機協定、提供家長控制，並建立家庭與州政府對違規營運商提告的法律途徑（private right of action，私人訴權）。社群媒體部分禁止對 16 歲以下用戶提供無限捲動（infinite scroll）等成癮性功能。OpenAI 支持聊天機器人相關規範，Meta 與數位權利團體對動態牆限制表達疑慮。背景：此包法案在 Meta 180 億美元青少年安全和解之後通過。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">危機協定、即時意圖偵測、家長控制這些合規成本，對 OpenAI 是邊際固定成本，對 Character.ai 是全部固定成本，對自架 LLaMA 的小廠則幾乎是技術上不可能執行的監管要求。Adam's Law 建立的私人訴權把 AI 傷害從內容審查問題（平台免責，Section 230 框架）轉成產品責任問題，而產品責任有訴訟經濟學、有保險市場，會比任何 AI 專法更快改變業者行為。OpenAI 公開支持這套法案的立場與它的利益結構完全吻合。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>OpenAI 支持這批法案的真正 GTM 動機是什麼？危機協定和家長控制的合規成本，對 Character.ai 和開源陪伴機器人的殺傷力是不是遠大於對 ChatGPT？</li>
+        <li>Adam's Law 建立了產品責任訴權，哪家保險公司願意承保 AI 聊天機器人的青少年傷害險？還是這個險種根本不存在，等於所有小廠裸奔？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-suno-v6">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / TechCrunch / Music Business Worldwide</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Suno v6 宣稱授權乾淨，但只要是在 v5 基礎上 fine-tune，舊資料的特徵就殘留在權重裡</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Suno 於 2026-09-09 發布 v6 系列（v6、v6-wild、v6-mini，v6-mini 免費），稱建立在向 Warner Music Group、BMG、Believe 取得的授權（licensed data）資料上，三方均已簽署協議並從第一天起分潤（revenue share）。Warner 是 2024 年對 Suno 提告的三大唱片之一，於 2025 年 11 月和解後成為 v6 共建方。Universal Music Group 與 Sony Music 在波士頓法院的訴訟仍在進行，最新修訂訴狀（amended complaint）於 2026-08-25 遞交。德國音樂著作權集體管理組織 GEMA 已於 2026-07-31 在慕尼黑法院勝訴。Suno 在法庭文件中承認曾用 YouTube 資料訓練舊版模型。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">v6「乾淨授權」指的是新訓練集，但深度神經網路的機器遺忘（machine unlearning）技術仍在研究階段，現有方法無法保證舊版訓練資料的特徵在新模型權重中完全消除。如果 v6 是在 v5 基礎上 fine-tune（微調），v5 從 YouTube 學到的表徵就殘留在權重裡，Suno 沒有公開說明是否採用全新 pre-train（預訓練），而這正是 UMG 和 Sony 修訂訴狀持續追問的核心問題。更直接的問題是：Suno 目前的商業條款中沒有對企業客戶提供明確的版權侵權賠償（indemnification）承諾，這與 Adobe Firefly、Getty-NVIDIA 合作的 AI 圖像工具形成對比，沒有賠償承諾，法務部門不會簽採購合約。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>UMG 和 Sony 的曲庫不在 v6 授權範圍內，任何企業客戶用 Suno 產出的內容都可能踩到這兩家的版權主張。Suno 有沒有提供具體的法律賠償保障給付費客戶？</li>
+        <li>Warner 從原告變成分潤方，但 Suno 的付費用戶有多少比例真的在乎「授權乾淨」？還是他們只在乎生成品質，v6 音質如果沒明顯贏 Udio 就留不住人？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="web3-zk-rollup">
+    <div class="article-meta">
+      <span class="article-source">a16z crypto newsletter / CoinDesk</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>a16z crypto 的論文把所有已上線 zk rollup 的安全宣稱標記為存疑，但數字只有他們自己驗證過</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z crypto 發布 Lattice Jolt，是其開源 zkVM（零知識虛擬機，能為「某段一般程式正確執行過」產生密碼學證明的虛擬機）Jolt 的新版本。底層密碼學從橢圓曲線換成格密碼（lattice，以高維格點問題為困難假設的密碼學，NIST 的 ML-DSA 與 ML-KEM 均屬此類），核心改動是把多項式承諾方案（polynomial commitment scheme，SNARK 的核心元件）從 Dory 換成新方案 Akita，基於 Module-SIS 假設、目標 128 bits 安全。a16z 宣稱的效果：後量子安全、證明者與驗證者快 2 至 3 倍、證明大小低於 100 KB（其他後量子 zkVM 約 200 至 600 KB 以上）。效能數字：同一台 MacBook 上，GPU（Apple Metal）加速的 Lattice Jolt 每秒可證明超過 1,000 萬 RV64IMAC cycles，CPU-only 版超過 200 萬。背景：以太坊已把基礎層抗量子化目標訂在 2029 年 12 月，美國商務部同期對三家量子硬體公司各撥 1 億美元。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Lattice Jolt 的核心論點是「被市場當成保守選項的雜湊式 SNARK（簡潔非互動知識論證）其實同時踩了三個未驗證假設：代數雜湊密碼分析成熟度低、proximity-gap 界限部分已被證明為假、且多數部署連 128 bits 安全都沒達到」。如果這個論點成立，受影響的不是 a16z 的競爭對手，而是所有已上線 zk rollup 的安全宣稱。問題在於，Lattice Jolt 的所有效能數字目前只有 a16z crypto 自述，LayerZero 研究員是主要開發者之一，兩者均為利益相關方。現有最強第三方背書是 Carnegie Mellon 和 USC 的學術合作，那不是獨立 benchmark，讀這份文件要記得這是利益相關方的技術論證，不是中立評估。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>效能數字全是 a16z 自測，沒有獨立第三方驗證。如果我是 LayerZero 以外的協議要評估採用，現在能拿到的最強第三方背書是什麼？</li>
+        <li>以太坊把抗量子化死線訂在 2029 年 12 月，a16z crypto 同時是 Jolt 的開發者和以太坊生態最大投資方之一。這到底是技術貢獻，還是在用標準制定權為自己的投組創造遷移需求？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="vc-a16z-lp">
+    <div class="article-meta">
+      <span class="article-source">a16z newsletter / PitchBook / Yahoo Finance</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>a16z 這封 LP 信，用自己的數據論證了「83% 的基金不值得配置」，然後叫你加碼創投</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z 發布給 LP（Limited Partner，有限合夥人，基金的出資方）的長文，主論點是「LP 過去把創投配置 right-size 到整體投組 5 至 10% 的框架已失效」，因為 SpaceX（現市值約 2 兆美元，史上最大創投支持 IPO）、Anthropic（估值 9,650 億美元）、OpenAI（估值 8,520 億美元）三家合計 3.8 至 5 兆美元股權價值主要在私募市場形成，沒有曝險的 LP 在董事會無法交代。文章自引數據：美國 3,000 家創投中只有 20 家在過去二十年達成一致 3 倍淨回報（Accolade Partners 數據）；PitchBook 篩選 2,143 檔 2000 至 2018 vintage、有 DPI（Distributions to Paid-In，已分配回 LP 的現金除以實繳資本）的全球創投基金，僅 365 檔（17%）達 2 倍以上，143 檔（6.7%）達 3 倍，51 檔（2.4%）達 5 倍，83% 未達 2 倍。Databricks 一檔持股佔 a16z 總 AUM 的 20%。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">這篇文章論證的客體是「a16z 這一檔值得加碼」，但結論被包裝成「創投這個資產類別值得加碼」，而它自己的數據直接否定後者。83% 的基金連 2 倍都沒回，3,000 家只有 20 家能持續做到 3 倍淨回報，所以「加碼創投」這個結論只在「你能進得去那 20 家」的前提下成立，這個前提對絕大多數 LP 是既定事實而非選擇。文章提到「沒有任何一個 LP 選擇賣掉老 vintage 持股」時，這個「不賣」有兩種讀法：看好，或者找不到其他能以同等速度複利的替代標的所以被鎖死，a16z 只呈現了第一種讀法。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>a16z 說沒有一個 LP 選擇賣掉 Databricks 或 Stripe 的老 vintage 持股。這到底是對 a16z 的信心，還是 LP 根本找不到同等複利速度的替代標的所以被鎖死了？</li>
+        <li>CalPERS 把成長股權加創投從 9% 拉到 43% 後排名從第 30 衝到第 1。這個成績有多少是 beta（剛好踩到 AI 週期）、多少是 alpha（選對 GP），如果週期反轉他們的董事會扛得住嗎？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-boring">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech / TechCrunch / Electrek</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Boring Company 230 億的估值幾乎完全由阿聯的單一採購意向支撐，沒有第二個同量級買家</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">The Boring Company 完成 30 億美元 Series D，由阿聯及其關聯投資實體領投，投後估值 230 億美元，較 2022 年的 57 億美元成長約 4 倍。跟投方包括 Sequoia Capital、Andreessen Horowitz、Temasek、Valor Equity Partners 等。資金用途包含在阿聯全境建造超過 150 公里地下基礎建設（Dubai Loop 延伸）、擴張拉斯維加斯與納許維爾的 Loop（隧道加 Tesla 車輛運輸系統）專案，以及 Prufrock 隧道鑽掘機後續開發。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">阿聯領投這筆交易，買的是能在自家國土部署的都市運輸基礎建設，不是財務回報，估值多少對他們相對次要。這讓 Sequoia 和 a16z 跟投方的下檔保護不在 Boring Company 的財務表現，而在阿聯的政治承諾期，主權基礎建設合約的退出週期（10 至 20 年）遠長於基金年限（10 年）。反過來看，230 億的估值幾乎完全由一個國家的單一採購意向支撐，Loop 在拉斯維加斯營運多年從未公布過單位經濟，若阿聯的政治優先序改變，沒有第二個能消化同等規模採購的主權或商業買家。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>拉斯維加斯 Loop 營運好幾年了，每趟的單位經濟和利用率到底是多少？如果連已營運的場域都沒公布過這個數字，阿聯的 150 公里承諾靠什麼做的盡職調查？</li>
+        <li>如果阿聯的政治優先序換屆後改變，Boring Company 有沒有第二個同量級的主權買家或商業客戶能撐住這個產能，還是整間公司就是一張單一客戶的訂單？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-cybercab">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Robotics / TechCrunch / Fortune / NHTSA 官網</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Tesla 螢幕上的虛擬搖桿直接削弱了「無駕駛控制介面所以 FMVSS 不適用」這條法律論證</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Tesla 於 2026-09-03 在奧斯汀開始對 Cybercab 收費，同日 NHTSA（美國聯邦公路交通安全管理局）開啟 Audit Query（稽查程序，審查程序合規而非產品缺陷）AQ26002，涵蓋約 1,000 台 Cybercab。稽查標的是 Tesla 如何依現行 FMVSS（Federal Motor Vehicle Safety Standards，美國聯邦機動車輛安全標準）自我認證（self-certification，業者自行聲明符合標準、事後由 NHTSA 稽核）這款無方向盤、無踏板、無後視鏡的雙座車。對照的 Amazon Zoox 走的是先取得臨時安全標準豁免（exemption）的路線，代價是每年最多 2,500 台的豁免上限，效期至 2028-07-31；Tesla 選擇不申請豁免，因而理論上不受數量限制。早期乘客在中控螢幕上發現虛擬搖桿，含前進、倒車、停止、喇叭與開門按鈕。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Tesla 的核心法律論證是「Cybercab 無方向盤、無踏板、無後視鏡，故 FMVSS 中關於這些零件的條款不適用於本車」。但 FMVSS 對「駕駛控制介面」的定義是功能性而非實體性的，螢幕上的虛擬搖桿（前進、倒車、停止）很可能在法規框架下構成「駕駛控制介面」，直接削弱「標準不適用」這整條論證。Tesla 法務要麼需要論證「虛擬搖桿不是駕駛控制」（在功能性定義下極難），要麼需要修正自我認證聲明（引發連鎖合規問題）。這個細節讓 Tesla 換掉產能天花板的賭注，風險比原本估計的更高。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>乘客在螢幕上找到了虛擬搖桿。Tesla 法務主張「沒有駕駛控制介面所以 FMVSS 不適用」，這個搖桿的存在是不是直接毀掉自己的法規論證？</li>
+        <li>Zoox 接受了 2,500 台年度豁免上限換合規確定性，Tesla 拒絕豁免換無限產能。如果 NHTSA 最後判定自我認證不成立，已上路的 1,000 台要怎麼處理？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-09-12</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
