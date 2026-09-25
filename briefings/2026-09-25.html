@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-09-25</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 9 月 25 日　星期五</span>
+    <span class="header-count">9 篇</span>
+  </div>
+  <h1>今天你有多少時間，科學還是行銷？</h1>
+  <p class="header-lede">Anthropic 用沒有 peer review 的發現替融資敘事背書，Bitget 被偷的方式跟去年 Bybit 一模一樣，而廣告代理商已經成為 AI 創業公司最真實的現金機器。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-biology">Anthropic 用沒有 peer review 的發現替 Series H 做背書</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-akamai">Anthropic 花 $11.6B 綁住 Akamai</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-bitget">Bitget 被偷 $352M，跟 Bybit 手法一樣</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-btc-cost">生產成本即地板規律失效了</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-perps">perps 進美國，CME 才是真正慌的</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-multicoin">Multicoin「DeFi 2.0」是投資地圖</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-higgsfield">Higgsfield $1B ARR 來自代理商</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="ai-anthropic-biology">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI、TechCrunch</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 用沒有 peer review 的發現，替 Series H 估值敘事做背書</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 的分子生物實驗室（2026 年春季成立，僅做 BSL-1/2 低風險實驗）公布首個發現：約 950 個 Claude agents 平行作業 21 小時、消耗 210M tokens，在噬菌體（感染細菌的病毒）DNA 資料庫中找到一個未知酶系統，暫名 ART，帶有類似 CRISPR（細菌免疫系統衍生的基因剪輯工具）的重複 DNA 片段，初步實驗顯示可能具備切割、複製、貼上 DNA 的能力。流程掃出同類酶基因 200,000 個以上，最終挑出 20 個深入驗證。研究方向由科學家選定，實體實驗由人類執行，酶本身先前已有文獻，Claude 的貢獻是辨識出周邊組件組合。發布載體是 Anthropic 官網，無 preprint、無同儕審查，Stanford 研究者先前已發表部分相似系統。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">這次發布的每個結構性特徵，包括無 preprint、無同儕審查、官網公告、放在 Series H 週期，都指向行銷素材而非科學里程碑。「ART 可能像 CRISPR 一樣可程式化」目前僅靠序列比對相似度與初步切割實驗支撐，沒有結構生物學（cryo-EM 或晶體學）驗證，這個說法在工程上還是假說。真正的贏家是 Anthropic 的企業 AI 銷售敘事，輸家是生物學界的信任預算。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果用 GPT-4 或 Gemini 跑同樣的噬菌體資料庫掃描，950 個 agents 做的事有什麼是模型無關的護城河，還是誰算力多誰就能複製？</li>
+        <li>在沒有結構生物學驗證酶-DNA 交互機制的情況下，「ART 可能可程式化」這個宣稱，需要什麼條件才能從假說升格為工程結論？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-anthropic-akamai">
+    <div class="article-meta">
+      <span class="article-source">Akamai 8-K、Bloomberg、SiliconANGLE</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 用 warrant 把 Akamai 綁成利害關係人，執行風險全丟給 Akamai 股東</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 與 Akamai（CDN 內容傳遞網路起家的雲端公司）簽訂 $11.6B、7 年期 CPU 算力合約，另有至多 $9B 追加選擇權，總值可達約 $20B。營收 2027 下半年開始認列，預估 2028 年底年化 run rate（以當前速度推算的年化營收）約 $1.7B。Akamai 為此估計 capex 約 $5.5B，其 Q2 雲端基礎設施營收僅 $99M。Anthropic 取得 warrant（認股權證），可轉換約 5% Akamai 普通股，行使價 $111.33，簽約即 vest 約 2%，之後每多 $3B 承諾再 vest 約 1%。Akamai 盤後漲超過 20%。Anthropic 近期算力佈局還包括 TeraWulf 20 年 401MW 租約、Micron 記憶體供應協議，另洽談向 Stream Data Centers 租至多 1GW。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Akamai 要用一家公司現有雲業務數十倍的規模來執行這份合約，執行風險完全由 Akamai 股東承擔，Anthropic 反而透過 warrant 在 Akamai 市值上漲時獲得財務回報。「每 $3B 換約 1% 股權」這個結構是 OpenAI 對 AMD 的翻版：把供應商變成利害關係人，進一步鎖定低邊際成本 CPU 供給並分散供應商風險。算力採購單價未披露，無法判斷哪一方被補貼，但結構本身的受益方指向明確是 Anthropic。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Akamai 的邊緣節點原本為 CDN 低延遲設計、單點算力密度遠低於超大規模資料中心，如果 agent workload 需要跨節點維持長上下文狀態，Akamai 現有架構在哪個併發量級會成為真正的瓶頸？</li>
+        <li>Anthropic 用 warrant 鎖住的到底是產能還是忠誠度？CoreWeave 或任何有閒置 x86 的人都能搶這門生意，Akamai 的結構性優勢在哪裡？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <article class="article" id="web3-bitget">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk、Bloomberg、CNBC、The Block</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Bitget 被偷 $352M，Bybit 的攻擊手法一年半後原封不動再現</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">兩次大型駭案都不是私鑰外洩，而是偽造簽核前的交易資料。這已確認整個 CEX 行業的系統性漏洞，而目前沒有主要交易所宣布部署可結構性修補的方案。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">9/24 18:31 UTC，Bitget 熱錢包（在線即時出金）與溫錢包（半在線）遭未授權轉出，冷錢包（離線保管）未受影響。The Block 最初從鏈上偵測到約 $170M 在一小時內轉至單一新地址，Bitget 其後確認受影響金額 $351.6M。CEO Gracy Chen 說明攻擊者入侵錢包後端、製造假交易資料觸發合法授權流程，私鑰未外洩。被盜資產以 XRP 為首，隨後換成 ETH。公司稱 $464M+ User Protection Fund（用戶損失保障基金）全額覆蓋，服務 125M 以上用戶。Chen 依 IP 線索懷疑北韓 Lazarus Group（國家級駭客組織）。CoinDesk 報導事發隔日 altcoin 普漲，BTC 在 $84,000 附近盤整，市場無反應。對照：2025 年 2 月 Bybit 遭同類手法駭走 $1.5B。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Bybit 與 Bitget 連續兩次都是後端系統被入侵後偽造「簽核端看到的交易資料」，MPC（多方計算）多簽架構對此無效，因為密鑰本身從未被偷。能結構性解決這個問題的路徑是可信執行環境（TEE）加上交易意圖驗證層，但目前沒有主要交易所宣布部署。輸家是整個 CEX 行業的保險成本結構，贏家是能提供後端安全審計與 TEE 方案的 DevOps 安全廠商。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Bitget 的 $464M User Protection Fund 底層資產組成是什麼？如果是自家平台幣 BGB，這個「全額覆蓋」在擠兌情境下值多少？</li>
+        <li>Bybit 一年半前用同樣手法被打過，Bitget 的後端授權流程到底改了什麼？還是整個行業的 MPC 簽核機制本質上就是安全劇場？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-btc-cost">
+    <div class="article-meta">
+      <span class="article-source">The Block、Bloomberg</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>JPMorgan 的 $85,000 生產成本估算，可能已被它自己描述的反饋迴路推翻</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">JPMorgan 分析師 Nikolaos Panigirtzoglou 估計 BTC 生產成本（挖出一顆 BTC 的平均成本，含電費與設備）約 $85,000，歷史上被視為價格「軟地板」。BTC 現約 $84,100，低於生產成本已 280 天，比 2018 年熊市的 224 天更長。主因是礦工把產能轉向 AI 推論，AI 收入「更可預測、更穩定、每 MW 更高」。算力（hashrate，全網挖礦運算量）自 10 月高點下滑約 19%，挖礦難度（difficulty，隨算力自動調整）降約 15%。上市礦企下修算力成長預測，份額流向私人與主權礦工。Bloomberg 同日報導 BTC 受殖利率與美元走強拖累，盤中跌至 $82,882。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">礦工轉向 AI 帶來一個反饋迴路：算力下降 19%、難度降 15%，生產成本本身也在下移。若這個迴路持續，真實生產成本可能已落在 $75,000 至 $80,000 之間，而 JPMorgan 的 $85,000 是靜態快照，這讓「價格低於成本」的論述在數月內就可能因成本基準下移而自我失效。上市礦企（Marathon、Riot）商業模式已從「BTC 生產商」變成「電力與算力基礎設施運營商」，估值框架更接近資料中心 REIT，贏家是電力資產豐富的私人與主權礦工。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>礦工把電力轉去跑 AI 每 MW 收入更高更穩，這代表算力可能回不來了。BTC 的「生產成本即地板」這條歷史規律是永久失效，還是只是暫時？</li>
+        <li>如果上市礦企已經從「挖幣」變成「賣電給 Anthropic」，LP 為什麼還要投上市礦企的 BTC 敘事，而不是直接投 GPU-as-a-service？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-perps">
+    <div class="article-meta">
+      <span class="article-source">Bloomberg、Pantera Capital</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>perps 進美國，真正的受害者是 CME 的股票衍生品訂單流，不是 SEC 管轄的現貨市場</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">2025 年 CEX 永續合約（perps，無到期日的期貨合約，靠 funding rate 資金費率錨定現貨價格）交易量 $62T，遠超現貨約 $19T，占全部衍生品 $86T 的多數。Payward（Kraken 母公司）計劃首批上架 10 檔美股 perps，包括 Tesla、Nvidia、Apple、Microsoft、Amazon，24 小時、每週 5 天交易；Kalshi 向 CFTC（美國商品期貨交易委員會）申請上架美股永續合約，由旗下 Kalshi Klear 清算所清算。Hyperliquid Labs 正與 Payward 深度洽談，透過 Payward 向美國交易者提供服務。SEC 主席 Paul Atkins 表示將「果斷行動」提供監管確定性。CFTC 尚未核准相關申請。Trump 上月在白宮活動稱讚監管者努力把 Hyperliquid 帶進美國。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">perps 進美國走的是 CFTC 通道，繞過 SEC 證券框架，真正的競爭對象是 CME 與傳統券商的股票期貨及保證金業務。CME 的防禦不是清算信用，而是機構合規部門已批准的交易對手清單，但這只是摩擦力，不是護城河。若 CFTC 核准，CME 的股票衍生品訂單流最先在亞洲交易時段與散戶端開始流失，機構訂單流因合規慣性晚一到兩年跟進。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>CME 和傳統券商真正的防禦是清算信用和機構關係，還是他們根本還沒意識到 24/7 無到期日合約會把他們的訂單流吸走？</li>
+        <li>Hyperliquid 透過 Payward 進美國後，美國用戶產生的手續費與 funding rate 收入流進 Payward 損益表還是貢獻給 HYPE 代幣持有人？這對 HYPE 的估值邏輯意味著什麼？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-multicoin">
+    <div class="article-meta">
+      <span class="article-source">Multicoin Capital</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Multicoin「DeFi 2.0」是一份公開的投資地圖，不是中立的市場分析</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Multicoin Capital 合夥人 Spencer Applebaum 與 Shayon Sengupta 發文主張，DeFi 1.0 的原語（AMM 自動做市商、永續合約、浮動利率借貸、超額抵押）是為高波動加密資產設計的，RWA（real-world assets，鏈上代幣化的現實資產）上鏈後需要五類全新原語：針對低波動的 CLOB（中央限價訂單簿）與 RFQ（詢價機制）、針對期限與可預測現金流的 yield stripping（把收益權與本金拆開交易）與固定利率借貸、針對機構參與者的暗池（dark pool，不公開掛單的交易場所）、可識別借款人的組合保證金（portfolio margin，依整體部位風險計算），以及跨協議統一保證金。文中具體點名 Morpho、Pendle、Maple、Renegade、Project 0、Zama 等協議。這是 Multicoin「onchain markets」系列第 4 篇，無市場規模或估值數字，無 Tier 1/2 第三方報導。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">文中列出的五條賽道與被點名的協議，和 Multicoin 已投或正在盡調的標的高度吻合。這類 VC 立場文的功能是建立敘事框架，讓後進投資人以相同語言評估這些標的，進而支撐估值與退出路徑。論點本身不一定是錯的，但每個判斷都帶有激勵相容問題，把這篇當做中立市場研究使用的分析師是真正的輸家。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>公鏈 RWA 協議目前都沒有機制在借款人違約時觸發鏈下資產扣押。如果 RWA 的真正買家是機構，他們為什麼不直接用 JPMorgan Onyx 或 BlackRock BUIDL 的許可鏈，繞過這整套公鏈原語？</li>
+        <li>Morpho、Pendle、Maple 這些被 Multicoin 點名的協議，實際 TVL 利用率是多少？還是這又是一輪 VC 先喊敘事再灌 TVL 的老循環？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="vc-higgsfield">
+    <div class="article-meta">
+      <span class="article-source">Bloomberg</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Higgsfield $1B ARR 的客戶是廣告代理商：切換成本以天計，不以季計</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">AI 影片生成應用 Higgsfield 向 Bloomberg 表示年化營收（ARR）已超過 $1B，成長軌跡為：2025 年底約 $200M、2026 年 6 月 $500M、8 月 $700M、現破 $1B。從 $1M 到 $1B ARR 約 18 個月，快於 Anthropic 與 Cursor（約 22 個月）、OpenAI（約 37 個月）。8 月完成 $400M Series B，估值 $5.4B。約 70% 營收來自創意代理商替品牌量產廣告素材。公司稱已 cash-flow positive（營運現金流為正）。Higgsfield 不自研前沿模型，建在第三方影片生成模型之上。對照：Runway、Pika、Luma 等自研模型的 AI 影片對手少有人宣稱獲利。上述數字為公司自報，無第三方審計。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">70% 營收來自創意代理商，這類客戶的選擇邏輯是「哪個工具最快出稿」，不是平台忠誠度。廣告素材工作流的切換成本以天計，不以季計，Higgsfield 的毛利也完全暴露在上游 API 定價之下。$5.4B 估值隱含極低 churn（客戶流失率）假設，但一旦 Runway 或 Pika 向代理商開放白牌 API，流失可在一個採購週期內發生，而 Higgsfield 未披露 net revenue retention（淨營收留存率）。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 Runway 或 Pika 明天直接給代理商開白牌 API 加上模板引擎，Higgsfield 的留存會發生什麼事？在技術棧的哪一層它有不可替代的工程壁壘？</li>
+        <li>「Cash-flow positive」是公司自報的說法，沒有第三方審計。Series B 投資人有沒有人看過經審計的 GAAP 利潤表，還是大家都在用 run rate 乘數互相壯膽？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-09-25</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
