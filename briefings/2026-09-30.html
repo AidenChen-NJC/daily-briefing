@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-09-30</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 9 月 30 日　星期三</span>
+    <span class="header-count">8 篇</span>
+  </div>
+  <h1>今天有一個假設被打破了</h1>
+  <p class="header-lede">從 Sonnet 拆掉 Opus 的定價理由，到 Grass 的 DePIN 護城河其實在索引伺服器而非節點數，再到每家消費級 agent 公司都在用 GMV 和毛利率的煙霧。今天你讀到的是對四個層級的假設的批判：模型分級、分散式基礎設施、估值倍數，以及平台對中介的真實態度。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-sonnet-opus">Sonnet 5.5 拆掉 Opus 的定價理由</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-starship">Starship 入軌是工程里程碑</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-grass">Grass 護城河在索引伺服器</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-hyperliquid">Hyperliquid 越成功越像基礎設施</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-instinct">Instinct 的 GMV 護城河在哪</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-muse">Amazon 封鎖 Muse 的理性選擇</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="ai-sonnet-opus">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / Anthropic / VentureBeat / The Decoder</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 用 Sonnet 5.5 拆掉了 Opus 的定價理由</h3>
+    
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 9 月 29 日發布 Claude Sonnet 5.5，定價與上一代 Sonnet 5 相同，輸入每百萬 token $2、輸出 $10，速度比 Sonnet 5 快逾 30%，Anthropic 稱每任務成本最多低 30%。官方基準：知識工作評分 GDPval-AA v2.1（以真實職業任務評分的基準）Sonnet 5.5 得 1844 分，Opus 5.5 為 1846 分，差距僅 2 分；電腦操作基準 OSWorld 2.1（讓模型操作真實作業系統的評分）Sonnet 5.5 達 80.1%，Opus 5.5 為 81.8%。唯一差距明顯的地方是最難的程式任務 FrontierCode 1.1：Sonnet 5.5 得 46.2%，Opus 5.5 為 54.4%，差 8.2 個百分點。Sonnet 5.5 同步首度加入資安防護欄，這項機制過去只有 Opus 與 Fable 兩個旗艦等級才有。發布時間點落在 OpenAI DevDay 前一天。</p>
+    
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Opus 5.5 的溢價空間現在只剩一個地方站得住，就是最難的程式任務。日常知識工作和電腦操作兩塊，Sonnet 5.5 跟 Opus 的差距已沒有商業意義，企業採購的理性選擇是把日常 workflow 全降級 Sonnet，只留程式密集型任務付旗艦價，Anthropic Opus 的 ARR 從今天起就應該被打折。AWS、Azure、GCP 三家按模型計費，客戶自動選便宜的，推論分潤也會跟著移動。</p>
+    </div>
+    
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Sonnet 5.5 跟 Opus 5.5 在基準上只差 2 分，Anthropic 是不是在用自己的中階產品吃自己旗艦的 NRR？</li>
+        <li>資安防護欄的推理開銷，在高併發 agent 場景下，會不會吃掉那 30% 的速度優勢，讓每任務實際成本回到 Sonnet 5 水準？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-starship">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Tech / CNBC / Space.com / New Atlas</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Starship 入軌是工程里程碑，不是成本里程碑</h3>
+    
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">SpaceX 9 月 28 日自德州 Starbase 發射 Starship 第 14 次試飛，首度進入約 170 英里（275 公里）高的地球軌道。上節在升空約 34 分鐘後開始部署 26 顆可營運的 Starlink V3 衛星，SpaceX 確認已與全部衛星建立聯繫。本次上節三具真空版 Raptor（SpaceX 以甲烷為燃料的火箭引擎）有一具提前關機，任務從原定最長約 10 小時縮短為約 2 小時。助推器與上節兩段皆為一次性使用、落地時損毀。Starship 計畫累計成本超過 $150 億。NASA 將 Starship 作為 Artemis IV 登月著陸器，目標 2028 年。SpaceX 股票 SPCX 發射當天僅小漲約 1%，報 $149.80，較 6 月水準仍低約 7%。</p>
+    
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">本次兩段全拋棄，等於這 26 顆 Starlink V3 的運載成本結構與 Falcon 9 一次性使用版相近，而非回收版，「最便宜的太空貨運」論述要等到塔回收穩定重複使用後才能成立。市場股價只動 1% 且仍低於六月，代表「能入軌」早已反映在定價裡，真正的估值錨點是兩段重複使用，不是入軌本身。</p>
+    </div>
+    
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果我今天要跟 SpaceX 競爭太空貨運，最難複製的到底是發射塔回收的工程能力，還是 Starlink 這個自帶需求的內部客戶，讓它可以不靠外部訂單就填滿產能？</li>
+        <li>股價只動 1% 且仍低於六月水準，重複使用回收到底佔 SpaceX 二級市場估值多少隱含價值，如果明年還做不到塔回收，誰的 LP 要先認損？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="web3-grass">
+    <div class="article-meta">
+      <span class="article-source">Multicoin Capital / KuCoin News / Startup Fortune / CryptoRank</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Multicoin 押注 Grass，但真正的護城河在索引伺服器，不在 600 萬個節點</h3>
+    
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Multicoin Capital 9 月 29 日宣布投資 Grass，金額未揭露，旗下對沖基金與創投基金共同出資。Grass 是一個 DePIN（去中心化實體基礎設施網路：用代幣激勵個人貢獻頻寬、算力等實體資源）協議，以代幣激勵超過 600 萬名貢獻者分享閒置家用頻寬，透過住宅節點抓取並解析公開網路，進入 AI 實驗室的預訓練資料流程。Grass 自報 2025 年營收 $17M、2026 上半年 $17M，指引 2026 年訓練資料業務全年 $75M，意味下半年需做到約 $41M，為上半年的 2.4 倍。月營運支出 $2M 至 $3M，自稱已獲利。Multicoin 的核心論點是：模型在回答問題或 agent 執行任務時必須做 inference-time retrieval（模型回答當下即時上網抓資料），這類需求貫穿整個部署期，市場規模可能遠大於一次性的預訓練資料。Multicoin 明確主張毛利應投入索引建置而非回購 GRASS 代幣。GRASS 消息公布後 9 月 30 日單日漲逾 25%，報約 $0.74。</p>
+    
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Grass 要從爬蟲網路轉型為即時檢索層，需要一個可被 agent 亞秒級查詢的網頁索引，而 600 萬個家用節點適合分散式抓取，並不適合託管倒排索引（高延遲、一致性無法達標）。若索引集中部署，「Read Layer for Machine Intelligence」就不再是 DePIN，而是一個用代幣激勵爬蟲、但中央處理的混合架構。把 GRASS 當去中心化搜尋基礎設施定價的代幣持有人，其實是在替一個集中式索引伺服器付溢價。</p>
+    </div>
+    
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Grass 自報下半年要做到上半年的 2.4 倍，那些 AI 實驗室客戶的續約率跟合約年限到底是多少，還是每季都在重新談？</li>
+        <li>如果我明天要用同樣的住宅代理模式做 AI 即時檢索，Grass 最難被複製的是 600 萬個節點的規模，還是其實任何有瀏覽器擴充套件分發能力的公司，比如一個大型 VPN 廠商，都能在三個月內拉到同等供給？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-hyperliquid">
+    <div class="article-meta">
+      <span class="article-source">a16z crypto / CoinDesk / The Block</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Hyperliquid 越成功地讓別人開市場，自己越像被抽成的基礎設施</h3>
+    
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z crypto 9 月 29 日發表文章，以 Hyperliquid 的 HIP-3 為核心案例，主張區塊鏈真正的殺手級應用是無需上架委員會就能開新市場。HIP-3 是 Hyperliquid 允許第三方自行上架永續合約（無到期日的期貨，以資金費率讓價格貼近現貨）市場的框架。HIP-3 市場占 Hyperliquid 永續合約成交量比例，從年初約 2% 升至夏季約 50%，2026 年 5 月單月成交量超過 $620 億，未平倉 $30 億。RWA（現實世界資產，如股票、原油、金屬）永續合約在 2026 年 7 月的年化交易量達 $1.4 兆。然而，CoinDesk 8 月 9 日報導指出，Hyperliquid 營收從 2025 年第三季約 $3.57 億，連續四季下滑至 2026 年第二季約 $2.02 億，跌幅 43%，同期 Assistance Fund（Hyperliquid 以交易費回購 HYPE 代幣的機制）的回購金額從約 $2.9 億腰斬至約 $1.49 億。主因是 HIP-3 建構者分走約一半交易費，且 trade.xyz 一家就拿下 98% 的 HIP-3 成交量與超過 90% 未平倉。</p>
+    
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">HIP-3 成交量從 2% 衝到 50% 的同時，Hyperliquid 營收掉了 43%、回購腰斬。這不是成長期的補貼，是結構性的利潤轉移：HYPE 持有人是淨輸家，trade.xyz 的創辦人是贏家。評估 permissionless（無需許可）市場平台時，要看的是費用分潤結構，不是成交量。</p>
+    </div>
+    
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>HYPE 持有人實際上是在補貼 trade.xyz 的成長，這跟 Uber 補貼司機有什麼本質區別？</li>
+        <li>trade.xyz 八個月拿下 98% 的 HIP-3 成交量，如果它明天自建鏈或跳到另一個 L1，Hyperliquid 的 $1.4 兆年化量還剩多少？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="vc-instinct">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI / TechCrunch</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Instinct 用旅遊 GMV 撐起 $10B 估值，而旅遊是 agent 最容易被封鎖的品類</h3>
+    
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">消費級 AI agent（替個人用戶代辦訂票、購物、付帳的 AI 代理）新創 Instinct 9 月 28 日宣布完成 $10 億 Series C，投後估值（含本輪新資金的公司估值）$100 億，由 Sequoia Capital、Benchmark、Coatue 領投。一個月前（8 月）才以 $25 億估值募得 $3.5 億。創辦人 Noah Shinn 表示年化交易額（GMV，平台上成交的總交易金額，不等於營收）接近 $10 億，其中超過 50% 與旅遊相關，平台「每天成長 10%」，全公司僅 14 人，產品 8 月上線、邀請制、零行銷支出、尚無行動 app。競爭對手 Meta Muse 已有數百萬下載，並與 Meta 社群產品深度整合。</p>
+    
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">$100 億估值除以接近 $10 億 GMV 是 10 倍 GMV 乘數，若旅遊佣金率約 3 至 5%，實際年化營收約 $3,000 萬至 $5,000 萬，對應 200 至 333 倍營收，Sequoia 和 Benchmark 買的是期權，不是基本面。更關鍵的是：旅遊訂單的取消率可高達 20 至 40%，若 GMV 未扣取消，年化數字可能虛增三成以上，而超過一半交易集中在旅遊，正好是 GDS（全球航空訂位系統，Sabre、Amadeus）封閉 API 最嚴、14 人團隊最談不下合約的品類。</p>
+    </div>
+    
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>年化交易額接近 $10 億但一半以上是旅遊，這些訂單的 30 天退款率和取消率是多少，「每天成長 10%」扣掉取消後還剩多少？</li>
+        <li>沒有 app、邀請制、14 個人，真正的客戶獲取通路是什麼，是靠 VC 圈子的口碑自然擴散，還是刻意壓著不開放來製造稀缺感拉估值，等 Meta Muse 鋪完量之後這招就沒用了？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-muse">
+    <div class="article-meta">
+      <span class="article-source">a16z / Bloomberg / TheStreet / Yahoo Finance</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Amazon 封鎖 Muse 是理性選擇，但 a16z 的毛利率假設讓論述比實際更乾淨</h3>
+    
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">這篇分析第一次把平台對 agent 的態度，直接連結到損益表中廣告與佣金的占比，提供了一個可操作的預測框架，適用於所有評估 agent 商業模式的投資與產品決策。</span>
+    </div>
+    
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z 9 月 29 日發表〈Who Gets Paid When AI Does the Shopping?〉，以 Amazon 9 月 21 日封鎖 Meta AI 購物 agent Muse、Shopify 執行長宣布深度整合為起點。Amazon 2025 年廣告收入 $686 億（年增 22.1%）。a16z 估算扣除 AWS 的 Amazon 營業利益為 $340 億，若廣告貢獻毛利率（收入扣除變動成本後的剩餘）為 70%，廣告貢獻約 $480 億，已超過整體零售端營業利益。Shopify、Toast、Square 沒有 marketplace 廣告業務，選擇歡迎 agent 整合等於多一條銷售通路。文章指出 DoorDash 的隱蔽風險：若 agent 透過 Toast 下單、DoorDash Drive 配送，DoorDash 仍在送餐，但其 marketplace 佣金與廣告被拆掉，a16z 稱之為「headless」（前台與後台分離）模式。</p>
+    
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">a16z 的 70% 廣告貢獻毛利率沒有來源。業界分析師對 Amazon 廣告整體毛利率的估算在 55 至 65% 之間更合理；若用 55%，廣告貢獻約 $377 億，仍高於扣 AWS 的 $340 億營業利益，「Amazon 封鎖 Muse 是理性的」結論不變，但安全邊際從 $140 億壓縮到約 $37 億。結論對，但 a16z 選了對自己最有利的假設讓論述更乾淨，讀者應自己帶入較保守的毛利率數字驗算。</p>
+    </div>
+    
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>DoorDash 被說成最隱蔽的輸家，但它真正的防禦不是 marketplace 而是最後一哩的配送員密度和即時調度，agent 能繞過它的前台點餐頁面，但繞得過它的配送網路嗎？</li>
+        <li>如果 agent 真的繞過廣告、壓縮 DoorDash 和 Instacart 的佣金池，a16z 自己投的 Instacart 估值要砍多少，還是說這篇文章本質上是在替 a16z portfolio 裡的 agent 公司造勢、同時犧牲自己另一個被投？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-09-30</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
