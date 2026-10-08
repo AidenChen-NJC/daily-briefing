@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日簡報 — 2026-10-07</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 10 月 7 日　星期三</span>
+    <span class="header-count">13 篇</span>
+  </div>
+  <h1>主權資本在填補流動性缺口</h1>
+  <p class="header-lede">從 OpenAI 的 $1.4 兆定價到 DeepSeek 的 $12B 超募，今日主題串聯一股新勢力：新興資本不再等待公開市場退出窗口，而是用基礎設施落地權與技術獨占權來重新定義科技投資的遊戲規則。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-manuscript">OpenAI 722 篇手稿的驗證成本</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-reflection-beam">Reflection Beam 對標過時模型</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-mistral-large">Mistral Large 4 賣的是換供應商摩擦</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-textgrain">textGrain 浮水印卡位歐盟合規</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-cftc">CFTC Clarity Act 補位方案</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-fincen">FinCEN 撤回混幣器規則</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-chainalysis">Chainalysis 10 分鐘追蹤</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-ondo">Ondo Private Markets 定價機制</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-polymarket">Polymarket V2 的 pUSD 結構</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-stripe">Stripe 的 AI agent 付費管線</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-openai-valuation">OpenAI $1.4 兆定價的真相</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-etched">Etched 三個月估值翻四倍</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-deepseek">DeepSeek 超募 $12B 的結構意義</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <article class="article" id="ai-openai-manuscript">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI、TLDR AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 一次丟出的 722 篇手稿，560 篇驗證成本由數學社群買單</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OpenAI 於 2026 年 10 月 6 日在 GitHub 公開 722 篇由未發布內部模型產出的數學手稿，分為 372 個 result families（同一方法衍生的一組結果），其中 162 篇附有 Lean 形式化證明（Lean 是讓電腦逐步檢查證明的形式化語言）。模型在評測期間共接受約 4,000 道題目，平均每個結果的算力約等於 3 小時 ChatGPT Pro thinking，多數新結果只用單一 prompt 產出。包含「quasi-Riemann hypothesis」（黎曼猜想弱化版）的進展在內，OpenAI 自行警告未形式化的結果可能有問題。8 月曾召集約 40 位數學家討論，數學家明確要求以論文而非推文形式發表，但 WIRED 報導 OpenAI 事後聲稱「不知道有此承諾」。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">560 篇沒有 Lean 驗證的手稿，實質上是把審稿成本外包給全球數學社群，而數學家沒有拒絕審稿的機制，所以這筆成本是零元。那 40 位被召集卻發現建議被忽視的數學家，信任資本被消耗後，OpenAI 未來類似合作將更難招募到頂尖人才。OpenAI 不付這筆帳，學術社群付。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>722 篇一次倒出來，OpenAI 真正怕的是哪家競爭者即將發表類似成果，才用「量壓」取代分批釋出的承諾？</li>
+        <li>只有 162 篇有 Lean 形式化，剩下 560 篇要靠人類審稿，這到底是研究突破，還是把驗證成本外包給學術界的虛榮指標？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-reflection-beam">
+    <div class="article-meta">
+      <span class="article-source">The Rundown AI、TLDR AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Reflection Beam：$25B 估值公司的對標是一個過時的中國模型</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Reflection AI（前 DeepMind 研究員創立）於 2026 年 10 月 5 日發布 Beam，501B 參數稀疏 MoE（Mixture-of-Experts，只啟用部分子網路的稀疏架構，總參數大但每次推論只用一小部分），每次推論啟用 23B 參數，訓練使用 23.8 兆 tokens 與逾 1 億次 RL 迭代。公司稱 Beam 在 reasoning 上追平 Zhipu AI 的 GLM-5.2，推論算力比 GLM-5.2 少 3 至 4 倍，但 Moonshot 的 Kimi K3 原始能力仍領先，DeepSeek V4.1 Flash 在個別 benchmark 更高。權重預計 10 月內以 Apache 2.0（寬鬆開源授權，可商用）釋出。Rundown 評估 Reflection 估值約 $25B，商業模式押注「AI factories」私有部署。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">$25B 估值要合理，需要大約 $400 至 600M ARR；「AI factory」私有部署的已知付費客戶尚未公開，而對標 GLM-5.2 而非 Kimi K3 本身就暗示 Beam 在前沿 benchmark 上無法競爭。能買單的客戶只剩「合規上不能用中國模型」的需求方，也就是美國國防與金融機構，這個市場比 hyperscaler API 市場小很多。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>對標已過時的 GLM-5.2 而不是 Kimi K3 或 DeepSeek V4.1 Flash，「AI factory 私有部署」到底簽了幾個付費客戶，還是只有 benchmark 表格？</li>
+        <li>如果我明天用 DeepSeek V4.1 Flash 加上 vLLM 自架，Beam 的「省算力」故事裡有什麼是我七天內複製不了的？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-mistral-large">
+    <div class="article-meta">
+      <span class="article-source">TLDR AI、The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Mistral Large 4 賣的不是 benchmark，是歐洲採購官的換供應商摩擦</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Mistral AI 於 2026 年 10 月 6 日發布 Mistral Large 4，1.05 兆參數 MoE，每次查詢約啟用 49B active parameters（每次推論實際被啟用的參數量，決定推論成本），另有 1.6B 參數視覺編碼器，支援 1M token context window（模型一次能讀入的 token 長度）。模型在 Mistral 自有歐洲資料中心以 3,800 張 Nvidia Grace Blackwell GPU 訓練。API preview 即日開放，定價每百萬 input tokens $1.36、output $4.18；open weights 預計 10 月下旬釋出，授權條款尚未公布。同週 Reflection Beam 已明確承諾 Apache 2.0。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">若 10 月下旬釋出的權重採限制性授權而非 Apache 2.0，開源社群護城河確實直接歸零，且 Reflection Beam 同週已明確承諾 Apache 2.0，開發者遷移成本接近零。Mistral 真正的防禦不是技術社群忠誠度，而是歐盟公共採購流程的黏性：換供應商需要 18 至 24 個月重新認證，這才是估值的真正支柱。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>「歐洲主權算力」是賣給採購官的故事還是真的通路，目前有多少企業客戶是因為資料落地需求簽約，而不是因為 benchmark？</li>
+        <li>權重十月下旬才放、授權條款未公布，如果最後不是 Apache 2.0 而是限制商用，Reflection Beam 同週釋出就直接吃掉 Mistral 的開源敘事，Mistral 真正的防禦是什麼？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-textgrain">
+    <div class="article-meta">
+      <span class="article-source">TLDR AI、The Rundown AI</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>textGrain：OpenAI 用一個攔不住有心人的浮水印卡位歐盟合規標準</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OpenAI 宣布名為 textGrain 的文字浮水印系統：不插入隱藏字元，而是在生成時微調模型在候選字詞間的選擇機率，嵌入隱藏統計訊號（statistical watermark），由 OpenAI detector 檢測。2026 年 10 月 5 日起在全球 API 以 opt-in 推出，數週內對歐盟境內符合條件的 ChatGPT 與 Codex 文字輸出強制啟用，回應 EU AI Act（歐盟 AI 法，要求 AI 生成內容可被辨識）的透明度要求。限制明確：10% 字詞換為同義詞後偵測準確率由約 92% 降至約 66%；detector 初期僅開放給核准研究者與專業機構。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">textGrain 在技術上是無效的反規避工具，換 10% 同義詞就把準確率打到 66%，detector 又只給核准研究者。真正的戰略價值是：OpenAI 搶先定義「符合 EU AI Act 的浮水印實作」，讓歐盟監管機構以 textGrain 為基準，開源模型（Mistral open-weight、Llama）若無等效系統將在歐盟企業部署上面臨結構性障礙。贏家是 OpenAI，輸家是開源模型的歐盟部署商。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>這是真的合規工具，還是搶先定義「浮水印長什麼樣」讓開源模型在歐盟更難合規的通路護城河？</li>
+        <li>開源模型無法內建同等浮水印機制，EU AI Act 若以 textGrain 類系統為合規基準，這是否給了 Mistral、Llama 等開源權重模型一個在歐盟市場上結構性無法跨越的部署劣勢？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">6 篇</span>
+  </div>
+
+  <article class="article" id="web3-cftc">
+    <div class="article-meta">
+      <span class="article-source">TLDR Crypto</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>CFTC 補位 Clarity Act：真正的受益者不是 Coinbase</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">CFTC 於 2026 年 10 月 5 日提出 Regulation CTX 與 Regulation CAM，是其首套專為加密交易所撰寫的規則。CAM 在 DCM（designated contract market，CFTC 註冊的期貨交易所）下新增「crypto asset market」子類別，只有聯邦註冊場所能向散戶提供保證金、槓桿或融資型加密交易（leveraged/margined trading）。此框架被定位為州級 money-transmitter 牌照的聯邦替代方案，但不強制加密資產上 CFTC 平台，主席 Michael Selig 明確表示無國會授權，CFTC 無權管轄現貨。公眾意見期為 Federal Register 刊登後 60 天。背景：Clarity Act 於 2026 年 9 月在參議院失敗。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Clarity Act 死後 CFTC 補位，真正的受益者不是 Coinbase 或 Kraken，它們已有州牌照且現貨業務不受此管，多一層聯邦牌照反而增加合規成本。受益的是想合法服務美國散戶槓桿需求的新進者，比如 Deribit 的美國版或專做 perp 的新交易所。但自願框架在無強制執法配套下，對已在用 VPN 的離岸用戶沒有任何摩擦差異，BitMEX 先例已經說明這點。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Clarity Act 死在參議院之後 CFTC 自己補位，真正的客戶是誰？Coinbase、Kraken 這些已有州牌照的交易所會自願多註冊一層聯邦牌照，還是這條路只對新進者有意義？</li>
+        <li>下一屆政府能一紙行政令撤回，交易所為合規投入的資本支出在什麼政治假設下才不是沉沒成本？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-fincen">
+    <div class="article-meta">
+      <span class="article-source">TLDR Crypto</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>FinCEN 撤回混幣器規則，Chainalysis 反而是受益者</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">FinCEN 於 2026 年 10 月 5 日宣布撤回兩項提案：(1) 2023 年依愛國者法案 Section 311（美國愛國者法案條款，可將特定對象列為「主要洗錢疑慮」）將國際加密混幣器（mixer，打散資金流向以保護隱私的工具）列為主要洗錢疑慮的提案；(2) 2020 年自託管錢包（self-hosted wallet，用戶自持私鑰）NPRM（擬議規則制定通知），原要求銀行與 MSB 對與自託管錢包超過 $10,000 的交易申報、超過 $3,000 的交易留存紀錄。兩項撤回通知於 2026 年 10 月 6 日刊登 Federal Register 生效，引用 2025 年 7 月 President's Working Group 報告。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">撤回申報義務表面上讓 Chainalysis 失去「監管強制買家」，但 Chainalysis 的主要收入來自執法機構（FBI、DEA、OFAC）和交易所合規部門，不是來自被強制申報的銀行。撤回之後，自託管錢包交易量增加、混幣器使用增加，需要鏈上分析的交易集合反而擴大。Chainalysis、TRM Labs 和 Elliptic 都是受益者，不是受害者。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>同一週 Chainalysis 才把北韓用 Zcash 洗 $387M 的案子公開，FinCEN 卻撤回混幣器規則，Chainalysis 的鏈上分析合約會因此暴增還是反而失去監管強制力的推力？</li>
+        <li>「追行為者不追工具」的執法模式在隱私鏈（Zcash）原生資產上，具體靠什麼鏈上分析技術可行？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-chainalysis">
+    <div class="article-meta">
+      <span class="article-source">TLDR Crypto</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Chainalysis 的「10 分鐘追蹤」有選擇性報告的高度可能</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Bitget 於 2026 年 9 月 24 日 18:31 UTC 偵測到部分熱錢包（hot wallet，連網供日常提款）有未授權轉出，攻擊者並未取得私鑰，而是攻破錢包基礎設施中的關鍵系統、偽造交易資料，啟動正常提款授權流程。首小時約 $183M 流出，最終損失約 $387.5M，為 2026 年最大加密駭案。攻擊者 3 小時內將資金分散至 Ethereum（49.7%）、XRP（40.8%）、Zcash（7.6%）、Tron（1.8%），XRP 部分經跨鏈流動性協議於 36 小時內抵達攻擊者地址。Chainalysis 宣稱自建 AI 工具把需 20 小時以上的人工跨鏈對帳壓縮到 10 分鐘內，並將案件歸因於北韓，使 DPRK 2026 年加密竊案累計超過 $1B。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Chainalysis 的「10 分鐘完成跨鏈對帳」最可能只描述 XRP 和 ETH 部分，因為 Zcash 的隱私機制讓鏈上追蹤結構性失效。7.6% 走 Zcash 的贓款在技術上幾乎不可追，這部分的「歸因」依賴入口/出口分析而非鏈上追蹤。「10 分鐘」是選擇性報告的可能性很高。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Chainalysis 把 20 小時對帳壓到 10 分鐘，但攻擊者刻意走 XRP 和 Zcash 避開以太坊追蹤生態，Chainalysis 對非 EVM 鏈的覆蓋率實際是多少，這個「10 分鐘」有沒有選擇性報告？</li>
+        <li>攻擊者沒偷私鑰而是偽造授權流程的交易資料，代表 CEX 的弱點已經不是金鑰保管。有哪家錢包基礎設施商（Fireblocks、Fordefi、Copper）敢公開說自己防得住同類攻擊？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-ondo">
+    <div class="article-meta">
+      <span class="article-source">TLDR Crypto</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Ondo Private Markets：沒有資訊揭露義務的二級市場，定價機制退化成情緒驅動</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Ondo Finance 於 2026 年 10 月 6 日推出 Ondo Private Markets，以代幣化票據（tokenized note，債權形式而非股權）提供領先私人公司的鏈上曝險，首檔掛鉤一家 pre-IPO AI 公司（未具名），二級市場交易本週開放。每張票據的償付掛鉤於合格流動性事件（liquidity event，如 IPO、併購）時參考公司每股普通股實現價值；token 不代表股權、無股東或投票權，投資人可隨時進出，不必等 IPO。僅開放給符合資格的非美國投資人。Ondo 現有代幣化股票與國債平台 TVL（total value locked，鎖定在協議中的資產總值）$3.7B、累計持有人逾 100 萬；代幣化股票市場規模 $42B，占 $121B 代幣化 RWA（real-world assets，現實世界資產代幣化）市場的 35%。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">沒有股權、沒有資訊揭露義務的二級市場，做市商唯一能用的定價輸入是：上一輪私募估值（stale）、可比公開公司倍數（間接）、以及市場情緒。這會退化成以最近一次融資估值為錨點的情緒驅動市場，與 NFT 的定價機制結構上相似。輸家是資訊不對稱下的散戶二級買家，Ondo 在此結構中賺發行費與交易費，peg 偏離時的套利機會也歸 Ondo 或大型做市商。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>沒有股權、沒有投票權、沒有資訊揭露義務，二級市場的價格發現靠什麼？TVL $3.7B 和 100 萬持有人是國債代幣化的數字，Private Markets 這個新產品線的實際需求訊號在哪？</li>
+        <li>如果 Securitize 或 Backed Finance 明天也發一個掛鉤同一家 AI 公司的票據，Ondo 的護城河是分銷通路、合規執照，還是根本只有先發品牌？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-polymarket">
+    <div class="article-meta">
+      <span class="article-source">TLDR Crypto</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Polymarket V2：pUSD 讓平台浮存收益歸 Polymarket，用戶默默買單</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Polymarket 以從零重建的 Protocol V2 取代自 2019 年起依賴的 Gnosis Conditional Tokens Framework（CTF，預測市場結果代幣標準）。V2 整併為一個 ERC-1155 positions 合約（可在單一合約管理多種代幣的以太坊標準）、一個 pUSD 抵押代幣、一個 exchange、一個 router，pUSD 成為唯一接受的抵押品。新 OracleAggregator 採可插拔結算模組，接 UMA、Chainlink 與未來 oracle（將鏈外結果寫上鏈的資料來源）；治理可升級。Canary 測試市場 10 月 5 日至 30 日運行；11 月 2 日起所有新市場移至 V2，既有 CTF 市場保留，未平倉部位不強制遷移。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">pUSD 成為唯一抵押品，底層穩定幣儲備的收益歸 Polymarket，用戶持有 pUSD 期間沒有利息。這是 Tether 模式：發行商吃浮存收益，用戶承擔發行商信用風險。大額交易者會意識到這個結構，要求更高的 pUSD 流動性溢價，或遷移到仍接受 USDC 直接抵押的平台（如 SX Bet）。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>所有部位必須先換成 pUSD 等於把平台浮存收歸自有，現有大額交易者（鯨魚）願意把抵押品鎖在 Polymarket 自己的穩定幣裡嗎，還是會因此把流動性搬到 SX Bet 或 Azuro？</li>
+        <li>可插拔 oracle 不再只靠 UMA 是技術升級，但真正的問題是結果爭議時誰有最終裁決權，V2 的治理升級機制會不會變成 Polymarket 團隊單方面控制結算的後門？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-stripe">
+    <div class="article-meta">
+      <span class="article-source">TLDR Crypto</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Stripe 同時握有 AI 路由與穩定幣結算層，AI agent 付費管線仍是 pitch deck</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Privy 共同創辦人兼 CEO Henri Stern 約於 2026 年 10 月 5 日接掌 Stripe 全部加密與穩定幣業務，同時繼續經營 Stripe 2025 年收購的 Privy。Stripe 正整合 Bridge（2025 年以 $1.1B 收購的穩定幣協調平台）、Privy（嵌入式錢包）、Tempo 與 Open USD，目標為模組化全球穩定幣開發者平台。據 Bloomberg 2026 年 8 月 16 日報導，Stripe 已以逾 $7B 收購 AI 模型路由平台 OpenRouter（Axios 稱逾 $8B）。穩定幣連結卡計畫目標 2026 年底擴展至 100 多國；Stripe 持有 OCC 國家信託銀行執照的有條件核准及歐盟 MiCA/EMI 執照。Meta、Ramp、Deel 等已用於即時付款與國際承包商付款。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">「AI agent 自主選模型、計價、以 Open USD 結算」的原子性交易流目前不存在。OpenRouter 的模型路由業務和 Bridge 的穩定幣結算在技術上尚未整合，Meta、Ramp、Deel 的現有用例全是人類發起的 B2B 付款，不是 agent 自主消費。這個敘事最快 2027 年才有可量化的交易量。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Stripe 同時握有 OpenRouter（AI 模型路由）和 Bridge（穩定幣結算），但 AI agent 自主付費的實際交易量現在是多少？這是已經在跑的管線，還是還在 pitch deck 階段？</li>
+        <li>穩定幣卡要擴到 100 多國，但 Circle 和 Visa 已經在做類似的事，Stripe 真正難被複製的是 Bridge 的法幣出入金通路，還是 Privy 的嵌入式錢包開發者採用率？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="vc-openai-valuation">
+    <div class="article-meta">
+      <span class="article-source">TLDR AI</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>OpenAI $1.4 兆定價：UAE 出 $10B 換的是基礎設施落地，不是財務投資</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">主權資本正在取代公開市場的流動性功能，而交換條件是 AI 基礎設施的地理落地，這個模式比 OpenAI 的估值數字本身更值得追蹤。</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">據 Bloomberg 報導，OpenAI 正與多家阿聯酋投資基金（含阿布達比 MGX）洽談，以 $1.4 兆 pre-money valuation（投資前估值）為固定價格，募集至少 $30B 新輪；UAE 方面合計討論投入最多 $10B，組成 syndicate（多家投資人組成的聯合投資團）。BlackRock 也在洽談參與，既有投資人 University of California endowment、Thrive Capital 與 Andreessen Horowitz 亦考慮跟進。OpenAI 尚未選定 lead investor（領投方，通常主導定價與條款），估值已作為條件先行提出。IPO 計畫已延後至最早 2027 年。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">UAE 出 $10B 的附帶條件幾乎確定包含阿布達比資料中心落地、中東區 API 優先部署，以及模型訓練算力在當地採購。OpenAI 與 G42 的先例已明確，MGX 在此不是 LP，而是主權國家用資本換 AI 基礎設施落地的工具。IPO 延至 2027，Thrive Capital 和 a16z 的早期股份可能已持有 4 至 5 年，DPI 接近零，若基金成立於 2020 至 2021 年，二級市場折價出售是現實選項。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>IPO 推到 2027、主權基金填流動性缺口，這些 UAE 出資者拿到的附帶條件（獨家部署、資料中心落地）是什麼，這才是真正的 GTM 交換？</li>
+        <li>IPO 推遲到 2027、主權資本填補流動性，Thrive Capital 和 a16z 的早期股份現在事實上被鎖死，他們的 LP 對這個 DPI 時間表還買單嗎？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-etched">
+    <div class="article-meta">
+      <span class="article-source">TLDR AI</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Etched 三個月估值翻四倍，smart money 出價比熱錢低 20% 是真實訊號</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">TechCrunch 引述消息人士，四年歷史的推論晶片新創 Etched 正審視估值 $40B 至 $50B 的投資邀約，約為 9 月 Jane Street 領投 $700M 輪時 $21B 估值的兩倍；$40B 出價來自頂級投資人，$50B 出價來自較不知名的出資者，談判仍屬早期。9 月那輪距 7 月 Sequoia 領投 $300M（估值 $10.3B）僅兩個月。Etched 主力產品為推論專用 ASIC（特定用途積體電路），公司 7 月稱已取得 $1B 客戶訂單，Jane Street 同時是投資人與早期客戶，約 400 名員工（約 15% 來自 Nvidia），營運一座 10MW 矽谷資料中心，生產在台灣 TSMC 附近協調。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">頂級 VC 出 $40B、不知名資金出 $50B，smart money 的估值天花板比熱錢低 20%，表示頂級 VC 的盡職調查對獨立客戶需求有保留。Jane Street 同時是投資人與早期客戶，$1B 訂單中 Jane Street 自己的份額未公開，這個訂單數字的可信度需要對照非關係人採購。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Jane Street 同時是投資人和早期客戶，那 $1B 訂單裡有多少是 Jane Street 自己的？如果拿掉關係人訂單，獨立客戶的重複採購率是多少？</li>
+        <li>如果我今天做推論 ASIC，Etched 真正難複製的是晶片設計、TSMC 產能卡位，還是只有先行者的客戶鎖定？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-deepseek">
+    <div class="article-meta">
+      <span class="article-source">TLDR AI</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>DeepSeek 超募 $12B：寧德時代入局打破「低成本 AI」敘事</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Bloomberg 10 月 6 日報導，DeepSeek 接近完成至少 RMB 800 億（約 $12B）新輪，騰訊與寧德時代（CATL）為最大出資者之一；原目標約 RMB 500 億（約 $7.5B），投資人需求推高承諾額，最終金額可能接近 RMB 1,000 億。完成後 DeepSeek 將重組，為 2027 年初潛在 IPO 做準備，主承銷商為 CITIC Securities，擬上市地點為上海 STAR Market（上海科創板，中國版 Nasdaq）。背景：DeepSeek 6 月已募約 $7.4B，post-money valuation（投資後估值）約 RMB 4,500 億，7 月報導新輪估值約 RMB 5,000 億（約 $74B）。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">寧德時代投 AI 公司，最直接的回報模型是在電池生產與材料研發中取得 DeepSeek 模型的優先或獨家部署權，降低自身 R&D 成本，同時完成「新能源 + AI」的資本市場敘事升級，中國已有比亞迪投資語言模型的先例。半年募近 $20B 且超募，DeepSeek 已無法維持「低成本 AI」的品牌一致性，這個敘事是 2024 年 R1 以極低訓練成本對標 GPT-4 時建立的，若 2027 年 IPO 時算力支出已與 OpenAI 同量級，Kimi K3 和 Qwen 是最直接的開源替代選項。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>寧德時代是電池廠不是科技資本，它投 $12B 輪換到的是什麼？AI 在電池產線的獨家部署權，還是純粹的國家隊配額任務？</li>
+        <li>半年募近 $20B 的公司還能維持「低成本 AI」品牌嗎？開源社群開發者的真實留存和 API 調用量有沒有因為商業化轉向開始掉？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-10-07</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
