@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日簡報 — 2026-11-03</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 11 月 3 日　星期二</span>
+    <span class="header-count">9 篇</span>
+  </div>
+  <h1>每日簡報</h1>
+  <p class="header-lede">算力、贖回、與一鍵凍結</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic">Anthropic 的 $895B 長約</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-trajectory">Trajectory 的 $300M 估值</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-meta">Meta 的人形機器人策略</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-binance">Binance 被駭後的最後防線</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-btc">BTC 兩條結構性買盤失速</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-a16z">a16z 的 94% 支出增加</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-agility">Agility 上市的真實驅動力</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="ai-anthropic">
+    <div class="article-meta">
+      <span class="article-source">Fortune</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 的 $895B 長約：季增繼續放緩就從對沖工具變成懸崖</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">$8,954 億長約的成立前提是季增維持 30% 以上，若季增腰斬至 20%，長約就從對沖工具變成固定成本懸崖</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 於 11 月 2 日提交修正版 S-1（上市申請修正文件），補上第三季數字。Q3 營收約 $170 億，Q2 為 $116 億，去年同期 $14 億，年增逾 1,000%，但季增由前季約 144% 降至約 47%。Q3 營業費用 $175 億（Q2 為 $106 億），使公司由 Q2 的 $9.74 億營業利益轉為 $5.67 億營業虧損；淨損 $233 億，主因可轉債公允價值變動的會計費用。調整後營業利益率由 19% 降至 15%。TNW 引述 filing 稱虧損主要由 $50 億短期算力承諾驅動，Fortune 指出短期算力成本「顯著高於」多年期合約。降價與折扣使 Q3 營收較 Q2 少收約 $60 億。截至 9 月 30 日，採購承諾與租約合計約 $8,954 億，流動性 $1,466 億。同週，FT 報導 OpenAI 將本輪募資目標由 $300 億砍至約 $200 億，估值目標由 $1.4 兆降至 $1.25 兆。Anthropic 預計本月以至少 $1.5 兆估值上市，Sequoia、SoftBank、MGX 等均參與。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">這裡有兩個方向相反的力量在同時運作。$8,954 億長約的成立前提是季增維持 30% 以上，且長約每 GPU 小時成本比現貨低至少 40%，若季增腰斬至 20%，長約就從對沖工具變成固定成本懸崖，而 Anthropic 沒有公開揭露任何重新議價或轉售機制。另一邊，Sequoia 同時持有 Anthropic 與 OpenAI 股份，用 Anthropic 的公開 S-1 數字壓 OpenAI 私募估值、同時用 OpenAI 的折讓替 Anthropic 的 $1.5 兆製造「比較便宜」的錨定，這是雙向套利，不是單向施壓。真正暴露在風險下的，是沒有 Anthropic 部位的 OpenAI 純投資人，例如 MGX 與部分阿拉伯主權基金。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果季增繼續從 144% 掉到 47% 再腰斬，Dario 手上的長約是資產還是負債？</li>
+        <li>Sequoia 和 SoftBank 到底是在用 Anthropic 的公開數字壓 OpenAI 的價，還是在用 OpenAI 的折讓替自己持有的 Anthropic 股份製造錨定？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-trajectory">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Trajectory 的 $300M 估值，Sequoia 買的可能是 a16z 生態的入場券</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Trajectory 由三位史丹佛同學約一年前創立，完成 $4,500 萬 Series A、估值 $3 億，Sequoia 領投，Nvidia、Bessemer Venture Partners、Bain Capital Ventures 跟投，團隊 18 人。三位創辦人背景：Ronak Malde 曾在 Google DeepMind 工作（從 Windsurf 透過 acqui-hire 即收購式招聘加入），Michael Elabd 前 DeepMind，Arjun Karanam 前 Apple 生成式基礎模型。產品是後訓練（post-training）平台，讓非技術使用者從開源模型出發、接上自家應用，平台收集模型表現回饋並持續再訓練，讓模型在專門任務上進步，無需從頭訓練。客戶包括 Harvey、Rogo、Decagon、Mercor 與 Nvidia。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">18 人團隊、後訓練技術本身並非獨家，HuggingFace 與 Modal 已提供部分替代路徑，$3 億估值在技術面難以自圓其說。Sequoia 更可能的邏輯是買下 Harvey、Decagon、Mercor 等 a16z portfolio 公司的交叉銷售管道，以及 Malde 從 Google DeepMind 帶出的研究積累。這個判斷有一個決定性的未解問題：若客戶的用戶修改回饋資料上傳至 Trajectory 平台做訓練，Trajectory 就同時擁有法律 AI 微調的最密集語料，Harvey 宣稱靠累積回饋建立的護城河反而在補貼供應商，但資料隔離架構目前未公開，無法從現有報導確認。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Sequoia 給 18 人團隊 $3 億估值，Harvey 和 Decagon 同時是客戶也是 a16z portfolio，Sequoia 定這個價到底是在投技術，還是在買一張進入 a16z 生態系的門票？</li>
+        <li>如果持續學習能力可以租來，Harvey 估值裡有多少比例其實該歸屬給這類外部後訓練供應商？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-meta">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Robotics</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Meta 不是在做機器人，是在用機器人收集具身 AI 訓練資料</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">據 The Information 報導（Engadget 11 月 1 日轉述，Meta 未證實），Meta 在中國機器人公司 Fourier 協助下，約三個月打造出代號 Max 的人形機器人（humanoid）原型，目標是做家務。Max 約 5 呎高、重約 106 磅，配有可顯示表情的螢幕、內建喇叭、能拿起小物件的手，搭載 Nvidia Jetson Thor（最高 2,070 FP4 TFLOPS、128GB 記憶體、130W 功耗）。硬體從 Fourier 現成人形平台客製，非從零設計。第二代 Max 2 自 9 月開始開發，重新設計軀幹與手部，加上投影機與額外感測器。Meta 今年 5 月已收購機器人 AI 新創 Assured Robot Intelligence，Max 是該計畫首台公開報導的實體原型。報導未說明 Max 實際能做哪些家務，也沒有量產或上市時程。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">三個月改裝現成平台就出原型，直接說明人形機器人本體已接近可外包的商品，Meta 真正卡位的是具身 AI 模型（embodied AI）的資料飛輪：用 Max 在家庭環境收集感知與操作資料，訓練出可授權或內建於未來 AR 裝置的具身模型。這個模式符合 Meta 一貫的「硬體是資料管道」邏輯，Ray-Ban Meta 眼鏡走的是同一條路。供應鏈風險是反向的，若美中出口管制升級，Nvidia Jetson Thor 可能被列為受控晶片，Meta Max 2 供應鏈斷鏈，真正的時程受損方是 Meta 機器人團隊，而垂直整合供應鏈的 Tesla Optimus 反而受益。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Meta 真正在搶的位置是賣機器人、賣具身 AI 模型，還是只是拿硬體當內部資料飛輪？</li>
+        <li>Fourier 拿到 Meta 的設計規格後，誰阻止它把同樣的硬體能力賣給字節跳動或百度，Meta 的錢最終是在補貼中國供應鏈的學習曲線嗎？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="web3-binance">
+    <div class="article-meta">
+      <span class="article-source">CNBC</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Binance 被駭後，加密市場的最後防線被證明是兩家可審查的公司</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Circle 和 Tether 一鍵凍結了四成贓款，這個數字對「去中心化金融」的市場規模故事是結構性打擊</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Binance 10 月 29 日晚間遭駭，被盜約 $63 億（TRM Labs 估約 $63.6 億，攻擊者在 10 條鏈上、多數約 20 分鐘內轉出），是 2025 年 2 月 Bybit $15 億紀錄的四倍以上。FBI 將攻擊歸因於北韓駭客組織 TraderTraitor，有報導指入侵可能始於單一工程師筆電被駭。Binance 11 月 1 日起分階段恢復提領，先開 BTC，後擴及 15 種資產。CNBC 引 Binance 數據：11 月 1 日 06:00 至 15:30 UTC，提領 $46.5 億、存入 $10.1 億，淨流出 $36.4 億，佔其 $1,710 億總資產（10 月 28 日儲備證明，即 proof-of-reserves）的 2.1%。趙長鵬在 X 上稱「98% 選擇留下」。Circle 已凍結逾 $11 億 USDC，Tether 稱凍結逾 $15.67 億 USDT。Binance 表示自行承擔損失，已墊補約 95% 被盜資產，剩餘 5% 為流動性較差的代幣。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">USDC $11 億加 USDT $15.67 億合計凍結約 $26.7 億，等於贓款的 42% 被 Circle 和 Tether 兩家私人公司攔截。這不是去中心化金融的勝利，而是證明整個加密生態的最後清算層是兩個可審查（freeze）的中心化實體。對 DeFi 協議的去中心化融資敘事是結構性打擊，對 Circle 的 IPO 估值則是隱性利多，因為它在最大規模的一次真實攻擊中展示了無可替代的基礎設施地位。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Circle 和 Tether 一鍵凍結了四成贓款，這個數字之後，任何 LP 還怎麼替「去中心化金融」的市場規模故事寫備忘錄？</li>
+        <li>趙長鵬說「98% 選擇留下」，但 Binance 自吞 $63 億損失的資金來源是儲備金、保險基金，還是用 BNB 的隱含稀釋讓留下來的用戶買單？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-btc">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>BTC 兩條結構性買盤同時失速，其中一條的傳導路徑比直接贖回更隱蔽</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">依 SoSoValue 數據，美國現貨比特幣 ETF（現貨比特幣 ETF）於 10 月 30 日（週五）淨流出 $6.433 億，是 6 月 25 日（$6.963 億）以來最大單日流出，為上市以來第 12 大單日流出。BlackRock IBIT 流出 $2.337 億，Fidelity FBTC 流出 $2.014 億。週五之前，2026 年至今淨流入僅略高於 $10 億，這一天抹去 63.6%，全年淨流入剩約 $4 億。BTC 約 $76,725。Bitfire Research 指出 Coinbase premium（Coinbase 溢價，美國機構買盤強弱指標）轉負（-0.18% 至 -0.27%），Crypto Fear and Greed Index（恐懼貪婪指數）落在 30 至 34。Bitfire 點名三個近期事件：11 月 3 日美國期中選舉、11 月 6 日就業報告，以及 MSCI 可能將 Strategy、Metaplanet 等大型比特幣持有公司剔除出指數。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">撐起 BTC 的兩股結構性買盤，ETF 與 Strategy 這類囤幣公司（digital asset treasury），正在同時失速。ETF 年度淨流入幾乎歸零，而 MSCI 若把 Strategy 和 Metaplanet 踢出指數，傳導路徑比直接的 BTC 拋售更隱蔽：被動基金被迫賣出 Strategy 股票，Strategy 股價下跌，其增發股票購 BTC 的資金能力下降，ETF 的隱性需求支撐才跟著消失。真正的流動性衝擊點是 Strategy 的 ATM 增發機制斷裂，輸家是持有 Strategy 的被動指數基金，而非 ETF 的管理費收入，Fidelity 和 BlackRock 在 $76K 水位下的管理費仍為正（費率 0.12% 至 0.25%，盈虧平衡點遠低於當前價格）。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>這次 ETF 贖回的是配置型養老基金和 RIA，還是只是短線對沖基金在拆 basis trade（期現套利），哪一種決定了流出是結構性的？</li>
+        <li>如果 MSCI 真的把 Strategy 和 Metaplanet 踢出指數，被動資金被迫賣出的規模有多大，這會不會反過來成為 ETF 第二波贖回的觸發點？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="vc-a16z">
+    <div class="article-meta">
+      <span class="article-source">a16z</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>a16z 的 94% 支出增加，很可能是單價崩跌後用量撐出來的虛胖</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z 發布文章，主張推論（inference）成本下降雖改善應用公司毛利，但更強的模型與更容易的開發工具也讓應用更易被取代，應用公司必須比客戶的替代方案在完整工作流程上做得更好。文章引 a16z 2026 年 8 月對 100 位企業 LLM 決策者的調查：94% 預期 LLM 總支出增加，37% 預期一年內至少翻倍。案例包括：Repsol 法務 8 週試點（50 位律師、12 個法域）中 Harvey 勝出，Harvey 自報律師每週省 4 至 6 小時、採用率 96%；Decagon 為 Notion 處理客服，工單解決時間最多改善 34%；Clay 把定價拆為 Data Credits 與 Actions，變動大的推理模型按實際 token 成本零加成轉嫁（pass-through token cost）。文章歸納三條規則：比客戶自己更會跑工作流程、讓情境資料租比重建便宜、先證明價值再定價（outcome-based pricing，按成果定價）。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">94% 企業預期 LLM 支出增加，與 Anthropic 同日 S-1/A 揭露降價少收 $60 億並不矛盾，因為這正是「單價跌、用量爆」的組合，總支出可以同時增加而供應商收益率下降。a16z 的調查數字對應用公司是利多，對模型公司是警示：增加的錢不一定流向 Anthropic 或 OpenAI，更可能流向 AWS 和 Azure 的基礎設施層。a16z 文章把 Harvey 和 Decagon 當作靠累積學習建立護城河的典範，但這兩家同日被確認是 Trajectory 的後訓練平台客戶，若學習迴圈可以外包，護城河的邊界就比文章描述的更模糊。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>a16z 說的「支出增加」到底是總量增加，還是單價暴跌後用量撐出來的虛胖？</li>
+        <li>如果 Trajectory 這類後訓練平台讓任何企業客戶都能用開源模型自建持續學習迴圈，文章裡說的「累積情境資料護城河」還剩多少是不可租用的？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-agility">
+    <div class="article-meta">
+      <span class="article-source">SEC 8-K / Churchill Capital Corp XI</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Agility 上市靠的是 Foxconn 產業資本，公開市場投資人已用腳投票</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Churchill Capital Corp XI（SPAC，特殊目的收購公司）股東於 11 月 2 日通過與 Agility Robotics 合併，預計 11 月 4 日完成交割，11 月 5 日起以代號 AGLT 在 Nasdaq 交易。依 8-K，預計總募資約 $4.65 億（扣除交易費用前），由三部分組成：信託帳戶約 $1.64 億、Foxconn 領投的 PIPE（上市公司私募）約 $2.01 億（每股 $10）、宣布合併後到位的 $1 億股權資金。7 月宣布時總募資預估逾 $6.2 億，其中假設無贖回（redemption）的信託資金為 $4.21 億；信託實際只剩約 $1.64 億，依兩數推算約 61% 被贖回。先前報導 pre-money 股權估值 $25 億；另有報導指 Agility 2025 年營收 $1.8 億、營業虧損 $14 億。對照同週：Walmart 10 月 29 日宣布再投 $60 億擴大與 Symbotic 合作，涵蓋 25 個美國區域配送中心。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Foxconn 以每股 $10 領投 $2.01 億 PIPE，在 61% 信託被贖回、年營收 $1.8 億的條件下進場，股權回報在短期內幾乎不可能。最合理的解釋是 Foxconn 用 PIPE 換取 Digit 的優先代工權或獨家製造合約，把這筆錢視為產線卡位費而非財務投資。與此同時，Walmart 同週把 $60 億押在 Symbotic 的固定軌道系統，根本原因是倉儲場景需要 99.9% 以上正常運行時間，而 Digit 目前沒有任何公開的 MTBF（平均故障間隔時間）數字可與工業級系統比較。$25 億 pre-money 估值要自圓其說，需要至少一個倉儲客戶的量產訂單（50 台以上）且有公開可靠性數據，目前公開資訊中不存在這樣的訂單。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>信託被贖回六成、真正撐住交易的是 Foxconn 的 PIPE，Foxconn 要的是股權回報還是 Digit 的獨家代工合約，他們拿到的對賭條件是什麼？</li>
+        <li>同一週 Walmart 把 $60 億押在非人形的 Symbotic，$25 億 pre-money 估值需要多少台 Digit 的確認訂單才能自圓其說，目前手上有幾台？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">每日簡報</span>
+  <span class="footer-date">2026-11-03</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
