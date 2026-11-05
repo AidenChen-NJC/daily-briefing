@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-11-05</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 11 月 5 日　星期四</span>
+    <span class="header-count">9 篇</span>
+  </div>
+  <h1>兩場收購、一場選舉、一份基金募資材料</h1>
+  <p class="header-lede">Meta 與 OpenAI 用併購在 AI coding 和儲存層重新定位，民主黨勝選讓加密業界發現槓桿已用盡，而 a16z 和 Bessemer 正用數字玩法把基金募資材料包裝成研究。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-conductor-pierre">OpenAI 買到的不只是程式碼儲存</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-datacenter">借錢蓋資料中心的跌幅最大</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-qualcomm">Qualcomm 的 $5B 資料中心目標</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-kalshi">法官拒絕叫停 Kalshi 的股票永續</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-clarity">加密業界的談判槓桿已用盡</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-morpho">Morpho $11B 的成長故事</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-a16z">a16z 的 buyout 分析</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-fal">Fal $16B 估值成立的前提</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="ai-conductor-pierre">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch、Axios</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 買到的不只是程式碼儲存，而是 Lovable、Bolt、Amp 的遷移談判籌碼</h3>
+    
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Meta 11-04 確認收購 AI coding 新創 Conductor，同日 Axios 報導 OpenAI 計畫收購 Pierre Computer，將其 Code Storage 技術整合進旗下 coding agent（寫程式的 AI 代理）Codex。Conductor 成立不到兩年，核心產品去年夏天上線，雲端服務 11-20 關閉，用戶僅有 16 天搬走資料。Pierre 的開源函式庫 Trees 與 Diffs 已在 Codex 內運作；Pierre 官網列出的客戶包括 Lovable、Bolt、Amp，均是 Codex 的直接競品。兩筆交易金額均未揭露。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Pierre 技術裡的 32TB 單庫上限與 30 個以上併發寫入最佳化，幾乎肯定含有私有路徑，開源層替代不了。Lovable 和 Bolt 交易完成後，程式碼儲存供應商就是競爭對手，遷移成本高，是人質而非自願客戶。真正的贏家是 OpenAI：即便競品最終遷出，遷移期間的程式碼讀寫資料對訓練仍有殘餘價值。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Pierre 的客戶名單裡 Lovable、Bolt、Amp 這些公司，交易消息出來後有任何一家開始搬遷 Code Storage，還是他們根本沒有替代方案所以只能留下來餵養競爭對手？</li>
+        <li>Pando 自建 Git 後端（程式碼版本庫的儲存系統）與 Pierre Code Storage 都處理併發寫入，合併時 conflict resolution 層由誰決定，還是會變成兩套並存的技術債？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-datacenter">
+    <div class="article-meta">
+      <span class="article-source">Reuters、CNBC</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>借錢蓋資料中心的跌 9–21%，「現有資產更值錢」是真實的定價邏輯</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">民主黨 11-04 贏得美國參眾兩院，並在資料中心重鎮德州與喬治亞州勝選。當日資料中心營運商重挫：Cipher Digital 跌 21%、CoreWeave 跌 9.5%、Applied Digital 跌 8.8%，電力股 Vistra 跌 15.4%。反方向，Amazon 漲 6%、Microsoft 漲 6%、Alphabet 漲 4.6%。Dow 單日漲逾 1,500 點（+3%），為 2025 年 4 月以來最佳單日。分析師 Art Hogan 直言建設放緩讓「現有資產更值錢」，Mark Malek 則說最脆弱的是借錢的一方。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">現有容量的 hyperscaler（超大規模雲端業者）可以調高 GPU 租賃定價或用長約鎖定客戶，把 CoreWeave 的潛在客戶提前吃掉，這對 CoreWeave 的再融資才是真正的威脅，不是監管本身。CoreWeave 的收入高度集中於 Microsoft，一旦 Microsoft 自給率上升，收入集中風險與債務槓桿同時曝光。電網互聯排隊已是 3 至 5 年，電力審批失敗才是讓已動工設施無法上線的卡點，土地許可只是推遲動工，兩者影響截然不同，但 Hinojosa 政策細節尚未確認。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>CoreWeave 等 neocloud 的債務契約裡，如果州級電力許可延遲導致資料中心無法如期上線，觸發交叉違約的門檻到底有多窄？</li>
+        <li>CoreWeave 這些 neocloud 的客戶合約鎖定期和提前終止條款長什麼樣。如果建設放緩讓交付延遲，客戶是付違約金走人還是被綁死等機房蓋好？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-qualcomm">
+    <div class="article-meta">
+      <span class="article-source">Qualcomm、CNBC、SiliconANGLE</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Qualcomm 的 $5B 資料中心目標，定價的是 HBM 供應商的出貨時程，不是需求</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Qualcomm 公布 FY26 Q4 財報，non-GAAP（排除股權薪酬等項目的調整後財務數字）營收 $10.442B，年減 7%；手機晶片（QCT）$5.137B，年減 26%，低於預期 $5.21B；汽車 $1.990B，年增 89%，高於預期。資料中心季營收 $650M，FY27 目標 $5B。Q1 FY27 指引營收 $10.4 至 $11.2B，non-GAAP EPS $2.15 至 $2.35。盤後跌約 6.5 至 7%。CEO Cristiano Amon 稱資料中心「不是需求問題，是供給問題」。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">從 $650M 到 $5B 年化，每季需要接近 50% 的環比成長，但 Amon 自己說瓶頸是供給而非需求。這個目標實質上是對 HBM 與先進封裝供應商（三星、SK Hynix、TSMC CoWoS）交貨時程的押注，不是 Qualcomm 的銷售能力。若 HBM 優先供給 Nvidia，Qualcomm 的資料中心線無論需求多強都無法達標，這個目標的可信度完全外包給供應鏈。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>資料中心季營收 $650M 要在 FY27 衝到 $5B 年化，現有 design win 的客戶除了 Amazon 之外到底還有誰在量產拉貨，還是這個數字靠的是尚未簽約的 pipeline？</li>
+        <li>資料中心季營收 $650M 要在兩年內跑到 $5B 年化，Qualcomm 的自研 Oryon 核心在推論工作負載上缺什麼具體的軟體生態才讓客戶不敢下單？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="web3-kalshi">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk、The Block、Bitcoin Magazine</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>法官讓股票永續繼續交易，同時預告 Kalshi 很可能在開違法的倉</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">法官在同一份裁定裡拒絕叫停交易，又明言原告「很可能在實體上勝訴」。Kalshi 目前在法律預告可能違法的狀態下持續運營，這是本週監管風險最高的單一事件。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">CFTC 主席 Michael Selig 11-03 宣布開放美國股票永續合約（perpetual futures，無到期日的衍生品）交易，將其歸類為 security future（證券期貨），由 CFTC 與 SEC 共管。Capital Markets Alliance 當天提告，主張此類產品應歸 SEC 管轄的 security-based swap（證券型交換合約）。法官 Valerie Caproni 拒絕發暫時限制令（TRO），理由是原告無法證明立即且不可回復的損害，但她同時認定原告「很可能在實體上勝訴」。Kalshi 11-04 已上架 Qualcomm、McDonald's、Amgen、Costco 四檔，最高槓桿 4.9 倍。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">TRO 失敗的唯一原因是損害舉證不足，不是實體法律爭議。法官明確認為永續合約依定義不含「單一證券的未來交割」，因此不可能是 CFTC 有權管的 security future，更像 security-based swap。若最終裁定如此，零售投資人本不能持倉，Kalshi 面臨的不只是產品下架，而是已開倉部位的合規責任，誰來承擔損失目前無答案。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Kalshi 上架第一天那四檔股票永續的實際成交量和未平倉量是多少。如果法院最終判 CFTC 越權，已開倉的用戶怎麼被清算，Kalshi 有沒有準備好這個情境？</li>
+        <li>Cboe 的 Craig Donohue 站在原告那邊告 CFTC，ICE 卻押注 trade.xyz 走相反方向。這兩家傳統交易所的股東該怎麼理解同一個產品類別裡自家管理層的對賭？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-clarity">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk、CNBC、Bitcoin Magazine</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>花 $125.5M 押共和黨，買到的是民主黨擁有更大動機寫出懲罰性法案</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">CLARITY Act（美國加密市場結構法案）今年 9 月在參院程序投票以 49 對 50 未過，本屆國會 2027-01-03 結束後自動失效。加密 PAC（政治行動委員會）本次選舉支出約 $170.5M，至少 $125.5M 流向共和黨。民主黨橫掃後，眾院民主黨正討論新版法案，擴大 SEC 角色、縮小 CFTC 角色，並加入針對 Trump 的道德規範條款，文本尚未公布。BTC 當日一度跌破 $76,000，下午回升逾 $80,000，約漲 3%。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">業界把 $125.5M 押共和黨，結果讓民主黨有充分動機把下一版法案寫成懲罰性條款。Ruben Gallego 直言「那已是他們能拿到最好的法案」，代表加密業界的談判槓桿已用盡。更值得注意的是，同一週立法路線（CLARITY 死亡）與行政路線（CFTC 開放股票永續被法官質疑越權）同時受阻，業界剩下的合法擴張通道只剩 OCC（美國貨幣監理署）規則與州級牌照，兩者均無法覆蓋交易市場結構。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>BTC 在法案前景惡化當天反彈破 $80K，Tagus Capital 說比特幣有 ETF 管道撐底。那山寨幣和 DeFi 協議的 LP 是不是該立刻重新定價所有依賴「即將立法」敘事的持倉？</li>
+        <li>如果下一版法案把大部分 token 歸入 SEC 管轄，現有部署在 Uniswap、Morpho 等協議上的無許可流動性池，技術上要怎麼在智能合約層實作合規過濾而不破壞組合性？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-morpho">
+    <div class="article-meta">
+      <span class="article-source">The Block</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Morpho TVL $11B 的成長故事，核心依賴一個中心化平台決定不切換</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Morpho 鎖倉總值（TVL，協議內抵押資產總額）逾 $11B，年初至今增近 100%；競爭對手 Aave TVL $16B，年初至今跌近一半，起因之一是 KelpDAO 遭駭造成約 $200M 壞帳。Morpho on Base（Coinbase 孵化的 L2）過去 12 個月從 $2B 增至逾 $4B。Coinbase 的借貸產品讓用戶以 cbBTC（Coinbase 發行的包裝比特幣）為抵押借 USDC，以 Morpho 為主要市場。ETH 年初至今跌 22%，BTC 跌 8%。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Base 上 $2B 到 $4B 的翻倍與 Coinbase 借貸產品上線時程高度重疊，可合理推斷 Coinbase 通路貢獻了多數增量。靠平台導流獲取的用戶通常沒有獨立留存意願，Coinbase 若切換預設借貸市場，Morpho 的 cbBTC/USDC 那條線的 TVL 蒸發速度取決於用戶是否有獨立意願留下，而這個比例文章未揭露，無法量化。真正的風險不是 Aave 競爭，而是 Coinbase 作為單一分發渠道，讓 Morpho 的「去中心化」標籤存在結構性矛盾。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Morpho 如果拿掉 Coinbase 借貸產品導入的 cbBTC/USDC 那條通路，剩下的有機成長和用戶留存率是什麼。Coinbase 哪天切換去 Aave，Morpho 還剩什麼？</li>
+        <li>Morpho 的 vault curator 模型把風險參數外包給第三方策展人，如果 Coinbase 導入的 cbBTC 抵押品出現脫錨，curator 的清算觸發機制比 Aave 的治理投票制快多少，還是其實更慢？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="vc-a16z">
+    <div class="article-meta">
+      <span class="article-source">a16z（Gmail 電子報）</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>a16z 拿 buyout 最壞年份對比創投最好年份，這是論述選擇，不是分析失誤</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z 合夥人 Martin Casado 11-04 發文，主張科技 buyout（槓桿收購）是晚週期資產。關鍵數字：過去 10 年 US Buyout 年化報酬 14.5%，低於 Russell 3000；US venture 年化 17.6%，高於 Russell 3000 約 2.3 個百分點。前 5% 基金 DPI（已實際分配回 LP 的倍數，以 2007 至 2016 年份計）：創投 5.3x、buyout 3.5x。2021 至 2022 年的軟體 buyout 債務 2028 至 2029 年面臨到期牆，約 $140B 的三分之一已評 CCC+ 以下。Thoma Bravo 以約 $6.4B 收購 Medallia，$5.1B 股權歸零，債權人接管。文末附有免責聲明，a16z 為創投管理人。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">buyout 被用 2021 至 2022 這段最差年份檢視，創投的 5.3x DPI 用的卻是 2007 至 2016 年份，刻意略開了創投自己的 2021 年份。創投 2021 年份在低流動性環境下同樣幾乎沒有已實現退出，TVPI（含未實現估值的總倍數）仍以未流通估值支撐，若 LP 要求 a16z 拿出自家 2021 年份基金的 DPI，數字幾乎肯定會打穿這篇文章的結論框架。讀懂這個不對稱的 LP 是贏家，把這篇文章當客觀研究而非募資材料的人是輸家。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>a16z 拿 buyout 2021–22 最爛年份對比創投 2007–16 最好年份，如果 LP 反問 a16z 自己 2021 年份基金的 DPI 和未實現減記幅度，數字會不會一樣難看？</li>
+        <li>PE 軟體資產 2028 年到期牆 $140B 若觸發批量出售，買方最可能是有現金的 hyperscaler 而非創投。這對 a16z 投資組合公司的定價權是結構性利多，還是代表退出通道被大廠壟斷？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-fal">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch、Bloomberg</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Fal $16B 估值成立的前提是毛利率顯著高於它自己點名的每一個同業</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">舊金山 AI 推論（inference，執行已訓練模型的運算）新創 Fal 完成 $1.3B 融資，Bessemer Venture Partners 領投，Nvidia、Sound Ventures、T. Rowe Price 參與，估值 $16B，較 4 月的 $8B 翻倍。年化營收今年稍早突破 $800M，估值約為年化營收 20 倍（自行計算，營收時點較早，實際倍數可能偏低）。同業 Baseten、Fireworks AI、Modal 的毛利 TechCrunch 明確指出偏薄。Fal 本身毛利未揭露。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">20 倍年化營收是否合理取決於毛利率。若 Fal 毛利率與同業相近（推論為 20 至 40%），20 倍營收等同 50 至 100 倍毛利，接近 SaaS 軟體的高端估值，但底層是算力租賃而非軟體邊際成本。Bessemer 要讓這個估值成立，需要 Fal 的毛利率顯著高於同業，或年化營收在交割前已繼續快速增長，兩者均未披露。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>$16B 估值除以「今年稍早」的 $800M 年化營收是 20 倍，但 TechCrunch 自己說同業 Baseten、Fireworks AI 毛利偏薄。如果 Fal 也在同一個毛利率區間，Bessemer 實際上買的是多少倍毛利？</li>
+        <li>Nvidia 同時是 Fal 的算力供應商和本輪投資人。如果 Nvidia 把 NIM 微服務做成端到端托管，Fal 的推論調度層還剩什麼技術護城河不能被上游直接複製？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-11-05</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
