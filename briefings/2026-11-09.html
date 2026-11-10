@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-11-09</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+      color: var(--signal-bg);
+      font-weight: 700;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 11 月 9 日　星期一</span>
+    <span class="header-count">3 篇</span>
+  </div>
+  <h1>每個醜聞背後都在算成本</h1>
+  <p class="header-lede">黃仁勳的婚外情打中華府的籌碼，Binance 的費用用來清掉散戶，Anthropic 的發電廠故事改寫了 IPO 價格。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-nvidia-scandal">黃仁勳醜聞打中的不是名譽</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-binance-fees">Binance 的 10 USDC 收費是在清小戶</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-anthropic-power">Anthropic 自持電廠殺死 IPO 故事</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="ai-nvidia-scandal">
+    <div class="article-meta">
+      <span class="article-source">CNBC、New York Times</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>黃仁勳醜聞打中的不是名譽，而是 Nvidia 在華府最重要的遊說籌碼</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Nvidia（全球市值最大的半導體公司）執行長黃仁勳（Jensen Huang）於 11 月 8 日以 email 告知員工，董事會已成立獨立調查委員會，起因是他與雲端公司 Megaspeed 一名女性員工 Alice Huang 有婚外情；美國情報機構懷疑後者向北京傳遞資訊，而 Megaspeed 被控幫助受出口管制（即 BIS 實體清單，Entity List）限制的中國公司取得 Nvidia AI 晶片。同一週，NYT 揭露商務部核准的 H200（Nvidia 資料中心 AI 晶片，美方有條件允許出口中國）組裝商中，有北京公司 New Matrix 登記地址是空樓、股東與 2024 年被列入制裁名單的私募 Wise Road 相關；另一家 Maginfra 被分析師連結到受制裁的浪潮（Inspur）。約 60 萬顆 H200 目前停在香港等待放行許可。董事會聲明稱「沒有理由相信國安或公司機密外洩」，黃仁勳續任 CEO，調查完成時程未公布；11 月 17 日財報與 11 月 18 日國會閉門簡報（不公開的國會聽證）均照常進行。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">黃仁勳長期是華府「允許 H200 賣進中國」最有力的遊說者，主張讓中國繼續用美國技術對美國更有利。現在他個人被連結到一家涉嫌繞過出口管制的 Nvidia 客戶，同週 BIS（美國商務部工業與安全局，負責出口管制）核准的 H200 經手商裡又出現空殼和制裁關係人，這兩件事疊在一起，給了國會拿人身攻擊帶動政策收緊的結構性理由。真正的輸家不是黃仁勳本人，而是 Baidu、ByteDance 體系等已預付款、等著香港那批庫存交割的中國雲端商；贏家是不依賴中國市場的 AMD，以及在國內備好替代方案的華為昇騰。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>香港那 60 萬顆 H200 如果因國會收緊授權而無法放行，Nvidia 要在哪一季認列這批庫存的減損，11 月 17 日財報的中國營收指引是否已把這個情境定價為零？</li>
+        <li>BIS 的終端用戶驗證依賴出口商自申報、沒有強制序號追蹤，讓晶片過了香港保稅倉就進入轉口灰區；如果國會以此為由凍結 H200 對中授權，庫存週轉的損失最終由 Nvidia 還是已備貨的中國雲端商承擔？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="web3-binance-fees">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Binance 的 10 USDC 收費不是在賺錢，是在替歐盟監管清掉它自己留住的散戶</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Binance（全球交易量最大的加密貨幣交易所）宣布於 2026 年 12 月 31 日關閉法國、西班牙、義大利、波蘭的受影響帳戶，起因是 MiCA（歐盟加密資產市場法規，2024 年起分階段生效，統一全歐盟的加密服務執照）過渡期於 2026 年 7 月 1 日結束，Binance 未在任何歐盟成員國取得執照，今年 6 月並撤回希臘的申請。從 11 月 29 日起，帳戶每月被扣剩餘加密資產的 0.025%，最低 10 USDC（Circle 發行的美元穩定幣），取較高者；11 月 29 日後三天內扣第一次，12 月 24 日後可能再扣一次。帳戶存款已封鎖，提領在清算期內仍可進行；12 月 31 日後剩餘資產依使用條款可能被轉換或移轉。ESMA（歐洲證券及市場管理局）11 月 5 日最新 MiCA 執照名冊中不見 Binance 名字。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">0.025% 月費只在帳戶餘額超過約 40,000 美元時才比 10 USDC 高，費用的真實重量落在小額用戶身上：100 美元的帳戶被扣兩次就損失兩成。這個設計不是在替 Binance 增加收入，而是把自己無法靠執照留住的散戶，用成本推走。更重要的訊號在監管層面：ESMA 10 月開始審查 Binance 用「反向招攬」（reverse solicitation，客戶主動找上門時可豁免執照要求的例外）繞路服務歐盟用戶的作法，代表連這個缺口也快堵死，MiCA 的護照機制開始真正排除連最大玩家都無法留場。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Binance 嘴上說「仍在尋求執照」，但它讓過渡期撐到 7 月才開始收縮；如果這四國帳戶的資產總額小到不值得申請成本，「尋求執照」的聲明到底在說服誰，監管還是投資人？</li>
+        <li>被 10 USDC 收費逼走的歐盟小戶最可能落腳哪家已持有 MiCA 執照的交易所，而 Kraken 和 Bitstamp 這週的歐盟法幣入金量能不能在兩週內驗證這個遷移路徑？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="vc-anthropic-power">
+    <div class="article-meta">
+      <span class="article-source">Financial Times、CNBC、Reuters</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Anthropic 自持燃氣電廠，把「輕資產 AI 公司」的 IPO 故事提前殺死</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Anthropic 把資本支出模式從「租用雲端算力」擴大到「自承發電資產」，同時 10 月營收欄位在 S-1 裡留白；這是本週最直接影響 IPO 定價博弈的訊號。</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">據 FT，Anthropic（AI 研究公司，第三季營收 170 億美元，去年同期 14 億美元，營業虧損 5.67 億美元）於 9 月下旬以約 34 億美元接手德州小型能源公司 OnePWR Solutions 向 Caterpillar 下的 1.7GW（十億瓦，約可供一座大型 AI 資料中心園區）重型燃氣發電機訂單，連同安裝工程一併承擔；OnePWR 因資金不足無法自行完成採購。Anthropic 未收購 OnePWR，兩家對 FT 均拒絕評論。IPO 方面，S-1（美國 IPO 申報文件）於 10 月 26 日公開，由 Goldman Sachs 與 Morgan Stanley 主辦，22 家承銷商，Nasdaq 代號 ANT，預計最多募資 1,000 億美元；修訂版 S-1（11 月 2 日）中 10 月營收欄位空白，估值目標 1.5 兆美元。Reuters 報導三名大型機構投資人稱估值可能下修至接近 1 兆美元，路演（IPO 定價前向機構投資人巡迴說明的 roadshow）能否如期在 11 月 9 日當週啟動受到懷疑，公司目標或改為 11 月 16 日當週。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">承銷商在路演裡幾乎肯定會把 34 億美元歸類為資本支出而非一次性採購，因為接手發電機訂單並承擔安裝工程意味著折舊週期至少 15 至 20 年，這讓自由現金流（FCF）的故事從根本上難以成立。真正的輸家是希望看到「輕資產、高槓桿」敘事的成長型基金，贏家是把 Anthropic 當基礎設施公司而非純軟體公司定價的投資人，但後者願意付的倍數更低。10 月營收空白移除了估值的唯一錨點，Goldman 和 Morgan Stanley 的利益在於盡快完成發行而非替買方壓價，這個結構性張力會讓路演談判拖長。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Goldman 和 Morgan Stanley 在路演裡會把這 34 億美元歸類為 capex 還是一次性採購，這個分類選擇直接決定 FCF 故事能不能講下去？</li>
+        <li>自己接手發電機訂單而不是跟 OnePWR 簽 PPA（購電協議）買電，等於把 GTM 從「賣模型」擴大到「營運電廠」；xAI 在孟菲斯已因燃氣渦輪被當地告上法院，Anthropic 憑什麼認為自己能比 xAI 更快搞定選址與許可？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-11-09</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
