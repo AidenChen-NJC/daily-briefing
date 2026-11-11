@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-11-11</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 11 月 11 日　星期三</span>
+    <span class="header-count">4 篇</span>
+  </div>
+  <h1>市場說了兩件事</h1>
+  <p class="header-lede">今天在等一個 CPI 數字，結果升息預期確認後，三個不同市場同時裂開：礦商把 BTC 換成說不清對象的應收款、加密資產成了最先賣掉的高 beta 部位、Anthropic 路演賣的是一個需要完美執行才能自圓其說的財務模型。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-bitdeer">礦商 AI 轉型的帳面故事</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-btc">BTC 在升息週期的真實角色</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-hyperliquid">Hyperliquid 的 90% 收益來自 Circle</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-anthropic">Anthropic IPO 降價的真實邏輯</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="ai-bitdeer">
+    <div class="article-meta">
+      <span class="article-source">The Block / 比特幣礦商財報</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+
+    <h3>礦商 AI 轉型的帳面故事：Bitdeer 把 2,029 顆 BTC 換成了一筆沒人說得清楚對象的應收款</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">HIVE Digital Technologies 與 Bitdeer 在 11 月 9、10 日相繼公布截至 9 月 30 日的季報。HIVE 挖出 BTC 比去年多 49%，但平均售價從 $114,382 跌到 $71,003，挖礦營收從 $82.1M 降到 $76M，並認列 $31.2M 礦機減損（impairment，資產帳面價值高於可回收金額時的一次性沖銷），淨虧損擴大到 $78.7M。成長點在 HPC（high-performance computing，AI 算力出租）業務：HPC 營收年增 70.7% 到 $8.8M，GPU 雲端已上線年化營收約 $40M，但含未交付產能的合約 ARR（annual recurring revenue，年化經常性營收）約 $185M。Bitdeer 靠算力擴張到 86.4 EH/s（exahash per second，比特幣挖礦算力單位），Q3 總營收 $320.7M 年增 89% 創紀錄，但 AI 雲端只佔其中 $20.4M，約 6%；AI 未交付訂單 backlog（已簽約但尚未認列的未來營收）$2.9B，是本季 AI 營收的 142 倍。Bitdeer 一年內從持有 2,029 顆 BTC 降到 47 顆，資產負債表上多出 $343.8M 的關係人應收款（related-party receivable，應向有股權或控制關係的對象收取的款項），財報未揭露債務人身份、到期日與擔保條件。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向一個結論：礦商 AI 轉型的敘事裡有兩個數字被系統性忽略。第一，Bitdeer 把 2,029 顆 BTC 換成 $343.8M 關係人應收款，財報沒告訴散戶股東誰欠這筆錢、什麼時候還、有沒有擔保，「轉型 AI」可能只是把流動資產換成不透明的集團內部債權。第二，Riot 租約明文規定逾期 270 天 Anthropic 可單方面退出，而德州電網互聯審批排隊通常超過三年，交付風險完全在礦商身上，Bitdeer 的 $2.9B backlog 若含類似條款，市場押的「未來 AI 營收」就是高度或有收益（contingent revenue），不是合約義務。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Bitdeer 的 $2.9B AI backlog 本季只認列了 $20.4M，Michael Potter 能不能告訴投資人，這 $2.9B 裡有多少合約附有類似 Riot 那種逾期 270 天可終止的退出條款？</li>
+        <li>Bitdeer 把 2,029 顆 BTC 賣到剩 47 顆、換成 $343.8M 的關係人應收款，這筆錢到底是誰欠的、什麼時候到期、有沒有擔保？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="web3-btc">
+    <div class="article-meta">
+      <span class="article-source">CNBC / BLS / FXStreet / The Motley Fool</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+
+    <h3>BTC 在升息週期的真實角色：先賣、先爆、先走</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">美國勞工統計局（BLS）11 月 10 日美東 8:30 公布 10 月 CPI（消費者物價指數）：整體月增 0.4%，核心 CPI（排除食品與能源）月增 0.3%，兩者均高於 Dow Jones 預期 0.1 個百分點。住房佔整體漲幅逾三成，食品從 9 月持平跳到 +0.5%；能源從 9 月 +5.2% 降到 +0.7%，中古車 -1.2%。由於 2025 年 10 月政府停擺期間 BLS 未收集資料，本次無法公布年增率。核心 CPI 連三個月月增 0.3%，換算年化約 3.7%。CME FedWatch（依期貨價格推算 Fed 利率決策機率的工具）顯示 12 月升息一碼（0.25 個百分點）已完全定價，升息兩碼機率升到 13.6%。股市方面，S&P 500 收跌 0.38%，Nasdaq 跌 0.74%。比特幣跌破 $73,000 的 200 日均線（過去 200 個交易日平均價格，常被視為長期多空分界），ETH 跌 5% 至 $2,029，SOL 跌 5.3%；24 小時期貨爆倉（liquidation，槓桿部位保證金不足遭強制平倉）$716M，其中多單（押注上漲的部位）$589M，占比約八成。現貨 BTC ETF 上週淨流出 $1.28B，為 6 月以來最大。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究的結論很直接：加密資產在這輪升息循環裡不是避險資產，是最先被賣掉的高 beta（資產相對大盤的波動倍數）部位。S&P 500 只跌 0.38%，但 BTC 跌破 200 日均線、ETH 跌 5%，爆倉 $716M 中八成是多單，現貨 BTC ETF 上週就已先行流出 $1.28B。機構配置盤在升息預期確認之前已在出場，真正留在場內被爆倉的是散戶槓桿多頭。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>現貨 BTC ETF 單週淨流出 $1.28B、BTC 跌破 200 日均線，這些 ETF 的持有人平均持倉天數到底多短，機構說的「長期配置」是不是一碰升息預期就跑的動量資金？</li>
+        <li>加密市場自稱的「數位黃金避險敘事」在升息週期裡到底留住了哪一群真實買家？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-hyperliquid">
+    <div class="article-meta">
+      <span class="article-source">Multicoin Capital 電子報</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+
+    <h3>Hyperliquid 拿走 90% 收益，但那個收益不是 Hyperliquid 創造的</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Multicoin Capital 在 11 月 10 日電子報〈DeFi moats in an AI world〉中提出框架：AI 讓金融軟體商品化（五年前做 DEX 或借貸協議要募 $3M、五名工程師、六個月；現在一個週末能完成 MVP），DeFi 的價值將集中到通路、資本與專有資料三種 AI 複製不了的稀缺投入。通路例子是 Hyperliquid：平台上超過 $6B USDC 作為衍生品保證金，透過 AQA（Aligned Quote Asset，分配穩定幣收益的框架）讓約 90% 準備金收益流向 Hyperliquid Assistance Fund 回購 HYPE，Multicoin 估算年化約 $185M；外部估算為 $135M–160M，首筆實際金額 $14.6M。MetaMask 收取 0.875% 交易手續費，遠高於 Uniswap LP（流動性提供者）的平均 0.13%。資本護城河例子是 Binance：被盜 $6.3B 後以 SAFU 與自有資金填補，資產淨流出僅 3%。專有資料護城河例子是 OnRe：持有鏈上再保險理賠歷史，管理費 75 bps 加 20% 收益分成，約為 DeFi curator 平均 19 bps 的 16 倍。同一天 SOL 跌至 $82，近三個月低點。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究揭示一個被 Multicoin 框架掩蓋的結構性弱點：Hyperliquid 拿走的 90% USDC 準備金收益，根源是 Circle 把美債利息透過 Coinbase 金庫回傳鏈上，整個機制完全依賴 Circle 的收益分潤政策，Hyperliquid 在協議層沒有任何制約機制能阻止 Circle 改變條款。這等於說，Multicoin 講的「通路護城河」有一個隱藏前提：Circle 和 Coinbase 選擇讓這筆錢繼續流向 Hyperliquid。另一個值得校正的數字：Multicoin 給出的 $185M 年化高於外部估算上限 $160M，偏向樂觀端，而 Multicoin 是 Solana 生態的知名早期投資人，文章立場不中立。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Multicoin 說通路是護城河，但 AQA 的 90% 收益完全依賴 Circle 和 Coinbase 配合，如果 Circle 明天改變 USDC 收益分潤比例，Hyperliquid 有什麼協議層機制能阻止？</li>
+        <li>MetaMask 收 0.875% 是 Uniswap 的近 7 倍，但 Robinhood 用 AI 一個週末就能自建 DEX，MetaMask 真正防禦的是品牌認知還是嵌入式合規流程，哪一個短期內複製不了？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="vc-anthropic">
+    <div class="article-meta">
+      <span class="article-source">CNBC / TechCrunch / Fortune</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+
+    <h3>Anthropic IPO 主動降價不是需求差，是把 $679B 缺口先包起來再上市</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Anthropic 正式啟動路演，$900.9B 承諾支出只有四分之一現金覆蓋，路演賣的是一個需要營收完美執行才能自圓其說的財務模型。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 11 月 10 日提交第二版修訂 S-1，正式定出 IPO 價格區間 $70–$78，825M 股 Class A，Nasdaq 代號 ANT，完全稀釋估值上限約 $1.405T。Goldman Sachs 與 Morgan Stanley 為主辦承銷商，預計 11 月 18 日定價、11 月 19 日掛牌。相較於 11 月 9 日一度出現後被撤回的版本（約 867M 股、$70–$80、上限約 $69.3B），此次股數少 4,200 萬、價格上限低 $2、募資上限少約 $5B。同步進行的 $26B 私募由 AMD、Broadcom、Google、Micron、Microsoft、Nvidia、TSMC 以 IPO 價認購無投票權 Class N 股，其中 Google、Nvidia 各 $10B，不受鎖定期（IPO 後不得出售的期間）限制。財務數字：前九個月營收 $33.24B，年增約 1,200%；Q3 單季 $17B；年化營收從 9 月底約 $71B 升到 10 月底約 $81B；現金與短期投資近 $132B；承諾支出 $900.9B。散戶配售比例約 20%，是一般 IPO 的兩到四倍。治理上，Class F 股握 50.1% 投票權，Long-Term Benefit Trust（長期利益信託，獨立於股東之外、有權選任董事）選出董事會過半數，Class A 股東幾乎無治理權。CNBC 引知情人士稱訂單在區間內已足額認購。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向兩個隱藏在降價動作底下的真實邏輯。$132B 現金加最多 $64B IPO 和 $26B 私募合計約 $222B，只覆蓋 $900.9B 承諾支出的約四分之一，剩下約 $679B 缺口要靠後續融資或讓 $81B 年化營收繼續按每月約 $10B 的速度成長來填，路演賣的本質上是一個需要完美執行才能自圓其說的財務模型。Google 與 Nvidia 各買 $10B 無投票權 Class N 股，同時是 Anthropic 最大算力供應商且不受鎖定期限制，這更像算力採購的預付款綁定，而不是單純的財務投資，公開市場 Class A 買家沒有這層「供應商回扣」保護。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>$900.9B 承諾支出只有四分之一現金覆蓋，Goldman 和 Morgan Stanley 路演時用的是幾年、幾% 的營收成長率讓這個缺口收斂？</li>
+        <li>散戶配售放到 20% 是一般 IPO 的兩到四倍，同時 Class A 幾乎沒治理權，這到底是在做品牌社群的 GTM 還是在確保開盤有足夠的非機構買盤來撐住首日價格？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-11-11</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
