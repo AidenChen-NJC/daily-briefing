@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>每日簡報 — 2026-11-12</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+      color: var(--signal-bg);
+      font-weight: 700;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 11 月 12 日　星期四</span>
+    <span class="header-count">5 篇</span>
+  </div>
+  <h1>算力、模型、監管三條線同時繃緊的一天</h1>
+  <p class="header-lede">基礎設施融資撞上供應鏈風險、模型公司的可解約權正在轉移賭注，而監管方則在打那個能否繞過規則的速度。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-coreweave">CoreWeave 被債市擠出去後</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic">Anthropic 的可解約承諾是選擇權</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-a16z">a16z 用開發者工具的倍數</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-faro">Project Faro 是觀察席票價</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-kalshi">Kalshi 估值的核心溢價</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="ai-coreweave">
+    <div class="article-meta">
+      <span class="article-source">CNBC</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>CoreWeave 被債市擠出去後，每座新資料中心的信用風險掛在 Anthropic 身上</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">CoreWeave 的融資架構已從「公司信用」切換為「客戶信用」，算力供應鏈的槓桿風險正集中到少數幾家模型公司的資產負債表上。</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">CoreWeave 是以 GPU 叢集租賃為主業的 AI 雲端基礎設施公司，於 11 月 10 日盤後公布 2026 年 Q3 財報。Q3 營收 $3.66B，年增 168%，高於 LSEG 預期的 $3.55B；調整後每股虧損 $0.95，優於預期的 $1.16。淨虧損 $709M，Q3 資本支出約 $14.5B。全年營收指引上調至 $13B–$13.3B，全年資本支出指引 $37B–$39B，約為營收中位數的 2.9 倍。已簽約未認列訂單（backlog，已簽約但尚未認列的未來營收）達 $132.5B，單季增加 $28.5B。Q3 底負債近 $47B，部分公司債券殖利率近期超過 16%。CFO Nitin Agrawal 在法說會上表示，以目前殖利率，2027 年前不打算發行額外的母公司無擔保債（parent-level unsecured debt，以公司整體信用而非特定資產擔保的債券）。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">CFO 那句話的意思是：16% 的公開債市已經把 CoreWeave 關在門外，往後每座資料中心能不能蓋，取決於那份綁定客戶合約的延遲提款定期貸款（delayed draw term loan，額度先核定、依工程進度分批撥款的貸款）。真正在賺錢的是持有 CoreWeave 有擔保債的 Ares、Blue Owl 等私信貸機構，拿 16% 票息，CoreWeave 普通股股東（包括 Nvidia）則承擔稀釋或資產出售風險。Q3 調整後營業利益 $379M 對應同期資本支出 $14.5B，利息負擔已超過任何可見的自由現金流，這個數字直接來自財報，不是推論。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>CoreWeave 的 $132.5B backlog 有多少比例是 Anthropic 一家貢獻的？如果 Anthropic IPO 定價低於區間或上市後股價腰斬，這些綁定合約的延遲提款貸款還拿得到撥款嗎？</li>
+        <li>資本支出是營收的 2.9 倍、負債 $47B、債券殖利率破 16%，Intrator 說不缺客戶只缺錢，那現在真正在賺錢的是買 CoreWeave 債券拿 16% 的信用基金，不是 CoreWeave 自己，這個結構還可以持續多久？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-anthropic">
+    <div class="article-meta">
+      <span class="article-source">Gulf News / MLQ</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 的 $186.2B 可解約承諾是選擇權，Lambda 才是那個沒有退路的人</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OpenAI 在 11 月 10 日投資人電話會議上揭露，截至 9 月的季度營收首次達到 $10B，年增近三倍，但 WSJ 報導營業虧損從上季 $10.1B 增加至 $10.9B，調整後營業利益率為負 109%（每賺 $1 虧 $1.09）。同日 Anthropic 提交 S-1 第二次修訂（S-1/A，IPO 註冊文件的修訂版）。Q3 營收 $16.96B，Q3 算力與基礎設施費用 $9.86B，約佔營收 58%；10 月底年化營收（run-rate，以近期月份推算的全年數字）約 $81B。算力承諾總額 $900.9B，約為年化營收 11 倍。其中 $186.2B 附有可行使的解約權或未滿足條件，與 Lambda 簽訂的 $34.9B 合約因 Lambda 未能取得廠房租約，現已進入雙方皆可終止的狀態，Anthropic 表示目前無意終止。IPO 定價區間每股 $70–$78，以中位數 $74 估淨募資約 $84.6B。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Lambda 拿不到廠房租約、$34.9B 合約進入可解約狀態，說明算力供應鏈的真正瓶頸不是 GPU 而是實體地產與電力許可，市場擔心的方向（模型公司付不出錢）其實說反了。Anthropic 手上的 $186.2B 可解約承諾是一張免費看跌期權，供應商交付不了，風險在供應商身上。受害的是 Lambda、Nscale 等依賴單一模型公司合約向銀行融資的算力新創，因為一旦 Anthropic 行使解約權，這些公司向銀行質押的收入直接消失，而 Lambda 的案例說明它連廠房都還沒拿到就去簽 $34.9B，根本沒有緩衝。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Lambda 把 Anthropic 的 take-or-pay（不論用不用都要付款的合約）當作向銀行借錢的擔保品，一旦 Anthropic 行使解約權，觸發的交叉違約鏈在技術上怎麼隔離？</li>
+        <li>如果 Anthropic 要砍掉 Lambda 那 $34.9B，下一個能在六個月內交付同等算力的供應商是誰？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-a16z">
+    <div class="article-meta">
+      <span class="article-source">a16z Newsletter</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>a16z 用開發者工具的倍數，說服你消費市場已經準備好了</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z 於 11 月 11 日發布〈Welcome to the B2A Economy〉，主張 AI agent（能代替使用者執行多步驟任務的 AI 程式）正在取代人成為企業服務的主要客戶。引用數字包括：Shopify Q1 2026 AI 搜尋導入訂單年增近 13 倍；Vercel agent 觸發的部署過去 12 個月增加 28 倍；Human Security 報告 8 至 10 月 agentic browser（由 AI 操作的瀏覽器）流量增 8 倍。文中並指出逾 40% 的 GitHub PR（pull request，程式碼合併請求）從 agent 草稿開始，Stripe 的 agent 佔文件流量近 40%，ChatGPT 週活躍用戶 12 億。a16z 把受益者分為四類：agent 本身、agent 才可能存在的新產品、為 agent 優化的既有業者、agent 基礎設施（支付、身分、反詐）。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">a16z 拿來證明趨勢的案例幾乎全是 Supabase、Neon、Vercel、Stripe 等開發者工具，那是出錯成本低、使用者本身就是工程師的場景。消費端的唯一量化證據是 Shopify 訂單倍數，但 Shopify 未揭露 AI 訂單佔總 GMV（$80B）的絕對比例，從 0.01% 長 13 倍也只是 0.13%，這個底數從公開資料無法確認，研究對此信心標記為「低」。整篇最有洞察的部分反而在第四類機會，agent 付款的 chargeback（信用卡爭議退款）責任歸屬在現有卡網路規則下根本沒定義，而這正是 Stripe 憑藉 40% agent 文件流量的資料飛輪，最有能力率先解決的斷點。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>a16z 用 Shopify AI 搜尋訂單年增 13 倍證明 B2A，但 Shopify 沒揭露 AI 訂單佔總 GMV 的絕對比例，這個市場規模的底數到底是多少？</li>
+        <li>文中列舉的受益者幾乎全是 a16z portfolio company，這篇到底是市場研究，還是替自己的被投公司做 GEO（generative engine optimization，讓內容被 AI 回答引用的優化）、把 agent 流量導進自家生態？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="web3-faro">
+    <div class="article-meta">
+      <span class="article-source">Decrypt / Blockhead</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Project Faro 的 $270M 是 21 家銀行的觀察席票價，不是攻打 Tether 的預算</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">代號 Project Faro 的銀行聯盟已承諾約 $270M，作為一家計畫在美國註冊、發行美元穩定幣（stablecoin，與法幣 1:1 掛鉤的加密代幣）公司的五年營運資金。成員 21 家，涵蓋 Goldman Sachs、Citigroup、Banco Santander、Deutsche Bank、Bank of America、Wells Fargo 等北美 10 家、歐洲 8 家及東亞、中東、非洲 3 家機構，各行出資比例未揭露。目標 2027 年上半年推出美元穩定幣，歐元版列為優先擴張，但公司目前仍無 CEO、無正式名稱、未選定區塊鏈。現有穩定幣市場約 $290B–$300B，USDT 與 USDC 合計約 85%。JPMorgan 不在成員名單，另有同類競爭者：由逾 100 家公司支持的 Open USD 已於 10 月上線；歐洲銀行另組 Qivalis 做歐元穩定幣。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">$270M 撐五年、一年約 $54M，這是一家合規科技公司的基礎運維預算，不是從 Tether 散戶手上搶市佔的攻擊預算。研究指向一個結論：這筆錢對應的賭注是把 21 家成員各自的企業客戶跨境結算流量導進 Faro 通道，而不是任何補貼零售用戶的計畫。問題在於沒有任何一家公開承諾導入多少結算量，$270M 目前是「不缺席的最低票價」，真正的威脅對象是 Circle 的機構端結算份額，Tether 的零售與交易所份額暫時安全。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>21 家銀行每家平均才出 $13M，有沒有任何一家承諾把自家企業客戶的跨境結算量導進來？沒有結算量錨定，五年後這個計畫是產品還是品牌實驗？</li>
+        <li>JPMorgan 的 Kinexys 已處理超過 $1.5T 的代幣化結算，走許可鏈、不需要外部共識、不需要 21 家共治，Faro 的結構性劣勢要靠什麼工程差異化來翻轉？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-kalshi">
+    <div class="article-meta">
+      <span class="article-source">crypto.news / The Block</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Kalshi $40B 估值的核心溢價是高速上架，CFTC 打的正是那個速度</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">預測市場（prediction market，讓用戶押注事件結果的交易平台）Kalshi 面臨兩個方向的壓力。監管端：POLITICO 11 月 10 日報導，CFTC（美國商品期貨交易委員會）私下通知 Kalshi 可能面臨執法指控，原因是涉及「數十個」擬上市合約的申報程序；Kalshi 稱只有「少數幾個，其中很多沒上線」，定性為「程序性錯誤」。CFTC 7 月 24 日曾發布諮詢，警告不得以「範本式」描述把大量事件合約（event contract，以某事件是否發生為標的的合約）併入單份自我認證（self-certification，交易所自行聲明合規後即可上市，不需 CFTC 事前逐案核准）申報。案件仍可能以和解收場，尚無正式指控或罰款金額。立法端：民主黨於 11 月 3 日期中選舉後取得參院控制權，Elizabeth Warren 1 月起擔任參院銀行委員會主席，幕僚列明預測市場為四大優先議題之一。Kalshi 10 月完成 $1B 融資，估值 $40B，Wellington Management 與 Sequoia Capital 共同領投。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">CFTC 打的不是哪一個合約的內容，而是自我認證這個上架機制本身。Kalshi 能一天上架數十個合約、估值衝到 $40B，靠的就是「先自我認證、CFTC 事後審」的速度，若強制改為逐案審查，合約上架週期從一天延長至 90 天以上，$40B 估值的可辯護上限大約落在 $3B–$8B 之間（參考 PredictIt 與 CME 事件衍生品歷史倍數，為粗估非精算）。更持久的威脅來自國會：CFTC 的預算與事件合約授權在參院農業委員會，若 Sherrod Brown 主導該委員會並在下一個農業法案裡直接寫入「事件合約須完整申請而非自我認證」，殺傷力比執法案件更難逆轉，而這個推論建立在農委會對 CFTC 的立法管轄有明確憲法依據這個事實上。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Kalshi 剛融 $1B 估值 $40B，Wellington 和 Sequoia 領投時有沒有對自我認證機制被收緊做情境定價？如果上架速度從一天變成 90 天審核，這個 $40B 還剩多少？</li>
+        <li>CFTC 管轄權歸參院農業委員會、Warren 坐銀行委員會只有傳喚權沒有立法權，Kalshi 真正該擔心的是 Sherrod Brown 在農業委員會直接砍 CFTC 對事件合約的授權，對嗎？</li>
+      </ol>
+    </div>
+  </article>
+
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-11-12</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
