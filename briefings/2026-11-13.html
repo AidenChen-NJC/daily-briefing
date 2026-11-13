@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-11-13</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 11 月 13 日　星期五</span>
+    <span class="header-count">7 篇</span>
+  </div>
+  <h1>Nvidia CEO 黃仁勳辭職，一個人的信用在瞬間轉成系統風險</h1>
+  <p class="header-lede">全球最大晶片公司失去 CEO，失去的不只是一個決策者，而是三條命脈線同時承壓：晶片供給談判的人脈、客戶融資擔保的個人信用、AI 前沿生態的話語權。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-nvidia-ceo">黃仁勳走後，Nvidia 失去的不只是 CEO</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-nvidia-guarantee">Nvidia 的 $400B 擔保帝國</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-a16z-national-security">a16z 的國安計畫裡聯邦政府付帳</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-agile-robots">Agile Robots 估值漲規模縮</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-strategy-buyback">Strategy 防崩模式啟動</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-binance-recovery">Binance 駭案 Tether 贏家</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-dtcc-tokenized">DTCC 真股票代幣上 Solana</a></li>
+  </ol>
+</nav>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <article class="article" id="ai-nvidia-ceo">
+    <div class="article-meta">
+      <span class="article-source">CNBC / TechCrunch / Axios / Fortune / Nvidia 8-K</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>黃仁勳走後，Nvidia 失去的不只是 CEO，是採購談判的人脈結構</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Nvidia（輝達，全球市值最大的半導體公司）共同創辦人黃仁勳 11 月 12 日即刻辭去總裁、CEO 與董事職務，CFO（財務長）Colette Kress 兼任代理 CEO，前 Synopsys（電子設計自動化公司）CEO Harvey C. Jones 成為公司史上第一位董事長。Nvidia 股價當日收跌 4.34%，盤中最多跌 14%，過去一個月累計跌逾 20%，市值在盤中多數時間低於 4 兆美元。事件導火線是 10 月 29 日《紐約時報》報導黃仁勳與一名被美方情報官員懷疑是中國間諜的 Megaspeed 主管往來密切，隨後曝出他另與公司副總裁 Kimberly Powell 外遇；11 月 11 日國會議員公開要求辭職，11 月 12 日辭呈生效。Bernstein（投資銀行）分析師將目標價從 400 美元砍至 200 美元。台積電（TSMC）的 CoWoS（晶圓級封裝，AI 晶片的關鍵製造環節）產能歷來由黃仁勳親自電話協調，Fortune 資料顯示台積電約三分之二產能供應 Nvidia。Kress 出身財務背景，沒有這條人脈線，短期談判籌碼確實鬆動。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">真正的受益方是 Broadcom，因為它有獨立的台積電關係且不依賴 Nvidia 的優先配額；AMD 同樣依賴台積電，議價地位並不比 Nvidia 此時更強，當日 5% 漲幅定價的是「預期市場重新分配的選擇權」，而非已確定的份額移轉。但更關鍵的是：Nvidia 的 CUDA（Nvidia 專有的 GPU 程式設計框架）生態鎖定力依然存在，短期內 Microsoft 和 Meta 不會冒著軟體相容性風險去切 20% 訓練叢集給 Broadcom。這表示重新定價發生在晶片產能談判層面，而非客戶轉換層面。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Nvidia 的 CUDA 生態鎖定力有多硬，硬到 Microsoft 和 Meta 在 CEO 真空期還不敢把訓練叢集切 20% 給 Broadcom？</li>
+        <li>如果接班人在 Q1 前確定，所有關於議價地位轉移的討論會不會都只是雜訊？</li>
+        <li>Kress 作為代理 CEO，她會優先穩定現有供應鏈，還是藉機重談條約？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-nvidia-guarantee">
+    <div class="article-meta">
+      <span class="article-source">Fortune / CNBC / Bloomberg</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Nvidia 的 $400B 擔保帝國，定價的是黃仁勳這個人，不是公司義務</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Nvidia 是唯一同時掌握晶片供給、客戶融資擔保與關鍵 AI 公司股權的公司。CEO 離職讓這三條線同時承壓，這是當前 AI 資本結構最大的系統性風險點。</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Nvidia 在過去兩年把自身資產負債表借給整條 AI 供應鏈：7 月宣布以固定價格回租夥伴閒置 GPU（圖形處理器，AI 訓練的核心算力來源）算力，參與一個 5000 億美元融資平台並可能擔保最多 1250 億美元，同時洽談以約 2500 億美元擔保協助 OpenAI 承租俄亥俄州資料中心園區。neocloud（專門出租 GPU 算力的新興雲端公司）CoreWeave 11 月 12 日跌約 9%，Nebius 跌 16%。Nvidia 另在 Anthropic（AI 研究公司）同步私募 260 億美元的 IPO 中認購約 100 億美元股份，Bloomberg 稱此承諾正受到重新檢視；Seaport Research 分析師 Jay Goldberg 表示不預期交易生變。哥倫比亞大學教授估計 Nvidia 各類擔保義務總計約 4000 億美元（單一學術估計，未經其他來源驗證）。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Anthropic 那 100 億美元是有法律約束力的 binding commitment（有約束力的認購承諾），Kress 無法單方面撤回而不觸發違約責任，財務上也沒有誘因這樣做，Anthropic 是晶片客戶，傷關係成本更高。真正的風險不是 Kress 要不要撤，而是 Anthropic 其他潛在機構投資人會不會拿 Nvidia 領導層不穩作為重新議價的藉口。Switchyard Partners 的 Joe Kaiser 那句「Nvidia 的擔保不再值一週前那麼多」，說的是個人信用的定價折損，法律義務並未改變。但從資本市場邏輯看，一個執行 400 億美元擔保帝國的人突然換人，新任者的風險溢價至少會在 50 到 150 個基點，反映在 CoreWeave 和 Nebius 的融資成本上。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>CoreWeave 和 Nebius 對外說客戶合約是收入保證，但扣掉 Nvidia 回購兜底的那部分，真正來自終端企業客戶的已簽約營收佔比是多少？</li>
+        <li>neocloud 的債務結構把 Nvidia 擔保當成抵押品的信用增強層，CoreWeave 那 350 億美元負債裡，哪一層會最先觸發加速到期條款？</li>
+        <li>Kress 會在近期發表聲明重申擔保義務的穩定性嗎？如果不發，代表什麼？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-a16z-national-security">
+    <div class="article-meta">
+      <span class="article-source">a16z 電子報（轉載 WSJ）</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>a16z 的國安計畫裡，聯邦政府替 a16z portfolio 公司付帳</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Nvidia 前董事、現任 a16z 普通合夥人 Anne Neuberger（前美國國家安全副顧問）在《華爾街日報》發文，提出「超級智慧時代關鍵基礎設施網路防禦計畫」。計畫聚焦電力、銀行、水務、通訊、醫院五大產業，鎖定「幾百家」一倒就會引發全國連鎖的業者，要求 CEO 委員會負責並設定 6 個月圍堵時程。核心政策槓桿包含：聯邦政府替參與企業採購前沿 AI 模型與算力、符合結果指標者享安全港（safe harbor，符合條件即免除部分法律責任）、AI 實驗室與雲端業者以會員身分進 CEO 委員會。OT（operational technology，控制電網和水廠等實體設備的系統）服役常超過 20 年。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">計畫提議「聯邦採購算力給參與企業」，直接受益方是 Anthropic、xAI，以及 AWS、Azure、GCP，而 a16z 在前兩者有持股；這不是推論，利益關係有文件可查。同時，「6 個月圍堵」的時程假設跳過了現場工程現實：逆向工程一座舊式 SCADA（工業控制系統）配置沒有 API，純人工需要數月，全國幾百家業者的盤點本身就是多年工程，「圍堵」最可能的實際意義是完成普查，不是完成修補。這個計畫的真正價值在於它為 a16z 被投公司創造了政府採購管道和法律豁免地位，而不在於它真正能在 6 個月內防禦什麼。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>鄉村水務和社區醫院的採購決策者一個人兼三職，真正能讓這個計畫落地的路徑是聯邦補貼強制綁定特定框架，還是等 CEO 委員會開完會自然發生？</li>
+        <li>CrowdStrike、Palo Alto 已在 OT 領域卡位，這個框架給 a16z 被投公司的真正護城河是「安全港」法律地位，還是只是一張進門的名片？</li>
+        <li>Neuberger 身兼 Nvidia 前董事與 a16z 合夥人兩職，如果黃仁勳辭職影響了 Nvidia 在聯邦採購預算中的優先地位，a16z 這個計畫會調整受益方嗎？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-agile-robots">
+    <div class="article-meta">
+      <span class="article-source">The Rundown Robotics / Forbes</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Agile Robots 估值漲了但規模縮了，Nvidia 同時是平台方和投資人</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Agile Robots（德國航太中心慕尼黑衍生公司）以 85 億美元估值完成 F 輪（晚期成長階段融資）5 億美元募資，SoftBank 領投，Nvidia、Hitachi、T.Capital 參與。今年在慕尼黑附近開設年產能最多 1 萬台人形機器人（humanoid，雙足或擬人形態的通用機器人）的新廠，明年預計出貨 1,000 至 2,000 台小型人形機器人，Stanford 與 ETH Zurich 為潛在客戶。公司宣稱已部署近 3 萬套系統（另有報導稱約 2 萬套，兩者不一致），今年營收預計翻倍至約 6 億歐元（公司數字，未經審計）。6 月時 Bloomberg 報導洽談規模約 8 億美元，最終成交 5 億美元，縮水 37.5%。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Agile 的人形機器人 ONE SN 建立在 Nvidia Isaac GR00T（Nvidia 人形機器人基礎模型）與 Jetson Thor（Nvidia 機器人運算模組）上，而 Nvidia 同時是投資人。這和 neocloud 的結構一樣，Nvidia 投資客戶、客戶買 Nvidia 平台，技術依賴與資本依賴疊在一起。6 億歐元營收對應 85 億美元估值是約 12.7 倍，但工業機器人同業的收入結構通常約 60 至 70% 是硬體賣斷、30% 是服務與維護；若 Agile 結構相近，對應經常性收入的隱含倍數接近 40 至 50 倍，這個數字在當前環境下難以辯護。不過 Agile 未公開收入拆分數據，此推論為基於同業結構的類比，信心標籤：低。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>號稱部署 3 萬套系統，但這些機器人有多少在付年度維護合約產生經常性收入，多少只是一次性賣斷給實驗室吃灰？</li>
+        <li>Nvidia 同時是 Isaac GR00T 平台方和 Agile 投資人，如果 Nvidia 決定優先供貨給自己另一家被投機器人公司，Agile 的技術棧有沒有可替換層？</li>
+        <li>黃仁勳辭職後，Nvidia 會不會重新評估對 Agile 的投資承諾？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="web3-strategy-buyback">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / The Block / Bloomberg</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Strategy 最近一週買回特別股的錢是買幣的兩倍，飛輪已切換成防崩模式</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">MSCI（全球最大指數提供商之一）11 月 11 日公告，依據 10 月 15 日通過的「非營運公司」篩選規則，Strategy（MSTR，持有 850,364 BTC 的上市公司，約 626 億美元）與 Metaplanet 將於 11 月 30 日收盤後分別被移出 MSCI USA Index 與 MSCI Japan Small Cap Index。被動基金（照指數成分股自動配置的基金）需賣出約 1,300 萬股 MSTR，以 11 月 11 日價格計約 16 億美元，約佔流通股 3.1%。Strategy 的 mNAV（市值除以所持比特幣價值，大於 1 代表股價有溢價）從 2024 年 11 月高峰 3.4 倍跌至約 1.08 倍。比特幣 11 月 12 日跌到 71,200 美元，近 12 週低點。現貨比特幣 ETF 連續第五天淨流出，11 月 5 日以來累計約 14.4 億美元。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究答案在此方向上信心為高：Strategy 最近一週 $283.8M 募資裡，只有 $81.9M 用於買幣，$188.3M 用於買回 STRC 特別股（Strategy 發行的特別股之一），後者是前者的 2.3 倍。最合理的解讀不是 Saylor 主動選擇不買幣，而是在防止特別股贖回觸發流動性危機。mNAV 從 3.4 倍跌到 1.08 倍後，ATM 發行（at-the-market，依市價陸續賣新股）每發 100 美元能買入的比特幣對應市值只有 108 美元，「正迴授增強」的飛輪已切換成「維持存量、防止崩解」模式。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>mNAV 剩 1.08 倍時 ATM 發股買幣幾乎沒有套利空間，Strategy 實際上已經從「比特幣累積機器」轉型成「資本結構修補機器」了嗎？</li>
+        <li>如果 FTSE Russell 和 S&P 用同樣的「非營運公司」邏輯跟進，三大指數商全踢後，JPMorgan 估的 88 億美元流出夠不夠把 mNAV 打到 1 以下？</li>
+        <li>Saylor 會在何時宣布暫停 ATM 募資？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-binance-recovery">
+    <div class="article-meta">
+      <span class="article-source">The Block / CoinDesk / Decrypt / Bloomberg</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Binance 駭案追回 $1.2B，贏家是 Tether 和 Circle 的凍結鍵，不是執法單位</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">美國司法部 11 月 12 日宣布取得法院授權，扣押或凍結超過 12 億美元與 Binance（全球最大加密貨幣交易所）10 月 29 日遭駭事件相關資金（授權扣押，非已完成轉移），這是 Tether 與 Circle 在事發後凍結的 27 億美元的一部分。Binance 本次遭駭損失估計約 63 億美元，被凍結比例約 43%。FBI 將駭案歸因於北韓駭客組織 TraderTraitor。司法部同日破獲 FaceStealer 詐騙基礎設施：北韓駭客用盜來的帳號邀受害人開視訊通話、播放熟人錄影或深偽（deepfake，AI 合成的假影音）影像，18 個月偷走超過 4 億美元加密資產；FBI 查獲攻擊者蒐集的網路攝影機影片超過 900 段。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">USDC（Circle 發行的穩定幣）的凍結功能在設計之初就是監管合規條件，Tether 2020 年後的 AML（反洗錢）政策也明確包含合約層黑名單。這不是推論，Circle 和 Tether 的合規文件顯示「可凍結性」是它們在全球監管對話中主動展示的功能，換取的是繼續運營的默許。贏家是 USDT 和 USDC；輸家是 DAI、FRAX 等算法或去中心化穩定幣，它們無法提供凍結功能，在監管眼中等於不可用的執法工具。另外，FBI 查獲 900 段視訊素材本身就證明有系統性蒐集「真人影片用於訓練深偽」的作業程序，現有視訊 KYC（know your customer，用戶身份驗證）的「活體偵測」防線已被系統性突破。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>63 億美元被偷，Tether 和 Circle 凍結了 27 億，剩下的 36 億走的是沒有凍結按鈕的鏈上資產，這個比例是不是反過來證明「可凍結性」才是監管願意放行的真正原因？</li>
+        <li>深偽視訊能騙過「真人視訊驗證」這道防線，Jumio、Onfido 這些身份驗證供應商的核心產品是不是已經被打穿了？</li>
+        <li>下一輪 Tether 和 Circle 的融資會不會用「成功凍結駭盜資金」作為新的盡職調查槓桿？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-dtcc-tokenized">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk / The Block</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>DTCC 把真股票代幣接上 Solana，現有合成股票發行商的存在理由直接被挑戰</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">美國證券存託與結算公司 DTCC（幾乎所有美股交易的後台結算方）11 月 12 日宣布，計畫在 2027 年下半年把代幣化服務延伸至 Solana，屆時 DTC（Depository Trust Company，DTCC 旗下的實際託管機構）託管的合格股票、ETF 與美國公債可轉換成 Solana 上的代幣，並保有與傳統持有相同的投資人保障。代幣化服務 10 月 28 日已先在 Canton Network（以機構需求為主的許可制區塊鏈）與 DTCC 私有 Besu 網路上線，首批 34 檔合格證券。Morgan Stanley 是首批透過此服務代幣化美股與公債的銀行，預計 2027 年 Q1 在自家平台開放代幣化股票；明年路線圖另有 Stellar 與 Circle 的 Arc。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Solana 上現有的代幣化股票以合成股票代幣（synthetic stock token，追蹤股價但不代表實際股權的代幣）為主，持有人沒有股東權。DTCC 版本是 DTC 託管的真股票直接轉成代幣，2027 年若準時落地，同一條鏈上就會同時存在「有股東權」和「沒有股東權」兩種追蹤同一檔股票的代幣；Backed Finance 和 Ondo（現有合成代幣發行商）的存在理由從「唯一選擇」變成「監管套利工具」，殘存用戶群主要是無法通過 DTC 合格投資人門檻的散戶或受美國監管限制的非美機構。真正的卡位點不在基礎設施層，而在應用層：誰先把 DTCC 代幣化股票包裝成可在 Solana DeFi 協議中使用的 yield-bearing（生息）資產，那個發行商才是真正的中間商贏家。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>DTCC 代幣化後持有人有真實股東權，Solana 上現有合成股票代幣的用戶會為了股東權遷移，還是根本不在意？</li>
+        <li>首批只有 34 檔合格證券、2027 下半年才上線，Morgan Stanley 現在就宣布要用這服務，到底是真的有客戶需求，還是在幫 DTCC 做免費行銷換優先接入權？</li>
+        <li>Solana 生態的 DeFi 協議（Marinade、Raydium）準備好接受 DTCC 代幣化股票作為抵押品嗎？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-11-13</span>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+</script>
+</body>
+</html>
