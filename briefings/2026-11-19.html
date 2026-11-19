@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-11-19</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:           #fafaf8;
+  --surface:      #ffffff;
+  --ink:          #111111;
+  --ink-body:     #2a2a2a;
+  --ink-muted:    #6b6b6b;
+  --ink-faint:    #a0a0a0;
+  --rule:         #e0e0e0;
+  --rule-light:   #eeeeee;
+  --accent:       #c4841d;
+  --accent-soft:  #f5ead6;
+  --accent-text:  #8a5c10;
+  --insight-bg:   #f7f5f0;
+  --insight-rule: #c4841d;
+  --thought-bg:   #f0f4f8;
+  --thought-accent: #4a6fa5;
+  --thought-text: #2c3e5a;
+  --tag-ai:       #1a7a4c;
+  --tag-ai-bg:    #e6f4ed;
+  --tag-web3:     #4a5ba8;
+  --tag-web3-bg:  #e8eaf6;
+  --tag-vc:       #a84a4a;
+  --tag-vc-bg:    #f6e8e8;
+  --signal-bg:    #fffbf0;
+  --signal-border:#e8c862;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:           #0e0e0c;
+    --surface:      #1a1a18;
+    --ink:          #ececec;
+    --ink-body:     #c8c8c0;
+    --ink-muted:    #808078;
+    --ink-faint:    #505050;
+    --rule:         #2a2a28;
+    --rule-light:   #1f1f1d;
+    --accent:       #d4a03a;
+    --accent-soft:  #2a2418;
+    --accent-text:  #d4a03a;
+    --insight-bg:   #16150f;
+    --insight-rule: #d4a03a;
+    --thought-bg:   #12161c;
+    --thought-accent: #6a8ec8;
+    --thought-text: #8aaccf;
+    --tag-ai:       #5cb88a;
+    --tag-ai-bg:    #14241c;
+    --tag-web3:     #7a8ad8;
+    --tag-web3-bg:  #181a28;
+    --tag-vc:       #d87a7a;
+    --tag-vc-bg:    #281818;
+    --signal-bg:    #1c1a10;
+    --signal-border:#8a7530;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 32px 120px;
+  font-family: 'Noto Sans TC', -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+#progress-bar {
+  position: fixed; top: 0; left: 0;
+  height: 2px; width: 0%;
+  background: var(--accent);
+  z-index: 100;
+  transition: width .08s linear;
+}
+
+#back-top {
+  position: fixed; bottom: 32px; right: 32px;
+  width: 40px; height: 40px;
+  background: var(--ink);
+  border: none; border-radius: 50%;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s, transform .2s;
+  color: var(--bg);
+  font-size: 16px; font-weight: 500;
+  z-index: 99;
+  box-shadow: 0 2px 12px rgba(0,0,0,.15);
+}
+#back-top.visible { opacity: 1; pointer-events: auto; }
+#back-top:hover { transform: translateY(-2px); }
+
+.header {
+  padding: 72px 0 48px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 48px;
+}
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.header-date {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.header-count {
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--accent-text);
+  background: var(--accent-soft);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+.header h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(28px, 5vw, 38px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+  letter-spacing: -.02em;
+  margin-bottom: 16px;
+}
+.header-lede {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  color: var(--ink-muted);
+  line-height: 1.85;
+  max-width: 600px;
+}
+
+.toc {
+  margin-bottom: 56px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.toc-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 16px;
+}
+.toc-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+}
+.toc-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toc-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+.toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+.toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+.toc-list a {
+  font-size: 13px;
+  color: var(--ink-body);
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color .15s;
+}
+.toc-list a:hover { color: var(--accent); }
+
+.section-block { margin-bottom: 72px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.section-label {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink-faint);
+  letter-spacing: .04em;
+}
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.section-count {
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: .06em;
+}
+
+.article {
+  margin-bottom: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--rule-light);
+  scroll-margin-top: 24px;
+}
+.article:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.article-source {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.article-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+.article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+.article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+.article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+.article h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(20px, 3.5vw, 24px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.4;
+  letter-spacing: -.01em;
+  margin-bottom: 20px;
+}
+
+.key-signal {
+  background: var(--signal-bg);
+  border: 1px solid var(--signal-border);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.key-signal-icon {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  background: var(--signal-border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px;
+  margin-top: 1px;
+}
+.key-signal-text {
+  font-size: 13px;
+  color: var(--accent-text);
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+.context-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+}
+.factual-context {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  color: var(--ink-body);
+  line-height: 1.9;
+  margin-bottom: 28px;
+}
+
+.insight {
+  background: var(--insight-bg);
+  border-left: 3px solid var(--insight-rule);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  border-radius: 0 6px 6px 0;
+}
+.insight-label {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--accent);
+  letter-spacing: .04em;
+  margin-bottom: 12px;
+}
+.insight-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15.5px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.95;
+}
+
+.thought {
+  background: var(--thought-bg);
+  border-radius: 8px;
+  padding: 20px 24px;
+}
+.thought-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--thought-accent);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.thought-label::before {
+  content: '';
+  display: inline-block;
+  width: 14px; height: 14px;
+  border: 2px solid var(--thought-accent);
+  border-radius: 50%;
+  opacity: .5;
+}
+.thought ol {
+  list-style: none;
+  counter-reset: q;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.thought ol li {
+  font-size: 13.5px;
+  color: var(--thought-text);
+  line-height: 1.75;
+  padding-left: 28px;
+  position: relative;
+  counter-increment: q;
+}
+.thought ol li::before {
+  content: counter(q);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px; height: 20px;
+  background: var(--thought-accent);
+  color: var(--thought-bg);
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  opacity: .3;
+  line-height: 1;
+}
+
+/* Note: Floating podcast player CSS/HTML/JS is injected post-render by
+   src/publish/web.py at publish time (only for the date being published).
+   Do NOT add player markup here — it would override the per-day inject and
+   leak into archive pages where no mp3 exists. */
+
+.footer {
+  margin-top: 72px;
+  padding-top: 24px;
+  border-top: 2px solid var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-brand {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+.footer-date {
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 600px) {
+  body { padding: 0 20px 80px; }
+  .header { padding: 48px 0 32px; }
+  .toc-list { grid-template-columns: 1fr; }
+  .insight { padding: 20px 20px; }
+  .thought { padding: 16px 18px; }
+  #back-top { bottom: 20px; right: 20px; }
+}
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 11 月 19 日　星期四</span>
+    <span class="header-count">6 篇</span>
+  </div>
+  <h1>誰在付誰的帳單</h1>
+  <p class="header-lede">今天六個漂亮數字，有好幾個翻過來看，付錢的人和收錢的人其實是同一批。先別急著鼓掌，跟著錢走一圈再說。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-openai-agent-value">OpenAI 的「兩倍薪水」只是 API 帳單換名字</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-tencent-cloud">Tencent 雲端年增 35%，可能自己付給自己</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-binance-freeze">Binance 凍結令把變現出口變成關卡</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-mara-long-ridge">MARA 真正的風險是 $144M 獲利預估</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-anthropic-ipo">Anthropic IPO 三分之一是供應商預付</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-panw-applied-compute">Palo Alto 的 38% 溢價取決於自家股價</a></li>
+  </ol>
+</nav>
+
+<!-- AI · 科技 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="ai-openai-agent-value">
+    <div class="article-meta">
+      <span class="article-source">OpenAI · StartupHub.ai · Runtime Wire</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>OpenAI 說 agent 產出值兩倍薪水，算出來只是把 API 帳單換了名字</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">OpenAI 是 ChatGPT 的開發商。它 11-18 發布內部報告〈Research acceleration: The jagged frontier〉，稱 coding agent（能自己寫程式、跑實驗、改錯的 AI 代理）不經人介入完成「人類需 2 至 4 小時」研究任務的比例，從 3 月 23% 升到 10 月 46%，4 至 8 小時任務從 13% 升到 35%。各類任務落差很大：監控訓練 run 成功率 79%，寫推論與 serving 程式碼只有 25%。研究員每天 agent 花費中位數 $2,400，比 9 月多 62%，這個數字按 API 牌價（公開定價，不是內部實際成本）計算。OpenAI 估 agent 產出約等於研究員非股權薪酬的兩倍，股權佔目標薪酬 70% 至 80%，不計入。報告同時呼籲立法，要求實驗室公開遞迴自我改進（AI 協助開發下一代 AI 的回饋迴圈）指標。所有數字皆為 OpenAI 自評，方法中途有更新。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向一個結論：「兩倍薪酬」不是獨立量出來的產出，而是牌價花費換了個說法。$2,400 乘約 250 個工作日約 $60 萬一年，股權佔薪酬七到八成，剩下非股權部分的兩倍剛好落在這附近。真正的產出價值仍然未知，要等 Anthropic 揭露 API 毛利率才能反推牌價和實際成本差幾成，這個推論信心中等。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>這 $2,400 是按牌價算的，內部邊際成本可能低一個數量級。Anthropic 掛牌後揭露的 API 毛利率，會不會直接拆穿「價值等於兩倍薪酬」這個說法？</li>
+        <li>研究員說願意砍 40% 人力換 agent，這只是問卷上的偏好，還是真的有哪個 pretraining 團隊砍了人之後產出沒掉？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-tencent-cloud">
+    <div class="article-meta">
+      <span class="article-source">Tencent · CNBC · The Information · SCMP</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Tencent 的雲端年增 35%，可能有一塊是自己付給自己</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Tencent 是微信與 QQ 的母公司，也是中國最大的遊戲商。它 11-18 公布 Q3 營收 RMB207.3B、年增 8%，但非 IFRS（排除股權報酬、投資損益等的調整後數字）營業利益 RMB68.1B，年減 6%，利潤率從 38% 降到 33%。扣除新 AI 產品（Hy、元寶、CodeBuddy、WorkBuddy、小微）後，營業利益為 RMB83.3B、年增 8%，代表 AI 產品一季拖累約 RMB15.2B。雲端營收年增 35%，馬化騰稱由 WorkBuddy 帶動，後者 DAU（每日活躍用戶）超過 1,000 萬，每天消耗超過 100 兆 token。自由現金流（營業現金流扣掉資本支出）為負 RMB69.1B，公司歸因於「大額預付算力採購」，排除後為正 RMB16.9B。同期 Oracle 取消可取得約 10 萬顆 AI 晶片的租約，美國也收緊東南亞資料中心服務中國客戶的規則。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">100 兆 token 除以 1,000 萬 DAU，等於每人每天 1,000 萬 token，這遠超過聊天的用量，只可能是 agent 型的背景運算或企業後端呼叫。就算用每百萬 token RMB1 的極低成本估，一季也約 RMB9B，和 AI 產品拖累的 RMB15.2B 同一量級，所以號稱由 WorkBuddy 帶動的雲端成長，可能有相當部分是 Tencent 內部付給自己的消耗。算術可靠，但成本單價與內部轉撥比例是假設，信心中等。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>那筆約 RMB86B 的預付到底付給了誰？如果有相當部分落在跟 Oracle 同類的海外設施，Q4 的減值風險是不是早就坐在資產負債表上了？</li>
+        <li>WorkBuddy 的千萬 DAU 裡，有多少是微信生態內預裝灌出來的零付費企業員工？補貼和入口一拔，還剩幾成？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<!-- Web3 · Crypto -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="web3-binance-freeze">
+    <div class="article-meta">
+      <span class="article-source">The Block · CoinDesk</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Binance 的凍結令凍不住比特幣，但能把駭客每個變現出口變成關卡</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Binance 是全球最大的加密貨幣交易所。它 11-18 取得阿布達比國際金融中心法院（ADGM，採英國普通法）$6.5B 全球凍結令（禁止被告處分全球資產的禁制令），追討 10-29 被駭資產，律師稱可能是史上最大。約 $6.34B 受影響資產中，約 $2.85B 已被凍結或攔截。Elliptic 估約 $3.3B 留在 BTC、ETH、XRP 上，「沒有人能凍結」。Binance 說穩定幣發行商與交易所在釋出凍結資金前需要法院命令，並維護一份 26,000 個錢包地址的「living list」。Binance 已先用公司資金承擔客戶損失。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向一個結論：這張令的真正用途不是凍結現有資產，而是把未來每一個出口變成可執行點。那 $3.3B 的 BTC、ETH、XRP 遲早要經過交易所、場外交易或換成穩定幣才能變現，有了 26,000 個地址清單加上法院命令，任何收到這些資產的中心化對手方都得配合，而 Elliptic 說穩定幣重新發行給 Binance 需要的「明確法律依據」，就是這張令。贏家是 Tether 這類可凍結的發行商，輸家是駭客的變現路徑。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>剩下 $3.3B 沒人能凍，Binance 真正的策略是等駭客換成穩定幣再攔，還是這張凍結令主要是拿來對保險公司和客戶交代？</li>
+        <li>駭客終究得經過交易所或跨鏈橋才能變現，但在 26,000 個地址的規模下，哪些混幣協議或跨鏈路徑是現有追蹤工具系統性追不到的？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-mara-long-ridge">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk · The Block</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>MARA 不靠 AI 租約也付得起利息，真正的風險是那個 $144M 獲利預估</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">MARA Holdings 是美國最大的上市比特幣礦商。它 9 月後以均價約 $81,039 賣出 13,597 顆比特幣，約 $1.1B，其中 $750M 用來償還以比特幣擔保的貸款（拿 BTC 抵押借錢，幣價跌會被追繳保證金）。11-18 它以 8.75% 利率發行 $185M 新債，支應約 $1.5B 收購 Long Ridge Energy &amp; Power，標的是俄亥俄州一座 485MW（百萬瓦）天然氣電廠與超過 1,600 英畝土地，計畫轉型為 AI 運算園區。加上 Long Ridge 既有 $600M 票據，合計 $785M 債務，年息約 $68.7M。資料中心租約一份都還沒簽，可能延到 2027。Long Ridge 2026 前九個月營收 $178.5M、淨損 $3.5M，MARA 以 2025 下半年推估其年化調整後盈餘為 $144M。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">「租約沒簽，拿什麼還債」這個疑問前提不太成立，電廠本身賣電就有現金流，$144M 對 $68.7M 年息約 2.1 倍覆蓋，短期償債不靠資料中心。真正的風險在 $144M 本身，它是用 2025 下半年推估的，而 2026 前九個月實際是淨損。電價一跌、租約又拖到 2027，覆蓋倍數會很快收窄，這個判斷信心中等。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>MARA 賣幣避開了約 $250M 跌價，但「挖到不賣」正是當初投資人買股的理由。它現在到底是礦業公司、電力公司，還是一檔拿比特幣波動做方向性交易的對沖基金？</li>
+        <li>從囤幣礦商變成 AI 房東，護城河是那 485MW 的併網電力，還是只要有錢誰都能在俄亥俄買電廠？QTS、Vantage 在搶同一批租戶，MARA 憑什麼排前面？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<!-- VC · 投資動態 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="vc-anthropic-ipo">
+    <div class="article-meta">
+      <span class="article-source">CNBC · The Block · CoinDesk · Center for AI Safety</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Anthropic 史上最大 IPO，三分之一的錢是供應商在預付自己的營收</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">史上最大 IPO 的需求裡，有三分之一來自會把錢收回去的供應商。</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 是 Claude 模型的開發商。它 11-18 把 IPO 定價在每股 $83，高於原區間 $70 至 $78，發行量從 8.25 億股上調（upsize）到約 9.8 億股，募得 $81.3B，超過 SpaceX 的 $75B，成為史上最大 IPO。完全稀釋市值（把選擇權、可轉債全部換成股票後計算的市值）約 $1.5T，11-19 以代號 ANT 在 Nasdaq 交易。Google、Microsoft、Nvidia、AMD 等合計以 IPO 價認購 $26B，約佔募資 32%。招股書顯示九個月營收 $33.24B、年增約 1,200%，10 月底年化營收約 $81B。淨損 $104B，主要來自可轉債公允價值變動（估值上升時帳上認列的非現金虧損）。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Anthropic 年化營收 $81B，一年付給算力與雲端供應商的錢幾乎肯定超過 $26B，所以這筆認購在功能上更接近供應商融資，不是獨立的市場需求。贏家是 Nvidia、AMD、Google、Microsoft，它們既以 IPO 價拿到股權，又鎖住了未來營收。輸家是把首日超額認購當成純市場熱度的散戶，而最大持股者 Amazon 不在具名認購名單裡，同樣值得注意（信心中等，招股書的算力採購承諾金額本次未見）。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>這 $26B 裡，有多少會在十二個月內以雲端與晶片採購的形式，流回這四家公司的營收？</li>
+        <li>Ondo 上市當天就發 ANTon 給海外投資人 24/7 交易，它真正想搶的是 Anthropic 的價格發現權，還是借 ANT 的名氣替自家平台導流？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-panw-applied-compute">
+    <div class="article-meta">
+      <span class="article-source">CNBC · WSJ · Reuters</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Palo Alto 付的 38% 溢價，只在它自己股價不回檔時才存在</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Palo Alto Networks 是全球最大的資安公司。它 11-18 宣布以 $4.5B 全股票（以收購方股票支付，不付現金）收購 Applied Compute，這家新創幫企業運行與客製開源權重模型（公開參數、企業可自行部署微調的模型，如 Llama、Qwen）。WSJ 稱 Applied Compute 本月估值 $3.25B，換算溢價約 38%，它的營收、客戶與創辦人資訊在所有來源都沒有揭露。CEO Nikesh Arora 說「這可能比我們現在做的還大」。同晚 PANW 公布 Q1 營收 $3.44B、年增 39%，全年營收指引上調到 $14.52B 至 $14.57B。股價盤後漲超過 7%，今年以來漲 85%。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">如果 PANW 股價回到年初水準，這筆 $4.5B 的股票只值約 $2.43B，比 Applied Compute 本月 $3.25B 的估值還低。「38% 溢價」只在 PANW 現價下成立。全股票支付把回檔風險整包轉給賣方，若 PANW 真被高估，PANW 股東是贏家，Applied Compute 股東是輸家（信心中等，實際發行股數與定價基準日未揭露）。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Anyscale、Together、Baseten，甚至客戶自己的平台工程團隊，明天都能幫企業部署開源模型。Applied Compute 手上到底有什麼獨佔的企業合約或資料飛輪？</li>
+        <li>如果 PANW 真正買的是團隊，鎖定期有多長？核心的人走了之後，還剩什麼？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-11-19</span>
+</footer>
+
+<!-- Note: podcast player HTML is injected post-render by src/publish/web.py.
+     Do NOT include player markup here — it would leak into archive pages
+     where no podcast.mp3 exists for that date. -->
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+  // Note: podcast player JS is injected post-render by src/publish/web.py
+  // for the date being published. Do NOT add it here.
+</script>
+</body>
+</html>
