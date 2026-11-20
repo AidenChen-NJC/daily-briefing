@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-11-20</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:           #fafaf8;
+  --surface:      #ffffff;
+  --ink:          #111111;
+  --ink-body:     #2a2a2a;
+  --ink-muted:    #6b6b6b;
+  --ink-faint:    #a0a0a0;
+  --rule:         #e0e0e0;
+  --rule-light:   #eeeeee;
+  --accent:       #c4841d;
+  --accent-soft:  #f5ead6;
+  --accent-text:  #8a5c10;
+  --insight-bg:   #f7f5f0;
+  --insight-rule: #c4841d;
+  --thought-bg:   #f0f4f8;
+  --thought-accent: #4a6fa5;
+  --thought-text: #2c3e5a;
+  --tag-ai:       #1a7a4c;
+  --tag-ai-bg:    #e6f4ed;
+  --tag-web3:     #4a5ba8;
+  --tag-web3-bg:  #e8eaf6;
+  --tag-vc:       #a84a4a;
+  --tag-vc-bg:    #f6e8e8;
+  --signal-bg:    #fffbf0;
+  --signal-border:#e8c862;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:           #0e0e0c;
+    --surface:      #1a1a18;
+    --ink:          #ececec;
+    --ink-body:     #c8c8c0;
+    --ink-muted:    #808078;
+    --ink-faint:    #505050;
+    --rule:         #2a2a28;
+    --rule-light:   #1f1f1d;
+    --accent:       #d4a03a;
+    --accent-soft:  #2a2418;
+    --accent-text:  #d4a03a;
+    --insight-bg:   #16150f;
+    --insight-rule: #d4a03a;
+    --thought-bg:   #12161c;
+    --thought-accent: #6a8ec8;
+    --thought-text: #8aaccf;
+    --tag-ai:       #5cb88a;
+    --tag-ai-bg:    #14241c;
+    --tag-web3:     #7a8ad8;
+    --tag-web3-bg:  #181a28;
+    --tag-vc:       #d87a7a;
+    --tag-vc-bg:    #281818;
+    --signal-bg:    #1c1a10;
+    --signal-border:#8a7530;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 32px 120px;
+  font-family: 'Noto Sans TC', -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+#progress-bar {
+  position: fixed; top: 0; left: 0;
+  height: 2px; width: 0%;
+  background: var(--accent);
+  z-index: 100;
+  transition: width .08s linear;
+}
+
+#back-top {
+  position: fixed; bottom: 32px; right: 32px;
+  width: 40px; height: 40px;
+  background: var(--ink);
+  border: none; border-radius: 50%;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s, transform .2s;
+  color: var(--bg);
+  font-size: 16px; font-weight: 500;
+  z-index: 99;
+  box-shadow: 0 2px 12px rgba(0,0,0,.15);
+}
+#back-top.visible { opacity: 1; pointer-events: auto; }
+#back-top:hover { transform: translateY(-2px); }
+
+.header {
+  padding: 72px 0 48px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 48px;
+}
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.header-date {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.header-count {
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--accent-text);
+  background: var(--accent-soft);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+.header h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(28px, 5vw, 38px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+  letter-spacing: -.02em;
+  margin-bottom: 16px;
+}
+.header-lede {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  color: var(--ink-muted);
+  line-height: 1.85;
+  max-width: 600px;
+}
+
+.toc {
+  margin-bottom: 56px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.toc-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 16px;
+}
+.toc-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+}
+.toc-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toc-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+.toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+.toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+.toc-list a {
+  font-size: 13px;
+  color: var(--ink-body);
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color .15s;
+}
+.toc-list a:hover { color: var(--accent); }
+
+.section-block { margin-bottom: 72px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.section-label {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink-faint);
+  letter-spacing: .04em;
+}
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.section-count {
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: .06em;
+}
+
+.article {
+  margin-bottom: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--rule-light);
+  scroll-margin-top: 24px;
+}
+.article:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.article-source {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.article-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+.article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+.article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+.article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+.article h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(20px, 3.5vw, 24px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.4;
+  letter-spacing: -.01em;
+  margin-bottom: 20px;
+}
+
+.key-signal {
+  background: var(--signal-bg);
+  border: 1px solid var(--signal-border);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.key-signal-icon {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  background: var(--signal-border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px;
+  margin-top: 1px;
+}
+.key-signal-text {
+  font-size: 13px;
+  color: var(--accent-text);
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+.context-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+}
+.factual-context {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  color: var(--ink-body);
+  line-height: 1.9;
+  margin-bottom: 28px;
+}
+
+.insight {
+  background: var(--insight-bg);
+  border-left: 3px solid var(--insight-rule);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  border-radius: 0 6px 6px 0;
+}
+.insight-label {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--accent);
+  letter-spacing: .04em;
+  margin-bottom: 12px;
+}
+.insight-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15.5px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.95;
+}
+
+.thought {
+  background: var(--thought-bg);
+  border-radius: 8px;
+  padding: 20px 24px;
+}
+.thought-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--thought-accent);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.thought-label::before {
+  content: '';
+  display: inline-block;
+  width: 14px; height: 14px;
+  border: 2px solid var(--thought-accent);
+  border-radius: 50%;
+  opacity: .5;
+}
+.thought ol {
+  list-style: none;
+  counter-reset: q;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.thought ol li {
+  font-size: 13.5px;
+  color: var(--thought-text);
+  line-height: 1.75;
+  padding-left: 28px;
+  position: relative;
+  counter-increment: q;
+}
+.thought ol li::before {
+  content: counter(q);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px; height: 20px;
+  background: var(--thought-accent);
+  color: var(--thought-bg);
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  opacity: .3;
+  line-height: 1;
+}
+
+/* Note: Floating podcast player CSS/HTML/JS is injected post-render by
+   src/publish/web.py at publish time (only for the date being published).
+   Do NOT add player markup here — it would override the per-day inject and
+   leak into archive pages where no mp3 exists. */
+
+.footer {
+  margin-top: 72px;
+  padding-top: 24px;
+  border-top: 2px solid var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-brand {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+.footer-date {
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 600px) {
+  body { padding: 0 20px 80px; }
+  .header { padding: 48px 0 32px; }
+  .toc-list { grid-template-columns: 1fr; }
+  .insight { padding: 20px 20px; }
+  .thought { padding: 16px 18px; }
+  #back-top { bottom: 20px; right: 20px; }
+}
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 11 月 20 日　星期五</span>
+    <span class="header-count">6 篇</span>
+  </div>
+  <h1>誰在替你接盤？</h1>
+  <p class="header-lede">從 Nasdaq 新股到鏈上認購、從 GPU 貸款到銀行條款，今天每個故事底下都藏著同一個問題：當價格往下走、當出事的時候，最後是誰的手伸出來接住。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-ipo">Anthropic 從 $97 跌回 $83，沒有買盤會接</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-nvidia-neocloud">Nvidia 的 $500B 沒放出去</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-bank-agent">銀行用合約搬走 AI agent 護城河</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-deepseek">DeepSeek 買的是國家隊席位</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-tokenized-ipo">代幣化 IPO 輸給 Goldman 配售名單</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-pantera-shenzhen">Pantera 的深圳遊記</a></li>
+  </ol>
+</nav>
+
+<!-- AI · 科技 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">4 篇</span>
+  </div>
+
+  <article class="article" id="ai-anthropic-ipo">
+    <div class="article-meta">
+      <span class="article-source">CNBC、Fortune、Forbes、Decrypt</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Anthropic 從 $97 跌回 $83 的路上，沒有任何買盤會接</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">史上最大 IPO 的股價下方，接下來一個月是真空地帶。</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 是開發 Claude 模型的 AI 公司。11-18 以 $83 定價，高於原本 $70 至 $78 的區間，發行 9.8 億股、募資 $81.3B，11-19 在 Nasdaq 以代號 ANT 掛牌。開盤 $111.50，較承銷價高 34%。收盤 $97.17，漲 17%，但比開盤價低約 13%，成交量逾 8.46 億股。收盤完全稀釋市值（把選擇權等全部換成股票後計算的市值）約 $1.8T，排名美國第 7。承銷商握有綠鞋（超額配售權，可在上市後加賣最多約 1.47 億股、約 $12.2B），期限 11-20。指數納入（被加入指數後，被動基金必須買進）的時程是 Morningstar 美國全市場指數 5 個交易日後，Nasdaq-100 要 12-18 之後，S&amp;P 500 至少一年。同日 Nasdaq-100 跌 2.21%，S&amp;P 500 連六黑，道瓊跌 1,084 點。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">綠鞋只有在股價跌破 $83 時才會托底，現在收盤 $97，承銷商會直接向 Anthropic 行使選擇權，讓 Anthropic 多拿約 $12.2B，Goldman 與 Morgan Stanley 再多收一筆費用。所以 $97 到 $83 這 15% 的區間沒有任何機制撐盤，11-20 綠鞋到期後，連 $83 這道防線也消失。下週唯一的被動買盤只剩規模很小的 Morningstar 指數納入。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>首日 8.46 億股成交幾乎等於整個發行量，Fidelity 還祭出 15 天禁購令，這是真的機構需求，還是散戶只拿到 15% 之後在次級市場互相接盤？</li>
+        <li>綠鞋 11-20 到期，Nasdaq-100 要 12-18 才納入，這中間一個月沒有被動買盤，配到首日股票的 LP 是不是已經在排減持時程？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-nvidia-neocloud">
+    <div class="article-meta">
+      <span class="article-source">WSJ（經 Fortune、Yahoo Finance、Seeking Alpha 轉述）</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Nvidia 的 $500B 沒放出去，被拒絕的是 neocloud 的信用</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Nvidia 是全球最大的 AI 晶片供應商。2026 年 8 月它與 Apollo、BlackRock、Blackstone、Brookfield、Goldman Sachs、KKR 簽備忘錄（MOU，表達合作意向但沒有出資義務的文件），目標動員逾 $500B 借給買 Nvidia GPU 蓋資料中心的業者，Nvidia 稱可擔保最多 $125B，約 25% 的晶片殘值（保證設備日後至少值多少錢，跌破由擔保人補差額）。WSJ 11-18 報導，三個月來平台放款金額為零，第一筆交易不太可能在 2027 年前完成。對照組是 Broadcom 在與 Anthropic 的 $35B 交易中擔保約 85%。Apollo 執行長 Marc Rowan 稱，Nvidia 若不再擔保，大量 neocloud（專門出租 GPU 算力的新興雲端業者，如 CoreWeave，多數信評低於投資級）的資金管道「會消失」。主導計畫的黃仁勳上週辭去執行長，由 Colette Kress 代理。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">25% 對 85% 的差距，比較像是擔保對象的信用差距，Broadcom 背書的是剛募到 $81B 現金的 Anthropic，Nvidia 平台要背書的則是信評多半低於投資級的 neocloud。CoreWeave、Lambda 也沒辦法改找 Broadcom，因為那 85% 是跟著 Anthropic 的信用走，可行的路是先簽下 Anthropic 或 OpenAI 的長約、用實驗室的信用去借錢，等於從雲端業者降級成房東。贏家是議價權大增的 Anthropic 和能拉高利差的 Apollo、KKR，輸家是沒有錨定租戶的二線 neocloud。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Nvidia 連 50% 殘值都不敢簽，它自己模型裡三年後 H200 等級 GPU 的殘值到底假設是多少？</li>
+        <li>neocloud 的算力租約通常比 GPU 折舊週期短很多，黃仁勳離開後，這個期限錯配的信用風險現在由誰來判斷？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-bank-agent">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch、Startup Fortune、TFTC</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>銀行用一份合約，把 AI agent 的護城河搬到自己家</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Citi、PNC、Citizens 本月更新客戶條款，客戶若授權第三方 AI agent（能代替使用者登入、下單、轉帳的 AI 程式）存取帳戶，造成的損失由客戶自負，包括 agent 被駭的情況。JPMorgan 與 Bank of America 10 月已採類似立場，美國至少五家大銀行對齊，PNC 條款 11-18 生效。據二手報導，Citi 新增的 Section H 把「用交給外部 agent 的帳密進行的活動」一律視為客戶授權，但 Citi 自家的 AI agent 不在此限。法律爭點是 Regulation E（美國電子資金轉帳規則，限制消費者對未授權轉帳的損失責任）。CFPB（消費者金融保護局）與 OCC（貨幣監理署）至今沒有公開回應。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">條款鎖定的是交給 agent 的帳密，在這種存取方式下，銀行看到的登入不論來自 agent 還是駭客都一模一樣，技術上無法區分，所以乾脆把所有交易事先定義成「已授權」。結果是護城河由合約築成而不是技術，做出金融 agent 不難，難的是拿到一份銀行簽字、責任分配清楚的存取協議，最快的路可能是去當某家銀行的白牌 agent。輸家是仍靠帳密爬取的第三方 agent 與中小型金融 agent 新創，這個格局只在 CFPB、OCC 繼續沉默時成立。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 OpenAI 和 Anthropic 的 agent 因此打不進消費金融，它們投影片上的 TAM 要砍掉多少？</li>
+        <li>有沒有哪個開放協議，像 A2A 或 MCP，能在技術上讓 agent 身份可驗證，讓銀行沒辦法只靠合約條款壟斷存取權？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-deepseek">
+    <div class="article-meta">
+      <span class="article-source">The Information（經 PANews、Dealroom 轉述）、China Daily、AI Weekly</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>DeepSeek 的 ¥615.5B 買的是國家隊席位，不是現金流</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">DeepSeek 是以開源模型聞名的中國 AI 實驗室。據 The Information 報導，它完成第二輪約 ¥105.5B（約 $15.8B）融資，近 30 家投資人參與，Tencent 與 CATL 領投，投後估值（含本輪新資金後的公司估值）約 ¥615.5B，換算約 $84.6B 至 $92B。國資（國有資本）比重從第一輪約 2% 升到約 27%。據 BigGo 轉述，Tencent、CATL 各持股約 9.57%，中國移動、中信證券各投資 7.65%，其他合夥人包括 NetEase、美團、吉利、美的、vivo、IDG、博裕。創辦人梁文鋒退出直接持股，改經 99% 持有的顧問公司控制，並委任中信證券評估科創板（上交所專為科技公司設立的板塊）上市。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">公開資料裡沒有 DeepSeek 的營收或利潤，任何 DCF（現金流折現估值）都撐不起這個數字。投資人幾乎都是要部署模型的公司，中國移動、吉利、美的、vivo、騰訊買的是優先接入權和國家隊席位，Tencent、CATL 各約 9.57% 的持股也是策略卡位的規模。和每天在 Nasdaq 被重新定價的 Anthropic 不同，這個估值從沒經過價格發現。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>上市後國資 27% 加上中信做券商，模型權重要不要開源到底誰說了算？開源承諾有什麼機制能防止被單方面收回？</li>
+        <li>如果你在中國做 AI infra，被收編進國資體系的 DeepSeek 會變成你非接不可的壟斷通路，還是會因為上市合規而失去迭代速度？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<!-- Web3 · Crypto -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="web3-tokenized-ipo">
+    <div class="article-meta">
+      <span class="article-source">Fortune、BeInCrypto、PANews、Yahoo Finance</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>代幣化 IPO 輸的不是技術，是 Goldman 的配售名單</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Binance Wallet 是全球最大加密交易所 Binance 的錢包服務。11-18 它開放用 USDC（Circle 發行的美元穩定幣）認購代幣化股票（鏈上發行、價格追蹤真實股票的代幣）形式的 Anthropic IPO 股份，$500M 上限數小時內額滿。最後只拿到約 2,957 股，以 $83 計約 $245K，滿足率約 0.05%。Binance 全額退回約 5 億 USDC，並把這 2,957 股加上 $1M 的 ANTB 代幣按比例空投（免費發到用戶錢包）給認購者。Bitget 取得 153,774 股，只滿足 1.3% 的認購。Kraken 的 xStocks 不保證配售，Ondo 的 ANTon 只提供價格曝險。6 月 SpaceX IPO 時，Binance、Bybit、Bitget Wallet 也是全數退款。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">$500M 幾小時填滿證明需求是真的，0.05% 的滿足率證明通路是假的，最難複製的不是鏈上基礎設施或經紀商牌照，而是被承銷銀團列進配售名單的關係與資產規模。Kraken 有合規架構仍不保證配售，連一半下單的機構都空手而回，現行制度下沒有任何技術能繞過 Goldman、Morgan Stanley 的配售裁量權。贏家是只做次級市場價格曝險的 Ondo 與 Kraken xStocks，輸家是用「讓散戶搶 IPO」當賣點的平台。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>滿足率 0.05%，SpaceX 那次也全額退款，Binance 和 Bitget 一再這樣做，圖的是手續費、新用戶，還是單純拿「代幣化 IPO」當行銷？</li>
+        <li>一級市場入口被承銷商鎖死這件事不解決，還有哪個 LP 該往 RWA（真實世界資產上鏈）代幣化的下一輪放錢？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<!-- VC · 投資動態 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="vc-pantera-shenzhen">
+    <div class="article-meta">
+      <span class="article-source">Pantera Capital 月信、Omdia（經 TechNode、Bloomberg）</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Pantera 的深圳遊記，結論剛好站在它的美國持股那一邊</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Pantera Capital 是老牌加密創投，11 月月信記錄團隊在深圳待一週、訪談人形機器人產業鏈的觀察。Pantera 稱中國佔去年全球人形機器人產量逾 90%。Omdia 統計 2025 年約 13,000 台交付中 87% 在中國製造，AgiBot 以 5,168 台、39% 市佔居首。當地高管自評軟體落後海外一到兩年，基層工程師直說軟體不能用，中國廠商仍建在 OpenAI、Nvidia、Physical Intelligence 的開源模型上。地方政府補貼資料農場（雇人重複操作以蒐集機器人訓練資料的場所），Pantera 認為重複資料邊際價值低，真正的護城河是把資料轉成訓練訊號。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">Pantera 明說它接觸或投資的每家美國機器人公司都依賴中國供應鏈，而它點出的缺口「資料、標註、智能」，正好落在這些美國公司所在的軟體與資料層。「吃苦文化讓利潤趨近零」對買硬體的美國公司是利多，對 AgiBot 這類中國硬體公司的股東是警訊，Pantera 站在買方。至於資料農場只能改善窄任務的判斷，研究信心低，目前只有 Pantera 單一來源，沒有任何基準測試。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果你是 Physical Intelligence 或 Figure，現在對中國硬體供應鏈的依賴到底多深？有沒有任何一家美國機器人公司已經用非中國供應商跑通量產？</li>
+        <li>開源模型繼續免費的話，中國軟體追上只是時間問題，那 Pantera 說的「訓練訊號護城河」到底在哪家公司的資產負債表上？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-11-20</span>
+</footer>
+
+<!-- Note: podcast player HTML is injected post-render by src/publish/web.py.
+     Do NOT include player markup here — it would leak into archive pages
+     where no podcast.mp3 exists for that date. -->
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+  // Note: podcast player JS is injected post-render by src/publish/web.py
+  // for the date being published. Do NOT add it here.
+</script>
+</body>
+</html>
