@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-11-23</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+:root {
+  --bg:           #fafaf8;
+  --surface:      #ffffff;
+  --ink:          #111111;
+  --ink-body:     #2a2a2a;
+  --ink-muted:    #6b6b6b;
+  --ink-faint:    #a0a0a0;
+  --rule:         #e0e0e0;
+  --rule-light:   #eeeeee;
+  --accent:       #c4841d;
+  --accent-soft:  #f5ead6;
+  --accent-text:  #8a5c10;
+  --insight-bg:   #f7f5f0;
+  --insight-rule: #c4841d;
+  --thought-bg:   #f0f4f8;
+  --thought-accent: #4a6fa5;
+  --thought-text: #2c3e5a;
+  --tag-ai:       #1a7a4c;
+  --tag-ai-bg:    #e6f4ed;
+  --tag-web3:     #4a5ba8;
+  --tag-web3-bg:  #e8eaf6;
+  --tag-vc:       #a84a4a;
+  --tag-vc-bg:    #f6e8e8;
+  --signal-bg:    #fffbf0;
+  --signal-border:#e8c862;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:           #0e0e0c;
+    --surface:      #1a1a18;
+    --ink:          #ececec;
+    --ink-body:     #c8c8c0;
+    --ink-muted:    #808078;
+    --ink-faint:    #505050;
+    --rule:         #2a2a28;
+    --rule-light:   #1f1f1d;
+    --accent:       #d4a03a;
+    --accent-soft:  #2a2418;
+    --accent-text:  #d4a03a;
+    --insight-bg:   #16150f;
+    --insight-rule: #d4a03a;
+    --thought-bg:   #12161c;
+    --thought-accent: #6a8ec8;
+    --thought-text: #8aaccf;
+    --tag-ai:       #5cb88a;
+    --tag-ai-bg:    #14241c;
+    --tag-web3:     #7a8ad8;
+    --tag-web3-bg:  #181a28;
+    --tag-vc:       #d87a7a;
+    --tag-vc-bg:    #281818;
+    --signal-bg:    #1c1a10;
+    --signal-border:#8a7530;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 32px 120px;
+  font-family: 'Noto Sans TC', -apple-system, sans-serif;
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+#progress-bar {
+  position: fixed; top: 0; left: 0;
+  height: 2px; width: 0%;
+  background: var(--accent);
+  z-index: 100;
+  transition: width .08s linear;
+}
+
+#back-top {
+  position: fixed; bottom: 32px; right: 32px;
+  width: 40px; height: 40px;
+  background: var(--ink);
+  border: none; border-radius: 50%;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none;
+  transition: opacity .3s, transform .2s;
+  color: var(--bg);
+  font-size: 16px; font-weight: 500;
+  z-index: 99;
+  box-shadow: 0 2px 12px rgba(0,0,0,.15);
+}
+#back-top.visible { opacity: 1; pointer-events: auto; }
+#back-top:hover { transform: translateY(-2px); }
+
+.header {
+  padding: 72px 0 48px;
+  border-bottom: 2px solid var(--ink);
+  margin-bottom: 48px;
+}
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.header-date {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+.header-count {
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--accent-text);
+  background: var(--accent-soft);
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+.header h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(28px, 5vw, 38px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.3;
+  letter-spacing: -.02em;
+  margin-bottom: 16px;
+}
+.header-lede {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15px;
+  color: var(--ink-muted);
+  line-height: 1.85;
+  max-width: 600px;
+}
+
+.toc {
+  margin-bottom: 56px;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--rule);
+}
+.toc-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 16px;
+}
+.toc-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 24px;
+}
+.toc-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toc-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+.toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+.toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+.toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+.toc-list a {
+  font-size: 13px;
+  color: var(--ink-body);
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color .15s;
+}
+.toc-list a:hover { color: var(--accent); }
+
+.section-block { margin-bottom: 72px; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.section-label {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--ink-faint);
+  letter-spacing: .04em;
+}
+.section-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+.section-count {
+  font-size: 11px;
+  color: var(--ink-faint);
+  letter-spacing: .06em;
+}
+
+.article {
+  margin-bottom: 56px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid var(--rule-light);
+  scroll-margin-top: 24px;
+}
+.article:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.article-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.article-source {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.article-tag {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 3px;
+}
+.article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+.article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+.article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+.article h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(20px, 3.5vw, 24px);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.4;
+  letter-spacing: -.01em;
+  margin-bottom: 20px;
+}
+
+.key-signal {
+  background: var(--signal-bg);
+  border: 1px solid var(--signal-border);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+.key-signal-icon {
+  flex-shrink: 0;
+  width: 20px; height: 20px;
+  background: var(--signal-border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px;
+  margin-top: 1px;
+}
+.key-signal-text {
+  font-size: 13px;
+  color: var(--accent-text);
+  line-height: 1.65;
+  font-weight: 500;
+}
+
+.context-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+}
+.factual-context {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 14px;
+  color: var(--ink-body);
+  line-height: 1.9;
+  margin-bottom: 28px;
+}
+
+.insight {
+  background: var(--insight-bg);
+  border-left: 3px solid var(--insight-rule);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  border-radius: 0 6px 6px 0;
+}
+.insight-label {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--accent);
+  letter-spacing: .04em;
+  margin-bottom: 12px;
+}
+.insight-text {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 15.5px;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.95;
+}
+
+.thought {
+  background: var(--thought-bg);
+  border-radius: 8px;
+  padding: 20px 24px;
+}
+.thought-label {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--thought-accent);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.thought-label::before {
+  content: '';
+  display: inline-block;
+  width: 14px; height: 14px;
+  border: 2px solid var(--thought-accent);
+  border-radius: 50%;
+  opacity: .5;
+}
+.thought ol {
+  list-style: none;
+  counter-reset: q;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.thought ol li {
+  font-size: 13.5px;
+  color: var(--thought-text);
+  line-height: 1.75;
+  padding-left: 28px;
+  position: relative;
+  counter-increment: q;
+}
+.thought ol li::before {
+  content: counter(q);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px; height: 20px;
+  background: var(--thought-accent);
+  color: var(--thought-bg);
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  opacity: .3;
+  line-height: 1;
+}
+
+/* Note: Floating podcast player CSS/HTML/JS is injected post-render by
+   src/publish/web.py at publish time (only for the date being published).
+   Do NOT add player markup here — it would override the per-day inject and
+   leak into archive pages where no mp3 exists. */
+
+.footer {
+  margin-top: 72px;
+  padding-top: 24px;
+  border-top: 2px solid var(--ink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-brand {
+  font-family: 'Libre Bodoni', serif;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--ink-faint);
+}
+.footer-date {
+  font-size: 11px;
+  letter-spacing: .08em;
+  color: var(--ink-faint);
+}
+
+@media (max-width: 600px) {
+  body { padding: 0 20px 80px; }
+  .header { padding: 48px 0 32px; }
+  .toc-list { grid-template-columns: 1fr; }
+  .insight { padding: 20px 20px; }
+  .thought { padding: 16px 18px; }
+  #back-top { bottom: 20px; right: 20px; }
+}
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 11 月 23 日　星期一</span>
+    <span class="header-count">5 篇</span>
+  </div>
+  <h1>證明對了，但沒人看懂</h1>
+  <p class="header-lede">一份 25 萬頁的證明、一場沒人斷頭的崩盤、一條沒人想關的換幣通道——今天每個故事裡，大家盯著的地方都不是真正會出事的地方。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-riemann-lean">Claude 的黎曼猜想證明只剩一個破口</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-strategy-bitcoin">比特幣破底不會逼 Strategy 斷頭</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-thorchain-dprk">THORChain 又成了北韓換幣通道</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-anthropic-underwriters">Anthropic 禁業名單防的是 OpenAI</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-ai-usage-data">AI 使用數據矛盾是取樣問題</a></li>
+  </ol>
+</nav>
+
+<!-- AI · 科技 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="ai-riemann-lean">
+    <div class="article-meta">
+      <span class="article-source">Scientific American、The Decoder、a16z Frontier</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Claude 的黎曼猜想證明只剩一個破口：Lean 寫的到底是不是黎曼猜想</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">數學最有名的未解問題第一次出現機器確認正確的證明，而整件事的成敗只剩一份還沒公布的比對結果。</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 數學家 Levent Alpöge 11-20 在個人網站宣稱，他與 Claude 一起證出了黎曼猜想（Riemann Hypothesis，1859 年提出的質數分布核心猜想，Clay 數學研究所自 2000 年起懸賞 $1M 的千禧年大獎難題之一）。證明只以 Lean（可讓電腦逐步檢查數學證明的程式語言）程式碼釋出，分成 14 個資料包，印成紙本會超過 250,000 頁。11-21 Lean 與 Mathlib（Lean 的數學函式庫社群）發表聯合聲明，確認「陳述與證明皆正確」。MIT 的 Andrew Sutherland 自行重新編譯，說 Lean kernel 檢查時只用到三條標準公理（數學界公認的基本假設）。同一天，Stanford 的 Ravi Vakil 公布一份「全部由人完成」的廣義黎曼猜想對手證明，約 8 小時後就被多人用不同 AI 模型挑出問題。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向一個結論：這份證明「中間某一步出錯」的風險幾乎是零，因為 Lean kernel 會逐條確認每個中間引理都已被證出，Sutherland 的三條公理也排除了偷塞假設的可能。剩下唯一的懸念，是頂層那行定理陳述和它引用的 Mathlib 定義（ζ 函數、非平凡零點）是否真的等於數學界所說的黎曼猜想，也就是 Kevin Buzzard 提出的問題。負責比對這件事的 comparator run 已經跑完，結果卻還沒公布，在那之前「歷史性時刻」這個說法還缺最後一塊拼圖。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>當 AI 同時當證明者又當審稿人，數學界靠的「獨立驗證」就破功了。除了 Lean 本身，現在有什麼不依賴同一族大型語言模型的工具，能對這種規模的證明做語義層的獨立審計？</li>
+        <li>全球真正會因為黎曼猜想去買 Claude API 的數學與形式驗證客戶，可能不到五千人。這個故事要怎麼變成企業續約率？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<!-- Web3 · Crypto -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="web3-strategy-bitcoin">
+    <div class="article-meta">
+      <span class="article-source">Motley Fool（經 Yahoo Finance 轉載）</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>比特幣再破底也不會逼 Strategy 斷頭，危險的是它買不動了</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">比特幣週六清晨跌到約 $55,100（各交易所報價在 $55,100 至 $55,533 之間），是 2024 年 9 月以來最低，11 月以來累計跌約 22%。24 小時強制平倉（借錢加槓桿的部位保證金不足，被交易所自動賣掉）約 $1.8B 至 $2.56B，其中一則統計顯示約 91% 是多單（押注上漲的部位）。週日比特幣回到 $60,785，7 日仍跌 6.3%。週五 BlackRock 的比特幣現貨 ETF（直接持有比特幣、在股市交易的基金）IBIT 跌 5.87%，以太坊現貨 ETF ETHA 跌 9.16%。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">市場常見的恐慌劇本是「跌破 $55,000 就引爆 Strategy（原 MicroStrategy）追繳、連環拋售」，研究顯示這個機制根本不存在，因為 Strategy 的負債主要是無擔保可轉債和特別股，不是用比特幣抵押的保證金貸款。它真正的風險是股價相對持幣價值的溢價（mNAV）收斂，一旦增發股票籌不到錢，它就只能停止買幣，市場少掉一個最穩定的邊際買家。所以輸家不是 crypto 配置本身，而是押注「庫藏股公司會一直買」的槓桿型 MSTR ETF 部位（研究信心：中，依截至 2025 年的公開資本結構）。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>週末收復 $60,000 之後，鏈上新增的非交易所持倉地址有變多嗎？還是這只是多單清完後的空頭回補，根本沒有新買盤？</li>
+        <li>Coinbase Prime 是多數比特幣 ETF 的唯一託管方，ETF 一週流出 $1.5B 時，授權參與商（AP）得在 T+1 內交割現貨。下一次閃崩，這個單點會不會變成流動性瓶頸？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-thorchain-dprk">
+    <div class="article-meta">
+      <span class="article-source">The Block、Elliptic</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>THORChain 在 Bybit 案後什麼都沒改，又成了北韓的換幣通道</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">10-29 Binance 被盜約 $6.3B 至 $6.43B，FBI 歸因於北韓駭客組織 TraderTraitor，北韓否認。區塊鏈分析公司 Elliptic 11-20 更新報告，11-17 至 11-20 約 488,000 ETH（約 $860M）從最大的駭客錢包移出，多數拆成每批約 12,000 顆後停住。約 39,000 ETH（約 $70M）透過 THORChain（不需身分驗證的跨鏈交換協議）換成約 1,100 BTC，數小時內就被混幣（coinjoin，把多人交易混在一起，讓資金來源難以追蹤）。Binance 已取得 Abu Dhabi 法院 $6.5B 全球凍結令，各方統計已凍結或攔截約 $2.85B。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">THORChain 會不會擋北韓，其實早有答案：2025 年 2 月 Bybit 被盜約 $1.5B，大量 ETH 就是經 THORChain 換成 BTC，當時節點投票暫停 ETH 交易，很快又被推翻，至少一名核心貢獻者因此離開。這次 39,000 ETH 幾小時內就換完，代表協議層在 Bybit 之後什麼都沒改，節點營運者和流動性提供者（LP，把資金放進池子賺手續費的人）照樣收錢。接下來真正的變數，是美國財政部 OFAC 或司法部會不會直接點名 THORChain 的節點營運者。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>混幣後的資金如果走 OTC 進入 Abu Dhabi 管不到的法域，現在有任何鏈上機制或跨司法管轄的協議，能不靠人工就攔下已混幣的 UTXO 嗎？</li>
+        <li>如果你要做合規的 OTC 大宗交易平台，剩下約 $2.5B 被標記資產最後一定得從場外出口。真正卡住駭客的，是技術追蹤，還是各地 OTC 商根本不理凍結令？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<!-- VC · 投資動態 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="vc-anthropic-underwriters">
+    <div class="article-meta">
+      <span class="article-source">Reuters（經 Yahoo Finance 轉載）</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Anthropic 的禁業名單不是在怕 Cursor，是不讓 OpenAI 拿到它的配售簿</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Reuters 11-22 獨家報導，Anthropic 上市時要求 22 家承銷商（替公司賣股並收手續費的投行）中的部分銀行，把核心團隊限制在 4 名資深人員，且上市後 6 個月內不得替 OpenAI、Cursor、DeepSeek、Hugging Face 工作。部分承銷商在超額配售（greenshoe，上市後額外配售股票、用來穩定股價的機制）部分拿零手續費，但承銷商整體仍從這次 IPO 拿到超過 $500M 手續費。Reuters 比公開申報早近 4 週曝光 S-1（美國 IPO 申報文件）內容，之後 Anthropic 改用加浮水印、無法存檔的 NetRoadshow 分享文件。股票以 $83 定價，首日漲 17%，週五收跌 8.5%。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">把禁業名單讀成「Anthropic 承認開發工具和開源才是主要威脅」是過度推論，條款鎖的是銀行家，名單上自然只會出現需要投行的公司，Google DeepMind 這種 Google 內部部門根本不必列。條款真正要鎖的是這四個人腦中的情報：未公開的 S-1 數字、路演時各機構的需求與出價、配售簿，這正是下一個 AI IPO 定價時最值錢的東西。最直接的輸家是待上市的 OpenAI，還有被鎖住六個月、身價正高的資深銀行家本人。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>22 家承銷商分超過 $500M，超額配售還零佣金。扣掉 Goldman 和 Morgan Stanley 拿的大頭，剩下 20 家分到的錢，值得把頂級銀行家鎖死六個月不碰 OpenAI 嗎？</li>
+        <li>如果 OpenAI、Databricks 的 IPO 也複製這套條款，最後還有哪家投行能同時服務買賣雙方而不被鎖死？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="vc-ai-usage-data">
+    <div class="article-meta">
+      <span class="article-source">a16z 電子報、Bloomberg、Fortune</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>AI 使用數據互相矛盾是取樣問題，市場真正看的只有財報和 S-1</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">a16z 11-20 的 Charts of the Week 引用 BofA 11 月全球基金經理調查：科技股淨加碼（認為該超配的經理人比例減去認為該低配的比例）從 37% 降到 12%，是 2006 年 6 月以來最大單月降幅。避險基金淨賣出資訊科技股達 4 個標準差以上。Stanley Druckenmiller 說他看不清 12 個月後的局面，所以「不做多也不做空，就是不玩」。a16z 同時指出 AI 使用數據彼此打架：Databricks 顯示閉源模型約佔 70% token 量（token 是模型處理文字的計量單位），OpenRouter 的數據幾乎完全相反。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">兩組數據打架的主因是取樣，不是誰算錯：Databricks 看的是在平台上治理資料的大企業客戶，OpenRouter 看的是對價格敏感、隨時切去便宜開源模型的開發者流量。市場實際錨定的是可審計的數字，也就是 hyperscaler（超大型雲端業者）財報裡的雲端營收與資本支出，加上 Anthropic 剛公開的 S-1 營收。拿任何一家 token 佔比來替自己定價或估值的 AI infra 公司，等於在引用一個只代表特定客群的數字（研究信心：中，兩者的 token 計量方式是否也不同尚未釐清）。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>過半基金經理預期六個月內有 hyperscaler 砍資本支出，但 Navan 的 AI 客服在停飛時對話量暴增五倍、解決率還有八成。真正會被砍的是訓練算力，還是已經嵌進工作流的推論 API？</li>
+        <li>「避險基金賣科技股達四個 sigma」的分母是哪段歷史的波動率？如果基期是後零利率時代，這個罕見度在利率正常化之後會不會被高估一個數量級？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-11-23</span>
+</footer>
+
+<!-- Note: podcast player HTML is injected post-render by src/publish/web.py.
+     Do NOT include player markup here — it would leak into archive pages
+     where no podcast.mp3 exists for that date. -->
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+  // Note: podcast player JS is injected post-render by src/publish/web.py
+  // for the date being published. Do NOT add it here.
+</script>
+</body>
+</html>
