@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-11-25</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    /* Note: Floating podcast player CSS/HTML/JS is injected post-render by
+       src/publish/web.py at publish time (only for the date being published).
+       Do NOT add player markup here — it would override the per-day inject and
+       leak into archive pages where no mp3 exists. */
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 11 月 25 日　星期三</span>
+    <span class="header-count">6 篇</span>
+  </div>
+  <h1>誰在賣，誰被套</h1>
+  <p class="header-lede">價格跌破的那一刻，大家都急著找兇手，但今天每一個故事裡，真正被套住的人都不是你第一眼以為的那個。先別急著下結論，看看賣的是誰、買單的又是誰。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-anthropic-ipo">Dario 沒有倒貨，被 $83 套住的是追高的人</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-claude-ship">Claude Ship 自動核准撞上 SOX 職責分離</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-btc-etf">比特幣的問題是願意接的人太少</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-krw-stablecoin">韓元穩定幣的門票在四大金控手上</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-coldcard">Coldcard 沒被偷的用戶只是還沒輪到</a></li>
+    <li><span class="toc-tag vc">VC</span><a href="#vc-amazon-decart">Amazon 為 Decart 付的是搶標價</a></li>
+  </ol>
+</nav>
+
+<!-- AI · 科技 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="ai-anthropic-ipo">
+    <div class="article-meta">
+      <span class="article-source">CNBC</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Dario 沒有倒貨，被 $83 套住的是首日 $111.50 追進的人</h3>
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">AI 龍頭的公開市場定價第一週就破發，之後每一家 AI 公司 IPO 都會拿它當參照。</span>
+    </div>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 是 Claude 系列模型的開發商，11-19 以 $83 承銷價（IPO price，投資銀行把新股賣給機構投資人的價格）上市，募資 $81.3B（9.8 億股）。若綠鞋（greenshoe，承銷商可超額配售的股數，用來穩定上市初期股價）全數行使，募資約 $93.5B。股價開盤 $111.50、首日收 $97.17，11-24 第四個交易日跌 6.5%，Bloomberg 報導收在 $81.91，首次跌破承銷價。SpaceX 花了 21 天才跌破。Dario Amodei 上市隔天以 $83 賣出逾 337 萬股，約 $280M。同一時間 Canaccord Genuity、Wedbush、Oppenheimer 首次覆蓋（initiate coverage，券商分析師開始發布評等與目標價），全給買進或 outperform，目標價 $120 到 $150。選擇權當天中午前成交近 50 萬口，put（賣權）約 30 萬口多於 call（買權）約 20 萬口，隱含波動率（從選擇權價格反推的預期波動幅度）96，最大單筆是約 $7.5M 買進 12 月中到期、履約價 $75 的 put。MSCI 將在 11-30 收盤後把 ANT 納入全球指數。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向一個結論：Dario 賣股的成交價剛好是 $83，而當時市價在 $97 以上，這更像他以出售股東身分參與 IPO 的老股部分，價格在定價日就已鎖定，不是進場倒貨，所以「連創辦人都不守 $83」的推論不成立。三家券商能在上市第 4 到 5 天就首次覆蓋，代表它們很可能不在承銷團內（承銷成員上市後約有 10 天靜默期不得發報告），$120 到 $150 是局外人的估值觀點，不是護盤義務。贏家是以 $83 鎖定約 $280M 流動性的 Dario，輸家是首日以 $111.50 追進、帳面已虧約 27% 的買方，這個判斷信心中等，要查 424B 公開說明書與 Form 4 交易代碼才能確認。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>MSCI 11-30 納入帶來的被動買盤，跟 put 未平倉量背後的 delta hedge 賣壓比起來，哪一邊對股價的衝擊真的比較大？</li>
+        <li>如果你現在要賣 AI infra 給企業客戶，Anthropic 破發會不會變成採購方拿來殺價或延後簽約的理由？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-claude-ship">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Claude Ship 的自動核准，最先撞上的是 SOX 的職責分離</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Anthropic 11-23 推出 Claude Ship，一套處理「code 寫完之後」流程的 agent，限 Claude Team 與 Enterprise 方案、GitHub 上的 repo 使用。三個元件中，Code Review 已正式上線，有 Quick、Standard、Deep 三檔審查深度。PR Steward（beta）負責處理 CI（continuous integration，每次提交自動跑測試）失敗與合併衝突。真正的新東西是 Claude Approvals（beta），它依團隊用自然語言寫在 repo 裡的政策檔，自動核准例行的 PR（pull request，提交程式碼變更請求審查與合併）。Anthropic 建議先用只觀察模式、從單一 repo 開始並設每月花費上限，沒有公布定價。部落格也承認多數團隊希望每個變更都由人核准。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向一個結論：法務長卡住的不是責任歸屬，而是職責分離，SOX（美國上市公司財報內控法規）與 SOC 2（資安控制稽核標準）的變更管理通常要求核准者和撰寫者是不同的人，Claude 寫、Claude 核准，稽核師很可能直接判定為控制缺陷。所以最先在 production 開啟自動核准的，會是不受 SOX 約束的中型 SaaS 與新創，銀行和上市公司得等四大會計師事務所對「AI 核准者」表態。短期贏家是 ServiceNow 這類既有變更管理平台，輸家是 Anthropic 的 Enterprise 營收預期，信心中等，PCAOB（美國上市公司會計監督委員會）或四大一發指引就可能翻轉。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果 Claude 寫、Claude 審、Claude 放行，三層都是同一個模型家族，它們在對抗性測試裡會不會一起看漏同一種 bug？</li>
+        <li>核准政策寫成 repo 裡的自然語言檔，看起來是把 lock-in 從工具層推到流程層，但如果換到 Cursor 或 Copilot 幾乎零成本，真正的護城河到底藏在哪？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<!-- Web3 · Crypto -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">3 篇</span>
+  </div>
+
+  <article class="article" id="web3-btc-etf">
+    <div class="article-meta">
+      <span class="article-source">CoinDesk</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>比特幣的問題不是六萬顆沒人接，是願意接的人太少</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">現貨比特幣 ETF（spot bitcoin ETF，直接持有比特幣的上市基金）週一淨流出（net outflow，贖回大於申購）$570M，連續第 5 天，11 月累計 $4.71B，超過 6 月 $4.5B 的單月紀錄（Farside 口徑）。BlackRock 的 IBIT 單日流出 $509.3M，本月只有一天淨流入，累計流出接近 $4B。Fidelity FBTC 反而流入 $13.3M。比特幣週一隨 Nvidia 反彈一度到約 $64,500，週二跌回 $60,000 之下。過去一個月 ETF 賣出約 70,000 BTC，大戶錢包只從交易所淨提出約 10,000 BTC。同期 12 月 Fed 升息 1 碼（0.25 個百分點）幾乎確定，十年期美債殖利率 4.908%，恐懼貪婪指數 13。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">「ETF 賣七萬顆、大戶只接一萬顆、六萬顆沒人接」是錯誤的框架，每筆成交都有買方，價格從 $64,500 掉到 $60,000 以下就是賣壓被消化的過程本身。若採實物贖回（ETF 直接交付比特幣而非現金），幣會先轉到 AP（authorized participant，替 ETF 處理申購贖回的券商）與做市商手上，他們在流動性薄的時段分批出貨確實會放大盤中跌幅，但不會留下一批待吸收的庫存。真正的問題是積極買方太少，接下來該盯的是交易所比特幣餘額有沒有上升，信心中等，各發行商現金與實物申贖的比例還要查每日揭露。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>如果你做機構級 OTC，現在在賣的到底是散戶贖回，還是機構在系統性降配？這個答案直接決定賣壓什麼時候停。</li>
+        <li>ETF 當初靠品牌把傳統資金帶進 crypto，但它讓人方便買的同時，是不是也讓人方便跑？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-krw-stablecoin">
+    <div class="article-meta">
+      <span class="article-source">Cointelegraph</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>韓元穩定幣的門票不在 $3.7M 資本額，在四大金控手上</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">南韓金融委員會（FSC，南韓金融監理主管機關）11-24 公布數位資產法草案。韓元穩定幣（以韓元計價、與韓元 1:1 掛鉤的代幣）初期只能由銀行合計持股過半的集團發行，fintech 或科技公司可以當最大單一股東。發行商需取得 FSC 許可，實收資本至少 50 億韓元（約 $3.7M），準備金（reserve，發行商為擔保贖回而持有的資產）至少涵蓋流通量 100%，且須能立即以面額贖回。交易所單一股東持股上限 20%，經 FSC 核准可到 34%。草案也將解除 2017 年起約 9 年的 ICO（initial coin offering，以發行代幣向大眾募資）禁令。這是 FSC 與韓國銀行之間的妥協，仍須國會通過。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">拿 50 億韓元資本額去對比 100% 準備金是誤讀，準備金是對應用戶贖回、必須隔離保管的資產，資本額才是發行商自己扛營運風險的錢，兩者不能互抵。殼公司進不來的關卡不是資本額，而是銀行合計過半持股加上 FSC 許可，沒有銀行入股，資本再多也拿不到牌照。這是今天信心最高的判斷：議價權落在 KB、新韓、Hana、Woori 四大金控手上，它們是這條規則最大的贏家。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>既然結構擺明是科技集團去找三四家銀行湊股權，真正會先拿到許可出貨的是哪一家，他們跟銀行談到哪了？</li>
+        <li>ICO 禁了九年，該發幣的項目早就跑去新加坡或杜拜，現在開放到底是在搶回流量，還是只是紙面改革？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="web3-coldcard">
+    <div class="article-meta">
+      <span class="article-source">Decrypt</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Coldcard 沒被偷的用戶不是安全，只是還沒輪到</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Coldcard 是 Coinkite 出的比特幣硬體錢包（hardware wallet，離線保存私鑰的實體裝置）。Coinkite 11-23 發布事後檢討，韌體從 2021-03 到 2026-07 用 MicroPython 內建的軟體亂數產生器 Yasmarang 產生種子（seed，可還原錢包所有私鑰的助記詞），沒用硬體亂數晶片。種子的有效亂數（entropy，衡量種子多難猜）只有約 40 到 72 bits，業界標準是 128 bits。這個缺陷通過至少 15 次安全審查、含 2 次付費稽核，因為審查只確認硬體亂數的程式碼存在，沒驗證產生種子時真的呼叫它。Galaxy Research 統計被盜 1,789.28 BTC、橫跨 8,865 個地址，約 87.3% 還沒動。損失相關客服單對應 242 個帳戶，約占估計用戶數 0.21%。首批竊案在 Kimi K3 開源權重（open weights，模型參數公開、任何人可自行執行）釋出兩天後開始，Coinkite 稱這只是假設、不是歸因。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">40 bits 和 72 bits 天差地別，以單張 GPU 每秒約百萬次種子推導估算，2^40（約一兆組候選）用小型叢集幾小時到幾天就能掃完，2^72 卻要數十億 GPU 年，這和受害者只占約 0.21% 吻合，攻擊者很可能只吃下熵最低的那一段。AI 壓低的是找到漏洞的成本，利用漏洞仍要靠傳統算力。所以沒被偷的用戶不是安全，只是落在高熵區間，算力再漲或攻擊者把搜索空間再縮小就輪到他們，必須立刻換新種子轉移資金，信心中等，因為 PRNG 的實際初始化方式沒有公開。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>15 次審查都只驗「程式碼在不在」、沒追資料流，Ledger 和 Trezor 的韌體審查流程會不會有同一個結構性盲區？</li>
+        <li>如果你明天要推一款新硬體錢包，「通過 N 次審計」已經不能當賣點，那還有什麼能讓用戶相信你？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<!-- VC · 投資動態 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="vc-amazon-decart">
+    <div class="article-meta">
+      <span class="article-source">TechCrunch</span>
+      <span class="article-tag vc">VC</span>
+    </div>
+    <h3>Amazon 為 Decart 付的是搶標價，有一部分在買回自己貢獻的營收</h3>
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Decart 是以色列 AI 新創，對外以即時互動的世界模型（world model，能即時生成可互動虛擬環境的 AI 模型）Oasis 3 出名，但另有一套 Decart Optimization Stack（DOS），讓模型在 Nvidia GPU、Google TPU 與 Amazon 自研 AI 晶片 Trainium 上都能高效執行。Amazon 11-23 同意收購 DOS 技術與整個團隊，Bloomberg 報導約 $7.5B，雙方未公布金額。Decart 前一輪募 $300M、估值 $4B，Nvidia 有參與。Anthropic 8 月曾以約 $6B 洽購，9 月盡職調查後放棄，Nvidia、Nebius、SpaceX 也曾是潛在買家。Amazon 自 2025 年起就與 Decart 合作優化 Trainium，Decart CEO 曾說 Amazon 正成為其最大客戶。Trainium 資料中心的主要用戶是 Anthropic。</p>
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">$7.5B 對應的是競標價，不是營收，Anthropic 8 月的 $6B 已經把底價墊高，Nvidia、Nebius、SpaceX 也在名單上，Amazon 付的是「不讓對手拿到」的價格。更諷刺的是，Amazon 自己就是 Decart 的最大客戶，這筆錢有一部分是在買回自己貢獻的營收。贏家是一年內估值近翻倍的 Decart 創辦人與投資人，輸家是 Nvidia，它投資的公司被拿去強化最直接的晶片對手，信心中等，因為 Decart 營收與 Amazon 占比都沒公開。</p>
+    </div>
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Amazon 買下 DOS 之後沒什麼理由把最強的優化留給別家晶片，如果你在做跨晶片推論優化，這是通路變大了，還是剛被關上？</li>
+        <li>Anthropic 盡調完放棄 $6B，結果最大的算力供應商用 $7.5B 買走同一家，Anthropic 在 Trainium 上的優化成本是降了，還是 Amazon 多拿了一張議價籌碼？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-11-25</span>
+</footer>
+
+<!-- Note: podcast player HTML is injected post-render by src/publish/web.py.
+     Do NOT include player markup here — it would leak into archive pages
+     where no podcast.mp3 exists for that date. -->
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+  // Note: podcast player JS is injected post-render by src/publish/web.py
+  // for the date being published. Do NOT add it here.
+</script>
+</body>
+</html>
