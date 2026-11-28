@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Daily Dose of News — 2026-11-27</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:           #fafaf8;
+      --surface:      #ffffff;
+      --ink:          #111111;
+      --ink-body:     #2a2a2a;
+      --ink-muted:    #6b6b6b;
+      --ink-faint:    #a0a0a0;
+      --rule:         #e0e0e0;
+      --rule-light:   #eeeeee;
+      --accent:       #c4841d;
+      --accent-soft:  #f5ead6;
+      --accent-text:  #8a5c10;
+      --insight-bg:   #f7f5f0;
+      --insight-rule: #c4841d;
+      --thought-bg:   #f0f4f8;
+      --thought-accent: #4a6fa5;
+      --thought-text: #2c3e5a;
+      --tag-ai:       #1a7a4c;
+      --tag-ai-bg:    #e6f4ed;
+      --tag-web3:     #4a5ba8;
+      --tag-web3-bg:  #e8eaf6;
+      --tag-vc:       #a84a4a;
+      --tag-vc-bg:    #f6e8e8;
+      --signal-bg:    #fffbf0;
+      --signal-border:#e8c862;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg:           #0e0e0c;
+        --surface:      #1a1a18;
+        --ink:          #ececec;
+        --ink-body:     #c8c8c0;
+        --ink-muted:    #808078;
+        --ink-faint:    #505050;
+        --rule:         #2a2a28;
+        --rule-light:   #1f1f1d;
+        --accent:       #d4a03a;
+        --accent-soft:  #2a2418;
+        --accent-text:  #d4a03a;
+        --insight-bg:   #16150f;
+        --insight-rule: #d4a03a;
+        --thought-bg:   #12161c;
+        --thought-accent: #6a8ec8;
+        --thought-text: #8aaccf;
+        --tag-ai:       #5cb88a;
+        --tag-ai-bg:    #14241c;
+        --tag-web3:     #7a8ad8;
+        --tag-web3-bg:  #181a28;
+        --tag-vc:       #d87a7a;
+        --tag-vc-bg:    #281818;
+        --signal-bg:    #1c1a10;
+        --signal-border:#8a7530;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 32px 120px;
+      font-family: 'Noto Sans TC', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--ink-body);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0;
+      height: 2px; width: 0%;
+      background: var(--accent);
+      z-index: 100;
+      transition: width .08s linear;
+    }
+
+    #back-top {
+      position: fixed; bottom: 32px; right: 32px;
+      width: 40px; height: 40px;
+      background: var(--ink);
+      border: none; border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s, transform .2s;
+      color: var(--bg);
+      font-size: 16px; font-weight: 500;
+      z-index: 99;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { transform: translateY(-2px); }
+
+    .header {
+      padding: 72px 0 48px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 48px;
+    }
+    .header-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .header-date {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+    .header-count {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--accent-text);
+      background: var(--accent-soft);
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-weight: 500;
+    }
+    .header h1 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(28px, 5vw, 38px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .header-lede {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15px;
+      color: var(--ink-muted);
+      line-height: 1.85;
+      max-width: 600px;
+    }
+
+    .toc {
+      margin-bottom: 56px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .toc-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 16px;
+    }
+    .toc-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 24px;
+    }
+    .toc-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toc-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+    .toc-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .toc-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .toc-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .toc-list a {
+      font-size: 13px;
+      color: var(--ink-body);
+      text-decoration: none;
+      line-height: 1.4;
+      transition: color .15s;
+    }
+    .toc-list a:hover { color: var(--accent); }
+
+    .section-block { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 40px;
+    }
+    .section-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink-faint);
+      letter-spacing: .04em;
+    }
+    .section-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--rule);
+    }
+    .section-count {
+      font-size: 11px;
+      color: var(--ink-faint);
+      letter-spacing: .06em;
+    }
+
+    .article {
+      margin-bottom: 56px;
+      padding-bottom: 56px;
+      border-bottom: 1px solid var(--rule-light);
+      scroll-margin-top: 24px;
+    }
+    .article:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .article-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .article-source {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .article-tag {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 3px;
+    }
+    .article-tag.ai { background: var(--tag-ai-bg); color: var(--tag-ai); }
+    .article-tag.web3 { background: var(--tag-web3-bg); color: var(--tag-web3); }
+    .article-tag.vc { background: var(--tag-vc-bg); color: var(--tag-vc); }
+    .article h3 {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -.01em;
+      margin-bottom: 20px;
+    }
+
+    .key-signal {
+      background: var(--signal-bg);
+      border: 1px solid var(--signal-border);
+      border-radius: 6px;
+      padding: 14px 18px;
+      margin-bottom: 24px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .key-signal-icon {
+      flex-shrink: 0;
+      width: 20px; height: 20px;
+      background: var(--signal-border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px;
+      margin-top: 1px;
+    }
+    .key-signal-text {
+      font-size: 13px;
+      color: var(--accent-text);
+      line-height: 1.65;
+      font-weight: 500;
+    }
+
+    .context-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
+    }
+    .factual-context {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 14px;
+      color: var(--ink-body);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    .insight {
+      background: var(--insight-bg);
+      border-left: 3px solid var(--insight-rule);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      border-radius: 0 6px 6px 0;
+    }
+    .insight-label {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 12px;
+      font-style: italic;
+      color: var(--accent);
+      letter-spacing: .04em;
+      margin-bottom: 12px;
+    }
+    .insight-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.95;
+    }
+
+    .thought {
+      background: var(--thought-bg);
+      border-radius: 8px;
+      padding: 20px 24px;
+    }
+    .thought-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--thought-accent);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .thought-label::before {
+      content: '';
+      display: inline-block;
+      width: 14px; height: 14px;
+      border: 2px solid var(--thought-accent);
+      border-radius: 50%;
+      opacity: .5;
+    }
+    .thought ol {
+      list-style: none;
+      counter-reset: q;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .thought ol li {
+      font-size: 13.5px;
+      color: var(--thought-text);
+      line-height: 1.75;
+      padding-left: 28px;
+      position: relative;
+      counter-increment: q;
+    }
+    .thought ol li::before {
+      content: counter(q);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 20px; height: 20px;
+      background: var(--thought-accent);
+      color: var(--thought-bg);
+      border-radius: 50%;
+      font-size: 11px;
+      font-weight: 600;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .3;
+      line-height: 1;
+    }
+
+    /* Note: Floating podcast player CSS/HTML/JS is injected post-render by
+       src/publish/web.py at publish time (only for the date being published).
+       Do NOT add player markup here — it would override the per-day inject and
+       leak into archive pages where no mp3 exists. */
+
+    .footer {
+      margin-top: 72px;
+      padding-top: 24px;
+      border-top: 2px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-brand {
+      font-family: 'Libre Bodoni', serif;
+      font-size: 13px;
+      font-style: italic;
+      color: var(--ink-faint);
+    }
+    .footer-date {
+      font-size: 11px;
+      letter-spacing: .08em;
+      color: var(--ink-faint);
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 0 20px 80px; }
+      .header { padding: 48px 0 32px; }
+      .toc-list { grid-template-columns: 1fr; }
+      .insight { padding: 20px 20px; }
+      .thought { padding: 16px 18px; }
+      #back-top { bottom: 20px; right: 20px; }
+    }
+  </style>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YE6NJ2QJ63"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YE6NJ2QJ63');
+  </script>
+</head>
+<body>
+
+<div id="progress-bar"></div>
+<button id="back-top" aria-label="回到頂端" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<header class="header">
+  <div class="header-meta">
+    <span class="header-date">2026 年 11 月 27 日　星期五</span>
+    <span class="header-count">3 篇</span>
+  </div>
+  <h1>誰握著開關？</h1>
+  <p class="header-lede">一台機器人、一個信箱、一筆被凍結的穩定幣，看似毫不相干，其實都在問同一件事：出事的時候，誰有權按下那顆按鈕，又憑什麼收錢。</p>
+</header>
+
+<nav class="toc" aria-label="文章目錄">
+  <div class="toc-label">Today's Agenda</div>
+  <ol class="toc-list">
+    <li><span class="toc-tag ai">AI</span><a href="#ai-xpeng-iron">小鵬的機器人王牌是車隊營運系統</a></li>
+    <li><span class="toc-tag ai">AI</span><a href="#ai-google-workspace-mcp">Google agent 新規打中 email 新創</a></li>
+    <li><span class="toc-tag web3">Web3</span><a href="#web3-tether-circle">Tether 抽兩成，該擔心的是 Circle</a></li>
+  </ol>
+</nav>
+
+<!-- AI · 科技 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">AI &middot; 科技</span>
+    <span class="section-rule"></span>
+    <span class="section-count">2 篇</span>
+  </div>
+
+  <article class="article" id="ai-xpeng-iron">
+    <div class="article-meta">
+      <span class="article-source">CNBC · The Rundown Robotics · Bloomberg</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>小鵬的機器人王牌不是 IRON，是它管了幾十萬台車的那套營運系統</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">小鵬（XPeng）是在紐約與香港兩地上市的中國電動車廠。它 11-25 在廣州 AI Day 發表新版 IRON 人形機器人，規格是 76 個自由度（DoF，機器人可獨立轉動的關節數，越多動作越靈活）、1,500 個以上觸覺感測點，以及 3 顆自研 Turing AI 晶片。時程是 2027 年 1 月量產，第一季先在自家門市當銷售助理，第二季公開發售。聯席總裁 Brian Gu 說售價約等於小鵬電動車的中位價格，媒體換算約 $18,000 至 $46,500，正式價格未公布。IRON 和 2027 年要上路的 YOYO-01 robotaxi（無人駕駛計程車）共用 VLA 3.0 架構（Vision-Language-Action，把視覺、語言理解與動作控制放在同一個模型）。Counterpoint 統計 2026 上半年全球人形機器人出貨逾 22,000 台，AgiBot 約 9,700 台居首，Unitree 約 7,000 台第二，但六成以上用在表演與研究。小鵬股價今年跌逾 55%，AI Day 當天續跌。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向一個反直覺的結論：在「能實際營運的商用機器人」這一塊，小鵬比出貨量冠軍 AgiBot、Unitree 更接近 Tesla 的打法，因為它手上已經有數十萬台車的 OTA（空中軟體更新）、遠端診斷與資料回流系統，而 Unitree 的研究客戶多半自己寫控制軟體，原廠從來不用管車隊營運。換句話說，「賣硬體給研究機構」這個讓 Unitree 衝上出貨前段班的模式，一進入服務市場反而會吃虧。這個判斷信心中等，車用能力能不能移植到機器人還沒有公開證據，2027 Q1 門市部署時小鵬會不會公布遠端接管比例與 OTA 頻率，是第一個檢驗點。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>AgiBot 和 Unitree 合吃七成市佔，可是出貨六成是表演和研究，有沒有哪個企業客戶第二年回頭買了第二批？還是全球這兩萬多台，其實都是一次性的展示採購？</li>
+        <li>小鵬先讓 IRON 在自家門市上班，跟 Tesla 把 Optimus 塞進自己工廠是同一招。那第二季開賣時，第一個外部付費通路會是誰，經銷商、系統整合商還是直營電商？小鵬又拿什麼讓他們願意壓庫存？</li>
+      </ol>
+    </div>
+  </article>
+
+  <article class="article" id="ai-google-workspace-mcp">
+    <div class="article-meta">
+      <span class="article-source">Google Workspace Blog · techstackups.com</span>
+      <span class="article-tag ai">AI</span>
+    </div>
+    <h3>Google 的 agent 新規打中的不是 LangChain，是替你回信的 email 新創</h3>
+
+    <div class="key-signal">
+      <span class="key-signal-icon">!</span>
+      <span class="key-signal-text">Google 用條款和價格把「AI 軟體」單獨分類，這是第一個大型平台公開劃線，決定哪些 agent 能替使用者動手。</span>
+    </div>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Google 11-25 宣布 Workspace MCP 伺服器正式上線（MCP 是 Model Context Protocol，讓 AI 模型呼叫外部工具與資料的開放標準），涵蓋 Gmail、Drive、Calendar 等 8 個產品。新條款規定，2027-02-01 起所有 AI agent 都得透過 MCP 或 CLI 存取 Workspace。繼續直接呼叫 REST API（一般 app 讀寫 Gmail 用的傳統程式介面）的 agent，不管付多少錢，一律只給免費 Standard 級配額。免費級是每專案、每產品每天 5,000 次 MCP 請求，Gmail 搜尋一次算 10 次。付費級 2027-04-01 起計費，價格未公布。公開版 Gmail MCP 可以搜尋、讀信、建草稿，但不能寄信、回信或轉寄，Google 稱這些工具「需要 partner access」，沒有說明誰算合作夥伴。Google 給的理由是 agent 在機器速度下容易被 prompt injection（在信件或網頁裡埋指令，誘使 AI 做使用者沒授權的事）操控。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究點出一個標題沒說的輸家：受傷最重的不是 LangChain、CrewAI 這類框架，它們只是程式庫，本身不持有 OAuth client（app 向 Google 申請存取使用者資料的身分憑證），真正結構性出局的是 Shortwave、Fyxer、Lindy 這類核心功能就是代寫、代回信的垂直 email agent。公開版 MCP 只能建草稿，等於直接拔掉這些產品的主功能。贏家是 Gmail 內建的 Gemini，以及拿得到 partner tier 的大廠，這個判斷信心中等，因為 Gmail 工具限制來自二手引述的 Google 文件。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Anthropic 的 Claude connector 標榜能寄信，獨立開發者卻只能建草稿。Google 這個「partner access」背後真正換的是什麼？分潤、資料回流，還是一紙不做 Workspace 競品的承諾？</li>
+        <li>MCP 閘道在每個請求上插 DLP（資料外洩防護）掃描和使用者確認，一個要連續操作 Gmail 的 agent 可能一次任務就卡十幾次。哪些 agent 的工作流程，在這種延遲下根本跑不起來？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<!-- Web3 · Crypto -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">Web3 &middot; Crypto</span>
+    <span class="section-rule"></span>
+    <span class="section-count">1 篇</span>
+  </div>
+
+  <article class="article" id="web3-tether-circle">
+    <div class="article-meta">
+      <span class="article-source">Bloomberg · Blockhead</span>
+      <span class="article-tag web3">Web3</span>
+    </div>
+    <h3>Tether 抽兩成也丟不了交易所，該擔心的是只聽法院的 Circle</h3>
+
+    <div class="context-label">事實背景</div>
+    <p class="factual-context">Tether 是市值最大的美元穩定幣 USDT 的發行商。Bloomberg 11-24 調查指出，Tether 對部分駭客受害者索取最高 20% 的重新發行費（reissue，把凍結的幣作廢、再發同額新幣給原主），才肯歸還被凍結（發行商在智能合約層鎖住特定地址的穩定幣）的 USDT。新加坡交易所 Bittok 2020 年 6 月被駭 $50M，五年多後仍未拿回。Tether 自家公開的誤轉回收費上限是回收金額 10% 或 $1,000 取高者，對駭客案則沒有公開費率或時限。USDC 發行商 Circle 走另一條路，只聽法院命令。美國司法部 11-23 對 Binance 被盜的逾 $1.1B USDC 提起民事沒收（civil forfeiture，政府對涉案財產本身提告，不需起訴個人）。Circle 4 月在 Drift Protocol 被盜案中等法院命令，讓約 $232M USDC 八小時內被轉走，現在遭逾 100 名投資人起訴。</p>
+
+    <div class="insight">
+      <div class="insight-label">So What?</div>
+      <p class="insight-text">研究指向一個反直覺的結論：Tether 抽 20% 幾乎不會讓它失去交易所，因為大型交易所挑穩定幣看的是流動性和交易對深度，不是被駭後的回收條款，PayPal 的 PYUSD、Ripple 的 RLUSD 主打合規透明，到今天也沒撼動 Tether。任何打「凍結免費、回收透明」牌的新發行商，都會掉進 Circle 的兩難，凍太快要承擔誤凍訴訟，凍太慢就是下一個 Drift。真正的風險在 Circle，一旦 Drift 訴訟形成對它不利的判例，「只聽法院」就從護身符變成負債，不過判決方向未知，這個判斷信心中等。</p>
+    </div>
+
+    <div class="thought">
+      <div class="thought-label">值得追問</div>
+      <ol>
+        <li>Circle 自家的 CCTP 跨鏈橋，理論上可以在驗證層加一道即時黑名單檢查。Drift 那 $232M 八小時就被搬走，Circle 沒做這件事，是架構上做不到，還是刻意不做？這個選擇又讓誰撿到了套利空間？</li>
+        <li>Binance 正在跟 Tether 私下談那 $1.5B 怎麼還。如果 Tether 對 Binance 也報 20%，就是 $300M，這筆錢最後是誰吞下去，Binance 的股東，還是用戶的保險基金？</li>
+      </ol>
+    </div>
+  </article>
+</section>
+
+<!-- VC · 投資動態 -->
+<section class="section-block">
+  <div class="section-header">
+    <span class="section-label">VC &middot; 投資動態</span>
+    <span class="section-rule"></span>
+    <span class="section-count">0 篇</span>
+  </div>
+  <p class="factual-context">今日無收錄。</p>
+</section>
+
+<footer class="footer">
+  <span class="footer-brand">Your Daily Dose of News</span>
+  <span class="footer-date">2026-11-27</span>
+</footer>
+
+<!-- Note: podcast player HTML is injected post-render by src/publish/web.py.
+     Do NOT include player markup here — it would leak into archive pages
+     where no podcast.mp3 exists for that date. -->
+
+<script>
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('back-top');
+  window.addEventListener('scroll', () => {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    btn.classList.toggle('visible', window.scrollY > 300);
+  }, { passive: true });
+  // Note: podcast player JS is injected post-render by src/publish/web.py
+  // for the date being published. Do NOT add it here.
+</script>
+</body>
+</html>
